@@ -1,0 +1,1600 @@
+{
+ "scoring": "rolling",
+ "pattern": "\\binternet\\b|\\bonline\\b|\\bon-line\\b|\\bweb ?sites?\\b|\\bweb pages?\\b|\\bwebsites?\\b|\\bworld wide web\\b|\\be-?commerce\\b|\\belectronic commerce\\b|\\bweb portals?\\b|\\bweb browsers?\\b",
+ "n": 1248591,
+ "webby_themes": {},
+ "era_baseline": {
+  "1995-1999": {
+   "n": 221015,
+   "base": 0.5740515349636902,
+   "lift": 0.14489966744338623,
+   "se": 0.003295015343037523,
+   "p1": 0.49677623690699724,
+   "p5": 0.6416759043503835
+  },
+  "2000-2004": {
+   "n": 253714,
+   "base": 0.533955556256257,
+   "lift": -0.018140071193516794,
+   "se": 0.0031338089815983097,
+   "p1": 0.5365074985712315,
+   "p5": 0.5183674273777147
+  },
+  "2008-2014": {
+   "n": 504333,
+   "base": 0.5446500625578735,
+   "lift": 0.09156199888304434,
+   "se": 0.002210500272895772,
+   "p1": 0.4925793371469361,
+   "p5": 0.5841413360299804
+  }
+ },
+ "era_web_split": {
+  "1995-1999": {
+   "web_share": 0.11841730199307739,
+   "web_raw": {
+    "n": 26172,
+    "base": 0.6439706556625401,
+    "lift": 0.08876411998690514,
+    "se": 0.00936601911228636,
+    "p1": 0.591404011461318,
+    "p5": 0.6801681314482232
+   },
+   "web_within": {
+    "n": 26172,
+    "base": 0.6439706556625401,
+    "lift": 0.08844881532361226,
+    "se": 0.009395377398441958,
+    "p1": 0.5856437523737182,
+    "p5": 0.6740925676973305
+   },
+   "nonweb_raw": {
+    "n": 194843,
+    "base": 0.5646597516975206,
+    "lift": 0.14040991971472633,
+    "se": 0.003516813261142316,
+    "p1": 0.493751443455054,
+    "p5": 0.6341613631697803
+   },
+   "nonweb_within": {
+    "n": 194843,
+    "base": 0.5646597516975206,
+    "lift": 0.13503421493152268,
+    "se": 0.0035144160509614406,
+    "p1": 0.5014741699782079,
+    "p5": 0.6365083849097306
+   }
+  },
+  "2000-2004": {
+   "web_share": 0.2490599651576184,
+   "web_raw": {
+    "n": 63190,
+    "base": 0.5813894603576515,
+    "lift": -0.02777338186421896,
+    "se": 0.00622778743686282,
+    "p1": 0.5826080075961386,
+    "p5": 0.5548346257319197
+   },
+   "web_within": {
+    "n": 63190,
+    "base": 0.5813894603576515,
+    "lift": -0.04520351680176504,
+    "se": 0.006233205984287723,
+    "p1": 0.5849577776023992,
+    "p5": 0.5397542608006342
+   },
+   "nonweb_raw": {
+    "n": 190524,
+    "base": 0.5182234259200941,
+    "lift": -0.00791199758735972,
+    "se": 0.0036201245057312457,
+    "p1": 0.521243931242619,
+    "p5": 0.5133319336552593
+   },
+   "nonweb_within": {
+    "n": 190524,
+    "base": 0.5182234259200941,
+    "lift": -0.028723884041229386,
+    "se": 0.0036162459894863563,
+    "p1": 0.5399260483046181,
+    "p5": 0.5112021642633887
+   }
+  },
+  "2008-2014": {
+   "web_share": 0.38667309099345076,
+   "web_raw": {
+    "n": 195012,
+    "base": 0.5889996513035095,
+    "lift": 0.04598663598294783,
+    "se": 0.003513074671670514,
+    "p1": 0.5707766069276722,
+    "p5": 0.61676324291062
+   },
+   "web_within": {
+    "n": 195012,
+    "base": 0.5889996513035095,
+    "lift": 0.05042685273416192,
+    "se": 0.003512921109941074,
+    "p1": 0.568071146650264,
+    "p5": 0.618497999384426
+   },
+   "nonweb_raw": {
+    "n": 309321,
+    "base": 0.5166897818124214,
+    "lift": 0.07921364602444375,
+    "se": 0.0028330776745942306,
+    "p1": 0.47299765618685846,
+    "p5": 0.5522113022113022
+   },
+   "nonweb_within": {
+    "n": 309321,
+    "base": 0.5166897818124214,
+    "lift": 0.062293536266792404,
+    "se": 0.002835248309996157,
+    "p1": 0.4884130575307046,
+    "p5": 0.550706593797497
+   }
+  }
+ },
+ "focus_theme_web_cells": {
+  "t9_plain": {
+   "theme": 9,
+   "web": false,
+   "n": 62143,
+   "base": 0.5730814411920893,
+   "share_all": 0.2449332713212515,
+   "share_top": 0.06341886405738835,
+   "contrast": {
+    "n": 62143,
+    "base": 0.5730814411920893,
+    "lift": 0.026114898442270218,
+    "se": 0.006279823747191493,
+    "p1": 0.5559578405342345,
+    "p5": 0.5820727389765047
+   }
+  },
+  "t9_web": {
+   "theme": 9,
+   "web": true,
+   "n": 38235,
+   "base": 0.613652412710867,
+   "share_all": 0.15070118322205317,
+   "share_top": 0.05181112293563517,
+   "contrast": {
+    "n": 38235,
+    "base": 0.613652412710867,
+    "lift": 0.017784752190401543,
+    "se": 0.007898734140232788,
+    "p1": 0.597750751928861,
+    "p5": 0.6155355041192625
+   }
+  },
+  "t18_plain": {
+   "theme": 18,
+   "web": false,
+   "n": 25042,
+   "base": 0.5606980273141123,
+   "share_all": 0.09870168772712583,
+   "share_top": 0.2777580702376729,
+   "contrast": {
+    "n": 25042,
+    "base": 0.5606980273141123,
+    "lift": -0.03243259576851132,
+    "se": 0.009910735362917047,
+    "p1": 0.5775603912956678,
+    "p5": 0.5451277955271565
+   }
+  },
+  "t0_plain": {
+   "theme": 0,
+   "web": false,
+   "n": 17032,
+   "base": 0.45555425082198214,
+   "share_all": 0.06713070622827279,
+   "share_top": 0.0264475188207008,
+   "contrast": {
+    "n": 17032,
+    "base": 0.45555425082198214,
+    "lift": -0.0706085757260147,
+    "se": 0.012065747004292672,
+    "p1": 0.5071910771940124,
+    "p5": 0.43658250146799765
+   }
+  },
+  "t35_plain": {
+   "theme": 35,
+   "web": false,
+   "n": 16349,
+   "base": 0.4430852039880115,
+   "share_all": 0.06443869869222826,
+   "share_top": 0.0892160340546293,
+   "contrast": {
+    "n": 16349,
+    "base": 0.4430852039880115,
+    "lift": 0.01328418289501132,
+    "se": 0.012252582448263463,
+    "p1": 0.42599388379204894,
+    "p5": 0.43927806668706026
+   }
+  },
+  "t12_plain": {
+   "theme": 12,
+   "web": false,
+   "n": 15760,
+   "base": 0.5258883248730964,
+   "share_all": 0.06211718706890436,
+   "share_top": 0.01509597572031059,
+   "contrast": {
+    "n": 15760,
+    "base": 0.5258883248730964,
+    "lift": -0.04187817258883253,
+    "se": 0.01254656026987899,
+    "p1": 0.5593274111675127,
+    "p5": 0.5174492385786802
+   }
+  },
+  "t12_web": {
+   "theme": 12,
+   "web": true,
+   "n": 8365,
+   "base": 0.5493126120741183,
+   "share_all": 0.03297019478625539,
+   "share_top": 0.006247290213235584,
+   "contrast": {
+    "n": 8365,
+    "base": 0.5493126120741183,
+    "lift": -0.08248655110579795,
+    "se": 0.017163502672361844,
+    "p1": 0.5845786013150029,
+    "p5": 0.502092050209205
+   }
+  },
+  "t2_plain": {
+   "theme": 2,
+   "web": false,
+   "n": 7010,
+   "base": 0.5178316690442225,
+   "share_all": 0.02762953561884642,
+   "share_top": 0.0741200583343187,
+   "contrast": {
+    "n": 7010,
+    "base": 0.5178316690442225,
+    "lift": 0.04422253922967195,
+    "se": 0.018862494274125178,
+    "p1": 0.48787446504992865,
+    "p5": 0.5320970042796006
+   }
+  },
+  "t18_web": {
+   "theme": 18,
+   "web": true,
+   "n": 5758,
+   "base": 0.5552275095519278,
+   "share_all": 0.022694845377078127,
+   "share_top": 0.03271451657404122,
+   "contrast": {
+    "n": 5758,
+    "base": 0.5552275095519278,
+    "lift": -0.020373286514142275,
+    "se": 0.020766207322005813,
+    "p1": 0.5503472222222222,
+    "p5": 0.5299739357080799
+   }
+  },
+  "t13_plain": {
+   "theme": 13,
+   "web": false,
+   "n": 5560,
+   "base": 0.5190647482014389,
+   "share_all": 0.021914439092836815,
+   "share_top": 0.05311182058255488,
+   "contrast": {
+    "n": 5560,
+    "base": 0.5190647482014389,
+    "lift": 0.11780575539568344,
+    "se": 0.02102055587630573,
+    "p1": 0.47032374100719426,
+    "p5": 0.5881294964028777
+   }
+  },
+  "t14_plain": {
+   "theme": 14,
+   "web": false,
+   "n": 3866,
+   "base": 0.4868080703569581,
+   "share_all": 0.015237629772105599,
+   "share_top": 0.05803870560876591,
+   "contrast": {
+    "n": 3866,
+    "base": 0.4868080703569581,
+    "lift": 0.007085050693462491,
+    "se": 0.025404244658305042,
+    "p1": 0.47674418604651164,
+    "p5": 0.48382923673997413
+   }
+  },
+  "t3_plain": {
+   "theme": 3,
+   "web": false,
+   "n": 3811,
+   "base": 0.5035423773287852,
+   "share_all": 0.015020850248705236,
+   "share_top": 0.008139214063300619,
+   "contrast": {
+    "n": 3811,
+    "base": 0.5035423773287852,
+    "lift": 0.015080683721874155,
+    "se": 0.025604420858870977,
+    "p1": 0.49148099606815204,
+    "p5": 0.5065616797900262
+   }
+  },
+  "t42_plain": {
+   "theme": 42,
+   "web": false,
+   "n": 3314,
+   "base": 0.4586602293301147,
+   "share_all": 0.013061951646341944,
+   "share_top": 0.041582909621221076,
+   "contrast": {
+    "n": 3314,
+    "base": 0.4586602293301147,
+    "lift": -0.055150761210828736,
+    "se": 0.027353229410324354,
+    "p1": 0.49019607843137253,
+    "p5": 0.4350453172205438
+   }
+  },
+  "t35_web": {
+   "theme": 35,
+   "web": true,
+   "n": 3078,
+   "base": 0.4548408057179987,
+   "share_all": 0.012131770418660382,
+   "share_top": 0.011824524062906468,
+   "contrast": {
+    "n": 3078,
+    "base": 0.4548408057179987,
+    "lift": -0.03176538908246229,
+    "se": 0.028335022707058278,
+    "p1": 0.4642857142857143,
+    "p5": 0.432520325203252
+   }
+  },
+  "t38_plain": {
+   "theme": 38,
+   "web": false,
+   "n": 2977,
+   "base": 0.4769902586496473,
+   "share_all": 0.011733684384779713,
+   "share_top": 0.005202790587678845,
+   "contrast": null
+  },
+  "t33_plain": {
+   "theme": 33,
+   "web": false,
+   "n": 2689,
+   "base": 0.4975827445146895,
+   "share_all": 0.010598547971337805,
+   "share_top": 0.005439281068936975,
+   "contrast": null
+  },
+  "t37_plain": {
+   "theme": 37,
+   "web": false,
+   "n": 2468,
+   "base": 0.39708265802269044,
+   "share_all": 0.009727488431856342,
+   "share_top": 0.013499664971818216,
+   "contrast": null
+  },
+  "t28_plain": {
+   "theme": 28,
+   "web": false,
+   "n": 1940,
+   "base": 0.45,
+   "share_all": 0.007646405007212846,
+   "share_top": 0.006168460052816207,
+   "contrast": null
+  },
+  "t1_plain": {
+   "theme": 1,
+   "web": false,
+   "n": 1791,
+   "base": 0.38358458961474035,
+   "share_all": 0.0070591295710918595,
+   "share_top": 0.002975838555831461,
+   "contrast": null
+  },
+  "t40_plain": {
+   "theme": 40,
+   "web": false,
+   "n": 1679,
+   "base": 0.4127456819535438,
+   "share_all": 0.006617687632531118,
+   "share_top": 0.014406211816641045,
+   "contrast": null
+  },
+  "t47_plain": {
+   "theme": 47,
+   "web": false,
+   "n": 1483,
+   "base": 0.37086985839514497,
+   "share_all": 0.00584516424004982,
+   "share_top": 0.016022230105238264,
+   "contrast": null
+  },
+  "t34_plain": {
+   "theme": 34,
+   "web": false,
+   "n": 1067,
+   "base": 0.45454545454545453,
+   "share_all": 0.004205522753967066,
+   "share_top": 0.007942138662252176,
+   "contrast": null
+  },
+  "t5_plain": {
+   "theme": 5,
+   "web": false,
+   "n": 1039,
+   "base": 0.5255052935514918,
+   "share_all": 0.00409516226932688,
+   "share_top": 0.005281620748098222,
+   "contrast": null
+  },
+  "t33_web": {
+   "theme": 33,
+   "web": true,
+   "n": 974,
+   "base": 0.4804928131416838,
+   "share_all": 0.0038389682871264497,
+   "share_top": 0.0012612825667100232,
+   "contrast": null
+  },
+  "t39_plain": {
+   "theme": 39,
+   "web": false,
+   "n": 950,
+   "base": 0.41789473684210526,
+   "share_all": 0.003744373586006291,
+   "share_top": 0.00867131764613141,
+   "contrast": null
+  },
+  "t5_web": {
+   "theme": 5,
+   "web": true,
+   "n": 946,
+   "base": 0.6215644820295984,
+   "share_all": 0.003728607802486264,
+   "share_top": 0.009755232351897835,
+   "contrast": null
+  },
+  "t17_plain": {
+   "theme": 17,
+   "web": false,
+   "n": 938,
+   "base": 0.4989339019189765,
+   "share_all": 0.0036970762354462112,
+   "share_top": 0.006089629892396831,
+   "contrast": null
+  },
+  "t24_plain": {
+   "theme": 24,
+   "web": false,
+   "n": 928,
+   "base": 0.5355603448275862,
+   "share_all": 0.003657661776646145,
+   "share_top": 0.0072720822986874776,
+   "contrast": null
+  },
+  "t27_plain": {
+   "theme": 27,
+   "web": false,
+   "n": 749,
+   "base": 0.4886515353805073,
+   "share_all": 0.0029521429641249596,
+   "share_top": 0.00699617673721966,
+   "contrast": null
+  },
+  "t44_plain": {
+   "theme": 44,
+   "web": false,
+   "n": 748,
+   "base": 0.5053475935828877,
+   "share_all": 0.002948201518244953,
+   "share_top": 0.00733120491900201,
+   "contrast": null
+  },
+  "t7_plain": {
+   "theme": 7,
+   "web": false,
+   "n": 707,
+   "base": 0.5403111739745403,
+   "share_all": 0.0027866022371646816,
+   "share_top": 0.0031137913365653696,
+   "contrast": null
+  },
+  "t8_plain": {
+   "theme": 8,
+   "web": false,
+   "n": 692,
+   "base": 0.4291907514450867,
+   "share_all": 0.002727480548964582,
+   "share_top": 0.0018328012297505025,
+   "contrast": null
+  },
+  "t3_web": {
+   "theme": 3,
+   "web": true,
+   "n": 675,
+   "base": 0.5422222222222223,
+   "share_all": 0.00266047596900447,
+   "share_top": 0.0006503488234598557,
+   "contrast": null
+  },
+  "t6_plain": {
+   "theme": 6,
+   "web": false,
+   "n": 664,
+   "base": 0.4171686746987952,
+   "share_all": 0.0026171200643243966,
+   "share_top": 0.00478893224547712,
+   "contrast": null
+  },
+  "t4_plain": {
+   "theme": 4,
+   "web": false,
+   "n": 646,
+   "base": 0.48142414860681115,
+   "share_all": 0.002546174038484278,
+   "share_top": 0.001931338930274723,
+   "contrast": null
+  },
+  "t0_web": {
+   "theme": 0,
+   "web": true,
+   "n": 608,
+   "base": 0.5164473684210527,
+   "share_all": 0.002396399095044026,
+   "share_top": 0.003192621496984746,
+   "contrast": null
+  },
+  "t22_plain": {
+   "theme": 22,
+   "web": false,
+   "n": 586,
+   "base": 0.5221843003412969,
+   "share_all": 0.00230968728568388,
+   "share_top": 0.005439281068936975,
+   "contrast": null
+  },
+  "t32_plain": {
+   "theme": 32,
+   "web": false,
+   "n": 573,
+   "base": 0.418848167539267,
+   "share_all": 0.002258448489243794,
+   "share_top": 0.0021875369516376965,
+   "contrast": null
+  },
+  "t2_web": {
+   "theme": 2,
+   "web": true,
+   "n": 536,
+   "base": 0.5839552238805971,
+   "share_all": 0.002112614991683549,
+   "share_top": 0.005005715186630405,
+   "contrast": null
+  },
+  "t14_web": {
+   "theme": 14,
+   "web": true,
+   "n": 502,
+   "base": 0.4721115537848606,
+   "share_all": 0.001978605831763324,
+   "share_top": 0.006700563635646998,
+   "contrast": null
+  },
+  "t23_plain": {
+   "theme": 23,
+   "web": false,
+   "n": 453,
+   "base": 0.44150110375275936,
+   "share_all": 0.0017854749836429997,
+   "share_top": 0.000867131764613141,
+   "contrast": null
+  },
+  "t38_web": {
+   "theme": 38,
+   "web": true,
+   "n": 449,
+   "base": 0.5612472160356348,
+   "share_all": 0.0017697092001229733,
+   "share_top": 0.0003153206416775058,
+   "contrast": null
+  },
+  "t26_plain": {
+   "theme": 26,
+   "web": false,
+   "n": 433,
+   "base": 0.46420323325635104,
+   "share_all": 0.0017066460660428672,
+   "share_top": 0.0005715186630404792,
+   "contrast": null
+  },
+  "t46_plain": {
+   "theme": 46,
+   "web": false,
+   "n": 426,
+   "base": 0.5093896713615024,
+   "share_all": 0.001679055944882821,
+   "share_top": 5.912262031453233e-05,
+   "contrast": null
+  },
+  "t36_plain": {
+   "theme": 36,
+   "web": false,
+   "n": 420,
+   "base": 0.4380952380952381,
+   "share_all": 0.001655407269602781,
+   "share_top": 0.0003153206416775058,
+   "contrast": null
+  },
+  "t16_plain": {
+   "theme": 16,
+   "web": false,
+   "n": 384,
+   "base": 0.4791666666666667,
+   "share_all": 0.0015135152179225429,
+   "share_top": 0.000177367860943597,
+   "contrast": null
+  },
+  "t13_web": {
+   "theme": 13,
+   "web": true,
+   "n": 377,
+   "base": 0.5755968169761273,
+   "share_all": 0.0014859250967624964,
+   "share_top": 0.0041385834220172635,
+   "contrast": null
+  },
+  "t29_plain": {
+   "theme": 29,
+   "web": false,
+   "n": 365,
+   "base": 0.5972602739726027,
+   "share_all": 0.001438627746202417,
+   "share_top": 0.0006700563635646998,
+   "contrast": null
+  },
+  "t43_plain": {
+   "theme": 43,
+   "web": false,
+   "n": 364,
+   "base": 0.4423076923076923,
+   "share_all": 0.0014346863003224103,
+   "share_top": 0.0021678294115328525,
+   "contrast": null
+  },
+  "t20_plain": {
+   "theme": 20,
+   "web": false,
+   "n": 333,
+   "base": 0.4294294294294294,
+   "share_all": 0.001312501478042205,
+   "share_top": 0.0012612825667100232,
+   "contrast": null
+  },
+  "t45_plain": {
+   "theme": 45,
+   "web": false,
+   "n": 331,
+   "base": 0.3957703927492447,
+   "share_all": 0.0013046185862821919,
+   "share_top": 0.001064207165661582,
+   "contrast": null
+  },
+  "t19_plain": {
+   "theme": 19,
+   "web": false,
+   "n": 292,
+   "base": 0.4417808219178082,
+   "share_all": 0.0011509021969619336,
+   "share_top": 0.00287730085530724,
+   "contrast": null
+  },
+  "t31_plain": {
+   "theme": 31,
+   "web": false,
+   "n": 291,
+   "base": 0.41580756013745707,
+   "share_all": 0.001146960751081927,
+   "share_top": 0.001241575026605179,
+   "contrast": null
+  },
+  "t42_web": {
+   "theme": 42,
+   "web": true,
+   "n": 275,
+   "base": 0.4509090909090909,
+   "share_all": 0.001083897617001821,
+   "share_top": 0.0024240274328958256,
+   "contrast": null
+  },
+  "t28_web": {
+   "theme": 28,
+   "web": true,
+   "n": 275,
+   "base": 0.5636363636363636,
+   "share_all": 0.001083897617001821,
+   "share_top": 0.0006503488234598557,
+   "contrast": null
+  },
+  "t27_web": {
+   "theme": 27,
+   "web": true,
+   "n": 244,
+   "base": 0.5532786885245902,
+   "share_all": 0.0009617127947216158,
+   "share_top": 0.001379527807339088,
+   "contrast": null
+  },
+  "t10_plain": {
+   "theme": 10,
+   "web": false,
+   "n": 234,
+   "base": 0.4230769230769231,
+   "share_all": 0.0009222983359215495,
+   "share_top": 0.00045327342241141457,
+   "contrast": null
+  },
+  "t24_web": {
+   "theme": 24,
+   "web": true,
+   "n": 196,
+   "base": 0.42346938775510207,
+   "share_all": 0.0007725233924812979,
+   "share_top": 0.0018722163099601907,
+   "contrast": null
+  },
+  "t17_web": {
+   "theme": 17,
+   "web": true,
+   "n": 192,
+   "base": 0.5833333333333334,
+   "share_all": 0.0007567576089612714,
+   "share_top": 0.0006503488234598557,
+   "contrast": null
+  },
+  "t37_web": {
+   "theme": 37,
+   "web": true,
+   "n": 180,
+   "base": 0.3277777777777778,
+   "share_all": 0.0007094602584011919,
+   "share_top": 0.0005518111229356351,
+   "contrast": null
+  },
+  "t41_plain": {
+   "theme": 41,
+   "web": false,
+   "n": 173,
+   "base": 0.43352601156069365,
+   "share_all": 0.0006818701372411455,
+   "share_top": 0.0005715186630404792,
+   "contrast": null
+  },
+  "t49_plain": {
+   "theme": 49,
+   "web": false,
+   "n": 172,
+   "base": 0.4941860465116279,
+   "share_all": 0.000677928691361139,
+   "share_top": 0.0003153206416775058,
+   "contrast": null
+  },
+  "t34_web": {
+   "theme": 34,
+   "web": true,
+   "n": 167,
+   "base": 0.47305389221556887,
+   "share_all": 0.0006582214619611058,
+   "share_top": 0.0007488865239840762,
+   "contrast": null
+  },
+  "t21_plain": {
+   "theme": 21,
+   "web": false,
+   "n": 162,
+   "base": 0.4691358024691358,
+   "share_all": 0.0006385142325610727,
+   "share_top": 0.000177367860943597,
+   "contrast": null
+  },
+  "t15_plain": {
+   "theme": 15,
+   "web": false,
+   "n": 122,
+   "base": 0.4016393442622951,
+   "share_all": 0.0004808563973608079,
+   "share_top": 0.0005123960427259469,
+   "contrast": null
+  },
+  "t48_plain": {
+   "theme": 48,
+   "web": false,
+   "n": 112,
+   "base": 0.49107142857142855,
+   "share_all": 0.00044144193856074165,
+   "share_top": 0.000354735721887194,
+   "contrast": null
+  },
+  "t16_web": {
+   "theme": 16,
+   "web": true,
+   "n": 112,
+   "base": 0.5446428571428571,
+   "share_all": 0.00044144193856074165,
+   "share_top": 7.883016041937645e-05,
+   "contrast": null
+  },
+  "t11_plain": {
+   "theme": 11,
+   "web": false,
+   "n": 111,
+   "base": 0.44144144144144143,
+   "share_all": 0.00043750049268073503,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t44_web": {
+   "theme": 44,
+   "web": true,
+   "n": 106,
+   "base": 0.5377358490566038,
+   "share_all": 0.0004177932632807019,
+   "share_top": 0.0011627448661858026,
+   "contrast": null
+  },
+  "t40_web": {
+   "theme": 40,
+   "web": true,
+   "n": 95,
+   "base": 0.35789473684210527,
+   "share_all": 0.00037443735860062904,
+   "share_top": 0.00045327342241141457,
+   "contrast": null
+  },
+  "t6_web": {
+   "theme": 6,
+   "web": true,
+   "n": 85,
+   "base": 0.5411764705882353,
+   "share_all": 0.00033502289980056287,
+   "share_top": 0.00041385834220172634,
+   "contrast": null
+  },
+  "t30_plain": {
+   "theme": 30,
+   "web": false,
+   "n": 85,
+   "base": 0.5764705882352941,
+   "share_all": 0.00033502289980056287,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t7_web": {
+   "theme": 7,
+   "web": true,
+   "n": 73,
+   "base": 0.3835616438356164,
+   "share_all": 0.0002877255492404834,
+   "share_top": 0.0003153206416775058,
+   "contrast": null
+  },
+  "t8_web": {
+   "theme": 8,
+   "web": true,
+   "n": 63,
+   "base": 0.49206349206349204,
+   "share_all": 0.0002483110904404172,
+   "share_top": 0.0004926885026211027,
+   "contrast": null
+  },
+  "t39_web": {
+   "theme": 39,
+   "web": true,
+   "n": 62,
+   "base": 0.532258064516129,
+   "share_all": 0.00024436964456041056,
+   "share_top": 0.0002956131015726617,
+   "contrast": null
+  },
+  "t4_web": {
+   "theme": 4,
+   "web": true,
+   "n": 62,
+   "base": 0.532258064516129,
+   "share_all": 0.00024436964456041056,
+   "share_top": 9.853770052422056e-05,
+   "contrast": null
+  },
+  "t25_plain": {
+   "theme": 25,
+   "web": false,
+   "n": 60,
+   "base": 0.5833333333333334,
+   "share_all": 0.0002364867528003973,
+   "share_top": 0.0003744432619920381,
+   "contrast": null
+  },
+  "t22_web": {
+   "theme": 22,
+   "web": true,
+   "n": 57,
+   "base": 0.543859649122807,
+   "share_all": 0.00022466241516037744,
+   "share_top": 0.0003350281817823499,
+   "contrast": null
+  },
+  "t31_web": {
+   "theme": 31,
+   "web": true,
+   "n": 54,
+   "base": 0.5555555555555556,
+   "share_all": 0.00021283807752035756,
+   "share_top": 7.883016041937645e-05,
+   "contrast": null
+  },
+  "t29_web": {
+   "theme": 29,
+   "web": true,
+   "n": 43,
+   "base": 0.5348837209302325,
+   "share_all": 0.00016948217284028474,
+   "share_top": 5.912262031453233e-05,
+   "contrast": null
+  },
+  "t47_web": {
+   "theme": 47,
+   "web": true,
+   "n": 41,
+   "base": 0.2926829268292683,
+   "share_all": 0.00016159928108027148,
+   "share_top": 3.9415080209688224e-05,
+   "contrast": null
+  },
+  "t26_web": {
+   "theme": 26,
+   "web": true,
+   "n": 35,
+   "base": 0.6285714285714286,
+   "share_all": 0.00013795060580023175,
+   "share_top": 3.9415080209688224e-05,
+   "contrast": null
+  },
+  "t20_web": {
+   "theme": 20,
+   "web": true,
+   "n": 32,
+   "base": 0.46875,
+   "share_all": 0.0001261262681602119,
+   "share_top": 0.0003350281817823499,
+   "contrast": null
+  },
+  "t46_web": {
+   "theme": 46,
+   "web": true,
+   "n": 27,
+   "base": 0.5185185185185185,
+   "share_all": 0.00010641903876017878,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t32_web": {
+   "theme": 32,
+   "web": true,
+   "n": 25,
+   "base": 0.44,
+   "share_all": 9.853614700016555e-05,
+   "share_top": 7.883016041937645e-05,
+   "contrast": null
+  },
+  "t41_web": {
+   "theme": 41,
+   "web": true,
+   "n": 24,
+   "base": 0.4583333333333333,
+   "share_all": 9.459470112015893e-05,
+   "share_top": 7.883016041937645e-05,
+   "contrast": null
+  },
+  "t36_web": {
+   "theme": 36,
+   "web": true,
+   "n": 24,
+   "base": 0.5416666666666666,
+   "share_all": 9.459470112015893e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t10_web": {
+   "theme": 10,
+   "web": true,
+   "n": 21,
+   "base": 0.38095238095238093,
+   "share_all": 8.277036348013906e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t23_web": {
+   "theme": 23,
+   "web": true,
+   "n": 18,
+   "base": 0.5,
+   "share_all": 7.09460258401192e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t1_web": {
+   "theme": 1,
+   "web": true,
+   "n": 16,
+   "base": 0.75,
+   "share_all": 6.306313408010595e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t15_web": {
+   "theme": 15,
+   "web": true,
+   "n": 14,
+   "base": 0.5,
+   "share_all": 5.5180242320092706e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t43_web": {
+   "theme": 43,
+   "web": true,
+   "n": 12,
+   "base": 0.75,
+   "share_all": 4.7297350560079464e-05,
+   "share_top": 5.912262031453233e-05,
+   "contrast": null
+  },
+  "t25_web": {
+   "theme": 25,
+   "web": true,
+   "n": 10,
+   "base": 0.5,
+   "share_all": 3.9414458800066216e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t45_web": {
+   "theme": 45,
+   "web": true,
+   "n": 10,
+   "base": 0.2,
+   "share_all": 3.9414458800066216e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t49_web": {
+   "theme": 49,
+   "web": true,
+   "n": 9,
+   "base": 0.7777777777777778,
+   "share_all": 3.54730129200596e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t21_web": {
+   "theme": 21,
+   "web": true,
+   "n": 9,
+   "base": 0.4444444444444444,
+   "share_all": 3.54730129200596e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t48_web": {
+   "theme": 48,
+   "web": true,
+   "n": 8,
+   "base": 0.75,
+   "share_all": 3.1531567040052974e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t19_web": {
+   "theme": 19,
+   "web": true,
+   "n": 4,
+   "base": 1.0,
+   "share_all": 1.5765783520026487e-05,
+   "share_top": 1.9707540104844112e-05,
+   "contrast": null
+  },
+  "t11_web": {
+   "theme": 11,
+   "web": true,
+   "n": 4,
+   "base": 0.5,
+   "share_all": 1.5765783520026487e-05,
+   "share_top": 0.0,
+   "contrast": null
+  },
+  "t30_web": {
+   "theme": 30,
+   "web": true,
+   "n": 3,
+   "base": 0.3333333333333333,
+   "share_all": 1.1824337640019866e-05,
+   "share_top": 0.0,
+   "contrast": null
+  }
+ },
+ "focus_leave_one_out": {
+  "baseline": {
+   "n": 253714,
+   "base": 0.533955556256257,
+   "lift": -0.018140071193516794,
+   "se": 0.0031338089815983097,
+   "p1": 0.5365074985712315,
+   "p5": 0.5183674273777147
+  },
+  "drop_web_all": {
+   "n": 190524,
+   "base": 0.5182234259200941,
+   "lift": -0.00791199758735972,
+   "se": 0.0036201245057312457,
+   "p1": 0.521243931242619,
+   "p5": 0.5133319336552593
+  },
+  "keep_web_only": {
+   "n": 63190,
+   "base": 0.5813894603576515,
+   "lift": -0.02777338186421896,
+   "se": 0.00622778743686282,
+   "p1": 0.5826080075961386,
+   "p5": 0.5548346257319197
+  },
+  "drop_t9": {
+   "n": 153336,
+   "base": 0.49822611780664683,
+   "lift": 0.008983426818021,
+   "se": 0.004037641831988806,
+   "p1": 0.4947502282509456,
+   "p5": 0.5037336550689666
+  },
+  "drop_t9_webhalf": {
+   "n": 215479,
+   "base": 0.519813995795414,
+   "lift": -0.009826591447230859,
+   "se": 0.0034037872646033845,
+   "p1": 0.5230415815852979,
+   "p5": 0.513214990138067
+  },
+  "drop_t18": {
+   "n": 222914,
+   "base": 0.5304018590128928,
+   "lift": -0.029663685141174012,
+   "se": 0.0033450726672581716,
+   "p1": 0.5335890361797098,
+   "p5": 0.5039253510385358
+  },
+  "drop_t18_webhalf": {
+   "n": 247956,
+   "base": 0.5334615818935617,
+   "lift": -0.017048752227647013,
+   "se": 0.0031702472996581535,
+   "p1": 0.5353282787546378,
+   "p5": 0.5182795265269908
+  }
+ },
+ "focus_composition": {},
+ "theme_words": {
+  "9": [
+   "services",
+   "computer",
+   "software",
+   "information",
+   "data",
+   "management"
+  ],
+  "18": [
+   "video",
+   "computer",
+   "electronic",
+   "music",
+   "games",
+   "audio"
+  ],
+  "0": [
+   "apparatus",
+   "systems",
+   "devices",
+   "electronic",
+   "control",
+   "electric"
+  ],
+  "35": [
+   "services",
+   "field",
+   "training",
+   "estate",
+   "educational",
+   "travel"
+  ],
+  "12": [
+   "services",
+   "featuring",
+   "store",
+   "retail",
+   "store services",
+   "services featuring"
+  ],
+  "2": [
+   "design",
+   "field",
+   "systems",
+   "development",
+   "services",
+   "equipment"
+  ],
+  "13": [
+   "research",
+   "medical",
+   "scientific",
+   "testing",
+   "purposes",
+   "diagnostic"
+  ],
+  "14": [
+   "bags",
+   "clothing",
+   "shirts",
+   "jackets",
+   "leather",
+   "cases"
+  ],
+  "3": [
+   "services",
+   "health",
+   "field",
+   "care",
+   "information",
+   "personal"
+  ],
+  "42": [
+   "services",
+   "construction",
+   "waste",
+   "repair",
+   "relating",
+   "installation"
+  ],
+  "38": [
+   "medical",
+   "services",
+   "healthcare",
+   "therapy",
+   "care",
+   "treatment"
+  ],
+  "33": [
+   "paper",
+   "books",
+   "printed",
+   "cards",
+   "stationery",
+   "cardboard"
+  ],
+  "37": [
+   "vehicles",
+   "parts",
+   "land",
+   "land vehicles",
+   "vehicle",
+   "engines"
+  ],
+  "28": [
+   "energy",
+   "services",
+   "transportation",
+   "storage",
+   "transport",
+   "power"
+  ],
+  "1": [
+   "accessories",
+   "adapted",
+   "specially",
+   "cables",
+   "specially adapted",
+   "straps"
+  ],
+  "40": [
+   "machines",
+   "apparatus",
+   "parts",
+   "machine",
+   "metal",
+   "industrial"
+  ],
+  "47": [
+   "tools",
+   "hand",
+   "knives",
+   "operated",
+   "hand tools",
+   "electric"
+  ],
+  "34": [
+   "furniture",
+   "storage",
+   "lighting",
+   "lights",
+   "covers",
+   "bed"
+  ],
+  "5": [
+   "software",
+   "online",
+   "downloadable",
+   "non-downloadable",
+   "virtual",
+   "featuring"
+  ],
+  "39": [
+   "electric",
+   "air",
+   "apparatus",
+   "heating",
+   "installations",
+   "purposes"
+  ],
+  "17": [
+   "toys",
+   "games",
+   "toy",
+   "golf",
+   "balls",
+   "equipment"
+  ],
+  "24": [
+   "hair",
+   "preparations",
+   "cosmetic",
+   "skin",
+   "care",
+   "body"
+  ],
+  "27": [
+   "metal",
+   "precious",
+   "household",
+   "precious metal",
+   "brushes",
+   "boxes"
+  ],
+  "44": [
+   "beverages",
+   "fruit",
+   "drinks",
+   "milk",
+   "food",
+   "based"
+  ],
+  "7": [
+   "preparations",
+   "treatment",
+   "diseases",
+   "pharmaceutical",
+   "disorders",
+   "pharmaceutical preparations"
+  ],
+  "8": [
+   "food",
+   "meat",
+   "primarily",
+   "processed",
+   "vegetables",
+   "coffee"
+  ],
+  "6": [
+   "metal",
+   "non-metal",
+   "panels",
+   "wood",
+   "door",
+   "building"
+  ],
+  "4": [
+   "plants",
+   "agricultural",
+   "flowers",
+   "seeds",
+   "plant",
+   "intellectual"
+  ],
+  "22": [
+   "art",
+   "home",
+   "interior",
+   "decorative",
+   "kits",
+   "arts"
+  ],
+  "32": [
+   "plastic",
+   "materials",
+   "textile",
+   "fabrics",
+   "rubber",
+   "synthetic"
+  ],
+  "23": [
+   "instruments",
+   "musical",
+   "apparatus",
+   "devices",
+   "artificial",
+   "surgical"
+  ],
+  "26": [
+   "vehicle",
+   "vehicles",
+   "motor",
+   "automotive",
+   "automobile",
+   "lubricants"
+  ],
+  "46": [
+   "mats",
+   "printing",
+   "floor",
+   "coverings",
+   "printing machines",
+   "rugs"
+  ],
+  "36": [
+   "law",
+   "legal",
+   "guns",
+   "printers",
+   "cartridges",
+   "weapons"
+  ],
+  "16": [
+   "food",
+   "supplements",
+   "nutritional",
+   "dietary",
+   "beverages",
+   "drinks"
+  ],
+  "29": [
+   "products",
+   "marketing",
+   "goods",
+   "consumer",
+   "variety",
+   "wide"
+  ],
+  "43": [
+   "purposes",
+   "medical",
+   "medical purposes",
+   "yarn",
+   "thread",
+   "thread yarn"
+  ],
+  "20": [
+   "pet",
+   "pets",
+   "animals",
+   "animal",
+   "food",
+   "feed"
+  ],
+  "45": [
+   "water",
+   "treatment",
+   "filters",
+   "purification",
+   "units",
+   "tanks"
+  ],
+  "19": [
+   "oil",
+   "gas",
+   "oil gas",
+   "drilling",
+   "alloys",
+   "metals"
+  ],
+  "31": [
+   "chemical",
+   "industry",
+   "industrial",
+   "chemicals",
+   "purposes",
+   "manufacture"
+  ],
+  "10": [
+   "cleaning",
+   "coatings",
+   "preparations",
+   "nature",
+   "paints",
+   "coating"
+  ],
+  "41": [
+   "repair",
+   "maintenance",
+   "machines",
+   "repair maintenance",
+   "apparatus",
+   "rental"
+  ],
+  "49": [
+   "dental",
+   "carbon",
+   "fundraising",
+   "families",
+   "gases",
+   "hydrogen"
+  ],
+  "21": [
+   "bicycles",
+   "bicycle",
+   "rental",
+   "vehicles",
+   "electronic cigarette",
+   "cars"
+  ],
+  "15": [
+   "building",
+   "construction",
+   "materials",
+   "concrete",
+   "stone",
+   "tiles"
+  ],
+  "48": [
+   "preparations",
+   "veterinary",
+   "medical",
+   "materials",
+   "apparatus",
+   "substances"
+  ],
+  "11": [
+   "sold",
+   "unit",
+   "sold unit",
+   "component",
+   "skills",
+   "integral"
+  ],
+  "30": [
+   "cigarettes",
+   "electronic",
+   "cigarette",
+   "tobacco",
+   "hemp",
+   "electronic cigarettes"
+  ],
+  "25": [
+   "oils",
+   "essential",
+   "candles",
+   "essential oils",
+   "room",
+   "cosmetics"
+  ]
+ }
+}
