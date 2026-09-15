@@ -1,0 +1,110 @@
+\subsection{SEC reporting: the lead profile survives the design; the atypicality gradient is composition}\label{sec:bluesea}
+
+The outcome here is the firm-level one that the representation hazard
+of Section~\ref{sec:hazard} turns on: whether an owner ever appears in the Securities and
+Exchange Commission's financial reporting records. That is broader than
+exchange-listed: roughly half the matched firms carry a ticker and the
+rest report for other reasons. Figure~\ref{fig:successcurves} draws the
+raw rate against each axis in twenty bins. In signed lead the profile is a
+U whose tails both sit above the base rate and whose lagging tail is the
+higher; in lead magnitude and in atypicality the raw rate rises.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/fig_success_ventiles.png}
+\caption{Share of registered debut owners (first registered filing
+1995--2018, $n = 2{,}066{,}600$) ever appearing in SEC EDGAR, in twenty
+equal-count bins of debut lead $L$, lead magnitude $|L|$, and atypicality
+$A$, cut on the pooled distribution. Bands are 95\% binomial intervals;
+the dashed line is the 0.65\% base rate. These are raw rates carrying
+class, year and length composition; Table~\ref{tab:edgar} gives the
+design-based estimates, under which the atypicality gradient is absorbed
+and the signed-lead U remains.}
+\label{fig:successcurves}
+\end{figure}
+
+The raw atypicality gradient does not survive the design-based estimates
+(Table~\ref{tab:edgar}). Within class and filing year, holding description
+length fixed, top-quintile atypicality raises the probability of SEC
+reporting by $+0.000$pp on a 0.481\% base ($t = 0.0$), and by $-0.003$pp
+on the past level alone. The quintile profile is not even monotone: the
+three middle quintiles sit \emph{below} the bottom one and the top merely
+returns to it. The 2.7-fold gradient in the raw bins is composition:
+firms that go on to report cluster in particular classes, years, and
+multi-class filings, and class$\times$year fixed effects absorb it. Lead
+costs, at equal atypicality: the signed component enters negatively
+($-0.047$pp per standard deviation, $t = -7.8$) while the unsigned
+component enters positively ($+0.067$pp per standard deviation,
+$t = 7.7$). The U in the raw bins is exactly this pair: lagging filings
+show the magnitude premium with no lead penalty, leading filings show it
+net of that penalty, and the middle bins show neither. Once the levels
+are controlled, the recovery of the far-leading tail is much reduced: the
+quintile profile falls through Q4 and recovers only slightly at Q5.
+
+\begin{table}[h]\centering\small
+\caption{Debut listing and vocabulary position: design-based estimates.
+LPM of P(owner ever in SEC EDGAR) on 1{,}556{,}968 registered debut
+filings 1995--2018, one observation per owner, class$\times$filing-year
+fixed effects, heteroskedasticity-robust SEs. Quintiles cut within
+class$\times$year. Base rate 0.481\%.}
+\label{tab:edgar}
+\begin{tabular}{lrr}
+\toprule
+ & Coefficient (pp) & SE \\
+\midrule
+\multicolumn{3}{l}{\emph{Atypicality quintiles, $A = \tfrac{1}{2}(K^{-}+K^{+})$ (Q1 omitted)}} \\
+\quad Q5, FE only & $+0.017$ & $0.018$ \\
+\quad Q5, FE + log length & $+0.000$ & $0.018$ \\
+\quad Q5, FE + log length, on $K^{-}$ alone & $-0.003$ & $0.018$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Signed lead quintiles, FE + log length + KL levels}} \\
+\quad Q3 & $-0.133$ & $0.020$ \\
+\quad Q4 & $-0.187$ & $0.021$ \\
+\quad Q5 & $-0.158$ & $0.024$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Decomposition, FE + log length}} \\
+\quad lead magnitude $|L|$ (pp per sd) & $+0.067$ & $0.009$ \\
+\quad signed lead $L$ (pp per sd) & $-0.047$ & $0.006$ \\
+\quad log description length & $+0.056$ & $0.004$ \\
+\bottomrule
+\end{tabular}
+\\[0.3em]\footnotesize Standard errors in place of significance stars; see
+the note to Table~\ref{tab:gate_lpm}.
+\end{table}
+
+Owners are matched to SEC registrants by normalized exact name, over a
+candidate universe of all 5.67 million owners in the corpus; names
+resolving to more than one registrant are dropped rather than assigned,
+and one match is kept per owner string. That yields 19{,}889 matched
+owners covering 7{,}588 registrants, and a base rate of 0.481\% among
+registered debut filers. Validation on 22 companies that indisputably went
+public --- across software, pharmaceuticals, food, apparel, aerospace and
+autos --- matches all 22. A random sample of 25 matches carrying at least
+three filings was inspected by hand and none was wrong, which is a check
+on gross failure modes rather than a precision estimate.
+
+The linkage is nonetheless a name match, and that bounds the atypicality
+reading in particular. Firms with distinctive names are easier to match
+than firms with generic ones, and distinctiveness of a name plausibly
+travels with distinctiveness of the goods/services text; nothing in this
+design separates the two. The lead coefficient is unchanged under
+alternative linkages; the atypicality coefficient is not, so only the
+lead result is robust to the name-match design.
+
+The U is also not atypicality working through lead's construction (the
+mechanical coupling stated in Section~\ref{sec:three_scorings}): on this
+sample lead magnitude and atypicality correlate at $+0.25$, signed lead at
+only $-0.10$, and cutting lead fifths within fifths of atypicality keeps
+the structure: the most lagging fifth out-reports the most leading in four
+of the five atypicality strata (by $0.08$ to $0.39$pp on sub-1\% bases),
+and the ordering reverses only in the most atypical fifth, where the most
+leading debuts report most. The lagging tail's premium is not a ceiling
+artifact; the leading tail's partial recovery in the raw U is where the
+atypicality composition lives, which is what the level controls in
+Table~\ref{tab:edgar} absorb.
+
+``SEC reporting'' is not ``went public'': splitting matched owners on
+whether their SEC filer number carries a ticker gives $10{,}556$ listed
+against $9{,}333$ reporting without one, and both halves show the same U
+in lead (Section~\ref{sec:robust}), so the result is not an artifact of
+counting non-operating registrants as successes.
+

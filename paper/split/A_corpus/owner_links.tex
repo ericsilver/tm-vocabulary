@@ -1,0 +1,25 @@
+\subsection{Owner links: SEC reporting, Regulation~D rounds, patents}\label{sec:links}
+
+Owners are matched to three external records by normalized exact name.
+\emph{SEC reporting} is any appearance of the owner as a registrant in the
+Commission's EDGAR filer index; roughly half the matched firms carry a
+ticker and the rest report for other reasons, and the two halves are
+distinguished by the Commission's company-ticker file. \emph{Regulation~D}
+rounds are Form~D notices of exempt offerings, electronic and therefore
+complete only from 16 March 2009, so any analysis of a funding ladder is
+built on debuts from 2009. \emph{Patents} are PatentsView assignee records
+\citep{PatentsView}, matched on the same normalized name.
+
+The SEC match runs over a candidate universe of all 5.67 million owners in
+the corpus; names resolving to more than one registrant are dropped rather
+than assigned, and one match is kept per owner string. That yields
+19{,}889 matched owners covering 7{,}588 registrants. Validation on 22
+companies that indisputably went public --- across software,
+pharmaceuticals, food, apparel, aerospace and autos --- matches all 22; a
+random sample of 25 matches carrying at least three filings was inspected
+by hand and none was wrong, which is a check on gross failure modes rather
+than a precision estimate. The linkage is nonetheless a name match, and
+that bounds what can be read from it: firms with distinctive names are
+easier to match than firms with generic ones, and distinctiveness of a
+name plausibly travels with distinctiveness of the goods/services text.
+Section~\ref{sec:validation} returns to which results survive that bound.

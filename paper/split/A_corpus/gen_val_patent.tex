@@ -1,0 +1,57 @@
+\subsection{The construct is not patenting}\label{sec:patent}
+
+Within the firms that do both, trademark vocabulary and patenting move
+independently. On a panel of trademark owners name-matched to PatentsView
+patent assignees \citep{PatentsView}, each axis is regressed on
+$\log(1 + \mathrm{patents})$ with firms absorbed and errors clustered on
+the firm, estimated on 94{,}181 firm-years across 17{,}506 firms under
+theme scoring (93{,}551 and 17{,}415 under term scoring) --- 134{,}075
+matched firm-years before dropping the firm-years that contribute no
+within-firm variation. The outcome is standardized, so $\beta$ is the
+shift in standard deviations of the axis per unit of log-patents; one
+unit is roughly a tripling of the patent count, and a firm going from
+none to twenty moves about three units.
+
+\begin{center}\small
+\begin{tabular}{llrrr}
+\toprule
+Text counted as & Axis & $\beta$ (sd) & $t$ & Between-firm $r$ \\
+\midrule
+Themes & atypicality & $+0.012$ & $+3.0$ & --- \\
+Themes & lead        & $-0.058$ & $-9.4$ & $-0.020$ \\
+Terms  & atypicality & $-0.055$ & $-11.5$ & --- \\
+Terms  & lead        & $+0.012$ & $+2.0$ & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The grid is close to a mirror: whichever axis carries the small
+signal under one way of counting the text carries the opposite sign under
+the other. The theme-scored \emph{lead} coefficient ($-0.058$) and the
+term-scored \emph{atypicality} coefficient ($-0.055$) are nearly the same
+number attached to different quantities. Only those two cells are
+established; the mirror's other diagonal is within noise, and the
+orthogonality conclusion rests on the magnitude bound --- every cell
+under $0.06$ standard deviations --- rather than on any cell's sign.
+Nothing here reaches a tenth of a standard deviation.
+
+One objection is timing: a patent is applied for before its invention is
+in public use and a trademark when the firm is ready to sell, so patents
+would lead. Firms do not proceed that linearly \citep{Seip2018}, and no
+timing offset from $t-2$ to $t+1$ isolates a direction ($-0.054$ to
+$-0.089$ sd under theme scoring, $+0.012$ to $+0.024$ under terms);
+among owners who both patent and raise a priced round, neither event
+systematically precedes the other (median lag zero years).
+
+The second objection is heterogeneity: a pooled near-zero could hide a
+positive slope where the two rights are complements offsetting a negative
+one where trademarks work alone. On a coarse, judgement-based sorting of
+classes into complements and substitutes --- assigned in advance from the
+class definitions, nothing estimated --- the slopes are $-0.000$ among
+complements, $-0.026$ among substitutes, interaction $-0.008$
+($t = -0.49$), and the complement classes do not agree in sign with one
+another (cell detail in the supplementary material). Neither retention
+supports the complementarity story, with the caveats that a coarse
+sorting can miss a finer-grained one and that conditioning on a
+successful assignee match pushes any interaction toward zero.
+

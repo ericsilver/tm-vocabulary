@@ -1,0 +1,77 @@
+\section{Introduction}\label{sec:intro}
+
+Whether market pioneers are advantaged or burdened is an old question
+that has been answered mostly on named markets and on the firms that
+survived long enough to be remembered \citep{GolderTellis1993,
+SemadeniAnderson2010}. The US trademark record offers a different sample.
+Every firm that intends to sell a product under a mark files a dated
+description of that product; the description is written by the millions
+of firms that never patent as well as by those that do; and between the
+fifth and sixth year of a registration the owner must swear that the
+product is still in commerce or lose the mark. Whether a firm was early
+can therefore be read from what every entrant wrote, and whether its
+product lasted can be read from what every owner later proved. This paper
+asks the pioneer's question on that record.
+
+Being early is measured from the language itself. Each goods/services
+description is reduced to themes by a topic model fitted once over all
+13.99 million applications, and its theme mix is compared, by
+Kullback--Leibler divergence, to what its own Nice class filed in the
+five years before and the five years after it. The average of the two
+divergences is the filing's \emph{atypicality}, how unusual it was for
+its industry; their difference is its \emph{lead}, positive when the
+industry's language subsequently moved toward the filing's. Lead is
+computed from filings not yet made, so no one at the time could observe
+it; it is a positional quantity, not a causal one. The construction, its
+nomenclature, and the validation program that supports it --- three
+partitions of the vocabulary, two reference weightings, five window
+constructions, a second model seed, and the text duplication of a
+boilerplate-heavy corpus --- are the subject of a companion paper, and
+Section~\ref{sec:measure} summarizes what a reader of this one needs.
+
+The answer is that the arrows are real. Among 3.10 million registrations
+issued 2002--2018, marks whose language most led their industry were
+cancelled for non-use at the five-year proof $1.4$ points more often than
+marks whose language most lagged it, within Nice class and registration
+year, with drafting and counsel held and errors clustered on the owner
+($t = 8.3$); the raw contrast is $+2.3$ points, positive in 33 of 44
+classes, and it holds under every partition of the vocabulary. Being
+unusual carries no such cost: what protection atypical language appears
+to carry belongs to filings that extend a theme established in another
+class, and net of atypicality even those fail more.
+
+The penalty is not constant, and where it moved is informative. It was
+two to three times larger for marks filed in the late 1990s than for any
+cohort since, reversed for marks filed 2000--2004, and returned from
+2008, with the whole swing inside the four technology classes. Most of
+the swing is between themes rather than within them: each era's leading
+vocabulary was concentrated in one or two themes --- computer and
+information services in the 1990s, downloadable software after 2008 ---
+that failed at their own rate, while the penalty for being leading inside
+a theme held at $+2.5$ to $+5$ points throughout. Web-based filings fail
+hardest in each class's own first internet years and converge toward
+their class within a decade. Joining a surging theme costs little on
+average, and arriving early within a wave costs nothing further.
+
+The record supplies two evaluators, and they read the text differently.
+The examiner at registration rewards middling conformity --- completion
+rises with atypicality and turns down only at the extreme --- and is
+indifferent to lead, which did not yet exist to be read. The market at
+the five-year proof is indifferent to conformity once theme importation
+is held and penalizes having been early. Following the owners further,
+no rung of financial success rewards it: the debut's language does not
+predict a priced private round, SEC reporting and listing decline in
+lead, and the firms holding most of the revenue the record can trace
+debuted in language their industries already used. The paper also
+records what applicants learn: those who refile an abandoned application
+rewrite toward the class's typical description, from both tails, whoever
+drafts the second attempt.
+
+Section~\ref{sec:related} places the exercise against the pioneering,
+optimal-distinctiveness and trademark-indicator literatures.
+Section~\ref{sec:measure} states the measure and the record's steps.
+Sections~\ref{sec:registration}--\ref{sec:success} follow the mark and
+its owner through registration, the five-year proof, the waves that moved
+the penalty, and the capital markets. Section~\ref{sec:discussion} reads
+the stages together, and Section~\ref{sec:robust} summarizes what
+changes under other choices.

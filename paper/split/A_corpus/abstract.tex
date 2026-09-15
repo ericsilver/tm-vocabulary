@@ -1,0 +1,35 @@
+\begin{abstract}
+\noindent All 13.99 million USPTO trademark case files since 1884 are
+re-parsed into 242 million dated prosecution events, so that every mark
+can be followed from filing through examination, registration, the sworn
+five-year proof of continued use, and the year-ten renewal, with counsel
+of record, filing basis and owner domicile read from the record, and
+owners linked by name to SEC reporting, Form~D rounds and PatentsView
+assignees. Event dating separates the year-six use proof from the
+year-ten renewal, which terminal status codes conflate, and makes the
+proof a dated, product-level survival outcome available for every
+registered mark. On this corpus a two-sided measure of vocabulary
+position is built. Each goods/services description is reduced to themes
+by a topic model fitted once over the corpus, and its theme mix is
+compared, by Kullback--Leibler divergence, to its own Nice class in the
+five years before and the five years after filing. The average of the two
+divergences is atypicality; their difference is lead. The measure is
+validated on identical filings under three partitions of the vocabulary,
+two reference weightings, five window constructions, a second model seed,
+and the text duplication that pervades a boilerplate-heavy corpus. Lead is
+robust to all of them and predicts cancellation for non-use at the
+five-year proof ($+2.3$, $+2.6$ and $+1.9$ points under the three
+partitions; $+1.4$ with design controls, $t = 8.3$). Atypicality is not:
+its apparent effects belong to the partition or to a control. Two hazards
+for trademark-text research are documented. Scoring words rather than
+theme distributions measures description length ($r = -0.68$ with log
+distinct terms), and firm-level correlations built on word scoring
+dissolve or reverse under theme scoring on identical samples. Within
+firm, the measure is orthogonal to patenting. The corpus, the scores, the
+code, and an interactive per-class appendix are public.
+
+\medskip
+\noindent\emph{Keywords:} trademarks; administrative data; text as data;
+topic models; Kullback--Leibler divergence; innovation indicators.\\
+\emph{JEL:} C81, O34, O31, L10.
+\end{abstract}
