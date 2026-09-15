@@ -25,8 +25,10 @@ happens with probability $p$ carries $\log(1/p)$ of information when it
 happens: a common thing carries little, a rare thing a lot. Here the things
 are the themes a description draws on, and the probabilities are how often
 the filing's own industry drew on each of them in the reference window. A
-filing's score is the average information content of its themes under its
-industry's frequencies, weighted by how heavily it uses each, less the same
+filing's score asks, in effect: how surprising is this mix of themes to
+someone who has only seen what the industry files? Formally it is the
+average information content of the filing's themes under its industry's
+frequencies, weighted by how heavily the filing uses each, less the same
 average taken under the filing's own frequencies.
 
 The apparatus is that of \citet{Murdock2017}, developed on Darwin's reading
@@ -74,17 +76,24 @@ among them \emph{computerized}, \emph{search}, \emph{ordering},
 \emph{ordering service}, \emph{retail}, \emph{distribution}, \emph{printed
 books} and \emph{digital transmission}.
 
-\paragraph{Grouping words into themes.} Each filing is then re-described in a
-fixed, much smaller set of coordinates. Latent Dirichlet allocation is run
-once over a stratified sample of the whole corpus, all 45 classes together: it
-learns 50 clusters of words that tend to occur together and, for any filing,
-the proportions in which its words draw on them. Nothing supervises this; the
-clusters come from co-occurrence alone. This build --- fifty global themes,
-per-filing five-year windows, flat weighting --- is the production scoring,
-used for every estimate unless the text states another. The themes are
-shared across classes;
-what is specific to a class is the reference, the average theme proportions
-of that class's own filings in the window. The Amazon filing draws on six
+\paragraph{Grouping words into themes.} Each filing is then re-described
+in a fixed, much smaller set of coordinates. We run latent Dirichlet
+allocation once over a stratified sample of the whole corpus, all 45
+classes together. The model develops a list of 50 themes --- clusters of
+words that tend to occur together --- and infers, for any filing, to what
+degree its description invokes each one. Nothing supervises this; the
+clusters come from co-occurrence alone, and a theme is read off from its
+leading words: one collects the vocabulary of media and entertainment
+goods, another retail store services, another downloadable and online
+software. Re-described this way, a filing becomes a mix of themes, and
+two kinds of question open up: how a theme fares over time within a class
+--- how much of the class's language an online-offering theme accounts
+for, year by year --- and how the filings that invoke it fare. This
+build --- fifty global themes, per-filing five-year windows, flat
+weighting --- is the production scoring, used for every estimate unless
+the text states another. The themes are shared across classes; what is
+specific to a class is the reference: the average theme proportions of
+that class's own filings in the window. The Amazon filing draws on six
 themes at more than a twentieth of its weight: $0.41$ on media and
 entertainment goods (\emph{video, computer, electronic, music, games,
 audio}), $0.15$ on computer and information services (\emph{services,
@@ -148,15 +157,18 @@ nearly doubling, while the two minor themes it touched receded. The filing
 is closer to the class's future composition than to its past one; the
 supplementary material tabulates the six theme shares.
 
-$K^{-}$ and $K^{+}$
-correlate at $0.988$ on the software class, so entering both is close to
-entering one variable twice. Taking their average and their difference ---
-nothing more than a sum and a difference, with no weights estimated ---
-isolates the large common component from the small residual that carries
-the timing, and leaves the two regressors nearly uncorrelated ($+0.036$ against
-each other, where $K^{-}$ alone would give $+0.114$). The cost is that $L$ is
-a small residual of two large quantities, about a sixth of either level's
-spread, which Section~\ref{sec:robust} quantifies.
+Why the average and the difference, rather than the two surprises
+themselves? Because $K^{-}$ and $K^{+}$ correlate at $0.988$ on the
+software class: a filing far from its class's past is almost always far
+from its future too, so entering both is close to entering one variable
+twice. The average collects that large shared component --- how far from
+the class the filing sits --- and the difference collects the small
+residual that carries the timing. Nothing more than a sum and a
+difference is taken, with no weights estimated, and the two resulting
+regressors are nearly uncorrelated ($+0.036$ against each other, where
+$K^{-}$ alone would give $+0.114$). The cost is that $L$ is a small residual of
+two large quantities, about a sixth of either level's spread, which
+Section~\ref{sec:robust} quantifies.
 
 
 \paragraph{Why the words are not scored directly.} The themes are an extra
@@ -174,13 +186,15 @@ and the spread of a filing over words is bounded by how many distinct words it
 has: a description using $k$ terms cannot spread over more than $k$ of them,
 so its spread cannot exceed $\log k$, while the reference is spread over about
 900 terms. A five-word description is charged the whole difference in width,
-roughly five nats, before any of its content is considered. In 3{,}000
-software-class filings of at least 150 words, scored against one fixed
-reference and rescored after truncation to a random handful of words,
-across a fiftyfold cut in length
-the surprise term moves by $0.016$ nats and the spread term by $2.9$; synthetic filings drawn at random from the
-reference itself track $\log(\text{distinct terms})$ to within a fiftieth
-of a nat (supplementary material). Term-scored atypicality correlates with
+roughly five nats, before any of its content is considered. To show this
+directly, we took 3{,}000 software-class filings of at least 150 words,
+scored each against one fixed reference, then cut each down to a random
+handful of words and rescored it. Across a fiftyfold cut in length, the
+surprise term moves by $0.016$ nats while the spread term moves by
+$2.9$: essentially all of the change in the score is the length, not the
+content. Synthetic filings drawn at random from the reference itself
+track $\log(\text{distinct terms})$ to within a fiftieth of a nat
+(supplementary material). Term-scored atypicality correlates with
 the log of a filing's distinct term count at $-0.68$ in the software
 class.
 
@@ -198,31 +212,32 @@ and $-0.62$ under terms.
 \paragraph{What the themes see, and what they do not.} The score compares a
 filing's theme proportions to the average proportions of its industry, so it
 reads which themes a filing draws on and how heavily. It does not, in any
-material way, read how a filing combines them. Taking each filing's two
-leading themes and asking how often that pair occurs together relative to the
-two themes' separate frequencies, on a 150{,}000-filing software-class
-sample: how rare the themes are individually explains
-70\% of the variance in atypicality, and the unusualness of the pairing adds
-under two points on top of it. A filing assembled from ordinary parts in a
+material way, read how a filing combines them. To check this, we took
+each filing's two leading themes on a 150{,}000-filing software-class
+sample and asked how often that pair occurs together, relative to how
+often the two themes occur separately. How rare the themes are
+individually explains 70\% of the variance in atypicality; how unusual
+the pairing is adds under two points on top of it. A filing assembled from ordinary parts in a
 genuinely new configuration is therefore close to invisible to this measure.
 
 Combinations can be scored in their own right, at two levels
-(construction detail in the supplementary material). A \emph{pair lead}
---- whether the class moved toward the filing's arrangements of themes
---- is penalised like lead in the software class ($+2.3$ points at the
-five-year proof, $t = 8.4$, correlating with lead at only $-0.16$), but
-it does not generalize: corpus-wide it is zero raw and $+0.5$pp net of
-lead and atypicality (owner-clustered $t = 4.2$), significantly positive
-in 13 of 43 classes and significantly negative in 3, including $-2.1$ in
-advertising and retail, so it is reported as a class-specific bound
-rather than a second construct. Word-level \emph{recombination} ---
-adjacent word pairs new to the class while both words are established
-there, novelty assembled from familiar components
-\citep{Fleming2001, Uzzi2013} --- is rewarded in the same class: the top
+(construction detail in the supplementary material). The first is
+\emph{pair lead}: whether the class later moved toward the filing's
+arrangements of themes. In the software class it is penalised much as
+lead is ($+2.3$ points at the five-year proof, $t = 8.4$, while
+correlating with lead at only $-0.16$). But it does not generalize.
+Corpus-wide it is zero raw and $+0.5$pp net of lead and atypicality
+(owner-clustered $t = 4.2$), significantly positive in 13 of 43 classes
+and significantly negative in 3 --- including $-2.1$ in advertising and
+retail --- so we report it as a class-specific bound rather than a second
+construct. The second is word-level \emph{recombination}: adjacent word
+pairs that are new to the class while both words are established there,
+novelty assembled from familiar components
+\citep{Fleming2001, Uzzi2013}. In the same class it is rewarded: the top
 fifth fails $2.8$ points less with lead and atypicality held
-($t = -10.4$), uncorrelated with pair lead ($r = -0.01$). The construct
-sees neither arrangement channel, and where they act they run in
-opposite directions, so its blindness to combination is a bounded
+($t = -10.4$), and it is uncorrelated with pair lead ($r = -0.01$). The
+construct sees neither arrangement channel, and where they act they run
+in opposite directions, so its blindness to combination is a bounded
 omission rather than a hidden bias in one direction.
 
 \subsection{Within class, not across it}
@@ -274,19 +289,21 @@ horizontal axis is surprise against the preceding five years, the vertical
 axis surprise against the following five; a filing on the dashed diagonal
 is equally far from both, and distance below it is lead. Hexagons holding fewer than 25 filings are blank; the retained
 hexagons cover over 99.4\% of filings in every panel. The colour scale is
-shared across panels; the axis ranges are not, since term-scored and
-theme-scored KL do not share a scale, axis ranges differ across columns because term- and theme-scored KL are
-not on a common scale, and only shape and colour gradient are comparable. Both
+shared across panels; the axis ranges are not, because term-scored and
+theme-scored KL are not on a common scale, so only shape and colour
+gradient are comparable across columns. Both
 columns are drawn on the filings the per-filing windows score, which
 differ between representations by under one percent.}
 \label{fig:representation}
 \end{figure}
 
-Theme scoring is independent of document length, which term scoring is not; term scoring
-resolves novel word \emph{combinations}, which theme scoring does not. Hence
-theme scoring for every estimate, since the length confound contaminates
-firm-level comparisons, and term scoring for every worked example, since the
-theme basis has no coordinate for the language the examples turn on.
+Each representation has the virtue the other lacks: theme scoring is
+independent of document length, which term scoring is not, while term
+scoring resolves novel word \emph{combinations}, which theme scoring does
+not. We therefore use theme scoring for every estimate, because the
+length confound contaminates firm-level comparisons, and term scoring for
+every worked example, because the theme basis has no coordinate for the
+language the examples turn on.
 
 \subsection{How three filings encode}\label{app:exhibit}
 
@@ -354,20 +371,20 @@ windows cannot be filled, so scores there reflect a thin reference rather
 than the text being scored.
 
 The signal depends on having enough past and future filings to populate
-the references; the 5-year past window is incomplete before 1990 and the
+the references. The 5-year past window is incomplete before 1990 and the
 future window after 2020, and both zones are excluded
-(Figure~\ref{fig:burnin}). The burn-in cut is set empirically: thin past
-references inflate past-facing surprise, and profiling that bias across
-all 44 sufficient-volume classes gives a median absolute bias of
+(Figure~\ref{fig:burnin}). The burn-in cut is set empirically. A thin
+past reference inflates past-facing surprise, and profiling that bias
+across all 44 sufficient-volume classes gives a median absolute bias of
 $\sim$2.0 nats in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
-onward, below any interpreted effect size. The 1995--1997 deviations
-($\sim$0.15--0.17) are not burn-in, because mechanical contamination
-declines monotonically as the windows fill and cannot rebound. They
-reflect a genuine vocabulary shift in the corpus during the dot-com
-period. Per-class burn-in
-lengths estimated under a stability-band criterion track each class's
-noise floor rather than its reference density, so a single standard cut
-at 1995 is used, conservative by about two years.
+onward --- below any effect size interpreted in this paper. The
+1995--1997 deviations ($\sim$0.15--0.17) are not burn-in: mechanical
+contamination declines monotonically as the windows fill and cannot
+rebound, so these reflect a genuine vocabulary shift in the corpus
+during the dot-com period. Estimating a separate burn-in length per
+class turns out to track each class's noise floor rather than its
+reference density, so a single standard cut at 1995 is used,
+conservative by about two years.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.85\textwidth]{results/burnin.png}

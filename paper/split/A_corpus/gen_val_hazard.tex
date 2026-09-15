@@ -1,56 +1,61 @@
 \label{sec:robust_hazard}
 
-Under term-level scoring, leading filings appear to belong to
-better firms. Among registered debut filings, the probability that the
-owner ever appears in SEC EDGAR rises in term-\dkl{} from 0.29\% at the
-bottom quintile to 0.42\% at the top; on an SEC-matched firm-year panel,
-trailing 3-year mean term-\dkl{} predicts gross margin at $+2.2$pp per
-standard deviation ($t = 2.7$ on the locally rebuilt panel through 2019; $+3.2$pp,
-$t = 5.3$, on the published panel through 2024), with past-facing
-surprise entering positively and future-facing negatively; and firm-year
-term-\dkl{} predicts excess stock returns of $+1.5$ to $+5.0$pp per
-standard deviation at one-to-four-year horizons. A larger debut-only return figure
-($+28$pp at 4 years) fails a sample-size diagnostic and is not claimed.
+Under term-level scoring, leading filings appear to belong to better
+firms, and the appearance is consistent across three outcomes. Among
+registered debut filings, the probability that the owner ever appears in
+SEC EDGAR rises in term-\dkl{} from 0.29\% at the bottom quintile to
+0.42\% at the top. On an SEC-matched firm-year panel, a firm's trailing
+3-year mean term-\dkl{} predicts its gross margin at $+2.2$pp per
+standard deviation ($t = 2.7$ on the locally rebuilt panel through 2019;
+$+3.2$pp, $t = 5.3$, on the published panel through 2024), with
+past-facing surprise entering positively and future-facing negatively.
+And firm-year term-\dkl{} predicts excess stock returns of $+1.5$ to
+$+5.0$pp per standard deviation at one-to-four-year horizons. (A larger
+debut-only return figure, $+28$pp at 4 years, fails a sample-size
+diagnostic and is not claimed.)
 
-None of the signed versions survives distribution scoring. On identical
-samples, the debut listing gradient in signed theme-\dkl{} is flat to
-declining, and the margin coefficient reverses: $-1.3$pp per standard deviation
+None of these signed results survives when the same text is scored on
+themes instead of words. On identical samples, the debut listing
+gradient in signed theme-\dkl{} is flat to declining. The margin
+coefficient reverses sign --- $-1.3$pp per standard deviation
 ($t = -1.8$) at $T = 50$, $-2.2$pp ($t = -3.1$) at $T = 200$, and
-$-0.8$pp ($t = -1.1$) at $T = 500$, against the term-level $+2.3$pp;
-the past-/future-facing decomposition flips sign and stays
-flipped. The term-level listing gradient separately dissolves under
-document-length controls: within length bands it is U-shaped rather than
-rising, with the monotone rise contributed by composition across lengths
-(listed firms' counsel write longer descriptions). The mark-level
-results are unaffected --- they hold under both scorings at every
-resolution.
+$-0.8$pp ($t = -1.1$) at $T = 500$, against the term-level $+2.3$pp ---
+and the past-/future-facing decomposition flips sign and stays flipped.
+The term-level listing gradient separately dissolves under
+document-length controls: within bands of equal length it is U-shaped
+rather than rising, and the monotone rise is contributed by composition
+across lengths, because listed firms' counsel write longer descriptions.
+The mark-level results, by contrast, are unaffected --- they hold under
+both scorings at every resolution.
 
-Vocabulary blindness does not rescue the signed signal. The theme
-model's vocabulary is sample-built, so rare and emergent terms are
-invisible to it; if the firm signal lived exactly there, theme scoring
-would erase a real signal rather than an artifact. Computing each
-filing's invisible-vocabulary share (63.8\% of class-009 term
-\emph{types} but only $\sim$9\% of token \emph{mass}): the share itself
-is a strong firm marker (P(EDGAR) 2.9\% to 5.5\% across its quintiles;
-gate survival $+5.7$pp), but \emph{within} invisible-share strata the
-signed \dkl{} gradient on the firm outcome is flat to negative, while
-the gate penalty holds in both strata ($-6.9$ and $-8.3$pp). The
-term-level firm signal is \emph{unsigned specificity}: serious firms
-describe specific products with specific, therefore rare, words, and
-rare-term mass inflates term-\dkl{} mechanically. Theme count is a
-partition dial, not a coverage dial --- a crypto/blockchain theme exists
-at $T = 200$ but not at $T = 50$ or $T = 500$, because raising $T$
-re-partitions the fixed vocabulary along dominant axes --- so resolution
-sweeps test granularity, not coverage, and the invisible-share split is
-the test that binds.
+One rescue for the signed signal must be ruled out. The theme model's
+vocabulary is built from a sample, so rare and emergent terms are
+invisible to it; if the firm signal lived exactly in those terms, theme
+scoring would be erasing a real signal rather than an artifact. To test
+this, each filing's share of vocabulary invisible to the theme model is
+computed --- 63.8\% of the software class's term \emph{types}, though
+only about 9\% of its token \emph{mass}. That share is itself a strong
+firm marker: P(EDGAR) runs from 2.9\% to 5.5\% across its quintiles, and
+survival at the five-year proof improves by $+5.7$pp. But \emph{within}
+strata of equal invisible share, the signed \dkl{} gradient on the firm
+outcome is flat to negative, while the mark-level penalty holds in both
+strata ($-6.9$ and $-8.3$pp). The firm-level signal that term scoring
+finds is unsigned specificity: serious firms describe specific products
+with specific, therefore rare, words, and rare-term mass inflates
+term-\dkl{} mechanically. Note that raising the theme count does not
+test this --- a crypto/blockchain theme exists at $T = 200$ but not at
+$T = 50$ or $T = 500$, because raising $T$ re-partitions the same fixed
+vocabulary rather than extending it --- so resolution sweeps test
+granularity, not coverage, and the invisible-share split is the test
+that settles the question.
 
-The registration filter does not explain the divergence. Dropping the
-registration conditioning leaves the term-level listing gradient
+The registration filter does not explain the divergence either. Dropping
+the registration conditioning leaves the term-level listing gradient
 essentially unchanged (0.26\% to 0.38\% across quintiles against 0.29\%
 to 0.42\% conditional), and an examiner channel touching 4.3\% of failed
 applications cannot generate several-point quintile gaps.
 
-Term-resolved text-novelty measures can therefore manufacture
-firm-performance correlations from drafting style and lexical specificity,
-and a distribution-based rescoring is a cheap, decisive diagnostic.
-
+The hazard, stated for reuse: term-resolved text-novelty measures can
+manufacture firm-performance correlations out of drafting style and
+lexical specificity, and a distribution-based rescoring --- one model
+fit --- is a cheap, decisive diagnostic.

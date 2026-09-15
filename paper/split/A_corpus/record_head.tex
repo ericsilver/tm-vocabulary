@@ -6,11 +6,12 @@ The USPTO Trademark Annual Applications backfile (product TRTYRAP) is the
 complete record of US trademark filings from 1884 onward: 13.99 million
 case files, each carrying the goods/services description by class, the
 prosecution history, and the ownership and correspondence records. The
-prosecution history is a list of coded events with dates. This paper
-re-parses every case file into 242 million dated events, keyed by serial
-number, so that for each application the sequence of office actions,
-responses, allowances, statements of use, registration, Section~8 and
-Section~9 filings, cancellations and renewals is available with its
+prosecution history is a list of coded events with dates. We
+re-parse every case file into 242 million dated events, keyed by serial
+number. For each application, the full sequence is then available: office
+actions, responses, allowances, statements of use,
+registration, Section~8 and Section~9 filings, cancellations and
+renewals, each with its
 date.\footnote{Event codes are read against the USPTO's own event-code
 dictionary. Terminal status codes are retained for cross-checking: 700
 registered; 701--705 Section~8 accepted; 710 cancelled for Section~8
@@ -26,6 +27,7 @@ stripped of punctuation and of two dozen legal suffixes --- so that
 \citet{Graham2013} describe the administrative data; the event-dated
 parse adds the full prosecution timeline of each case.
 
-Response latency in prosecution is a by-product of the parse and is
-retained as a health indicator: the median days from an office action to
-the applicant's response, per filing.
+The parse also yields, for each filing, the median number of days the
+applicant took to answer an office action. We retain this response
+latency as an indicator of how attentively an application was
+prosecuted.

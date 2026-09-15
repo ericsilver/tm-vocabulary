@@ -1,71 +1,84 @@
 \section{Introduction}\label{sec:intro}
 
 A US trademark application carries a description of the goods or services
-the mark will cover. It is written to secure scope of protection, it is
-dated, it is public, and it is filed by the millions of firms that never
-patent. The literature that reads trademarks as innovation data has used
-the filing's count, its class, its breadth and its renewal
-\citep{Castaldi2020, Flikkema2019, Dinlersoz2018}; the description itself
-has entered only piecemeal, as breadth counts or similarity scores. This
-paper builds two research assets on the description and on the
-prosecution record that surrounds it, states what each can and cannot
+the mark will cover. That description is written to secure scope of
+protection, it is dated, it is public, and it is filed by the millions of
+firms that never patent. The literature that reads trademarks as
+innovation data has worked mostly from what surrounds the description:
+how many marks a firm files, in which classes, how broadly, and whether
+it renews them \citep{Castaldi2020, Flikkema2019, Dinlersoz2018}. The
+text itself has entered only piecemeal, as breadth counts or similarity
+scores. This paper builds two research assets from the description and
+the prosecution record around it, states what each can and cannot
 support, and makes both public.
 
 The first asset is a corpus. The USPTO publishes every application since
-1884 with its prosecution history, and terminal status codes are what the
-literature has read from it. Status codes conflate events that the
-maintenance schedule keeps apart: a registration cancelled for failing the
-year-six proof of continued use and one cancelled at the year-ten renewal
-share a code. Re-parsing all 13.99 million case files into 242 million
-dated events assigns each cancellation to the proof it failed by its date,
-and records for each filing the office actions, the responses and their
-latency, counsel of record, the statutory filing basis, and the owner's
-domicile. The five-year proof of continued use thereby becomes a dated,
-sworn, product-level survival record available for every registered mark
-more than seven years old. Owners are linked by normalized name to SEC
-reporting, to Regulation~D rounds, and to PatentsView patent assignees.
+1884 with its full prosecution history, but the literature has mostly
+read one field from it: the terminal status code. Status codes run
+together events that the maintenance schedule keeps apart. Between the
+fifth and sixth year after registration, an owner must file a sworn
+declaration that the mark is still in use in commerce, and must renew
+again at year ten; a registration whose owner does neither is cancelled,
+and both cancellations share a status code. We re-parse all 13.99 million
+case files into 242 million dated events, so each cancellation carries
+its date and the record shows which deadline the mark failed. A mark that
+lapsed at the year-six proof and one that lapsed at the year-ten renewal
+can now be told apart, which brackets, within a five-year span, when the
+goods behind a registered mark stopped being sold. The five-year proof of
+continued use thereby becomes a dated, sworn, product-level survival
+record, available for every registered mark more than seven years old.
+The same parse records, for each filing, the office actions and the
+responses to them, their latency, the counsel of record, the statutory
+filing basis, and the owner's domicile. Owners are linked by normalized
+name to SEC reporting, to Regulation~D fundraising rounds, and to
+PatentsView patent assignees.
 
-The second asset is a measure. Each description is reduced to themes by a
-topic model fitted once over the whole corpus, and its theme mix is
-compared, by Kullback--Leibler divergence, to what its own Nice class
-filed in the five years before and the five years after its date. The
-average of the two divergences is the filing's \emph{atypicality}, how
-unusual its language is for its industry; their difference is its
-\emph{lead}, whether its language sat ahead of or behind where the
-industry's language was moving. The two-sided reference is what separates
-\emph{unusual} from \emph{early}, and the two components predict
-different things.
+The second asset is a measure. A topic model fitted once over the whole
+corpus reduces each description to a mix of themes---whether the filing
+describes an online offering, say, or an artificial-intelligence
+application---and we compare each filing's theme mix, by
+Kullback--Leibler divergence, with what its own Nice class filed in the
+five years before its date and in the five years after. The two
+comparisons answer different questions. Their average is the filing's
+\emph{atypicality}: how unusual its language is for its industry, in
+either direction. Their difference is its \emph{lead}: whether its
+language sat ahead of or behind where the industry's language was moving.
+Looking both backward and forward is what separates \emph{unusual} from
+\emph{early}, and the two components turn out to predict different
+things.
 
-The measure is validated by variation rather than by a single fit. The
+We validate the measure by variation rather than by a single fit. The
 identical filings are rescored under three partitions of the vocabulary
-(fifty global themes, five hundred, fifty fitted per class), two
-reference weightings, five window constructions, a second model seed at
-fixed resolution, and with and without the 47\% of registrations whose
-text is shared verbatim with another filing. Lead survives every
-variation and predicts failure at the five-year proof: $+2.3$, $+2.6$ and
-$+1.9$ points from the most lagging to the most leading fifth under the
-three partitions, $+1.4$ points with class-by-cohort fixed effects,
-drafting and filer controls and owner-clustered errors ($t = 8.3$).
-Atypicality does not: its protective effect at the proof falls from $4.4$
+(fifty themes fitted globally, five hundred, fifty fitted separately per
+class), two reference weightings, five window constructions, a second
+model seed at fixed resolution, and with and without the 47\% of
+registrations whose text is shared verbatim with another filing. Lead
+survives every variation, and it predicts failure at the five-year proof:
+the most leading fifth of registrations fails $+2.3$, $+2.6$ and $+1.9$
+points more often than the most lagging fifth under the three partitions,
+and $+1.4$ points with class-by-cohort fixed effects, drafting and filer
+controls and owner-clustered errors ($t = 8.3$). Atypicality does not
+survive: its apparently protective effect at the proof falls from $4.4$
 points under global themes to $0.7$ under per-class themes, because a
 global model reads a theme imported from another class as atypical, and
-its sign at the SEC-reporting margin depends on how description length is
+its sign at the SEC-reporting margin flips with how description length is
 held.
 
-Two hazards follow for any research that scores trademark text, and both
-are documented on identical samples. Scoring words rather than theme
-distributions measures description length: the divergence decomposes into
-a surprise term and a spread term, the spread term is bounded by the
-filing's distinct-term count, and term-scored atypicality correlates with
-log distinct terms at $-0.68$. Firm-level correlations built on word
-scoring, which are the kind the literature reports, dissolve or reverse
-under theme scoring on the same firms; the signal they carry is unsigned
-lexical specificity, not vocabulary position. A third caution concerns
-the sample rather than the score: applicants who refile an abandoned
-application rewrite toward their class's typical language from both
-tails, so every registered description is in part a conformed one, and
-pooling granted with abandoned filings mixes the examiner's selection
-with the market's.
+Two hazards follow for any research that scores trademark text, and we
+document both on identical samples. The first is that scoring words
+rather than theme distributions measures description length. The
+divergence decomposes into a surprise term and a spread term, the spread
+term is bounded by how many distinct terms the filing uses, and
+term-scored atypicality correlates with log distinct terms at $-0.68$.
+The second is that firm-level correlations built on word scoring, which
+are the kind the literature reports, dissolve or reverse under theme
+scoring on the same firms; what they carry is unsigned lexical
+specificity, not vocabulary position. A third caution concerns the sample
+rather than the score: applicants who refile an abandoned application
+rewrite it toward their class's typical language from both tails, so
+every registered description is in part a conformed one, and pooling
+granted with abandoned filings mixes the examiner's selection with the
+market's.
 
 What the measure predicts about pioneering, about industry waves, and
 about which firms reach the capital markets is the subject of a companion

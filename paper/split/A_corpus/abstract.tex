@@ -1,32 +1,41 @@
 \begin{abstract}
-\noindent All 13.99 million USPTO trademark case files since 1884 are
-re-parsed into 242 million dated prosecution events, so that every mark
-can be followed from filing through examination, registration, the sworn
-five-year proof of continued use, and the year-ten renewal, with counsel
-of record, filing basis and owner domicile read from the record, and
-owners linked by name to SEC reporting, Form~D rounds and PatentsView
-assignees. Event dating separates the year-six use proof from the
-year-ten renewal, which terminal status codes conflate, and makes the
-proof a dated, product-level survival outcome available for every
-registered mark. On this corpus a two-sided measure of vocabulary
-position is built. Each goods/services description is reduced to themes
-by a topic model fitted once over the corpus, and its theme mix is
-compared, by Kullback--Leibler divergence, to its own Nice class in the
-five years before and the five years after filing. The average of the two
-divergences is atypicality; their difference is lead. The measure is
-validated on identical filings under three partitions of the vocabulary,
-two reference weightings, five window constructions, a second model seed,
-and the text duplication that pervades a boilerplate-heavy corpus. Lead is
-robust to all of them and predicts cancellation for non-use at the
-five-year proof ($+2.3$, $+2.6$ and $+1.9$ points under the three
-partitions; $+1.4$ with design controls, $t = 8.3$). Atypicality is not:
-its apparent effects belong to the partition or to a control. Two hazards
-for trademark-text research are documented. Scoring words rather than
-theme distributions measures description length ($r = -0.68$ with log
-distinct terms), and firm-level correlations built on word scoring
-dissolve or reverse under theme scoring on identical samples. Within
-firm, the measure is orthogonal to patenting. The corpus, the scores, the
-code, and an interactive per-class appendix are public.
+\noindent The USPTO publishes every US trademark application filed since
+1884, together with the history of what happened to it. We re-parse all
+13.99 million of these case files into 242 million dated events, so that
+every mark can be followed step by step from filing through examination,
+registration, the sworn five-year proof of continued use, and the
+year-ten renewal, with counsel of record, filing basis and owner domicile
+read from the record, and owners linked by name to SEC reporting,
+Form~D fundraising rounds and patent assignees. The dates matter because
+the USPTO's terminal status codes run the maintenance deadlines together:
+a registration cancelled for missing the year-six proof of use and one
+cancelled at the year-ten renewal share a code. Once each cancellation is
+dated, the record shows which deadline a lapsed mark failed, and the
+five-year proof becomes something the literature has not had: a dated,
+product-level record of whether the goods behind a registered mark were
+still being sold. On this corpus we build a measure of where a filing's
+language sits relative to its industry. A topic model reduces each
+goods/services description to a mix of themes---an online offering, say,
+or an artificial-intelligence application---and we compare that mix, by
+Kullback--Leibler divergence, with what the filing's own Nice class filed
+in the five years before its date and in the five years after. The
+average of the two comparisons is the filing's \emph{atypicality}: how
+unusual its language is for its industry. Their difference is its
+\emph{lead}: whether its language ran ahead of or behind where the
+industry's language was moving. We validate the measure by rescoring
+identical filings under three partitions of the vocabulary, two reference
+weightings, five window constructions, a second model seed, and with the
+pervasive verbatim text duplication removed. Lead survives every
+variation and predicts cancellation for non-use at the five-year proof
+($+2.3$, $+2.6$ and $+1.9$ points under the three partitions; $+1.4$ with
+design controls, $t = 8.3$). Atypicality does not: its apparent effects
+belong to the partition or to a control. We document two hazards for
+trademark-text research---scoring words rather than themes measures
+description length ($r = -0.68$ with log distinct terms), and firm-level
+correlations built on word scoring dissolve or reverse under theme
+scoring on identical samples. Within firm, the measure is orthogonal to
+patenting. The corpus, the scores, the code, and an interactive per-class
+appendix are public.
 
 \medskip
 \noindent\emph{Keywords:} trademarks; administrative data; text as data;
