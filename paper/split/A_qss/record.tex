@@ -1,0 +1,119 @@
+\section{The record: from case files to dated events}\label{sec:record}
+
+\subsection{Corpus and parse}
+
+The USPTO Trademark Annual Applications backfile (product TRTYRAP) is the
+complete record of US trademark filings from 1884 onward: 13.99 million
+case files, each carrying the goods/services description by class, the
+prosecution history, and the ownership and correspondence records. The
+prosecution history is a list of coded events with dates. We re-parse
+every case file into 242 million dated events, keyed by serial number,
+so that each application's full sequence is available: office actions,
+responses, allowances, statements of use, registration, Section~8 and
+Section~9 filings, cancellations and renewals, each with its
+date.\footnote{Event codes are read against the USPTO's own event-code
+dictionary. Terminal status codes are retained for cross-checking: 700
+registered; 701--705 Section~8 accepted; 710 cancelled for Section~8
+failure; 800 renewed; 900 expired. The year-six cancellation and the
+year-ten cancellation share status 710 and are separable only by event
+date, which is the reason the corpus is event-dated.} The parse also
+reads counsel of record on each filing, the statutory filing basis (use,
+intent to use, \S44(e) home registration, \S66(a) Madrid extension), the
+owner's domicile, and the owner name, which is normalized ---
+uppercased, stripped of punctuation and of two dozen legal suffixes ---
+so that \textsc{acme corp.} and \textsc{acme corporation} are one owner.
+\citet{Graham2013} describe the administrative data; the event-dated
+parse adds the full prosecution timeline of each case.
+
+\subsection{The steps, the samples, and the conventions}\label{sec:gates}
+
+A US trademark passes through a sequence of dated, high-stakes steps.
+An application is filed with a goods/services description. An examiner
+reviews it, often issuing office actions that the applicant must answer.
+If the examiner allows the application --- and, for intent-to-use
+filings, once the applicant files a sworn statement that the mark has
+entered commerce --- the mark registers. Registration then starts a
+maintenance clock. In years five to six the owner must file a Section~8
+declaration swearing that the mark is still in use in commerce, with a
+six-month grace period; this is the \emph{five-year proof of continued
+use}, the paper's central outcome. Around year ten a combined Section~8
+declaration and Section~9 renewal is due, and again every ten years
+after that. A mark whose owner misses a proof is cancelled. Madrid
+Protocol registrations (\S66(a) basis) file Section~71 declarations on
+the same schedule and are flagged separately throughout.
+
+\begin{table}[h]\centering\small
+\caption{The trademark funnel in this corpus. Registration counts are
+unique serials; five-year-proof outcomes are event-dated (a Section~8
+cancellation at registration age 4.0--8.5 years). Source: the re-parsed
+USPTO application backfile.}
+\label{tab:funnel}
+\begin{tabular}{lrr}
+\toprule
+Stage & $n$ & Share \\
+\midrule
+Debut filings scored, 1995--2018 (owners' first filings) & 3{,}589{,}068 & \\
+\quad reached registration & 2{,}066{,}600 & 57.6\% \\
+\midrule
+All unregistered class-records filed 1995--2018 & 3{,}798{,}318 & \\
+\quad never filed statement of use & & 42.6\% \\
+\quad stopped responding in prosecution & & 45.3\% \\
+\quad removed adversarially & & 4.3\% \\
+\midrule
+Registrations 2002--2018, scored, unique serials & 3{,}104{,}534 & \\
+\quad failed the five-year proof of continued use (event-dated) & & 52.3\% \\
+\midrule
+Passed the five-year proof, cohorts 2002--2013, status known & 1{,}129{,}724 & \\
+\quad failed at the year-ten renewal & & 39.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three named outcomes recur (Table~\ref{tab:funnel}). \emph{Failing to
+register}: the application never completed, which happens by the
+applicant's own inaction in roughly nine cases of ten. \emph{Failing the
+five-year proof of continued use}: a registration cancelled for non-use
+at registration age 4.0 to 8.5 years, which means the product the mark
+named left commerce within six years. \emph{Reaching the SEC record}:
+the owner appears in dated SEC events.
+
+Outcomes are rates, so every estimate is a shift in a probability and is
+stated in percentage points against the base rate it shifts. The basic
+comparison is the outcome rate of the fifth of filings with the highest
+lead minus that of the fifth with the lowest, with the fifths cut inside
+a single Nice class and year so that no difference between industries or
+between years enters; regression tables add drafting and filer controls
+and cluster errors on the owner. A filing may claim several Nice classes
+at once, so a \emph{class-record} counts it once per class while a
+\emph{registration} counts it once by serial number; a \emph{debut
+filing} is an owner's first; a \emph{cohort} is the set of registrations
+issued in a calendar year.
+
+Two windows bound the samples, each set by an institutional fact.
+Scoring runs 1995--2019, because a filing can only be scored when the
+record holds a full five years of its class's language on either side of
+its date; the 1995 start is about two years more conservative than the
+measured burn-in requires (Supplementary Material, \S S3). Five-year-proof
+cohorts run 2002--2018: cancellations post at about registration age six
+and a half, and the record ends in April 2026, so 2018 is the last
+cohort old enough for its proof window to have essentially elapsed.
+
+\subsection{Owner links}\label{sec:links}
+
+Owners are matched to three external records by normalized exact name.
+\emph{SEC reporting} is any appearance of the owner as a registrant in
+the Commission's EDGAR filer index; roughly half the matched firms carry
+a ticker and the rest report for other reasons. \emph{Regulation~D}
+rounds are Form~D notices of exempt offerings, electronic and therefore
+complete only from March 2009. \emph{Patents} are PatentsView assignee
+records \citep{PatentsView}. The SEC match runs over all 5.67 million
+owners in the corpus; names resolving to more than one registrant are
+dropped rather than assigned, yielding 19{,}889 matched owners covering
+7{,}588 registrants. Validation on 22 companies that indisputably went
+public matches all 22, and a hand inspection of 25 random matches found
+none wrong --- a check on gross failure modes rather than a precision
+estimate. The linkage is nonetheless a name match, and that bounds what
+can be read from it: distinctive names are easier to match, and
+distinctiveness of a name plausibly travels with distinctiveness of the
+text. Section~\ref{sec:validation} returns to which results survive
+that bound.

@@ -1,0 +1,42 @@
+\section{Robustness: what changes under other choices}\label{sec:robust}
+
+Each result above is stated under one formulation chosen for legibility:
+fifty global themes, flat weighting inside the reference windows,
+symmetric five-year windows, estimates conditional on grant, and the
+2002--2018 cohorts. Table~\ref{tab:robust} summarizes what each choice
+costs; the supplementary material (\S S4) carries the full treatment,
+each variation on identical samples.
+
+\begin{table}[h]\centering\small
+\caption{Robustness summary. Baseline: five-year-proof contrast
+$+2.29$pp on lead and $-4.39$pp on atypicality (FE only, quintiles
+within class$\times$registration year, Table~\ref{tab:gate_lpm}).
+Details and further variations in Supplementary Material \S S4.}
+\label{tab:robust}
+\begin{tabular}{p{5.6cm}p{7.6cm}}
+\toprule
+Variation & Result \\
+\midrule
+Reference weighting (flat vs.\ 2-year half-life) & Nearly a restatement: lead correlates $0.98$ across builds, atypicality $1.000$; contrast $+2.29 \to +1.95$pp. \\
+Theme resolution ($T = 50, 100, 200, 500$) & Sign and significance untouched; magnitude moves non-monotonically within a band that a second fit at fixed $T$ (different seed only) reproduces --- most apparent resolution sensitivity is fitting noise, which attenuates estimates toward zero. \\
+Representation (themes vs.\ terms) & Lead contrast $+2.29 \to +3.56$pp; the headline representation is the conservative one. Firm-level results diverge (Section~\ref{sec:hazard}). \\
+Window width (2--7 years, software class) & Signal rises to five years, flat five to seven; five is defensible rather than optimal. \\
+Asymmetric windows (foresight $3{,}7$ to rupture $7{,}3$) & Penalty rises monotonically $+1.65 \to +3.00$pp; the proof punishes rupture more than foresight, a difference of degree. \\
+Duplicate text (47\% of registrations) excluded & Both gradients strengthen: lead $+2.29 \to +3.05$, atypicality $-4.39 \to -5.68$pp. Identical texts cluster at the typical end and dilute; they create nothing. \\
+Without conditioning on grant & The composite is nearly flat because two opposed gradients cancel: registration rises in lead while proof survival falls. Conditioning is what separates them. \\
+Cohort halves & The lead penalty belongs to the 2010--2018 cohorts; 2002--2009 carries a third of it (the era swing, companion paper). \\
+Functional form (AIC over four shapes) & Atypicality profiles are genuine humps; lead profiles are Vs --- linear in distance from a vertex near zero --- and the SEC-reporting U survives decomposition into an atypicality-composition half and a symmetric $|L|$ half, with a small negative tilt. \\
+Owner clustering & Within-owner outcome correlation is $0.38$ (mechanically $1.0$ for listing); regression tables cluster on owner, raw two-sample $t$-statistics overstate precision roughly twofold. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two findings from the sweep bear on any reuse of the measure. First,
+because a single fit's lead score carries measurement error of roughly a
+fifth of its variance, every coefficient on lead is attenuated toward
+zero; correcting for it would enlarge the estimates, not shrink them.
+Second, lead is a small residual of two large, highly correlated levels
+($r = 0.988$), which is what makes it sensitive to anything that
+inflates the levels --- under term scoring, document length --- and is
+why the theme representation, where the level spread is stable, is the
+one on which a unit of lead means the same thing everywhere.

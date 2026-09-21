@@ -1,0 +1,73 @@
+\subsection{Examination rewards a middling specificity}\label{app:registration}
+
+Across 3.59 million debut filings (57.6\% base rate), completion is an
+inverse-U in \emph{atypicality}: it climbs from 46.6\% at the least atypical
+end to about 58\% in the middle and falls back to 53.4\% at the most atypical
+(Figure~\ref{fig:profiles}, panel C). The same shape appears on the
+past-facing level alone, more mildly, running 54.0\% at the bottom quintile to
+58.4--59.1\% in the middle and 57.7\% at the top (Figure~\ref{fig:outcomes}A).
+
+The signed axis behaves differently. Completion on $L$ falls to a trough of
+51.9\% just above the median and then rises steadily to 58.0\% at the leading
+end. That trough is composition rather than timing. Lead magnitude
+correlates with atypicality at $+0.31$, so the filings near zero lead are
+disproportionately the low-atypicality filings, and those complete poorly
+for the reason above. Splitting by atypicality confirms it: the trough is
+absent in the upper three fifths and survives only in the lowest. The
+signed axis still enters a linear specification strongly
+(harmonized estimates in the companion paper), but monotonically rather than through an interior
+peak: what curvature exists at registration belongs to how far a filing's
+language sits from its category, not to which side of it the filing sat.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/debut_outcome_topic.png}
+\caption{Outcomes for debut filings (owner's first-ever filing) across all
+45 Nice classes under theme scoring, filing years 1995--2018, in quantile
+bins with 95\% intervals, quantiles cut on the pooled distribution.
+$n = 3{,}589{,}068$; registered subset $n = 2{,}066{,}600$. \emph{A:}
+P(reached registration). \emph{B:} P(owner ever in SEC EDGAR, the
+Commission's public filing system $\mid$ registration).}
+\label{fig:outcomes}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\textwidth]{results/quintile_profiles.png}
+\caption{Quintile profiles for the three outcomes. \emph{A:} the share of
+registrations failing the five-year proof of continued use, by lead
+quintile, adjusted within Nice class and registration year with the
+drafting and filer controls of Table~\ref{tab:gate_lpm}; the dashed line
+is the rate for all registrations. The profile rises gently and
+monotonically through the fourth quintile and then steps up: about seven
+tenths of the top-to-bottom gap is the single step from the fourth
+quintile to the fifth, seven times the average step below it. \emph{B:}
+the share of first-time filers whose owner ever reaches SEC reporting, by
+quintile of atypicality and of lead, adjusted within Nice class and filing
+year with description length held. \emph{C:} raw registration rates for
+debut filings in twenty bins, cut on the pooled distribution --- an
+inverse-U on atypicality, and on lead a trough just above the median that
+is compositional, absent once atypicality is held in its middle fifth
+(dashed). Horizontal line at the pooled rate.}
+\label{fig:profiles}
+\end{figure}
+
+\begin{figure}[h]\centering
+\includegraphics[width=0.9\textwidth]{results/fig_registration_sankey.png}
+\caption{The registration step as a flow, unique serials filed 1995--2018
+($n = 6{,}877{,}795$), split by counsel of record on the filing.
+Represented applications reach registration at 61.9\%, self-filed at
+45.6\%.}
+\label{fig:sankey}
+\end{figure}
+
+The obvious objection is that unfamiliar language is simply refused more
+often, so the measure recovers nothing beyond familiarity. Completion falls at
+\emph{both} ends, so the most category-typical filings also complete less than
+the middle, which familiarity cannot explain; and the curvature is specific to
+the unsigned axis, the signed axis showing no interior peak at all.
+
+Refiling after abandonment is itself mildly related to vocabulary position,
+though not on the axis that matters here. Refiling rates are flat in
+atypicality (a middle-minus-tails difference of $-0.06$pp on a 3.6\% base) but
+rise with lead, from 2.6\% among the most lagging abandoned applications to
+3.4\% among the most leading.
+

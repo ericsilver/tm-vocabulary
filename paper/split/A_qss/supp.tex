@@ -1,0 +1,45 @@
+% Supplementary material for the QSS submission. Builds against main.aux
+% via xr; sections numbered S1..S4. Reuses A_corpus files where whole
+% files were demoted, and supp_*.tex extracts where subsections were.
+\input{../../v3_rp/preamble}
+\usepackage{xr}
+\externaldocument{main}
+\newcommand{\onlineappendixnote}{\url{https://aporia.institute/tm-vocabulary/online-appendix/themes_T50.html}}
+\graphicspath{{../../}}
+\makeatletter\def\input@path{{./}{../A_corpus/}{../../}{../../v3_rp/}}\makeatother
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\title{\bfseries Supplementary Material\\
+\large An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided
+Measure of Vocabulary Position}
+\author{Eric Silver}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\noindent This supplement carries the material the article summarizes:
+registration-step detail (\S S1), the term-versus-theme representation
+comparison (\S S2), the burn-in profile (\S S3), and the full robustness
+treatment (\S S4). Numbered references to sections, tables and figures
+without an S prefix point into the article.
+
+\section{Registration detail}\label{ssec:registration}
+\input{supp_registration}
+\input{gen_record_representation}
+\input{gen_record_refile}
+
+\section{Representation: what terms resolve and themes do not}\label{ssec:representation}
+\input{supp_representation}
+\subsection{Arrangement channels: pair lead and recombination}
+\input{supp_pairs}
+
+\section{Burn-in}\label{ssec:burnin}
+\input{supp_burnin}
+
+% gen_robust supplies its own \section, which numbers itself S4 here.
+\input{gen_robust}
+
+\input{../../v3_rp/bibliography_rp}
+\end{document}

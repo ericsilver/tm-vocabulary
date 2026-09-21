@@ -1,0 +1,187 @@
+\section{The measure}\label{sec:measure}\label{sec:construct}
+
+\subsection{Two readers, one living backwards}
+
+Imagine two readers of a filing's goods/services description, each having
+seen a disjoint half of its industry. One has read only what the industry
+filed in the five years before it. The other, living backwards as Merlin
+was said to, has read only the five years after. Each is asked how
+surprising the wording is. The measurement is how much they disagree: a
+description that startles the first reader and not the second arrived
+before its industry's language moved that way.
+
+Both windows are anchored on the filing's own date, spanning the 1,826
+days before it and the 1,826 days after; both exclude the filing date
+itself, and inside a window every day counts the same. The measure asks
+whether wording is unusual against a period, not whether it is ahead of
+a trend inside that period; it has no momentum channel.
+
+\subsection{What is measured}
+
+The quantity is information content in Shannon's sense. Something that
+happens with probability $p$ carries $\log(1/p)$ of information when it
+happens: a common thing carries little, a rare thing a lot. Here the
+things are the themes a description draws on, and the probabilities are
+how often the filing's own industry drew on each of them in the
+reference window. A filing's score asks, in effect: how surprising is
+this mix of themes to someone who has only seen what the industry files?
+
+The apparatus is that of \citet{Murdock2017}, developed on Darwin's
+reading notebooks, and \citet{Barron2018}, who extended it to French
+Revolution parliamentary debates; they call the two quantities
+\emph{novelty} and \emph{transience} and their signed difference
+\emph{resonance}. The arithmetic carries over unchanged; the
+interpretation does not, and Section~\ref{sec:related} renames the
+quantities for a commercial record in which the author is usually
+counsel. One usage note carries through everywhere: in those settings
+latent Dirichlet allocation identifies \emph{topics} --- what a document
+is about. A goods/services description is not about anything in that
+sense; it lists components, and across millions of filers a cluster of
+co-occurring terms (\emph{video, music, games, electronic, audio}) is a
+component many offerings share. \emph{Theme} is the word used
+throughout; \emph{topic} appears only in the model's name.
+
+\subsection{From a description to two numbers}\label{sec:definitions}
+
+\paragraph{Counting words.} A description is reduced to a bag of words:
+lowercased, split into tokens of three or more letters, and counted,
+with adjacent pairs counted as tokens in their own right so that
+\emph{computer software} registers alongside \emph{computer} and
+\emph{software}. Take the filing for \textsc{Amazon.com}, lodged in the
+advertising and retail class on 18 April 1997:
+
+\begin{quote}\small
+computerized on line search and ordering service featuring the wholesale
+and retail distribution of books, music, motion pictures, multimedia
+products and computer software in the form of printed books,
+audiocassettes, videocassettes, compact disks, floppy disks, CD ROMs,
+and direct digital transmission
+\end{quote}
+
+\noindent Of its 45 distinct terms, 36 are in the theme model's
+vocabulary, among them \emph{computerized}, \emph{search},
+\emph{ordering service}, \emph{retail} and \emph{digital transmission}.
+
+\paragraph{Grouping words into themes.} Each filing is then re-described
+in a fixed, much smaller set of coordinates. We run latent Dirichlet
+allocation once over a stratified sample of the whole corpus, all 45
+classes together. The model develops a list of 50 themes --- clusters of
+words that tend to occur together --- and infers, for any filing, to
+what degree its description invokes each one. Nothing supervises this,
+and a theme is read off from its leading words: one collects the
+vocabulary of media and entertainment goods, another retail store
+services, another downloadable and online software. This build --- fifty
+global themes, per-filing five-year windows, flat weighting --- is the
+production scoring, used for every estimate unless the text states
+another. The themes are shared across classes; what is specific to a
+class is the reference, the average theme proportions of that class's
+own filings in the window. The Amazon filing draws on six themes at more
+than a twentieth of its weight: $0.41$ on media and entertainment goods,
+$0.15$ on computer and information services, $0.13$ on retail store
+services, $0.10$ on printed matter, $0.09$ on downloadable and online
+software, and $0.07$ on marketing of consumer goods. The online appendix
+lists every theme with its leading words and its weight in each
+class.\footnote{\onlineappendixnote} Fifty is coarse, roughly one theme
+per industry; Section~\ref{sec:three_scorings} refits at 500 themes and
+at 50 themes within each class, and the supplementary material carries a
+resolution sweep and a second fit at fixed resolution with a different
+seed.
+
+\paragraph{Comparing against the two references.} Write $P$ for the
+filing's distribution over themes, and $Q^{-}$ and $Q^{+}$ for that
+distribution averaged over every same-class filing in the two windows.
+How far $P$ sits from a reference $Q$ is the Kullback--Leibler
+divergence,
+\[
+  \mathrm{KL}(P \,\|\, Q) \;=\; \sum_{k} P_k \log \frac{P_k}{Q_k},
+\]
+zero when the two distributions agree and growing as the filing puts
+weight where the industry puts little, measured in nats. Write
+$K^{-} = \mathrm{KL}(P \,\|\, Q^{-})$ and
+$K^{+} = \mathrm{KL}(P \,\|\, Q^{+})$: the filing's past-facing and
+future-facing surprise, what the first reader feels and the second.
+
+\paragraph{Taking the difference.} Amazon's filing is scored against
+41{,}166 earlier filings and 146{,}532 later ones, giving
+$K^{-} = 1.286$ and $K^{+} = 1.163$. The two axes used throughout are
+their average and their signed difference:
+\[
+  \underbrace{A \;=\; \tfrac{1}{2}\left(K^{-} + K^{+}\right)}_{\text{atypicality}},
+  \qquad
+  \underbrace{L \;=\; K^{-} - K^{+}}_{\text{lead}} .
+\]
+For Amazon, $A = 1.225$ and $L = +0.123$: against its own class, its
+atypicality is at the 47th percentile and its lead at the 94th. The
+industry moved toward this description in the five years after it was
+filed and had not been writing that way in the five years before; the
+three themes that carry most of its description all became more common
+in the class over the following five years.
+
+Why the average and the difference, rather than the two surprises
+themselves? Because $K^{-}$ and $K^{+}$ correlate at $0.988$: a filing
+far from its class's past is almost always far from its future too, so
+entering both is close to entering one variable twice. The average
+collects that large shared component and the difference collects the
+small residual that carries the timing; nothing more than a sum and a
+difference is taken, with no weights estimated, and the two resulting
+regressors are nearly uncorrelated ($+0.036$). The cost is that $L$ is a
+small residual of two large quantities, about a sixth of either level's
+spread, which the supplementary material quantifies.
+
+\paragraph{Why the words are not scored directly.} The words themselves
+could be compared to the reference, and the paper reports that scoring
+as a cross-check. It cannot be the primary one, because a divergence
+measured on words mostly counts the length of the filing. For any two
+distributions,
+\[
+  \mathrm{KL}(P \,\|\, Q) \;=\; \underbrace{-\textstyle\sum_k P_k \log Q_k}_{\text{how unexpected these words are}}
+  \;-\; \underbrace{\left(-\textstyle\sum_k P_k \log P_k\right)}_{\text{how spread out the filing is}} ,
+\]
+and the spread of a filing over words is bounded by its distinct-term
+count: a description using $k$ terms cannot spread past $\log k$, while
+the reference spreads over about 900 terms. A five-word description is
+charged roughly five nats of width before any content is considered. In
+3{,}000 long software-class filings cut down to random handfuls of words
+and rescored, a fiftyfold cut in length moves the surprise term by
+$0.016$ nats and the spread term by $2.9$: the score change is the
+length, not the content. Term-scored atypicality correlates with log
+distinct terms at $-0.68$ in the software class. Themes break the
+coupling because the 50 coordinates are always occupied; theme-scored
+atypicality correlates with log term count at $-0.22$ there, and
+$-0.10$ in advertising and retail. What term scoring alone resolves is
+novel word \emph{combinations} --- of Amazon's inventive bigrams,
+nothing survives into any theme basis --- so theme scoring carries every
+estimate and term scoring every worked example (Supplementary Material,
+\S S2, traces three filings through both representations).
+
+\paragraph{What the themes see, and what they do not.} The score reads
+which themes a filing draws on and how heavily, not how it combines
+them: on a 150{,}000-filing software-class sample, the rarity of a
+filing's two leading themes explains 70\% of the variance in
+atypicality and the unusualness of the pairing adds under two points. A
+filing assembled from ordinary parts in a genuinely new configuration is
+close to invisible to this measure. Scoring arrangements directly ---
+a pair-level lead, and word-level recombination in the sense of
+\citet{Fleming2001, Uzzi2013} --- shows the two channels acting in
+opposite directions in the software class and neither generalizing
+corpus-wide, so the construct's blindness to combination is a bounded
+omission rather than a hidden bias in one direction (construction and
+estimates in the supplementary material).
+
+\subsection{Within class, not across it}
+
+Goods/services descriptions are drafted to secure scope of protection,
+and counsel reuse language from the USPTO's own Acceptable
+Identification Manual, from house precedent, and from competitors'
+successful filings. Identical wording across unrelated firms is
+therefore common: 17\% of scored registrations share a value with
+another filing in their class and registration year. Within a class, the
+measure picks up departure from a shared drafting convention. Across
+classes it does not: a class where the Manual supplies dense standard
+language shows a compressed distribution of atypicality, and one where
+firms describe novel services in prose a wide one, for reasons unrelated
+to how innovative either industry is. Every estimate is therefore taken
+within class and year, and magnitudes compare across classes only as
+signs and orderings. The vocabulary is positional rather than causal: a
+leading filing was ahead of its industry's language, which implies a
+trajectory without asserting the filing caused it.
