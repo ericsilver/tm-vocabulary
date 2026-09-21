@@ -103,7 +103,7 @@ def main() -> int:
         ax.set_xticks(xs)
         ax.grid(alpha=0.3)
     axes[0].set_ylabel("% of class-records reaching registration")
-    axes[0].legend(fontsize=8, frameon=False, loc="lower center")
+    axes[1].legend(fontsize=8, frameon=False, loc="lower center")
     fig.tight_layout()
     fig.savefig(RES / "fig_registration_deciles.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
