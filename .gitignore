@@ -101,3 +101,5 @@ paper/results/theme_novelty_cache/
 # The IPO viewer data files are published site assets, not pipeline data.
 !docs/online-appendix/ipo-viewer/data/
 !docs/online-appendix/ipo-viewer/data/**
+paper/split/A_qss/build/
+paper/split/A_qss/A_qss_*_v2.pdf
