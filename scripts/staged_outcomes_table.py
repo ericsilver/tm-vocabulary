@@ -335,7 +335,7 @@ def main() -> int:
     (RES / "staged_outcomes.json").write_text(json.dumps(out, indent=1))
 
     rows = [s for s in stages if "skipped" not in s]
-    L = [r"\begin{table}[h]\centering\footnotesize",
+    L = [r"\begin{table}[!htbp]\centering\footnotesize",
          r"\caption{Every outcome in the funnel, conditioned on its prerequisite, "
          r"under one specification. Unit is the debut owner, scored on that owner's "
          r"first filing. Each row is a linear probability model with class$\times$"
