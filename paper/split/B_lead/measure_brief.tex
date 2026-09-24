@@ -38,7 +38,7 @@ surprise are the Kullback--Leibler divergences
 $K^{-} = \mathrm{KL}(P \,\|\, Q^{-})$ and
 $K^{+} = \mathrm{KL}(P \,\|\, Q^{+})$, in nats: zero when the filing's
 mix matches its class's, and larger the more weight the filing puts
-where the class puts little. The two axes used throughout are their
+where the class puts little. The two measures used throughout are their
 average and their signed difference:
 \[
   A \;=\; \tfrac{1}{2}\left(K^{-} + K^{+}\right) \quad\text{(atypicality)},
@@ -46,7 +46,30 @@ average and their signed difference:
   L \;=\; K^{-} - K^{+} \quad\text{(lead)} .
 \]
 A filing is \emph{leading} when $L > 0$: its language was closer to what
-the class wrote afterwards than to what it wrote before. The two
+the class wrote afterwards than to what it wrote before. Put plainly, a
+leading filing described its product in terms that more of its industry
+used after it: the kind of offering it named became more common among
+the firms that filed later. Lead can therefore also be read as how
+crowded a filing's idea became once it entered --- how much its
+competition grew beyond what it was when the firm filed.
+Figure~\ref{fig:crowding} shows that the reading holds in the data.
+Among the most leading fifth of registrations, 86\% named a kind of
+offering --- their description's main theme --- that became a larger
+share of their class's filings over the next five years; among the most
+lagging fifth, 15\% did.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=0.72\textwidth]{results/fig_lead_crowding.png}
+\caption{Lead read as crowding. For 511{,}946 registrations issued
+2002--2018 (a sample from every Nice class), the share whose main theme
+--- the theme their description draws on most heavily --- made up a
+larger share of their class's filings in the five years after the
+filing than in the five years before, by fifth of lead within class and
+registration year. The dashed line marks one half.}
+\label{fig:crowding}
+\end{figure}
+
+The two
 surprises correlate at $0.99$ --- a filing far from its class's past is
 almost always far from its future too --- so their average carries the
 large shared component, how far from the class the filing sits, and

@@ -316,8 +316,8 @@ def main() -> int:
               & base.reg_year.between(*GATE2_COHORTS)]
     add("Renewed at year ten", "passed the proof", g2, "passed_gate2")
     if funded_owners is not None:
-        add("Raised a Reg D round", "filed", base, "funded", years=(2009, 2018))
-        add("Raised a Reg D round", "registered",
+        add("Filed any Form D notice", "filed", base, "funded", years=(2009, 2018))
+        add("Filed any Form D notice", "registered",
             base[base.registered == 1], "funded", years=(2009, 2018))
         add("Listed after the round", "funded",
             base[base.funded == 1], "listed_after_funding", years=(2009, 2018))

@@ -181,7 +181,7 @@
     "n_cells": 450,
     "base_rate_pct": 2.376215306279332
    },
-   "stage": "Raised a Reg D round",
+   "stage": "Filed any Form D notice",
    "conditioned_on": "filed",
    "cohort": "2009--2018"
   },
@@ -224,7 +224,7 @@
     "n_cells": 450,
     "base_rate_pct": 2.454039945528824
    },
-   "stage": "Raised a Reg D round",
+   "stage": "Filed any Form D notice",
    "conditioned_on": "registered",
    "cohort": "2009--2018"
   },

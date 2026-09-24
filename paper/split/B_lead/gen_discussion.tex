@@ -1,64 +1,84 @@
-\section{Discussion: each axis bites at a different stage}\label{sec:discussion}
+\section{Discussion: unusual language and early language matter at different stages}\label{sec:discussion}
 
-Table~\ref{tab:staged} re-estimates every outcome on one harmonized
+Figure~\ref{fig:staged} re-estimates every outcome on one harmonized
 sample --- one row per debut owner, scored on that owner's first filing
---- under a single specification, so the coefficients can be read down a
-column. Magnitudes differ from the section-specific tables above.
+--- under a single specification with description length held, and puts
+the stages on a common scale: the change in each stage's rate, as a
+percentage of that rate, for a one-standard-deviation increase in lead
+or in atypicality. (The coefficients are tabulated in Supplementary
+Material \S S3; magnitudes differ from the section-specific estimates
+above.)
 
-\input{results/staged_outcomes_table.tex}
+\begin{figure}[!htbp]\centering
+\includegraphics[width=0.9\textwidth]{results/fig_staged.png}
+\caption{Every stage of the record under one specification. Each row is a
+linear probability model of the stage's outcome on standardized lead
+(red) and atypicality (blue), with log description length and
+class$\times$debut-year fixed effects, on the population in parentheses;
+one row per debut owner. Coefficients are expressed as a percentage of
+the stage's base rate; bars are 95\% intervals on heteroskedasticity-robust
+errors. The Form~D rows count a notice filed at any time, including
+before the owner's first trademark filing, unlike the post-debut round
+of Figure~\ref{fig:ladder}. The year-ten row is restricted to 2002--2013
+registrations and the Form~D rows to 2009--2018 debuts.}
+\label{fig:staged}
+\end{figure}
 
 Unusual language is penalized at registration and rewarded afterwards.
-With description length held, as it is throughout this table, atypical
-debut filings complete registration less often ($-0.98$pp per standard
-deviation) --- unlike the decile profile of
-Section~\ref{sec:reg_rates}, which does not hold length and rises ---
-then survive the five-year proof of continued use more often ($+1.31$pp)
-and reach SEC reporting slightly more often ($+0.017$pp on a 0.56\%
-base). Having been early runs the other way: leading applications
-complete registration slightly \emph{more} often ($+0.47$pp) and then
-pass the five-year proof \emph{less} often ($-0.97$pp on passing). Both
-survival rows point the same way at the year-ten renewal, four years
-later and on about a quarter of the sample: atypicality $+1.38$pp and
-lead $-0.43$pp among marks that had already cleared the five-year proof.
-Whatever the five-year proof selects on, the renewal selects on it again
-rather than reversing it.
+With description length held, atypical debut filings complete
+registration slightly less often --- unlike the decile profile of
+Section~\ref{sec:registration}, which does not hold length and rises ---
+then survive the five-year proof of continued use more often, survive
+the year-ten renewal more often, and reach SEC reporting slightly more
+often. Having been early runs the other way: leading applications
+complete registration slightly \emph{more} often, then pass the
+five-year proof and the year-ten renewal \emph{less} often. Whatever the
+five-year proof selects on, the renewal selects on it again rather than
+reversing it.
 
-In the financing rows the two axes behave differently. Atypical debut
-owners raise a Regulation~D round slightly \emph{less} often ($-0.17$pp
-per standard deviation against a 2.45\% base), yet among owners who did
-raise one, the same measure predicts \emph{reaching} the public market
-($+0.87$pp on a 3.51\% base, $t = 6.3$). The comparison is among
+In the financing rows the two measures behave differently. Atypical
+debut owners are slightly less likely to have filed a Form~D notice, yet
+among owners who raised a round after their debut, atypicality predicts
+\emph{reaching} the public market, by about a quarter of that stage's
+3.5\% base rate per standard deviation. The comparison is among
 survivors, so it cannot separate a reading in which investors pass over
 information that is free and public at the moment of filing from
-selection on unobservables. Three limits bound these rows: Regulation~D
-notices are electronic only from 2009; owners are matched by normalized
-name, which succeeds for a minority favouring formally constituted
-entities; and the listing row conditions on funding realized after the
-filing being scored, so it establishes that information distinguishing
-eventual listers was present in the text years earlier, not that the
-language caused the outcome.
+selection on unobservables. Leading owners are markedly less likely to
+have filed any Form~D notice. The ladder of Section~\ref{sec:ladder},
+which counts only rounds raised \emph{after} the debut filing, shows
+funding flat across fifths of lead, so the difference lies in rounds
+raised before an owner's first trademark filing --- consistent with the
+established, already-funded firms that also dominate the lagging end of
+the reporting and listing rungs. Three limits bound these rows:
+Regulation~D notices are electronic only from 2009; owners are matched
+by normalized name, which succeeds for a minority favouring formally
+constituted entities; and the listing row conditions on funding realized
+after the filing being scored, so it establishes that information
+distinguishing eventual listers was present in the text years earlier,
+not that the language caused the outcome.
 
-Lead does not reverse anywhere after registration: negative at the
-five-year proof and the year-ten renewal, at financing with or without
-registration imposed, at listing among the funded, and at SEC reporting
-among registered owners. Leading filings fare worse at every stage after
-the one at which lead could not yet be observed. (In the quintile
-contrasts of Table~\ref{tab:ladder}, funding is flat across fifths of
-lead. The two summaries differ in form: the ladder compares fifths cut
-within class, year and length, while this table fits a linear term with
-length held continuously.)
+Lead does not reverse anywhere after registration: it is negative at the
+five-year proof and the year-ten renewal, in the Form~D rows, at listing
+among the funded, and at SEC reporting among registered owners. Leading
+filings fare worse at every stage after the one at which lead could not
+yet be observed.
 
-Why would having been early cost? The two axes are not independent in the
-obvious economic sense. What makes a filing leading is precisely that its
-industry moved toward its language, and an industry that has moved toward
-your language now describes its goods the way you describe yours. Being
-early therefore consumes the quantity that pays: the mark that was
-unusual in 2011 is ordinary by 2016 not because its owner changed
-anything but because the category arrived. On this reading atypicality is
-a position competitors erode, and lead measures how fast. The design
-cannot demonstrate that mechanism; what can be said is that a negative
-coefficient on lead at equal atypicality is what the mechanism would
-produce if it were real.
+Why would having been early cost? The plainest reading is crowding. A
+filing leads because the kind of offering it described became more
+common among the firms that filed after it (Figure~\ref{fig:crowding}):
+its idea was duplicated, and the competition it faced grew beyond what it
+was when the firm filed. A mark that was unusual in 2011 is ordinary by
+2016 not because its owner changed anything but because the category
+arrived. On this reading the lead penalty is what later entrants
+competing away an early position would produce, and atypicality and
+lead fit together: atypicality is how far from the crowd a filing
+started, lead how quickly the crowd closed the gap. The design cannot
+demonstrate that mechanism. The crowding it measures is in the
+industry's language, not in market shares, and a filing can sit where
+its class was heading because it was imitated, because both it and its
+imitators responded to the same outside event, or by coincidence. What
+can be said is that a penalty on lead at equal atypicality is what the
+mechanism would produce if it were real.
 
 A second reading follows from the first, and the design cannot test it
 either. Privately, writing ahead of the industry's language is hard to
