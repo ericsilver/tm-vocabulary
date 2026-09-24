@@ -9,7 +9,7 @@ This repository builds an event-dated corpus of all 13.99 million USPTO trademar
 | Title | *An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure of Vocabulary Position* | *Arrows in Their Backs: Vocabulary Lead and Product Survival in the US Trademark Record* |
 | What it does | Builds the corpus and the measure, validates the measure by rescoring under every alternative construction, documents two hazards for trademark-text research | Asks whether being early pays: the five-year proof, the era swing and its themes, the internet, surges, funding and listing |
 | Source | `paper/split/A_qss/` (`main.tex`, supplement `supp.tex`) | `paper/split/B_lead/` (`main.tex`, supplement `supp.tex`) |
-| PDF | `paper/split/A_qss/submission/manuscript.pdf`, `supplementary_material.pdf` | `paper/split/B_lead/main.pdf`, `supp.pdf` |
+| PDF | [SSRN 7520758](https://ssrn.com/abstract=7520758); `paper/split/A_qss/submission/manuscript.pdf`, `supplementary_material.pdf` | `paper/split/B_lead/main.pdf`, `supp.pdf` |
 | Build | `cd paper/split/A_qss && pdflatex main` (×3), then `pdflatex supp` (×2) | `cd paper/split/B_lead && pdflatex main` (×3), then `pdflatex supp` (×2) |
 
 Both develop the earlier combined working paper, *Business Themes in the Trademark Record* ([SSRN 6954598](https://ssrn.com/abstract=6954598)). `paper/split/A_corpus/` is a longer version of Paper A kept for reference. Everything else under `paper/` — `v3/`, `v3_rp/`, `frozen/`, `_legacy/`, and the older `.tex` files at the top level — is earlier work, kept for provenance only; it does not describe the current measure or results. (`paper/v3_rp/` still supplies the shared preamble, back matter and bibliography the two papers `\input`.)
@@ -161,7 +161,7 @@ Published from `docs/` at <https://aporia.institute/tm-vocabulary/>.
 
 ## Citing
 
-> Silver, E. (2026). *An event-dated corpus of US trademark prosecution and a two-sided measure of vocabulary position*. Working paper.
+> Silver, E. (2026). *An event-dated corpus of US trademark prosecution and a two-sided measure of vocabulary position*. SSRN Working Paper 7520758. https://ssrn.com/abstract=7520758
 >
 > Silver, E. (2026). *Arrows in their backs: Vocabulary lead and product survival in the US trademark record*. Working paper.
 >
