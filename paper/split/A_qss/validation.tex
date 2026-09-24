@@ -18,9 +18,9 @@ Figure~\ref{fig:regdeciles} gives the registration rate by decile of
 each axis, deciles cut within Nice class and filing year. On atypicality
 the rate rises from 56.0\% in the least atypical decile to 59.1\% in the
 ninth and turns down to 58.3\% in the most atypical. On lead the range
-is 0.9 points with no consistent direction: filings written in language
-their class was moving toward register at nearly the same rate as
-filings written in language it was leaving.
+across deciles is 0.9 points: filings written in language their class
+was moving toward register at nearly the same rate as filings written in
+language it was leaving, though a linear fit tilts slightly upward.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\textwidth]{results/fig_registration_deciles.png}
@@ -101,7 +101,8 @@ or, for Madrid \S66(a) registrations, \S71. All specifications include
 class$\times$registration-year fixed effects; controls are counsel of
 record, intent-to-use basis, log goods/services length, log owner
 filing count, owner domicile (US, CN), and foreign basis (\S44(e),
-\S66(a)). Base failure rate 52.3\%.}
+\S66(a)). Base failure rate 52.3\%. The same estimates are the main
+result of a companion paper on pioneering.}
 \label{tab:gate_lpm}
 \begin{tabular}{llrrr}
 \toprule
@@ -132,21 +133,21 @@ information.
 \end{table}
 
 The gradient is monotone within cells, and the control set matters in a
-specific way. Self-filers fail the proof at 69.6\% against 46.8\% for
+specific way. Self-filers fail the proof at 69.2\% against 47.5\% for
 represented owners, and they write shorter, more class-typical, slightly
 more leading descriptions; without the counsel control, part of any lead
 gradient would really be a self-filing gradient. With it, the penalty is
 of the same order in both strata ($+1.8$pp self-filed, $+1.2$pp
-counselled), and the estimate is if anything largest in the cleanest
-stratum, counsel-represented US-domiciled owners. About forty percent of
+counselled), and it is present in the cleanest stratum,
+counsel-represented US-domiciled owners ($+1.6$pp). About forty percent of
 the raw pooled contrast is composition rather than the within-cell
 gradient. The penalty is also not constant over the sample: the earliest
 third of cohorts carries none of it, which is the era variation the
 companion paper takes as its subject.
 
 Two mechanical readings are checked and fail. \emph{Timing}: the proof
-is close to a fixed appointment (96.1\% of cancellations post at
-registration age 6.5--7.0), and on the 3.15 million registrations whose
+is close to a fixed appointment (97\% of in-window cancellations post
+at registration age 6.5--7.0), and on the 3.15 million registrations whose
 ninth anniversary is inside the record --- where failure is settled and
 no window is needed --- the contrast is $+2.71$pp against the window's
 $+2.65$. \emph{Disengagement}: if the proof measured an owner who lost
@@ -163,7 +164,7 @@ times the resolution) and under 50 themes fitted separately per class
 (nothing shared across classes). The lead penalty is a property of the
 filing, not of the partition (Figure~\ref{fig:resolution}): $+2.29$pp
 under the production scoring, $+2.61$ at 500 themes, $+1.94$ under
-per-class themes (SE $0.09$ each), positive under all three at once in
+per-class themes (unclustered SE $0.09$ each), positive under all three at once in
 28 of the 44 classes with sufficient volume. The scorings agree only
 moderately filing by filing (lead correlates at $0.64$ and $0.52$
 between partitions), so the penalty survives substantial disagreement
@@ -176,7 +177,7 @@ of atypicality (right) under the three theme scorings, on the identical
 3.10 million registrations 2002--2018; quintiles cut within Nice class
 and registration year, no controls. Whiskers are 95\% binomial
 intervals, uncorrected for owner clustering. The lead gradient survives
-every scoring; the atypicality gradient does not survive per-class
+every scoring; the atypicality gradient shrinks sharply under per-class
 themes.}
 \label{fig:resolution}
 \end{figure}
@@ -187,18 +188,19 @@ under per-class themes the gap is $0.7$ points. A global model places
 every class in one set of coordinates, so a filing that imports a theme
 the class rarely uses and other classes use often registers as atypical;
 a model fitted on the class alone re-partitions the class's own
-vocabulary, and the imported theme becomes local. Measuring theme
-arrival directly separates two kinds of new: registrations carrying a
-theme new to their class (established elsewhere, arriving here) fail
-the proof $0.43$ points \emph{less} within class and year --- but
-$1.06$ points \emph{more} once their own lead and atypicality are held.
-A theme arrives in a class in filings that are atypical for it, and
-atypical filings survive; among filings of equal atypicality, the ones
-carrying the arriving theme fail more. The apparent protection of
-atypicality is mostly the protection of extension, and themes new to
-the whole corpus are too rare to judge (779 registrations). The penalty
-attaches to being early with language, not to being far from the
-class's centre.
+vocabulary, and the imported theme becomes local. The apparent
+protection of atypicality under global themes is therefore largely a
+reading of themes imported from other classes. Measuring theme arrival
+directly, under the 500-theme model on the 4.12 million registration
+class-records, fits that reading: registrations carrying a theme new to
+their class (established elsewhere, arriving here) fail the proof $0.43$
+points \emph{less} within class and year --- but $1.06$ points
+\emph{more} once their own lead and atypicality are held. A theme
+arrives in a class in filings that are atypical for it, and atypical
+filings survive; among filings of equal atypicality, the ones carrying
+the arriving theme fail more. Themes new to the whole corpus are too
+rare to judge (779 registrations). The penalty attaches to being early
+with language, not to being far from the class's centre.
 
 Nor is the lead penalty an atypicality effect in disguise. Lead
 magnitude correlates with atypicality at $+0.29$, but the signed value
@@ -208,13 +210,15 @@ $+3.3$pp).
 
 \subsection{The construct is distinct from patenting}\label{sec:patent}
 
-Within the firms that do both, trademark vocabulary and patenting move
-independently. On 94{,}181 firm-years across 17{,}506 trademark owners
-name-matched to PatentsView assignees, regressing each axis on
+Within the firms that do both, trademark vocabulary and patenting are
+only weakly related. On 94{,}181 firm-years across 17{,}506 trademark
+owners name-matched to PatentsView assignees, regressing each axis on
 $\log(1 + \mathrm{patents})$ with firms absorbed and errors clustered on
-the firm puts every coefficient below $0.06$ standard deviations, and
-the small cells flip sign between theme and term scoring. No timing
-offset from $t-2$ to $t+1$ isolates a direction, and among owners who
+the firm puts every coefficient below $0.06$ standard deviations. Some
+are precisely estimated --- theme-scored lead is $-0.058$ ($t = -9.4$)
+--- but all are small, and their signs flip between theme and term
+scoring. Lagging or leading the patent count by up to two years keeps
+the coefficients between $-0.05$ and $-0.09$, and among owners who
 both patent and raise a priced round, neither event systematically
 precedes the other. A coarse pre-assigned sorting of classes into
 complement and substitute regimes shows no interaction (cell detail in
@@ -225,7 +229,7 @@ atypicality gradient is composition}\label{sec:bluesea}
 
 The firm-level outcome is whether an owner ever appears in the
 Commission's EDGAR filer index --- broader than exchange-listed, and
-split accordingly below. Raw rates rise 2.7-fold across atypicality
+split accordingly below. Raw rates rise steeply across atypicality
 bins; the gradient does not survive the design
 (Table~\ref{tab:edgar}). Within class and filing year, holding
 description length, top-quintile atypicality moves SEC reporting by
@@ -234,16 +238,16 @@ being far from the class in either direction helps ($+0.067$pp per
 standard deviation of $|L|$, $t = 7.7$), but being on the leading side
 costs ($-0.047$pp per standard deviation of $L$, $t = -7.8$). The raw
 profile in signed lead is a U whose lagging tail sits higher, which is
-exactly this pair of effects; cutting lead fifths within fifths of
-atypicality keeps the structure, so the U is not the mechanical
-coupling of the two axes. Splitting matched owners on whether their SEC
+exactly this pair of effects. Cutting lead fifths within fifths of
+atypicality, the most lagging fifth out-reports the most leading in four
+of the five atypicality strata, so the lagging premium is not the
+mechanical coupling of the two axes. Splitting matched owners on whether their SEC
 filer number carries a ticker gives 10{,}556 listed against 9{,}333
 reporting without one, and both halves show the same U, so the result
 does not depend on counting non-operating registrants as successes. The
-name-match linkage bounds the atypicality reading --- distinctive names
-match more easily, and name distinctiveness plausibly travels with text
-distinctiveness --- and the lead coefficient is the one unchanged under
-alternative linkages.
+name-match linkage bounds the atypicality reading in particular:
+distinctive names match more easily, and name distinctiveness plausibly
+travels with text distinctiveness.
 
 \begin{table}[h]\centering\small
 \caption{Debut SEC reporting and vocabulary position: design-based
@@ -286,6 +290,10 @@ debuts; trailing term-lead predicts gross margin at $+2.2$pp per
 standard deviation on an SEC-matched panel; and firm-year term-lead
 predicts excess stock returns at one-to-four-year horizons. None of
 these signed results survives when the same text is scored on themes.
+(These firm-level comparisons were run on an earlier build of the scores
+that used calendar-year reference windows. The hazard is a contrast
+between two representations of the same text on identical samples, so
+it does not depend on how the windows are drawn.)
 On identical samples the listing gradient is flat to declining, the
 margin coefficient reverses sign at every resolution tried, and the
 past-/future-facing decomposition flips and stays flipped. The
@@ -296,8 +304,8 @@ rising, because listed firms' counsel write longer descriptions.
 One rescue must be ruled out: the theme model's vocabulary is built
 from a sample, so rare and emergent terms are invisible to it, and if
 the firm signal lived exactly there, theme scoring would be erasing a
-real signal. Each filing's invisible-vocabulary share is itself a
-strong firm marker --- but \emph{within} strata of equal invisible
+real signal. In the software class, each filing's invisible-vocabulary
+share is itself a strong firm marker --- but \emph{within} strata of equal invisible
 share, the signed gradient on the firm outcome is flat to negative,
 while the mark-level penalty holds in both strata. The firm-level
 signal that term scoring finds is unsigned specificity: serious firms

@@ -1,0 +1,67 @@
+{
+ "n_sample": 448437,
+ "probes": {
+  "blockchain": {
+   "sample_share": 0.0023013266077509214,
+   "terms_in_vocab": [
+    "blockchain",
+    "blockchains",
+    "cryptocurrency",
+    "cryptocurrencies",
+    "distributed ledger",
+    "digital currency",
+    "non-fungible token"
+   ],
+   "corpus_share": 0.004597482103529034,
+   "ratio_corpus_to_sample": 1.99775298649249
+  },
+  "ai": {
+   "sample_share": 0.004034011466493621,
+   "terms_in_vocab": [
+    "artificial intelligence",
+    "machine learning",
+    "deep learning",
+    "neural networks",
+    "computer vision",
+    "predictive analytics"
+   ],
+   "corpus_share": 0.007444862116024279,
+   "ratio_corpus_to_sample": 1.8455232906155774
+  },
+  "cloud": {
+   "sample_share": 0.004314987389532978,
+   "terms_in_vocab": [
+    "cloud computing",
+    "saas",
+    "virtualization",
+    "data center"
+   ],
+   "corpus_share": 0.024411240135562933,
+   "ratio_corpus_to_sample": 5.657314363137692
+  },
+  "internet": {
+   "sample_share": 0.07388774788877814,
+   "terms_in_vocab": [
+    "internet",
+    "online",
+    "website",
+    "web site",
+    "e-commerce"
+   ],
+   "corpus_share": 0.14716235790149698,
+   "ratio_corpus_to_sample": 1.9917017652644895
+  },
+  "solar": {
+   "sample_share": 0.009006839310761601,
+   "terms_in_vocab": [
+    "solar",
+    "solar cells",
+    "solar energy",
+    "photovoltaic"
+   ],
+   "corpus_share": 0.009163900610452028,
+   "ratio_corpus_to_sample": 1.0174380039735766
+  }
+ },
+ "n_corpus": 14325450
+}

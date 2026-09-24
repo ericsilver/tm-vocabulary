@@ -1,32 +1,32 @@
-\subsection{Scores are interpretable from 1995}\label{sec:burnin}
+\subsection{Thin references near the start of the record}\label{sec:burnin}
 
 \emph{Burn-in} is the span at each end of the corpus where the reference
 windows cannot be filled, so scores there reflect a thin reference rather
 than the text being scored.
 
-The signal depends on having enough past and future filings to populate
-the references. The 5-year past window is incomplete before 1990 and the
-future window after 2020, and both zones are excluded
-(Figure~\ref{fig:burnin}). The burn-in cut is set empirically. A thin
-past reference inflates past-facing surprise, and profiling that bias
-across all 44 sufficient-volume classes gives a median absolute bias of
-$\sim$2.0 nats in 1990, 0.25 in 1991, 0.10 in 1992, and 0.04 from 1993
-onward --- below any effect size interpreted in this paper. The
-1995--1997 deviations ($\sim$0.15--0.17) are not burn-in: mechanical
-contamination declines monotonically as the windows fill and cannot
-rebound, so these reflect a genuine vocabulary shift in the corpus
-during the dot-com period. Estimating a separate burn-in length per
-class turns out to track each class's noise floor rather than its
-reference density, so a single standard cut at 1995 is used,
-conservative by about two years.
+A filing's score depends on having enough same-class filings on each
+side of it. A full five-year window exists on both sides for filings
+made 1990 through 2020, and the production scoring runs 1995--2019,
+holding back five years at the start of that span, where references are
+thinnest, and one at the end; a filing is also scored only when
+each of its windows holds at least 500 filings. Figure~\ref{fig:burnin}
+shows how reference density builds up at the start of the record. How
+far a thin reference distorts the score was profiled on an earlier build
+of the measure (word-scored, with calendar-year references): a thin past
+reference inflates past-facing surprise, and across the classes with
+enough volume to profile, the median distortion was about 2 nats for
+filings made in 1990 and fell quickly as the window filled. On that
+build's own criterion, though, 18 of 44 classes stayed noisy past 1995,
+into 1996--2004, so estimates that lean
+on the earliest cohorts --- the companion paper's era comparisons, in
+particular --- are read with that in mind.
 
 \begin{figure}[h]\centering
 \includegraphics[width=0.85\textwidth]{results/burnin.png}
-\caption{Reference-window density by year on log scale. Hatched regions
-are the past-side and future-side burn-in zones where the 5-year window is
-incomplete. The dotted line marks the 1995 analysis cut. The windows
-decide the score at the filing date; the proof outcome is read separately,
-at registration age six to seven.}
+\caption{Reference-window density by year on a log scale, for two
+classes, from the earlier word-scored build. Hatched regions are the
+past-side and future-side zones where the five-year window is
+incomplete. The windows decide the score at the filing date; the proof
+outcome is read separately, at registration age six to seven.}
 \label{fig:burnin}
 \end{figure}
-

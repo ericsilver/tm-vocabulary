@@ -1,0 +1,31 @@
+% Supplementary material for Paper B. Build AFTER main.pdf so xr can read
+% main.aux:  pdflatex supp (x2).
+\input{../../v3_rp/preamble}
+\usepackage{xr}
+\externaldocument{main}
+\newcommand{\onlineappendixnote}{\url{https://aporia.institute/tm-vocabulary/online-appendix/}}
+\graphicspath{{../../}}
+\makeatletter\def\input@path{{./}{../../}{../../v3_rp/}}\makeatother
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\title{\bfseries Supplementary Material\\
+\large Arrows in Their Backs: Vocabulary Lead and Product Survival in the
+US Trademark Record}
+\author{Eric Silver}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\noindent This supplement carries detail behind the five-year-proof
+results (\S S1), the waves (\S S2), and the capital-markets ladder
+(\S S3). Section, table and figure numbers without an S prefix point
+into the article. The construction of the measure and its robustness
+program are documented in the companion paper and its supplement; every
+class's profile is in the online appendix at
+\url{https://aporia.institute/tm-vocabulary/online-appendix/}.
+
+\input{supp_body}
+
+\end{document}

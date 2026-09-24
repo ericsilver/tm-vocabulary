@@ -1,36 +1,40 @@
 cff-version: 1.2.0
 title: >-
-  tm-vocabulary: an event-dated USPTO trademark corpus and a lead/lag text
-  measure for the commercial economy
+  tm-vocabulary: an event-dated USPTO trademark corpus and a two-sided measure
+  of vocabulary position
 message: >-
-  If you use this software, the corpus build, or the published panels, please
-  cite the paper below. Derived panels containing patent counts additionally
+  If you use this software, the corpus build, or the data release, please cite
+  the paper below. Derived panels containing patent counts additionally
   require attribution to PatentsView (CC-BY-4.0); see DATA_SOURCES.md.
 type: software
 authors:
   - family-names: Silver
     given-names: Eric
     email: epsilver@gmail.com
+    orcid: https://orcid.org/0000-0003-3351-1109
 repository-code: https://github.com/ericsilver/tm-vocabulary
+url: https://aporia.institute/tm-vocabulary/
 license: GPL-3.0-or-later
 abstract: >-
   Re-parses all 13.99 million USPTO trademark case files into event-dated
-  prosecution histories and scores every filing on how surprising its
-  goods/services language is against what its industry filed in the five years
-  before and the five years after. Atypicality is the average of the two
-  divergences; lead is their signed difference.
+  prosecution histories and scores every filing's goods/services description
+  against what its industry filed in the five years before and the five years
+  after. Atypicality is the average of the two divergences; lead is their
+  signed difference.
 keywords:
   - trademarks
-  - innovation measurement
+  - innovation indicators
   - text as data
+  - topic models
   - Kullback-Leibler divergence
   - USPTO
 preferred-citation:
   type: article
   title: >-
-    Vocabulary position and trademark lifecycles: an event-dated corpus and a
-    lead/lag text measure for the commercial economy
+    An event-dated corpus of US trademark prosecution and a two-sided measure
+    of vocabulary position
   authors:
     - family-names: Silver
       given-names: Eric
+      orcid: https://orcid.org/0000-0003-3351-1109
   year: 2026

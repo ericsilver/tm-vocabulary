@@ -1,4 +1,4 @@
-cls,name,n_scored,n_registrations,gate_base_pct,gate_lift_raw_pp,gate_lift_raw_se,gate_q5_fe_pp,gate_q5_fe_se,reg_atyp_q1,reg_atyp_q5,reg_lead_q1,reg_lead_q5
+cls,name,n_scored,n_registrations,proof_base_pct,proof_lift_raw_pp,proof_lift_raw_se,proof_q5_fe_pp,proof_q5_fe_se,reg_atyp_q1,reg_atyp_q5,reg_lead_q1,reg_lead_q5
 001,Chemicals,117113,55166,39.23,1.853,0.659,2.93,0.66,63.03,60.28,64.85,61.55
 002,Paints,34038,16070,39.92,-0.28,1.226,-1.136,1.235,64.35,64.51,65.66,66.4
 003,Cosmetics & Cleaning,303883,118261,54.37,7.811,0.458,7.324,0.458,56.96,58.05,57.19,53.01

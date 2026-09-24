@@ -1,19 +1,26 @@
 \section{Access}\label{sec:access}
 
-Everything described here is public at
-\url{https://github.com/ericsilver/tm-vocabulary}. The repository holds
-the corpus build (the parser from TRTYRAP case files to dated events, and
-the derived event, extras, and dictionary tables), the theme model and
-its vocabulary, the per-filing scores under every construction reported
-in Section~\ref{sec:robust}, the owner-link tables, every analysis script,
-and every generated figure and table in this paper. The pipeline rebuilds
-from the public USPTO, SEC and PatentsView sources.
+The code is public at \url{https://github.com/ericsilver/tm-vocabulary}:
+the parser from the USPTO case files to dated events, the theme model's
+fitting and scoring, the owner links, every analysis script, and every
+generated figure and table in this paper. The derived tables are
+published as a versioned data release of the same repository
+(\url{https://github.com/ericsilver/tm-vocabulary/releases/tag/data-v1}):
+the 242 million dated prosecution events and the counsel, filing-basis
+and declaration fields read alongside them; an event-dated outcome table
+giving, for every registered mark, the date and registration age of any
+cancellation at the five-year proof of continued use; the fitted theme
+model and its vocabulary; the per-filing scores under the production
+scoring; and the owner links to SEC registrants and Form~D issuers.
+Every table rebuilds from the public USPTO, SEC and PatentsView sources
+with the scripts provided.
 
 An interactive online appendix at
 \url{https://aporia.institute/tm-vocabulary/online-appendix/} lists every
-theme with its leading words and its weight in each Nice class, gives
-per-class breakouts of every outcome, and includes a viewer of each
-class's registrations on the lead/atypicality plane. Researchers who want
-the five-year proof as an outcome without the text measure can take the
-event-dated cancellation table directly; those who want the measure on a
-different corpus can refit the theme model with the scripts provided.
+theme with a label, its leading words and its share of each Nice class,
+gives per-class breakouts of the five-year-proof and registration
+results, and includes a viewer of each class's registrations on the
+lead/atypicality plane. Researchers who want the five-year proof as an
+outcome without the text measure can take the event-dated outcome table
+directly; those who want the measure on a different corpus can refit the
+theme model with the scripts provided.

@@ -5,7 +5,7 @@ fifty global themes, flat weighting inside the reference windows,
 symmetric five-year windows, estimates conditional on grant, and the
 2002--2018 cohorts. Table~\ref{tab:robust} summarizes what each choice
 costs; the supplementary material (\S S4) carries the full treatment,
-each variation on identical samples.
+each variation run on the same filings wherever the variation allows.
 
 \begin{table}[h]\centering\small
 \caption{Robustness summary. Baseline: five-year-proof contrast
@@ -18,14 +18,15 @@ Details and further variations in Supplementary Material \S S4.}
 Variation & Result \\
 \midrule
 Reference weighting (flat vs.\ 2-year half-life) & Nearly a restatement: lead correlates $0.98$ across builds, atypicality $1.000$; contrast $+2.29 \to +1.95$pp. \\
-Theme resolution ($T = 50, 100, 200, 500$) & Sign and significance untouched; magnitude moves non-monotonically within a band that a second fit at fixed $T$ (different seed only) reproduces --- most apparent resolution sensitivity is fitting noise, which attenuates estimates toward zero. \\
+Theme resolution ($T = 50, 100, 200, 500$) & Sign and significance untouched. Corpus-wide the contrast is $+2.29$, $+2.23$ and $+2.61$pp at 50, 200 and 500 themes; in the software class it moves non-monotonically between $+2.7$ and $+5.7$pp. \\
+Second random seed (software class) & At 50 themes, per-filing lead reproduces at $r = 0.72$ and the contrast moves $+3.23 \to +3.89$pp; at 200 themes, $r = 0.79$ and $+5.20 \to +4.88$pp. The noise attenuates estimates toward zero. \\
 Representation (themes vs.\ terms) & Lead contrast $+2.29 \to +3.56$pp; the headline representation is the conservative one. Firm-level results diverge (Section~\ref{sec:hazard}). \\
 Window width (2--7 years, software class) & Signal rises to five years, flat five to seven; five is defensible rather than optimal. \\
 Asymmetric windows (foresight $3{,}7$ to rupture $7{,}3$) & Penalty rises monotonically $+1.65 \to +3.00$pp; the proof punishes rupture more than foresight, a difference of degree. \\
 Duplicate text (47\% of registrations) excluded & Both gradients strengthen: lead $+2.29 \to +3.05$, atypicality $-4.39 \to -5.68$pp. Identical texts cluster at the typical end and dilute; they create nothing. \\
 Without conditioning on grant & The composite is nearly flat because two opposed gradients cancel: registration rises in lead while proof survival falls. Conditioning is what separates them. \\
 Cohort halves & The lead penalty belongs to the 2010--2018 cohorts; 2002--2009 carries a third of it (the era swing, companion paper). \\
-Functional form (AIC over four shapes) & Atypicality profiles are genuine humps; lead profiles are Vs --- linear in distance from a vertex near zero --- and the SEC-reporting U survives decomposition into an atypicality-composition half and a symmetric $|L|$ half, with a small negative tilt. \\
+Functional form (AIC over four shapes) & Atypicality profiles are humps at registration and SEC reporting and linear at the proof; lead profiles are close to linear, or V-shaped around a vertex near zero where they bend. The SEC-reporting U in lead decomposes into an atypicality-composition half and a symmetric $|L|$ half, with a small negative tilt. \\
 Owner clustering & Within-owner outcome correlation is $0.38$ (mechanically $1.0$ for listing); regression tables cluster on owner, raw two-sample $t$-statistics overstate precision roughly twofold. \\
 \bottomrule
 \end{tabular}
@@ -33,10 +34,12 @@ Owner clustering & Within-owner outcome correlation is $0.38$ (mechanically $1.0
 
 Two findings from the sweep bear on any reuse of the measure. First,
 because a single fit's lead score carries measurement error of roughly a
-fifth of its variance, every coefficient on lead is attenuated toward
-zero; correcting for it would enlarge the estimates, not shrink them.
+quarter of its variance at fifty themes (a fifth at 200), every
+coefficient on lead is attenuated toward zero; correcting for it would
+enlarge the estimates, not shrink them. Averaging scores over several
+refits is a cheap way for users of the measure to reduce that noise.
 Second, lead is a small residual of two large, highly correlated levels
-($r = 0.988$), which is what makes it sensitive to anything that
+($r = 0.99$), which is what makes it sensitive to anything that
 inflates the levels --- under term scoring, document length --- and is
 why the theme representation, where the level spread is stable, is the
 one on which a unit of lead means the same thing everywhere.

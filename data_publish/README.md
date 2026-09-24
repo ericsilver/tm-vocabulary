@@ -1,7 +1,14 @@
-# Public data artifacts
+# Public data artifacts (retired)
 
-These two CSVs are the public-facing data contribution of the
-companion paper. Both are produced by the pipeline in `../scripts/`
+**These files are from an early, retired build and are not the measure in
+the current papers.** They are word-scored firm-year means on calendar-year
+references; the current papers score themes on per-filing windows, and
+Paper A documents why word-scored firm-level correlations are unreliable.
+The current data are the repository's `data-v1` release (see the main
+README). This folder is kept only for provenance.
+
+These two CSVs were the public-facing data contribution of an earlier
+version of the project. Both are produced by the pipeline in `../scripts/`
 and are subset to the publicly-traded firms that the SEC EDGAR
 Financial Statement Data Sets cover, so that other researchers can
 reproduce or extend the firm-level findings without re-running the

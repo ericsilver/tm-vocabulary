@@ -1,0 +1,34 @@
+{
+ "n_docs": 448437,
+ "topn": 10,
+ "by_T": {
+  "50": {
+   "npmi_mean": 0.4752504128217697,
+   "npmi_median": 0.4837092459201813,
+   "npmi_p10": 0.3864990472793579,
+   "share_themes_npmi_below_0": 0.0,
+   "eff_themes_per_doc_median": 4.527958110996292
+  },
+  "100": {
+   "npmi_mean": 0.4576174994508685,
+   "npmi_median": 0.4819924235343933,
+   "npmi_p10": 0.320693176984787,
+   "share_themes_npmi_below_0": 0.01,
+   "eff_themes_per_doc_median": 5.998968229103076
+  },
+  "200": {
+   "npmi_mean": 0.3342520225467419,
+   "npmi_median": 0.42216265549262366,
+   "npmi_p10": -0.016901261429819785,
+   "share_themes_npmi_below_0": 0.11,
+   "eff_themes_per_doc_median": 7.793226651848838
+  },
+  "500": {
+   "npmi_mean": 0.22981855307955865,
+   "npmi_median": 0.32290947437286377,
+   "npmi_p10": -0.22973558806710767,
+   "share_themes_npmi_below_0": 0.214,
+   "eff_themes_per_doc_median": 10.080814805946687
+  }
+ }
+}

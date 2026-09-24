@@ -1,223 +1,175 @@
-# Vocabulary position and trademark lifecycles
+# Vocabulary position in the US trademark record
 
-This repository builds an event-dated corpus of all 13.99 million USPTO trademark case files and defines a filing-level text measure on it. Each filing's goods/services description is scored by how surprising its wording is to two readers with disjoint knowledge — one who has seen only what the filing's Nice class filed in the 1,826 days *before* it, one who has seen only what it filed in the 1,826 days *after* — and the resulting pair is rotated into an unsigned axis, **atypicality**, and a signed axis, **lead**. Because the corpus also carries every prosecution event with its date, a filing's language can be followed to what actually happened to the mark: registration, the five-year proof of continued use (the §8 declaration due in years five to six), the year-ten renewal, and the owner's appearance in the SEC filing universe.
+This repository builds an event-dated corpus of all 13.99 million USPTO trademark case files and defines a filing-level text measure on it. Each filing's goods/services description is reduced to a mix of fifty themes and compared with what the filing's own Nice class filed in the 1,826 days *before* it and the 1,826 days *after* it. The average of the two comparisons is **atypicality** (how unusual the language is for its industry); their difference is **lead** (whether the language ran ahead of or behind where the industry's language was moving). Because the corpus carries every prosecution event with its date, a filing's language can be followed to what happened to the mark: registration, the five-year proof of continued use (the sworn §8 declaration due in years five to six), the year-ten renewal, and the owner's appearance in SEC reporting, Form D rounds and listing.
 
-The working paper is **`paper/v3/main.tex`** (a dated PDF alongside in `paper/`). Read its abstract and Section 2 before the code. `paper/ssrn_diffusion_paper.tex` and `paper/journal_paper.tex` are superseded earlier versions of the same project, kept for reference only — they do not describe the current measure, sample, or results; `paper/frozen/` holds the review copy the v3 line edits were made against.
+## The papers
+
+| | Paper A | Paper B |
+|---|---|---|
+| Title | *An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure of Vocabulary Position* | *Arrows in Their Backs: Vocabulary Lead and Product Survival in the US Trademark Record* |
+| What it does | Builds the corpus and the measure, validates the measure by rescoring under every alternative construction, documents two hazards for trademark-text research | Asks whether being early pays: the five-year proof, the era swing and its themes, the internet, surges, funding and listing |
+| Source | `paper/split/A_qss/` (`main.tex`, supplement `supp.tex`) | `paper/split/B_lead/` (`main.tex`, supplement `supp.tex`) |
+| PDF | `paper/split/A_qss/submission/manuscript.pdf`, `supplementary_material.pdf` | `paper/split/B_lead/main.pdf`, `supp.pdf` |
+| Build | `cd paper/split/A_qss && pdflatex main` (×3), then `pdflatex supp` (×2) | `cd paper/split/B_lead && pdflatex main` (×3), then `pdflatex supp` (×2) |
+
+Both develop the earlier combined working paper, *Business Themes in the Trademark Record* ([SSRN 6954598](https://ssrn.com/abstract=6954598)). `paper/split/A_corpus/` is a longer version of Paper A kept for reference. Everything else under `paper/` — `v3/`, `v3_rp/`, `frozen/`, `_legacy/`, and the older `.tex` files at the top level — is earlier work, kept for provenance only; it does not describe the current measure or results. (`paper/v3_rp/` still supplies the shared preamble, back matter and bibliography the two papers `\input`.)
 
 ## The measure in one screen
 
-For filing *i* made on date *d*, with topic distribution *P<sub>i</sub>*:
+For filing *i* made on date *d*, with theme mix *P<sub>i</sub>*:
 
-| Quantity | Definition | Column | Paper's name | Murdock/Barron name |
+| Quantity | Definition | Column | Name in the papers | Murdock/Barron name |
 |---|---|---|---|---|
-| Surprise against the past | KL(*P<sub>i</sub>* ‖ *Q*<sub>past</sub>), *Q* pooled over [*d*−1826, *d*) | `topic_kl_vs_past` | past-facing surprise | novelty |
-| Surprise against the future | KL(*P<sub>i</sub>* ‖ *Q*<sub>future</sub>), *Q* pooled over (*d*, *d*+1826] | `topic_kl_vs_future` | future-facing surprise | transience |
-| Average | *A* = ½(*K*⁻ + *K*⁺) | *formed downstream* | **atypicality** | — |
+| Surprise against the past | KL(*P<sub>i</sub>* ‖ *Q*⁻), *Q*⁻ = mean theme mix of same-class filings in [*d*−1826, *d*) | `topic_kl_vs_past` | past-facing surprise *K*⁻ | novelty |
+| Surprise against the future | KL(*P<sub>i</sub>* ‖ *Q*⁺), *Q*⁺ over (*d*, *d*+1826] | `topic_kl_vs_future` | future-facing surprise *K*⁺ | transience |
+| Average | *A* = ½(*K*⁻ + *K*⁺) | formed downstream | **atypicality** | — |
 | Signed difference | *L* = *K*⁻ − *K*⁺ | `topic_dkl` | **lead** (leading / lagging) | resonance |
 
-Notes that save a re-derivation:
+- **Positive lead means the class moved toward the filing**: unusual against what came before, ordinary against what came after.
+- Both windows are anchored on the filing's own date and exclude it; every application in the class in the window counts equally, registered or not; a filing is scored only when each window holds at least 500 filings.
+- *K*⁻ and *K*⁺ correlate at about 0.99, which is why the papers use their average and difference (a sum and a difference, nothing estimated) rather than the pair. *L* is a small residual of two large quantities and correspondingly noisy.
+- Everything is estimated **within class and year**. Across classes atypicality levels are not comparable: a class where the USPTO ID Manual supplies dense standard language has a compressed distribution for reasons unrelated to innovation.
+- Scoring covers filings made 1995–2019 (`SURPRISE_SRC=rolling`, the default everywhere).
 
-- **Both windows are anchored on the filing's own date**, not on its calendar year. No two filings made on different days share a reference; filings made on the same day are excluded from each other's windows.
-- Within a window every day counts the same — a flat pooled aggregate, not a decayed one. The measure asks whether wording is unusual against a *period*, not whether it is ahead of a trend within that period.
-- The names describe the *reader's vantage*, not the direction of the window. Prospective surprise is surprise measured against what came *before*.
-- **Positive lead means the class moved toward the filing**: unusual when filed, ordinary five years later. Negative lead is the reverse.
-- *A* and *L* are a 45-degree rotation of (*K*⁻, *K*⁺). The rotation matters because the raw pair correlates at 0.988 on the production scoring (class 009, n = 1,109,643; `paper/results/exhibit_correlations.json`), so entering both is close to entering one variable twice; *L* carries about 1.2% of their combined variance and is correspondingly fragile.
-- Everything is estimated **within class and year**. Across classes, atypicality levels are not comparable — a class where the USPTO ID Manual supplies dense standard language has a compressed distribution for reasons unrelated to innovation.
+### The theme model
 
-## The `SURPRISE_SRC` switch
+- Latent Dirichlet allocation (scikit-learn, online variational Bayes, default priors, 8 passes, seed 42), **50 themes**, fitted once on a sample of 10,000 descriptions per Nice class (every description for smaller classes; 448,437 in all; filings 1990–2024), then applied to every filing.
+- Vocabulary: words and adjacent word pairs appearing in at least 50 sampled descriptions, stopwords removed — 62,168 terms (`novelty.dictionary._make_analyzer`). At scoring time filings are read with a simpler tokenizer (3+ letter tokens, no stopword removal); `scripts/tokenizer_check.py` measures the difference (same dominant theme for 88% of descriptions; median theme-mix change 0.07 in total variation).
+- Why fifty: `scripts/topic_coherence.py` (every theme coherent at 50; a tenth incoherent at 200, a fifth at 500), `scripts/topic_seed_replicate_T50.py` (themes reproduce across seeds far better at 50 than at 200; per-filing lead does not), and the robustness scorings (500 global themes; 50 themes fitted per class, `perclass_lda_rescore.py`; 200 themes), under all of which the headline holds.
+- The equal-per-class sample under-represents vocabulary concentrated in the largest classes (`scripts/sample_thinning.py`): internet terms appear in 7.4% of sampled descriptions against 14.7% of the corpus, cloud computing 0.4% against 2.4%. No theme is dedicated to AI, blockchain or cloud computing; analyses of those waves use curated word lists.
+- The fifty themes, with labels and their share of every class: [online appendix](https://aporia.institute/tm-vocabulary/online-appendix/themes_T50.html) (`scripts/themes_t50_page.py`).
 
-Two scorings of the whole corpus exist. An environment variable selects between them, and nine analysis scripts honour it:
+## Data
 
-| `SURPRISE_SRC` | Reference | Files | Status |
-|---|---|---|---|
-| `rolling` | Per-filing, ±1,826 days from the filing's own date | `data/processed/rolling_surprise_class{NNN}[_T200].parquet` | **Current.** Every estimate in the paper. |
-| `topic` | One object per class-year: the class averaged over the five preceding *calendar* years | `data/processed/topic_surprise_class{NNN}[_T200].parquet` | **Retired.** No longer discussed in the paper; kept for reproducibility. |
+The repository holds **code only**; `data/` is gitignored. Two routes to the data:
 
-Both write identical column names, so switching is a path change and nothing else:
+1. **Data release** (`gh release` tag `data-v1`, built by `scripts/build_release_tables.py`): the event-dated proof outcomes for every registration (`proof_outcomes.parquet` — reusable without the text measure), per-filing scores under the production scoring (`scores_T50.zip`), the fitted theme model (`theme_model_T50.zip`), the 242 million dated prosecution events (`case_events.parquet`), counsel/basis/declaration fields (`case_extras.parquet`), the event-code dictionary, and the owner links (`owner_links.zip`), with `MANIFEST.txt` giving SHA-256 digests.
+2. **Rebuild from public sources** with the pipeline below.
 
-```bash
-SURPRISE_SRC=rolling python scripts/gate_decisive_regression.py
-```
-
-Scripts honouring it: `gate_decisive_regression.py`, `event_gates_all.py`, `event_gates_2019_2021.py`, `two_gate_009.py`, `staged_outcomes_table.py`, `debut_edgar_substantiate.py`, `topic_debut.py`, `topic_outcomes_all.py`, `online_appendix.py`. The default is `rolling` in all of them, so the paper's numbers reproduce without setting it; `SURPRISE_SRC=topic` selects the retired scoring for the appendix comparison.
-
-What the retired scoring cost, in short: annual bucketing imprints a spurious gradient in filing month (a December filing sits eleven months further from its past reference and eleven months nearer its future one), which inflated the gate penalty by about a third and manufactured a curvature at registration on the signed axis that does not survive. Signs and conclusions are unchanged; magnitudes and one functional form are not. The current paper no longer discusses the class-year anchoring; the scoring and this comparison are kept in the repository for reproducibility.
+`data_publish/firm_year_dkl.csv` and `firm_year_patents_and_dkl.csv` are an early **word-scored** firm-year panel from a retired build. They are not the papers' measure, and Paper A documents why word-scored firm-level correlations are unreliable; they are kept only for provenance.
 
 ## Data pipeline
 
-Nothing below the first stage is committed; the whole chain regenerates from public sources.
+**1. Bulk XML → per-class records.** `scripts/download_all_classes.py` streams the USPTO TRTYRAP backfile (83 archives, 1884–2025, ~12 GB) once and writes a slim parquet per Nice class. A filing declaring several classes is written into each of their parquets. → `data/processed/tm_class{NNN}.parquet`
 
-**1. Bulk XML → per-class records.** `scripts/download_all_classes.py` streams the USPTO TRTYRAP backfile (83 archives, 1884–2025, ~12 GB) once and writes a slim parquet per Nice class. A filing declaring several classes is written into each of their parquets.
-→ `data/processed/tm_class{NNN}.parquet`
+**2. Bulk XML → prosecution events.** `scripts/events_full_build.py` re-parses the same backfile for the dated sequence of events behind each case's status: 242 million events across 13.99 million case files. → `case_events.parquet`, `case_extras.parquet`, `event_code_dict.parquet`
 
-**2. Bulk XML → prosecution events.** `scripts/events_full_build.py` re-parses the same backfile for what the published research files drop: the dated sequence of events behind each case's current status. 242 million events across 13.99 million case files.
-→ `case_events.parquet` (serial, code, type, date, seq), `case_extras.parquet` (counsel of record, statutory filing basis, postregistration declaration flags, abandonment/status dates), `event_code_dict.parquet` (760 codes → modal description)
+**3. Theme model.** `scripts/topic_p_scorer_all.py` fits the LDA (`TOPIC_T=50` default; 200/500 for the robustness scorings) and writes `topic_model*.joblib` and `topic_lda_meta*.json`. (It also writes an older calendar-year scoring, `topic_surprise_*`, which is retired.)
 
-**3. Records → term-level scores.** `scripts/process_all_classes.py` drives `novelty.dictionary`, `novelty.surprise`, `novelty.firm_year`, `novelty.survival` per class. Token distributions (unigram + bigram, within-class document frequency ≥ 50) against class-year windows with Dirichlet smoothing.
-→ `vocab_class{NNN}.parquet`, `surprise_class{NNN}.parquet`, `firm_year_class{NNN}.parquet`, `outcomes_class{NNN}.parquet`
+**4. Production scores on per-filing windows.** `scripts/rolling_rescore_all.py` reuses the fitted model and scores every class against references anchored on each filing's date; then `scripts/rolling_add_year.py` backfills the `year` column. → `rolling_surprise_class{NNN}[_T{T}].parquet`. Word-scored comparisons: `scripts/term_rescore_rolling.py` → `termroll_surprise_*`.
 
-**4. Records → topic-level scores.** `scripts/topic_p_scorer_all.py` fits LDA (*T* = 50 by default; set `TOPIC_T` for the 200/500 sweep) on a stratified 448,437-filing sample across all 45 classes, then transforms and scores every filing against *class-year* references. This is the retired scoring.
-→ `topic_surprise_class{NNN}[_T{T}].parquet`, `topic_lda_meta*.json`, `topic_model*.joblib`
+**5. External records.** `scripts/download_sec_fsds.py` + `scripts/sec_extract.py` build the SEC financial-statement panel; `scripts/sec_link.py` resolves owner names to CIKs; `scripts/persist_funding_match.py` resolves Regulation D (Form D) issuers. PatentsView assignees are matched in `scripts/wsC_within_firm_patents.py`. → `sec_firm_year.parquet`, `uspto_sec_crosswalk.parquet`, `funding_owner_match.parquet`
 
-**5. Rescore on per-filing windows.** `scripts/rolling_rescore_all.py` reuses the fitted LDA model from stage 4 and rescores every class against references anchored on each filing's own date. Then `scripts/rolling_add_year.py` backfills the `year` column the rescorer does not write. **Run these in that order** — two downstream scripts filter on `year` and will raise without it.
-→ `rolling_surprise_class{NNN}[_T200].parquet`
-
-**6. External universes.** `scripts/download_sec_fsds.py` + `scripts/sec_extract.py` build the SEC financial-statement panel; `scripts/sec_link.py` resolves USPTO owner names to CIKs. `scripts/persist_funding_match.py` / `funding_lag_prototype.py` resolve Regulation D (Form D) issuers.
-→ `sec_firm_year.parquet`, `uspto_sec_crosswalk.parquet`, `funding_owner_match.parquet`
-
-**7. Analysis.** The scripts in the table below read the above and write JSON, figures, and `.tex` fragments into `paper/results/`, plus the online appendix into `docs/online-appendix/`.
+**6. Analysis.** The scripts in the tables below write JSON, figures and `.tex` fragments into `paper/results/`, which the papers read directly.
 
 ## Reproducing
 
-Requires Python 3.11, a TeX install (TeX Live or MiKTeX), and a free USPTO Open Data Portal API key (<https://data.uspto.gov>, My ODP → My API Key; or <https://account.uspto.gov/api-manager/>).
+Requires Python 3.11, a TeX install, and a free USPTO Open Data Portal API key (<https://data.uspto.gov>, My ODP → My API Key).
 
 ```bash
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -e . && pip install statsmodels matplotlib rapidfuzz
-
 cp .env.example .env          # then add USPTO_ODP_API_KEY=<your key>
-
-make tm                       # stages 1 and 3: ~12 GB streamed once, multi-hour
-make sec crosswalk            # stage 6
+make tm                       # stages 1-2: ~12 GB streamed once, multi-hour
+make sec crosswalk            # stage 5
 ```
 
-`make tm` is the corpus build and is the target to trust. **The `analysis` and `paper` targets in the `Makefile` are stale** — they build `paper/main.pdf` from a `paper/main.tex` that no longer exists, and their script list predates the current paper. Run the analysis scripts from the table below directly, and compile with:
+`make tm` is the corpus build and is the target to trust; the `analysis` and `paper` targets in the `Makefile` are stale. The theme fit and a full rescore take roughly an hour per resolution on the full corpus. Most analysis scripts run in minutes once the parquets exist.
 
-```bash
-cd paper/v3 && pdflatex main && pdflatex main && pdflatex main
-```
+## Where each exhibit comes from
 
-Cost worth knowing before you start:
+Run everything with the default `SURPRISE_SRC=rolling`. "Typed" means the numbers were typed into the `.tex` from the artifact; the rest are generated files the papers read directly.
 
-- The backfile download is ~12 GB streamed once; per-class records/vocab/surprise/outcome parquets come to ~15 GB after the build; SEC FSDS ZIPs another ~7 GB.
-- Stages 4 and 5 are **roughly an hour per topic resolution** on the full corpus (33 min at *T* = 50, 58 min at *T* = 200 on the reference build). A full rescore is not a casual rerun.
-- Most analysis scripts run in minutes once the parquets exist; `online_appendix.py` and `staged_outcomes_table.py` are the slow ones.
+### Paper A
 
-## Where each paper exhibit comes from
-
-Exhibits are the v3 paper's (`paper/v3/main.tex`). Run everything with `SURPRISE_SRC=rolling` unless the row says otherwise (it is the default). Tables typed into the `.tex` by hand are marked; the rest are generated files the paper reads directly.
-
-| Paper exhibit (v3) | Script | Artifact |
+| Exhibit | Script | Artifact (in `paper/results/`) |
 |---|---|---|
-| §2 funnel table | `topic_debut.py`, `event_gates_all.py` | `debut_outcome_topic.json`, `event_gates_all.json` (typed) |
-| §3 registration deciles + surprise plane | `fig_registration_only.py` | `fig_registration_deciles.png`, `fig_registration_plane.png`, `fig_registration_only.json` |
-| §3 self/counsel table | `persist_missing_artifacts.py` | `representation_stats.json` (typed) |
-| §3 refiling / amendment numbers | `refile_text_change.py`, `refile_prepost_chart.py` | `refile_text_change.json`, `refile_prepost.png` |
-| §4 five-year-proof LPM (central result) | `gate_decisive_regression.py` | `gate_decisive_regression.json` (typed) |
-| §4 per-industry forest | `event_gates_all.py` | `event_gate_forest.png` |
-| §4 timing / settledness checks | `gate_censoring_check.py`, `gate_duration` runs | `gate_duration.json` |
-| §4 three-scorings figure + table | `resolution_compare.py`, `fig_resolution_compare.py` | `resolution_compare.{json,tex}`, `fig_resolution_compare.png` |
-| §4 themes new to corpus / class | `theme_novelty_origin.py` | `theme_novelty_origin.json`, `theme_novelty_cache/` |
-| §4 ceiling check (lead within atypicality fifths) | `ceiling_check.py` | `ceiling_check.json` |
-| §4 year-ten renewal V | `two_gate_009.py`, `gate2_curve_shape.py` | `two_gate_009.json`, `gate2_curve_shape.json` |
-| §5 per-cohort coefficients | `fig_cohort_slopes.py` | `fig_cohort_slopes.{png,json}` |
-| §5 tech-vs-other era profile | `gate_era_profile.py` | `gate_era_profile.png` |
-| §5 tech class/theme tables + figure | `gate_era_tech_themes.py` (+ `patch_techthemes_row.py`) | `gate_era_tech_classes.tex`, `gate_era_tech_themes.{tex,png,json}` |
-| §5 internet scatter + appendix table | `internet_breakout.py`, `fig_internet_scatter.py` | `internet_breakout.{json,tex,png}`, `fig_internet_scatter.png` |
-| §5 internet event-time convergence | `internet_convergence.py` | `internet_convergence.{png,json}` |
-| §5 internet-split cohort coefficients | `fig_cohort_slopes_internet.py` | `fig_cohort_slopes_internet.{png,json}` |
-| §5 surge figure and wave facts | `fig_surges.py`, `theme_surge.py`, `theme_surge_class.py`, `wave_timing.py` | `fig_surges.png`, `theme_surge{,_class}.json`, `wave_timing.json` |
-| §6 ladder table | `sec_event_ladder.py` | `sec_event_ladder.json` (typed) |
-| §6 unfunded-IPO contrast | `unfunded_ipo.py` | `unfunded_ipo.json` |
-| §6 value concentration | `value_concentration.py` | `value_concentration.json` |
-| §6 EDGAR LPM table | `debut_edgar_substantiate.py` | `debut_edgar_substantiate.json` (typed) |
-| §6 success ventile curves | `fig_success_deciles.py` | `fig_success_ventiles.{png,json}` |
-| §6 patent grid + sectoral split | `wsC_within_firm_patents.py`, `patent_complementarity_by_sector.py` | `wsC_within_firm_patents.json`, `patent_complementarity_by_sector.json` (typed) |
-| §7 staged outcomes table | `staged_outcomes_table.py` | `staged_outcomes_table.tex` (input directly) |
-| §8 four builds / weighting | `scoring_robustness` runs | `scoring_robustness.json` |
-| §8 resolution sweep + seed stability | `topic_p_scorer_all.py` (`TOPIC_T`), `topic_seed_gate.py` | `topic_lda_meta*.json`, `topic_seed_gate.json` |
-| §8 decayed windows | `decay_gate_check.py` | `decay_gate_check.json` |
-| §8 window width / mix | `window_choice_all.py`, `window_mix_rolling.py` | `window_choice_all.json`, `window_mix_rolling.json` |
-| §8 unconditional composite | `registration_and_unconditional.py` | `appendix_unconditional.{png,json}` |
-| §8 toggled-parameter matrix | `variants_runner.py` | `paper/v3/_eval/*.json` |
-| §8 functional forms | `gate_curve_shapes.py` | `gate_curve_shapes.json`, `curve_shapes.png` |
-| §8 listing-vs-reporting split | `gate_curve_shapes.py` | `gate_curve_shapes.json` |
-| §8 term-scored cross-check | `topic_outcomes_all.py`, `s8_survival_corrected.py` | `topic_outcomes_all.{png,json}`, `s8_corrected_*` |
-| App. burn-in figure | `analysis_full.py`, `burnin_optimization.py` | `burnin.png`, `burnin_by_class.json` |
-| App. registration profiles | `topic_debut.py`, `quintile_profiles.py` | `debut_outcome_topic.png`, `quintile_profiles.png` |
-| App. registration flow (sankey) | `sankey_registration.py` | `fig_registration_sankey.{png,json}` |
-| App. length surface by representation | `representation_appendix.py` | `representation_appendix.png` |
-| App. three encodings exhibit | `exhibit_encodings.py` | `exhibit_encodings.json` (typed) |
-| K⁻/K⁺ correlation quoted in §2 and §8 | `persist_exhibit_correlations.py` | `exhibit_correlations.json` |
+| Funnel table (Table 2) | `topic_debut.py`, `event_gates_all.py` | `debut_outcome_topic.json`, `event_gates_all.json` (typed) |
+| Why fifty themes (§3): coherence, seed stability, sample thinning, tokenizer | `topic_coherence.py`, `topic_seed_replicate_T50.py`, `sample_thinning.py`, `tokenizer_check.py` | `topic_coherence.json`, `topic_seed_replicate_T50.json`, `sample_thinning.json`, `tokenizer_check.json` |
+| Measure facts on the production build (§3) | `measure_facts_production.py` | `measure_facts_production.json` |
+| Registration deciles (Fig. 1) | `fig_registration_only.py` | `fig_registration_deciles.png`, `fig_registration_only.json` |
+| Five-year-proof LPM (Table 3) | `gate_decisive_regression.py` | `gate_decisive_regression.json` (typed) |
+| Timing / settledness checks | `gate_censoring_check.py` | `gate_duration.json` |
+| Three scorings (Fig. 2) | `resolution_compare.py`, `fig_resolution_compare.py`, `perclass_lda_rescore.py` | `resolution_compare.{json,tex}`, `fig_resolution_compare.png` |
+| Theme arrival (new to class / corpus) | `theme_novelty_origin.py` | `theme_novelty_origin.json` |
+| Lead within atypicality fifths | `ceiling_check.py` | `ceiling_check.json` |
+| Patents | `wsC_within_firm_patents.py`, `patent_complementarity_by_sector.py` | `wsC_within_firm_patents.json` (typed) |
+| SEC reporting (Table 4) | `debut_edgar_substantiate.py` | `debut_edgar_substantiate.json` (typed) |
+| Robustness summary (Table 5) and supplement §S4 | `scoring_robustness` runs, `topic_resolution_sweep.py`, `topic_seed_gate.py`, `decay_gate_check.py`, `window_choice_all.py`, `window_mix_rolling.py`, `registration_and_unconditional.py`, `build_dup_flags.py`, `variants_runner.py`, `gate_curve_shapes.py`, `decompose_L_shape.py` | the matching `.json` files; `paper/v3/_eval/*.json` |
+| Supplement §S1 (registration detail, flow, refiling) | `quintile_profiles.py`, `sankey_registration.py`, `refile_text_change.py`, `refile_prepost_chart.py` | `quintile_profiles.png`, `fig_registration_sankey.png`, `refile_prepost.png` |
+| Supplement §S2 (representation, exhibit, pairs) | `representation_appendix.py`, `exhibit_encodings.py`, `pair_lead_corpus.py`, `combination_measures.py` | `representation_appendix.png`, `exhibit_encodings.json`, `pair_lead_corpus.{json,tex}` |
+| Supplement §S3 (burn-in) | `burnin_optimization.py` | `burnin.png`, `burnin_by_class.json` |
+
+### Paper B
+
+| Exhibit | Script | Artifact (in `paper/results/`) |
+|---|---|---|
+| Five-year-proof LPM, forest | `gate_decisive_regression.py`, `event_gates_all.py` | `gate_decisive_regression.json`, `event_gate_forest.png` |
+| Per-cohort coefficients | `fig_cohort_slopes.py` | `fig_cohort_slopes.{png,json}` |
+| Technology vs other eras | `gate_era_profile.py` | `gate_era_profile.png` |
+| Technology classes and themes | `gate_era_tech_themes.py` | `gate_era_tech_classes.tex`, `gate_era_tech_themes.{tex,png,json}` |
+| What carried the 2000–2004 reversal | `reversal_theme_decomp.py`, `reversal_decomp_table.py` | `reversal_theme_decomp.json`, `reversal_decomp.tex` |
+| Internet by class, scatter, event time, cohort split | `internet_breakout.py`, `fig_internet_scatter.py`, `internet_convergence.py`, `fig_cohort_slopes_internet.py` | `internet_breakout.{json,tex}`, `fig_internet_scatter.png`, `internet_convergence.png`, `fig_cohort_slopes_internet.png` |
+| Surges | `theme_surge.py`, `theme_surge_class.py`, `wave_timing.py`, `fig_surges.py` | `theme_surge{,_class}.json`, `wave_timing.json`, `fig_surges.png` |
+| Ladder, unfunded listings, value tiers, curated vocabularies | `sec_event_ladder.py`, `unfunded_ipo.py`, `value_concentration.py`, `curated_ladder.py` | matching `.json` (ladder typed) |
+| Harmonized staged outcomes (discussion) | `staged_outcomes_table.py` | `staged_outcomes_table.tex` (50 themes; the earlier 200-theme version is `staged_outcomes_table_T200.tex`) |
 
 ## Online appendix
 
-**`docs/online-appendix/`** — published alongside the paper, and the place to look for anything class-level.
+Published from `docs/` at <https://aporia.institute/tm-vocabulary/>.
 
-Live at <https://aporia.institute/tm-vocabulary/online-appendix/> (theme explorer: [`themes/`](https://aporia.institute/tm-vocabulary/online-appendix/themes/), IPO viewer: [`ipo-viewer/`](https://aporia.institute/tm-vocabulary/online-appendix/ipo-viewer/)).
-
-- `index.html` — a three-panel breakout for each Nice class (failure at the five-year proof of continued use by lead quintile under cohort FE; registration completion on both axes; the class placed in the cross-industry distribution), plus the cross-industry forest and the size/base-rate scatters, with a sortable per-class table.
-- `figures/class_{NNN}.png`, `figures/cross_{forest,scatter}.png`
-- `per_class_estimates.csv` — machine-readable: scored filings, registrations, base failure rate, raw and fixed-effects gate contrasts with standard errors, completion at both tails of each axis.
-
-Rebuild with `python scripts/online_appendix.py` (defaults to rolling scoring). It reuses the raw per-class lifts from `paper/results/event_gates_all.json` rather than recomputing them, so the appendix and the paper's forest figure cannot drift apart.
-
-- `ipo-viewer/` — an interactive scatter of every class's registrations (1996–2018) on the lead/atypicality plane, colored by the latest gate the record reaches (cancelled at the five-year proof / passed / owner in SEC reporting / owner with an IPO marker), with a Nice-class selector and a registration-year range filter. Data files rebuild with `python scripts/build_ipo_viewer_data.py`; SEC and IPO dots are complete, the grey/blue base is sampled at 22,000 dots per class.
+- `online-appendix/index.html` — per-class breakouts, the cross-industry forest and scatters, and `per_class_estimates.csv` (`scripts/online_appendix.py`).
+- `online-appendix/themes_T50.html` and `themes_T50.csv` — the fifty production themes (`scripts/themes_t50_page.py`).
+- `online-appendix/ipo-viewer/` — every class's registrations on the lead/atypicality plane (`scripts/build_ipo_viewer_data.py`).
+- `online-appendix/themes/` — explorer for the 500-theme robustness model (`scripts/theme_explorer.py`, `theme_pages.py`).
 
 ## Known limitations
 
-Read these before reusing anything here.
+**The SEC crosswalk is normalized-exact-match only.** The committed crosswalk has 19,889 owner strings and zero fuzzy matches. Match rates favour formally constituted entities with stable legal names, and every listing and financing estimate is conditional on matchability. Only about half the matched CIKs carry an exchange ticker — the outcome is SEC *reporting*, not exchange listing.
 
-**The SEC crosswalk is normalized-exact-match only.** `sec_link.py` contains a `rapidfuzz` pass, but the committed crosswalk has **19,889 owner strings and zero fuzzy matches** — every row is `match_type == "exact"`. Match rates therefore favour formally constituted entities with stable legal names, and every listing and financing estimate is conditional on matchability. The owner universe is every owner in all 45 class files (rebuilt 2026-08-07; it previously came from five `firm_year_class*.parquet` tables, which made 57% of the debut panel unmatchable and made matchability itself a function of the text being scored). Normalized names resolving to more than one registrant are dropped rather than assigned, and keys under three characters are excluded. Note also that only about half the matched CIKs carry an exchange ticker — the outcome is SEC *reporting*, not exchange listing. Listing rates in the panels are a lower bound on true listing; the estimands are within-cell contrasts, which a uniform match rate leaves unbiased, but the levels should not be read as population rates.
+**Word scoring measures description length.** Word-scored atypicality correlates with log distinct-term count at −0.64 within class (−0.65 in class 009); theme scoring takes that to between −0.10 and +0.10 (`measure_facts_production.json`). Do not build firm-performance claims on word-scored measures; Paper A shows the firm-level correlations they produce dissolve under theme scoring.
 
-**Two topic-scored analyses remain on annual scoring.** The reference-window (*W* ∈ {3,5,7}) decomposition, which needs a separate scoring on each side, and the response-latency split in the software class. No per-filing-window version of either exists. By the evidence of the rolling/annual comparison their magnitudes are likely inflated by something like a third, so read them for the contrast they draw and not for their levels.
+**Word-level scores have no per-filing-window equivalent for every analysis.** Some word-scored material (worked examples, phrase transit, era turbulence) is on the older calendar-year references, and two theme-scored analyses (the asymmetric-window decomposition, the response-latency split) likewise.
 
-**Term-level scores have no rolling equivalent.** `surprise_class*.parquet` is scored against class-year windows and always will be under the current build; there is no `rolling_surprise` counterpart on the token side. Anything term-scored — the worked examples, phrase transit, the freshness measure, the era-turbulence series, the comparison arm of the topic/term battery — is therefore on the older reference construction by necessity, not by choice.
+**Per-filing lead is noisy.** A refit under a second seed reproduces lead at r = 0.72 at 50 themes (0.79 at 200). The noise attenuates estimates toward zero; averaging scores over several refits reduces it.
 
-**Term scoring and document length are close to the same measurement.** Term-scored atypicality correlates with log filing length at −0.729 in class 009 and −0.688 in class 035; on descriptions a few dozen words long, "unusual" and "brief" are nearly interchangeable. Topic scoring takes those to −0.251 and −0.125. This is why the paper reports topic scoring for every estimate and term scoring for every worked example, and why the firm-level correlations that survive term scoring dissolve or reverse under distributions. Do not build firm-performance claims on term-level ΔKL.
+**Filings are not independent draws.** Identical text carries identical scores (47% of registrations share their exact normalized description with another filing), and outcomes cluster within owner (within-owner correlation 0.38 at the five-year proof, mechanically 1.0 for listing). Proof regressions cluster on normalized owner; firm-level specifications carry one row per owner.
 
-**Topic scoring returns a finite value for only about 65% of filings**, so the topic and term columns are not the same sample. Comparisons across the two representations should be re-estimated on the common subset.
+**Registration is selected on language.** The main results condition on grant; the unconditional version is reported separately and diverges.
 
-**Ties are rare under per-filing windows.** About 2.7% of scored filings share a ΔKL value with another filing, and the largest tie group runs to fourteen. Under class-year references, where boilerplate scored against a shared reference produced identical values in bulk, ties were an order of magnitude commoner. Quintile cuts are made deterministic by sorting on the score and then on the serial number. Splitting a tie group across a boundary is still arbitrary; `TIE_RULE=min` in `gate_decisive_regression.py` re-estimates with tied filings kept together, at the cost of unequal quintiles.
+**The measure has no momentum channel, and the theme basis looks ahead.** References are flat pooled aggregates, and the theme model is fitted on filings from 1990–2024, so a vintage refit is owed.
 
-**Filings are not independent draws.** A fifth to a third share an exact position with another filing, and outcomes cluster within owner (within-owner correlation 0.42 for gate survival, mechanically 1.0 for listing). Gate regressions cluster on normalized owner; firm-level specifications carry one row per owner. Binning filings without that correction overstates how much structure the corpus contains.
-
-**Registration is selected on language.** Correlations computed over all filings mix what examination does to a description with what the market does to the product. The main results condition on grant for that reason; the unconditional version is reported separately and diverges.
-
-**The measure has no momentum channel.** References are flat pooled aggregates, so a term the class adopted five years ago and one it adopted last year are equally familiar to the past-facing reader. And the topic basis is fitted on the pooled corpus, so a look-ahead channel remains open; a vintage refit is owed. The months-scale freshness variant is already look-ahead-free but has only been run in one class.
-
-**Legacy column names.** `src/novelty/surprise_decay.py` emits `kl_vs_past` / `kl_vs_future` alongside Kish effective sizes still called `n_eff_prospective` / `n_eff_retrospective`; `n_eff_prospective` pairs with `kl_vs_past`. `scripts/recompute_h2.py` maps them onto `n_ref_past` / `n_ref_future`. `scripts/migrate_kl_column_names.py` rewrites older panels (`prospective_kl`, `retrospective_kl`, `n_ref_prospective`, `n_ref_retrospective`, `topic_pros`, `topic_retr`) into the current names; it is idempotent and does not touch `topic_dkl`.
-
-**`scripts/rolling_window_gate_test.py` reads a stale path.** It expects a `roll_dkl` column in `rolling_surprise_class009_T200.parquet`, a pairing that belonged to an earlier version of `rolling_window_rescore.py`. As the tree stands, `rolling_surprise_*` carries production column names and the `roll_*` schema lives in `rolling_diag_*`. Its committed JSON predates the split; re-running it as written will raise.
+**Legacy names.** Many scripts still say "gate" for the five-year proof (`gate_decisive_regression.py`, `event_gates_all.py`, `gate_*` columns) and `dkl` for lead (`topic_dkl`). `scripts/migrate_kl_column_names.py` rewrites older panels into the current column names.
 
 ## Repository layout
 
 ```
 .
 ├── paper/
-│   ├── v3/main.tex                       the working paper  ← start here
-│   │   └── (sec0_intro … sec6_discussion, sec5_robustness, appendices;
-│   │        _src/ holds parked material, _src/retired/ superseded sections)
-│   ├── v3_draft_*.pdf                    dated builds of the working paper
-│   ├── frozen/                           the tagged review copy (review-copy-2026-08-23)
-│   ├── ssrn_diffusion_paper.{tex,pdf}   SUPERSEDED working paper
-│   ├── journal_paper.{tex,pdf}           SUPERSEDED June 2026 sibling
-│   ├── newterms_report.{tex,pdf}         companion: new cross-industry vocabulary
-│   ├── face_validation.md                rateable form for the 50 LDA themes
-│   ├── results/                          JSON metrics, figures, .tex fragments
-│   └── _legacy/                          archived earlier papers
-├── docs/online-appendix/  per-class results published with the paper
-├── scripts/               the analysis chain (see the exhibit table above)
-│   └── blocked/           runnable scripts still gated on external data
-├── src/novelty/           the Python package: dictionary, surprise, firm_year, survival
-├── data_publish/
-│   ├── firm_year_dkl.csv                (CIK, year) mean ΔKL, n = 59,033
-│   ├── firm_year_patents_and_dkl.csv    joined to PatentsView, n = 174,569
-│   └── comparators/                     BCG / MIT TR50 / Crunchbase lists + crosswalk
-├── METHOD.md, PROJECT.md, PROPOSAL.md, PROPOSAL_diffusion.md, BLOCKED.md, INBOX.md
-├── Makefile, Makefile.dynamism, pyproject.toml
-└── LICENSE                GPL-3.0
+│   ├── split/A_qss/        Paper A  ← start here for the corpus and measure
+│   ├── split/B_lead/       Paper B  ← start here for the findings
+│   ├── split/A_corpus/     longer version of Paper A (reference)
+│   ├── results/            JSON metrics, figures, .tex fragments both papers read
+│   ├── v3_rp/              shared preamble, back matter, bibliography (+ earlier manuscript)
+│   └── v3/, frozen/, _legacy/, *.tex   earlier work, provenance only
+├── docs/                   the published site and online appendix
+├── scripts/                the analysis chain (see the exhibit tables)
+├── src/novelty/            the Python package: dictionary, surprise, firm_year, survival
+├── data_publish/           early word-scored firm-year panel (retired; see Data)
+└── LICENSE                 GPL-3.0
 ```
-
-Design documents: `METHOD.md` (the prospective/retrospective KL method note), `PROPOSAL.md` and `PROPOSAL_diffusion.md` (original and diffusion-program proposals), `PROJECT.md` (umbrella framing), `BLOCKED.md` (remaining workstreams with decision rules).
 
 ## Citing
 
-> Silver, E. (2026). *Business themes in the trademark record: Language signals of product survival, funding, and listing*. SSRN Working Paper. https://ssrn.com/abstract=6954598 (DOI: 10.2139/ssrn.6954598)
+> Silver, E. (2026). *An event-dated corpus of US trademark prosecution and a two-sided measure of vocabulary position*. Working paper.
+>
+> Silver, E. (2026). *Arrows in their backs: Vocabulary lead and product survival in the US trademark record*. Working paper.
+>
+> Earlier combined version: Silver, E. (2026). *Business themes in the trademark record: Language signals of product survival, funding, and listing*. SSRN Working Paper 6954598. https://doi.org/10.2139/ssrn.6954598
 
 ## Author
 
-Eric Silver — `epsilver@gmail.com`. Independent researcher; formerly a PhD candidate at Carnegie Mellon University. The author's current employment is unrelated to this work, and the views expressed are the author's alone.
+Eric Silver — `epsilver@gmail.com`, ORCID 0000-0003-3351-1109. Independent researcher. The author's current employment is unrelated to this work, and the views expressed are the author's alone.
 
 ## License
 

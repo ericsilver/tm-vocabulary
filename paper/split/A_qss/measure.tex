@@ -11,10 +11,13 @@ description that startles the first reader and not the second arrived
 before its industry's language moved that way.
 
 Both windows are anchored on the filing's own date, spanning the 1,826
-days before it and the 1,826 days after; both exclude the filing date
-itself, and inside a window every day counts the same. The measure asks
-whether wording is unusual against a period, not whether it is ahead of
-a trend inside that period; it has no momentum channel.
+days before it and the 1,826 days after, and both exclude the filing
+date itself. Each window holds every application filed in the same Nice
+class in that span, registered or not, and every one counts the same; a
+filing is scored only when each of its windows holds at least 500
+filings. The measure asks whether wording is unusual against a period,
+not whether it is ahead of a trend inside that period; it has no
+momentum channel.
 
 \subsection{What is measured}
 
@@ -58,34 +61,100 @@ audiocassettes, videocassettes, compact disks, floppy disks, CD ROMs,
 and direct digital transmission
 \end{quote}
 
-\noindent Of its 45 distinct terms, 36 are in the theme model's
-vocabulary, among them \emph{computerized}, \emph{search},
+\noindent Of its 65 distinct words and word pairs, 35 are in the theme
+model's vocabulary, among them \emph{computerized}, \emph{search},
 \emph{ordering service}, \emph{retail} and \emph{digital transmission}.
 
-\paragraph{Grouping words into themes.} Each filing is then re-described
-in a fixed, much smaller set of coordinates. We run latent Dirichlet
-allocation once over a stratified sample of the whole corpus, all 45
-classes together. The model develops a list of 50 themes --- clusters of
-words that tend to occur together --- and infers, for any filing, to
-what degree its description invokes each one. Nothing supervises this,
-and a theme is read off from its leading words: one collects the
-vocabulary of media and entertainment goods, another retail store
-services, another downloadable and online software. This build --- fifty
-global themes, per-filing five-year windows, flat weighting --- is the
-production scoring, used for every estimate unless the text states
-another. The themes are shared across classes; what is specific to a
-class is the reference, the average theme proportions of that class's
-own filings in the window. The Amazon filing draws on six themes at more
-than a twentieth of its weight: $0.41$ on media and entertainment goods,
-$0.15$ on computer and information services, $0.13$ on retail store
-services, $0.10$ on printed matter, $0.09$ on downloadable and online
-software, and $0.07$ on marketing of consumer goods. The online appendix
-lists every theme with its leading words and its weight in each
-class.\footnote{\onlineappendixnote} Fifty is coarse, roughly one theme
-per industry; Section~\ref{sec:three_scorings} refits at 500 themes and
-at 50 themes within each class, and the supplementary material (\S S4) carries a
-resolution sweep and a second fit at fixed resolution with a different
-seed.
+\paragraph{Grouping words into themes.} Next, each description is
+re-described using a short list of themes instead of tens of thousands of
+separate words. A theme here is simply a list of words that tend to turn
+up in the same descriptions: \emph{video, computer, electronic, music,
+games}, say, or \emph{store, retail, store services, featuring}. We do not
+write these lists ourselves. They are found by a standard statistical
+method, latent Dirichlet allocation \citep{Blei2003}, which works roughly
+as follows. It starts from a random guess about which words belong to
+which theme, then passes over the descriptions again and again, each time
+adjusting the word lists so that two things become true together: each
+description can be explained by a few themes, and each theme uses a
+consistent set of words. When the lists stop changing, each theme is a
+weighted list of words, and each description is a mix of themes --- for
+example 40\% of one, 15\% of another --- that sums to one. Nothing tells
+the model what the themes should be about; we name them afterwards by
+reading their leading words. The online appendix lists every theme with
+its leading words and its weight in each class.\footnote{\onlineappendixnote}
+
+Three choices go into the model, and each affects what it can see.
+\emph{What it learns from.} The model is fitted once, on a sample of
+10{,}000 descriptions from each of the 45 Nice classes (every description,
+for classes smaller than that), 448{,}437 in all, and then applied to all
+13.99 million. Sampling each class equally keeps the largest classes ---
+software and electronics alone holds 1.8 million filings --- from
+dominating the theme list, so that small industries get themes of their
+own. The cost is that vocabulary concentrated in the largest classes is
+thinned before the model sees it. Descriptions using internet terms are
+7.4\% of the sample against 14.7\% of the corpus; for cloud computing the
+figures are 0.4\% against 2.4\%, for artificial intelligence 0.4\% against
+0.7\%, and for blockchain 0.2\% against 0.5\%, while solar vocabulary,
+spread over many small classes, enters at its true rate. Neither the 50-
+nor the 500-theme model has a dedicated theme for artificial
+intelligence, blockchain or cloud computing, which is why analyses of
+those waves use curated word lists rather than themes. \emph{Which words count.} The vocabulary is every word, and every pair
+of adjacent words, that appears in at least 50 sampled descriptions,
+after common function words such as \emph{the} and \emph{for} are
+removed: 62{,}168 terms.\footnote{The fit uses scikit-learn's online
+variational implementation with its default priors, eight passes over
+the sample, and a fixed random seed; the sample is drawn from filings
+dated 1990--2024. When filings are scored, each description is read with
+a simpler tokenizer than the one used for fitting (words of three or
+more letters, function words kept, word pairs formed across
+punctuation), so a word pair the model learned across a removed
+function word never occurs at scoring time. Every filing is scored by
+the same rule, so the difference is a fixed feature of the measure
+rather than a source of bias between filings. On a sample of 37{,}124
+descriptions from every class, the two tokenizations give the same
+dominant theme for 88\% of descriptions and theme mixes that differ by
+a median of 0.07 in total variation (on a 0--1 scale).} \emph{How many
+themes.} The number is set by the analyst, and we use fifty.
+
+Fifty is coarse --- roughly one theme per Nice class --- and it is chosen
+on three grounds. First, at fifty every theme is a coherent word list. A
+standard check is whether a theme's ten leading words actually appear in
+the same descriptions more often than chance would put them there
+(normalized pointwise mutual information, which runs from $-1$ to $1$, with
+$0$ meaning no association; \citealp{Lau2014}). At fifty themes the average
+is $0.48$ and no theme falls below zero. At 200 themes the average falls to
+$0.33$ and 11\% of themes fall below zero; at 500 themes, to $0.23$ and
+21\% --- a fifth of the finer model's themes are word lists whose words
+rarely occur together. Finer models fit the text more closely, but a
+closer statistical fit does not by itself make themes more interpretable
+\citep{Chang2009}. Second, the themes themselves come back when the
+model is refitted. Refitting with a different random seed and matching
+each theme to its closest counterpart, the median theme's word list has
+a cosine similarity of $0.74$ with its match at fifty themes, against
+$0.54$ at 200. The per-filing scores are a noisier matter at any
+resolution: in the software class a second seed reproduces lead at
+$r = 0.72$ at fifty themes ($0.79$ at 200), and moves the five-year-proof
+contrast from $+3.2$ to $+3.9$ points. Each fit is therefore a noisy
+measurement of lead, and noise of this kind pulls estimates toward zero
+rather than creating them. Third, and decisively, the findings do not
+depend on the choice. Section~\ref{sec:three_scorings} rescores every
+registration under 500 global themes and under 50 themes fitted
+separately inside each class --- 2{,}250 class-specific themes in all, the
+finest partition tested --- and the headline contrast is $+2.3$, $+2.6$ and
+$+1.9$ points under the three, and $+2.2$ at 200 themes (Supplementary
+Material, \S S2 and \S S4). Fifty is the resolution at which the themes
+are easiest to read and every result holds; nothing in the paper rests on
+the model having found the one right number.
+
+This build --- fifty global themes, per-filing five-year windows, flat
+weighting --- is the production scoring, used for every estimate unless
+the text states another. The themes are shared across classes; what is
+specific to a class is the reference, the average theme mix of that
+class's own filings in the window. The Amazon filing draws on six themes
+at more than a twentieth of its weight: $0.41$ on media and entertainment
+goods, $0.15$ on computer and information services, $0.13$ on retail
+store services, $0.10$ on printed matter, $0.09$ on downloadable and
+online software, and $0.07$ on marketing of consumer goods.
 
 \paragraph{Comparing against the two references.} Write $P$ for the
 filing's distribution over themes, and $Q^{-}$ and $Q^{+}$ for that
@@ -113,20 +182,22 @@ their average and their signed difference:
 For Amazon, $A = 1.225$ and $L = +0.123$: against its own class, its
 atypicality is at the 47th percentile and its lead at the 94th. The
 industry moved toward this description in the five years after it was
-filed and had not been writing that way in the five years before; the
-three themes that carry most of its description all became more common
-in the class over the following five years.
+filed and had not been writing that way in the five years before.
 
 Why the average and the difference, rather than the two surprises
-themselves? Because $K^{-}$ and $K^{+}$ correlate at $0.988$: a filing
+themselves? Because $K^{-}$ and $K^{+}$ correlate at $0.99$: a filing
 far from its class's past is almost always far from its future too, so
 entering both is close to entering one variable twice. The average
 collects that large shared component and the difference collects the
 small residual that carries the timing; nothing more than a sum and a
-difference is taken, with no weights estimated, and the two resulting
-regressors are nearly uncorrelated ($+0.036$). The cost is that $L$ is a
-small residual of two large quantities, about a sixth of either level's
-spread, which the supplementary material (\S S4) quantifies.
+difference is taken, with no weights estimated. The two resulting
+axes are only weakly related: within class, lead and atypicality
+correlate at $-0.10$ across all scored filings, though the figure varies
+by class, from $+0.04$ in software to $+0.25$ in advertising and retail,
+and Section~\ref{sec:three_scorings} checks that the lead results do not
+run through atypicality. The cost of the construction is that $L$ is a
+small residual of two large quantities, with about a seventh of either
+level's spread, which the supplementary material (\S S4) quantifies.
 
 \paragraph{Why the words are not scored directly.} The words themselves
 could be compared to the reference, and the paper reports that scoring
@@ -137,22 +208,21 @@ distributions,
   \mathrm{KL}(P \,\|\, Q) \;=\; \underbrace{-\textstyle\sum_k P_k \log Q_k}_{\text{how unexpected these words are}}
   \;-\; \underbrace{\left(-\textstyle\sum_k P_k \log P_k\right)}_{\text{how spread out the filing is}} ,
 \]
-and the spread of a filing over words is bounded by its distinct-term
-count: a description using $k$ terms cannot spread past $\log k$, while
-the reference spreads over about 900 terms. A five-word description is
-charged roughly five nats of width before any content is considered. In
-3{,}000 long software-class filings cut down to random handfuls of words
-and rescored, a fiftyfold cut in length moves the surprise term by
-$0.016$ nats and the spread term by $2.9$: the score change is the
-length, not the content. Term-scored atypicality correlates with log
-distinct terms at $-0.68$ in the software class. Themes break the
-coupling because the 50 coordinates are always occupied; theme-scored
-atypicality correlates with log term count at $-0.22$ there, and
-$-0.10$ in advertising and retail. What term scoring alone resolves is
-novel word \emph{combinations} --- of Amazon's inventive bigrams,
-nothing survives into any theme basis --- so theme scoring carries every
-estimate and term scoring every worked example (Supplementary Material,
-\S S2, traces three filings through both representations).
+and the spread of a filing over words is capped by how many distinct
+words it uses: a description with $k$ distinct terms cannot spread past
+$\log k$, while its class's reference spreads over thousands. A short
+description is therefore charged for its narrowness before any of its
+content is considered, and the shorter the description, the larger the
+charge. In the data, term-scored atypicality correlates with the log of
+a filing's distinct-term count at $-0.65$ in the software class and
+$-0.64$ across all classes (within class). Themes break the coupling
+because all 50 coordinates are always occupied: theme-scored atypicality
+correlates with the same count at between $-0.10$ and $+0.10$. What
+words can show and themes cannot is specific new wording --- a word
+pair like Amazon's \emph{line search} has no place in any theme --- so
+theme scoring carries every estimate, and the worked examples in
+Supplementary Material \S S2 trace three filings through both
+representations.
 
 \paragraph{What the themes see, and what they do not.} The score reads
 which themes a filing draws on and how heavily, not how it combines

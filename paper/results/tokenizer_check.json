@@ -1,0 +1,9 @@
+{
+ "n_docs": 37124,
+ "fit_tokens_also_in_scoring_median": 0.9444444444444444,
+ "scoring_tokens_also_in_fit_median": 0.8367796953400986,
+ "theme_mix_tv_median": 0.07150054105560658,
+ "theme_mix_tv_p90": 0.2829278151709411,
+ "dominant_theme_agree": 0.8787038034694538,
+ "kl_vs_common_reference_r": 0.8879302138500211
+}

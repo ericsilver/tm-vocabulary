@@ -35,12 +35,11 @@ time, and Form D is only electronic from 2009, so no single cohort supports
 every stage. That is a property of the institutions, not a defect of the design,
 but it means rows are not a strict nested decomposition and the table says so.
 
-This table alone is estimated at T = 200 topics rather than the T = 50 used
-elsewhere in the paper; the sign and ordering of every row are unchanged at
-T = 50.
+Estimated at the production T = 50 themes (STAGED_T=200 reproduces the
+earlier T = 200 version, archived as staged_outcomes*_T200.*).
 
 Inputs : data/processed/tm_class{cls}.parquet
-         data/processed/{SRC}_surprise_class{cls}_T200.parquet
+         data/processed/{SRC}_surprise_class{cls}.parquet (T=50)
              SRC = SURPRISE_SRC, "rolling" for the per-filing windows the paper
              uses, "topic" for the retired per-calendar-year buckets
          data/processed/case_events.parquet
@@ -71,6 +70,7 @@ PROC = REPO / "data" / "processed"
 # the paper uses. Set SURPRISE_SRC=topic to reproduce the retired
 # per-calendar-year scoring, which the comparison appendix reports.
 SRC = os.environ.get("SURPRISE_SRC", "rolling")
+T = int(os.environ.get("STAGED_T", "50"))
 RES = REPO / "paper" / "results"
 
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
@@ -88,7 +88,8 @@ def debut_panel() -> pl.DataFrame:
     """One row per owner: their first-ever filing, its scores, class and year."""
     parts = []
     for cls in CLASSES:
-        tp = PROC / f"{SRC}_surprise_class{cls}_T200.parquet"
+        tp = PROC / (f"{SRC}_surprise_class{cls}.parquet" if T == 50
+                     else f"{SRC}_surprise_class{cls}_T{T}.parquet")
         tm = PROC / f"tm_class{cls}.parquet"
         if not (tp.exists() and tm.exists()):
             continue
@@ -310,10 +311,10 @@ def main() -> int:
     # coded as survivors -- 35% of registrations, and 2.0M whose window has
     # not started at all, which passes them mechanically.
     g1 = base[(base.registered == 1) & base.reg_year.between(*GATE1_COHORTS)]
-    add("Passed first gate (yr 6)", "registered", g1, "passed_gate")
+    add("Passed the five-year proof", "registered", g1, "passed_gate")
     g2 = base[(base.registered == 1) & (base.passed_gate == 1)
               & base.reg_year.between(*GATE2_COHORTS)]
-    add("Passed second gate (yr 10)", "passed first", g2, "passed_gate2")
+    add("Renewed at year ten", "passed the proof", g2, "passed_gate2")
     if funded_owners is not None:
         add("Raised a Reg D round", "filed", base, "funded", years=(2009, 2018))
         add("Raised a Reg D round", "registered",
@@ -341,20 +342,20 @@ def main() -> int:
          r"debut-year fixed effects and heteroskedasticity-robust errors; "
          r"coefficients are percentage points per standard deviation. "
          r"\emph{Atypicality} is the average of the two KL levels; \emph{lead} "
-         r"is the signed difference. Cohort windows differ because each maintenance "
-         r"gate needs elapsed time and Form~D is electronic only from 2009, so the "
-         r"rows are not a nested decomposition. The first gate is a dated "
-         r"cancellation for non-use; the second is whether a registration that "
-         r"cleared the first was renewed rather than cancelled or expired, "
-         r"restricted to 2002--2013 cohorts, since a year-six and a year-ten death "
-         r"share a terminal status and are separable only this way. This table "
-         r"alone is estimated at $T = 200$ topics rather than the $T = 50$ used "
-         r"elsewhere; the sign and ordering of every row are unchanged at $T = 50$.}",
+         r"is the signed difference; the lead-magnitude column $|L|$ comes from "
+         r"a second specification that adds it. Cohort windows differ because each "
+         r"maintenance deadline needs elapsed time and Form~D is electronic only "
+         r"from 2009, so the rows are not a nested decomposition. The five-year "
+         r"proof row is survival of a dated cancellation for non-use; the year-ten "
+         r"row is whether a registration that passed the proof was renewed rather "
+         r"than cancelled or expired, restricted to 2002--2013 cohorts, since a "
+         r"year-six and a year-ten cancellation share a terminal status and are "
+         r"separable only by date.}",
          r"\label{tab:staged}",
          r"\begin{tabular}{lrrrrr}", r"\toprule",
          r" & & & \multicolumn{2}{c}{Unsigned} & Signed \\",
          r"\cmidrule(lr){4-5}\cmidrule(lr){6-6}",
-         r"Outcome \emph{(population)} & $n$ & Base & Atyp. & $|\Delta$KL$|$ & Lead \\",
+         r"Outcome \emph{(population)} & $n$ & Base & Atyp. & $|L|$ & Lead \\",
          r"\midrule"]
     for r in rows:
         a = r.get("spec_absdkl", {})

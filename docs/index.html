@@ -7,8 +7,9 @@
 <style>
   body { font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 12px; color: #222; line-height: 1.5; }
   h1 { font-size: 1.35em; }
+  h2 { font-size: 1.1em; margin-top: 1.6em; }
   a { color: #2b6cb0; }
-  ul { line-height: 1.9; }
+  ul { line-height: 1.8; }
   .sitenav { font-size: 0.85em; color: #777; margin: 0 0 1.6em; }
   .sitenav b { color: #222; font-weight: normal; }
 </style>
@@ -16,26 +17,37 @@
 <body>
 
 <p class="sitenav"><b>tm-vocabulary</b> &middot;
-<a href="https://ssrn.com/abstract=6954598">paper</a> &middot;
+<a href="#papers">papers</a> &middot;
 <a href="online-appendix/">online appendix</a> &middot;
-<a href="online-appendix/themes/">theme explorer</a> &middot;
+<a href="online-appendix/themes_T50.html">the fifty themes</a> &middot;
 <a href="online-appendix/ipo-viewer/">IPO viewer</a> &middot;
 <a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>
 
-<h1>Business Themes in the Trademark Record</h1>
+<h1>Vocabulary position in the US trademark record</h1>
 
-<p>Companion site for <a href="https://ssrn.com/abstract=6954598"><em>Business
-Themes in the Trademark Record: Language Signals of Product Survival, Funding,
-and Listing</em></a> (SSRN 6954598), which scores the goods and services
-descriptions of USPTO trademark filings against the themes of the surrounding
-record and follows each registration through the five-year proof of continued
-use, SEC financial reporting, and IPO.</p>
+<p>Every US trademark application describes the goods or services the mark will
+cover, and every registered mark's owner must later swear that the product is
+still being sold. This project re-parses all 13.99 million USPTO trademark case
+files into dated events, and scores each goods/services description on two
+axes: <em>atypicality</em>, how unusual its language is for its industry, and
+<em>lead</em>, whether its language ran ahead of or behind where the industry's
+language was moving. Both compare the description's mix of
+<a href="online-appendix/themes_T50.html">fifty themes</a> with its own Nice
+class's filings in the five years before and the five years after it was filed.</p>
 
+<h2 id="papers">Papers</h2>
 <ul>
-  <li><a href="https://ssrn.com/abstract=6954598">The paper</a> (SSRN)</li>
-  <li><a href="online-appendix/">Online appendix</a> &mdash; per-industry results, all 45 Nice classes</li>
-  <li><a href="online-appendix/themes/">Theme explorer</a> &mdash; browse the 500-theme model by Nice class</li>
-  <li><a href="online-appendix/ipo-viewer/">IPO viewer</a> &mdash; registrations on the lead/atypicality plane, tiered by outcome</li>
+  <li><a href="https://github.com/ericsilver/tm-vocabulary/blob/master/paper/split/A_qss/submission/manuscript.pdf"><em>An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure of Vocabulary Position</em></a> &mdash; the corpus, the measure, and its validation.</li>
+  <li><a href="https://github.com/ericsilver/tm-vocabulary/blob/master/paper/split/B_lead/main.pdf"><em>Arrows in Their Backs: Vocabulary Lead and Product Survival in the US Trademark Record</em></a> &mdash; whether being early pays: product survival, funding, and listing.</li>
+  <li><a href="https://ssrn.com/abstract=6954598"><em>Business Themes in the Trademark Record</em></a> (SSRN 6954598) &mdash; the earlier combined working paper.</li>
+</ul>
+
+<h2>Online appendix</h2>
+<ul>
+  <li><a href="online-appendix/">Per-industry results</a> &mdash; the five-year-proof contrast and registration profiles for every Nice class</li>
+  <li><a href="online-appendix/themes_T50.html">The fifty themes</a> &mdash; what a theme is, how they were found, and each theme's share of every class</li>
+  <li><a href="online-appendix/ipo-viewer/">IPO viewer</a> &mdash; every class's registrations on the lead/atypicality plane, colored by the furthest outcome reached</li>
+  <li><a href="online-appendix/themes/">500-theme explorer</a> &mdash; the finer model used as a robustness check</li>
   <li><a href="https://github.com/ericsilver/tm-vocabulary">Code repository</a> (GitHub)</li>
 </ul>
 

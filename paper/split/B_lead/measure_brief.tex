@@ -9,56 +9,65 @@ after. Each is asked how surprising the wording is. The measurement is how
 much they disagree: a description that startles the first reader and not
 the second arrived before its industry's language moved that way.
 
-Formally, each description is reduced to a bag of words and re-described
-in a fixed set of fifty themes by latent Dirichlet allocation, fitted once
-over a stratified sample of all 45 Nice classes; a theme is a cluster of
-words that co-occur across filings (\emph{video, music, games,
-electronic, audio}), a component many offerings share rather than a
-subject. Write $P$ for a filing's distribution over themes, and $Q^{-}$
-and $Q^{+}$ for that distribution averaged over every same-class filing
-in the 1{,}826 days before and after its filing date. The filing's
-past-facing and future-facing surprise are the Kullback--Leibler
-divergences $K^{-} = \mathrm{KL}(P \,\|\, Q^{-})$ and
-$K^{+} = \mathrm{KL}(P \,\|\, Q^{+})$, in nats. The two axes used
-throughout are their average and their signed difference:
+\subsection{From a description to two numbers}
+
+The surprise is measured on themes rather than on individual words. A
+theme is a list of words that tend to turn up in the same descriptions
+--- \emph{video, computer, electronic, music, games}, say, or \emph{store,
+retail, store services, featuring}. The lists are not written by hand.
+They are found by latent Dirichlet allocation \citep{Blei2003}, a
+standard method that starts from a random guess about which words belong
+together and adjusts the lists, pass after pass, until each description
+can be explained by a few themes and each theme uses a consistent set of
+words. The model is fitted once, on 10{,}000 descriptions from each of
+the 45 Nice classes, and then applied to every filing, so that each
+description becomes a mix of themes that sums to one --- for example 40\%
+of one theme and 15\% of another. We use fifty themes, roughly one per
+Nice class. That is coarse by design: at fifty every theme's leading
+words genuinely occur together, while at 200 and 500 themes a tenth and
+a fifth of themes do not \citep{Lau2014}; and the findings below do not
+depend on the choice, since the companion paper rescores every filing at
+200 and 500 themes and with fifty themes fitted separately inside each
+class, and the headline penalty holds under all of them
+\citep{SilverCorpus2026}.
+
+Write $P$ for a filing's theme mix, and $Q^{-}$ and $Q^{+}$ for the
+average theme mix of every same-class filing in the 1{,}826 days before
+and after its filing date. The filing's past-facing and future-facing
+surprise are the Kullback--Leibler divergences
+$K^{-} = \mathrm{KL}(P \,\|\, Q^{-})$ and
+$K^{+} = \mathrm{KL}(P \,\|\, Q^{+})$, in nats: zero when the filing's
+mix matches its class's, and larger the more weight the filing puts
+where the class puts little. The two axes used throughout are their
+average and their signed difference:
 \[
   A \;=\; \tfrac{1}{2}\left(K^{-} + K^{+}\right) \quad\text{(atypicality)},
   \qquad
   L \;=\; K^{-} - K^{+} \quad\text{(lead)} .
 \]
 A filing is \emph{leading} when $L > 0$: its language was closer to what
-the class wrote afterwards than to what it wrote before. The levels
-correlate at $0.988$, so the rotation isolates a small residual that
-carries the timing from a large common component that carries the
-distance, and leaves the two regressors nearly uncorrelated. \textsc{Amazon.com}'s
-1997 filing in advertising and retail sits at the 47th percentile of its
-class on atypicality and the 94th on lead: the class moved toward its
-description over the following five years and had not been writing that
-way in the five before.
+the class wrote afterwards than to what it wrote before. The two
+surprises correlate at $0.99$ --- a filing far from its class's past is
+almost always far from its future too --- so their average carries the
+large shared component, how far from the class the filing sits, and
+their difference carries the small residual that holds the timing.
+\textsc{Amazon.com}'s 1997 filing in advertising and retail sits at the
+47th percentile of its class on atypicality and the 94th on lead: the
+class moved toward its description over the following five years and had
+not been writing that way in the five before.
 
 Three properties of the construction matter for reading the results.
 First, themes rather than words: a divergence measured on words mostly
-counts description length, because the spread term of the divergence is
-bounded by the filing's distinct-term count, and term-scored atypicality
-correlates with log distinct terms at $-0.68$; theme scoring breaks the
-coupling ($-0.22$). Second, within class rather than across it:
-goods/services descriptions are drafted from the USPTO's Identification
-Manual, house precedent and competitors' filings, so 17\% of scored
-registrations share a value with another filing in the same class and
-year, and a class's spread of atypicality reflects its drafting
-conventions rather than its inventiveness. Every estimate is taken within
-class and year, and magnitudes compare across classes only as signs and
-orderings. Third, the measure reads which themes a filing draws on and
-how heavily, not how it combines them; combinatorial novelty is close to
-invisible to it, and the companion paper bounds that omission.
-
-The companion paper rescores the identical filings under three partitions
-of the vocabulary (fifty global themes, five hundred, fifty fitted per
-class), two reference weightings, five window constructions, and a second
-model seed. Lead's sign, precision and profile survive all of them, and
-term scoring returns larger lead contrasts than the theme scoring used
-here, so the estimates below are the conservative representation.
-Atypicality is less stable, in ways Section~\ref{sec:three_scorings}
-reports where they bear on the results. Nomenclature follows
+counts description length, because a short description cannot spread
+over many words, and word-scored atypicality correlates with log
+distinct terms at $-0.64$; with themes the correlation is between $-0.10$
+and $+0.10$. Second, within class rather than across it: descriptions
+are drafted from the USPTO's Identification Manual, house precedent and
+competitors' filings, so a class's spread of atypicality reflects its
+drafting conventions rather than its inventiveness. Every estimate is
+taken within class and year, and magnitudes compare across classes only
+as signs and orderings. Third, the measure reads which themes a filing
+draws on and how heavily, not how it combines them, so novelty assembled
+from ordinary parts is close to invisible to it. Nomenclature follows
 \citet{Murdock2017} and \citet{Barron2018} in arithmetic and departs from
-them in names; Table~\ref{tab:nomenclature} maps the terms.
+them in names (Section~\ref{sec:nomenclature}).

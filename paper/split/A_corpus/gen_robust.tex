@@ -42,7 +42,7 @@ Choice varied & $r$ (lead) & $r$ (atypicality) \\
 \midrule
 Weighting, flat vs half-life 2y (themes)  & $0.982$ & $1.000$ \\
 Weighting, flat vs half-life 2y (terms)   & $0.970$ & $1.000$ \\
-Resolution, 50 vs 200 themes\footnotemark              & $0.636$ & $0.828$ \\
+Resolution, 50 vs 200 themes\footnotemark              & $0.636$ & $0.799$ \\
 Representation, themes vs terms           & $0.460$ & $0.396$ \\
 \bottomrule
 \end{tabular}
@@ -99,11 +99,10 @@ agreement with $T = 50$ settles at $0.64$ without decaying as $T$ grows, which
 says the resolutions share a fixed core and differ in the remainder rather than
 drifting apart as the partition refines.
 
-The corpus-wide contrast is steadier than the single class: at $T = 200$,
-scored for all 45 classes, it is $+2.23$pp against $+2.29$pp at $T = 50$. Only
-those two resolutions exist corpus-wide, so that is a two-point comparison, but
-it is the one the paper's estimates run on, and pooling evidently averages away
-much of the per-class resolution sensitivity.
+The corpus-wide contrast is steadier than the single class: scored for all
+45 classes, it is $+2.29$pp at $T = 50$, $+2.23$pp at $T = 200$ and
+$+2.61$pp at $T = 500$. Pooling evidently averages away much of the
+per-class resolution sensitivity.
 
 \subsection{Fitting noise at one resolution}
 
@@ -130,10 +129,26 @@ the second (SE $0.23$ each), and the atypicality contrast $-13.45$ and
 $-14.38$pp. Two consequences follow. A single fit's lead score carries
 measurement error of roughly a fifth of its variance, which attenuates every
 coefficient on lead toward zero; correcting for it would enlarge the
-estimates, not shrink them. And the spread of
-magnitudes across the resolution table above, which does not move
-monotonically in $T$, should be read as a band about a third of a point wide
-from fitting noise alone rather than as a property of any particular $T$.
+estimates, not shrink them. And the seed explains most of the disagreement
+in per-filing scores between resolutions, but not the spread of the
+class-level estimates: the seed moves the software-class contrast by a
+third of a point, while the resolutions in the table above span three.
+That spread reflects the scorings disagreeing about which filings are
+leading, and pooling across classes largely averages it out.
+
+The same test at the production resolution gives a split answer. A
+second fit at $T = 50$, again differing only in its seed, recovers the
+themes themselves far more faithfully than at $T = 200$: matching each
+theme to its closest counterpart by the cosine of their word
+distributions, the median match is $0.74$ at fifty themes against $0.54$
+at 200, and a quarter of the fifty themes match above $0.9$. Per-filing
+scores are no more stable for it: the two fits agree at $r = 0.72$ on
+lead and $0.84$ on atypicality across the same 1.11 million
+software-class filings, and the five-year-proof lead contrast is
+$+3.23$pp under the first seed and $+3.89$pp under the second (SE $0.23$
+each). A coarse model's word lists are reproducible; which theme a
+borderline filing's words are credited to is not, and that is where the
+per-filing noise comes from.
 
 The substantive claim does not depend on any of this. The five-year-proof
 lead contrast on the 2002--2018 registrations each build scores runs
@@ -206,11 +221,11 @@ quintiles within class$\times$filing-year:
 Variant & Past, future & \multicolumn{2}{c}{Five-year-proof failure} & \multicolumn{2}{c}{Registration} \\
  & (years) & Q5$-$Q1 (pp) & classes $>0$ & Q5$-$Q1 (pp) & Q3 $-$ tails \\
 \midrule
-Foresight     & 3, 7 & $+1.65$ (0.09) & 31 of 45 & $+1.09$ & $+0.50$ \\
+Foresight     & 3, 7 & $+1.65$ (0.09) & 31 of 44 & $+1.09$ & $+0.50$ \\
 Symmetric     & 3, 3 & $+1.69$ (0.09) & ---      & $+0.79$ & $+0.13$ \\
-Symmetric     & 5, 5 & $+2.29$ (0.09) & 33 of 45 & $+0.71$ & $+0.28$ \\
+Symmetric     & 5, 5 & $+2.29$ (0.09) & 33 of 44 & $+0.71$ & $+0.28$ \\
 Symmetric     & 7, 7 & $+2.58$ (0.09) & ---      & $+0.48$ & $+0.65$ \\
-Past-rupture  & 7, 3 & $+3.00$ (0.09) & 37 of 45 & $+0.01$ & $+0.33$ \\
+Past-rupture  & 7, 3 & $+3.00$ (0.09) & 37 of 44 & $+0.01$ & $+0.33$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -236,7 +251,7 @@ response to lead, on this scoring, is close to nil.
 Figure~\ref{fig:uncond} repeats the lifecycle outcome analysis without the
 registration conditioning, on filings 2013--2015 pooled across all classes
 (a window whose registrations land by $\sim$2017 and face at least one
-Section~8 proof by the 2025 snapshot; the earliest registrations in the
+Section~8 proof by the record's end in April 2026; the earliest registrations in the
 window also face their year-ten renewal, so panel B mixes one and two
 proofs). Panel A is the unconditional composite, the probability that a
 filing both registers and passes the proof, measured over all filings
@@ -301,8 +316,7 @@ $+2.3$pp in the software class under every parameter tried there, is
 $-2.1$pp in advertising and retail on the corpus-wide construction, and
 pooled across 43 classes is zero raw and $+0.5$pp net of lead and
 atypicality, so it is reported as a bound for one class rather than a
-general fact. All artifacts are under
-\texttt{paper/v3/\_eval/}.
+general fact.
 
 \subsection{Lead is a small residual}
 
@@ -322,11 +336,7 @@ unit of lead means roughly the same thing everywhere only in the theme
 representation. \S\ref{app:representation} shows this as a length
 surface over the two axes.
 
-Two qualifications. Theme scoring returns a finite value for about 65\%
-of filings, so the two columns are not drawn from the same set;
-re-estimating the term-scored correlations on exactly the theme-scored
-subset barely moves them, which puts the contrast down to the
-representation rather than the sample. And ``flat'' means no monotone
+One qualification: ``flat'' means no monotone
 length gradient rather than constant: class 035 under theme scoring is
 mildly U-shaped in $A$. The two scorings agree only moderately per
 filing (Pearson $0.46$, Spearman $0.42$ on the 6.01 million filings both
@@ -444,8 +454,9 @@ atypicality is held, and the linear tilt is an order of magnitude smaller
 than either symmetric part ($-0.07$pp per nat). The fitted vertices above
 follow from this arithmetic: a symmetric profile plus a negative tilt has
 its minimum shifted right of zero, and a survival hump its maximum
-shifted left, which is where the fits put them ($+0.24$ to $+0.41$, and
-$-0.4$, standard deviations).
+shifted left, which is where the fits put them ($+0.24$ to $+0.41$
+standard deviations for the reporting minima; the survival vertex, at
+$-1.5$, comes from a weak fit, $\Delta$AIC $4.3$).
 
 Excluding text-duplicate filings strengthens rather than weakens every
 headline gradient. Of the five-year-proof sample, 47\% of registrations

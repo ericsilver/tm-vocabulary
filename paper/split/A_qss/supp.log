@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  21 SEP 2026 09:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.25)  24 SEP 2026 09:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,7 +375,110 @@ Package xr Info: IMPORTING LABELS FROM main.aux on input line 7.
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
-) (supp.aux)
+) (supp.aux
+
+LaTeX Warning: Label `sec:robust' multiply defined.
+
+
+Package natbib Warning: Citation `Barron2018' multiply defined.
+
+
+Package natbib Warning: Citation `BerkesGaetani2021' multiply defined.
+
+
+Package natbib Warning: Citation `Blei2003' multiply defined.
+
+
+Package natbib Warning: Citation `Block2014' multiply defined.
+
+
+Package natbib Warning: Citation `Castaldi2020' multiply defined.
+
+
+Package natbib Warning: Citation `Chang2009' multiply defined.
+
+
+Package natbib Warning: Citation `DewarDutton1986' multiply defined.
+
+
+Package natbib Warning: Citation `Dinlersoz2018' multiply defined.
+
+
+Package natbib Warning: Citation `Dinlersoz2023' multiply defined.
+
+
+Package natbib Warning: Citation `Fleming2001' multiply defined.
+
+
+Package natbib Warning: Citation `Flikkema2019' multiply defined.
+
+
+Package natbib Warning: Citation `Flikkema2025' multiply defined.
+
+
+Package natbib Warning: Citation `GolderTellis1993' multiply defined.
+
+
+Package natbib Warning: Citation `Graham2013' multiply defined.
+
+
+Package natbib Warning: Citation `HallJaffe2001' multiply defined.
+
+
+Package natbib Warning: Citation `HendersonClark1990' multiply defined.
+
+
+Package natbib Warning: Citation `HobergPhillips2016' multiply defined.
+
+
+Package natbib Warning: Citation `Hsu2006' multiply defined.
+
+
+Package natbib Warning: Citation `Kalyani2024' multiply defined.
+
+
+Package natbib Warning: Citation `Kelly2021' multiply defined.
+
+
+Package natbib Warning: Citation `Lau2014' multiply defined.
+
+
+Package natbib Warning: Citation `Murdock2017' multiply defined.
+
+
+Package natbib Warning: Citation `PatentsView' multiply defined.
+
+
+Package natbib Warning: Citation `Seip2018' multiply defined.
+
+
+Package natbib Warning: Citation `SemadeniAnderson2010' multiply defined.
+
+
+Package natbib Warning: Citation `SilverCorpus2026' multiply defined.
+
+
+Package natbib Warning: Citation `TaeuscherRothe2020' multiply defined.
+
+
+Package natbib Warning: Citation `TushmanAnderson1986' multiply defined.
+
+
+Package natbib Warning: Citation `Uzzi2013' multiply defined.
+
+
+Package natbib Warning: Citation `Verhoeven2025' multiply defined.
+
+
+Package natbib Warning: Citation `Willeke2026' multiply defined.
+
+
+Package natbib Warning: Citation `Zhao2017' multiply defined.
+
+
+Package natbib Warning: Citation `Zuckerman1999' multiply defined.
+
+)
 \openout1 = `supp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -461,24 +564,238 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 19.
- (supp.out) (supp.out
-! I can't write on file `supp.pdf'.
-(Press Enter to retry, or Control-C to exit; default file extension is `.pdf')
-Please type another file name for output
-! Emergency stop.
-\Hy@OutlineName ...utline goto name{#2}count#3{#4}
-                                                  
-l.1 ...0n\000\040\000d\000e\000t\000a\000i\000l}{}
-                                                  % 1
-*** (job aborted, file error in nonstop mode)
+ (supp.out) (supp.out)
+\@outlinefile=\write3
+\openout3 = `supp.out'.
 
- 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+
+
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+
+
+(C:\Users\epsil\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(supp_registration.tex
+<../../results/debut_outcome_topic.png, id=101, 931.8012pt x 427.3566pt>
+File: ../../results/debut_outcome_topic.png Graphic file (type png)
+<use ../../results/debut_outcome_topic.png>
+Package pdftex.def Info: ../../results/debut_outcome_topic.png  used on input l
+ine 24.
+(pdftex.def)             Requested size: 469.75502pt x 215.44493pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../../results/quintile_profiles.png, id=103, 945.7734pt x 299.6796pt>
+File: ../../results/quintile_profiles.png Graphic file (type png)
+<use ../../results/quintile_profiles.png>
+Package pdftex.def Info: ../../results/quintile_profiles.png  used on input lin
+e 35.
+(pdftex.def)             Requested size: 469.75502pt x 148.84714pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../../results/fig_registration_sankey.png, id=105, 606.5862pt x 383.031pt>
+File: ../../results/fig_registration_sankey.png Graphic file (type png)
+<use ../../results/fig_registration_sankey.png>
+Package pdftex.def Info: ../../results/fig_registration_sankey.png  used on inp
+ut line 55.
+(pdftex.def)             Requested size: 422.77664pt x 266.96849pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (../A_corpus/gen_record_representation.tex [1
+
+{C:/Users/epsil/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]) (../A_corpu
+s/gen_record_refile.tex [2 <../../results/debut_outcome_topic.png>]
+<../../results/refile_prepost.png, id=130, 787.743pt x 293.59688pt>
+File: ../../results/refile_prepost.png Graphic file (type png)
+<use ../../results/refile_prepost.png>
+Package pdftex.def Info: ../../results/refile_prepost.png  used on input line 3
+5.
+(pdftex.def)             Requested size: 469.75502pt x 175.08429pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (supp_representation.tex [3 <../../results/quintile_profiles.png>]
+<../../results/representation_appendix.png, id=140, 838.332pt x 794.97pt>
+File: ../../results/representation_appendix.png Graphic file (type png)
+<use ../../results/representation_appendix.png>
+Package pdftex.def Info: ../../results/representation_appendix.png  used on inp
+ut line 16.
+(pdftex.def)             Requested size: 469.75502pt x 445.45917pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <../../results/fig_registration_sankey.png>]
+Overfull \hbox (1.8535pt too wide) in paragraph at lines 65--71
+[]\OT1/cmr/m/sc/10.95 Ethereum \OT1/cmr/m/n/10.95 (2018, soft-ware) is \OT1/cmr
+/m/it/10.95 wave \OT1/cmr/m/n/10.95 nov-elty: emer-gent vo-cab-u-lary al-ready 
+dif-fus-ing (\OT1/cmr/m/it/10.95 blockchains\OT1/cmr/m/n/10.95 ,
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 84--84
+[]\OT1/cmr/m/n/10 line search, search
+ []
+
+
+Underfull \hbox (badness 3407) in paragraph at lines 84--84
+[]\OT1/cmr/m/n/10 kombucha, sac-cha-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+[]\OT1/cmr/m/n/10 blockchains, dis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]\OT1/cmr/m/n/10 video, com-puter,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]\OT1/cmr/m/n/10 beverages, fruit,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+[]\OT1/cmr/m/n/10 software, on-line,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]\OT1/cmr/m/n/10 entertainment,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]\OT1/cmr/m/n/10 beverages, drinks,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+[]\OT1/cmr/m/n/10 beverages, drinks,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+[]\OT1/cmr/m/n/10 software, on-line,
+ []
+
+[5 <../../results/refile_prepost.png>]) (supp_pairs.tex) (supp_burnin.tex
+<../../results/burnin.png, id=161, 567.5604pt x 280.8894pt>
+File: ../../results/burnin.png Graphic file (type png)
+<use ../../results/burnin.png>
+Package pdftex.def Info: ../../results/burnin.png  used on input line 25.
+(pdftex.def)             Requested size: 399.29463pt x 197.61987pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (../A_corpus/gen_robust.tex [6] [7] [8] [9]
+<../../results/appendix_unconditional.png, id=194, 895.63179pt x 356.18785pt>
+File: ../../results/appendix_unconditional.png Graphic file (type png)
+<use ../../results/appendix_unconditional.png>
+Package pdftex.def Info: ../../results/appendix_unconditional.png  used on inpu
+t line 268.
+(pdftex.def)             Requested size: 469.75502pt x 186.81662pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11]
+<../../results/topic_outcomes_all.png, id=210, 895.63179pt x 356.70407pt>
+File: ../../results/topic_outcomes_all.png Graphic file (type png)
+<use ../../results/topic_outcomes_all.png>
+Package pdftex.def Info: ../../results/topic_outcomes_all.png  used on input li
+ne 371.
+(pdftex.def)             Requested size: 469.75502pt x 187.08737pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../../results/curve_shapes.png, id=211, 758.835pt x 736.79265pt>
+File: ../../results/curve_shapes.png Graphic file (type png)
+<use ../../results/curve_shapes.png>
+Package pdftex.def Info: ../../results/curve_shapes.png  used on input line 389
+.
+(pdftex.def)             Requested size: 469.75502pt x 456.12093pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
+<../../results/fig_L_decomposition.png, id=226, 967.9362pt x 351.714pt>
+File: ../../results/fig_L_decomposition.png Graphic file (type png)
+<use ../../results/fig_L_decomposition.png>
+Package pdftex.def Info: ../../results/fig_L_decomposition.png  used on input l
+ine 472.
+(pdftex.def)             Requested size: 469.75502pt x 170.69379pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (../../v3_rp/bibliography_rp.tex [13] [14]
+Underfull \hbox (badness 7203) in paragraph at lines 112--114
+[]\OT1/cmr/m/n/10.95 PatentsView. (2024). Patent and as-signee data, US Patent 
+and Trade-mark Of-fice.
+ []
+
+)
+
+Package natbib Warning: There were multiply defined citations.
+
+[15] [16 <../../results/representation_appendix.png>] [17 <../../results/burnin
+.png> <../../results/appendix_unconditional.png>] [18 <../../results/topic_outc
+omes_all.png>] [19 <../../results/curve_shapes.png>] [20 <../../results/fig_L_d
+ecomposition.png>] (supp.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `supp.out' has not changed.
+(rerunfilecheck)             Checksum: 1867A9BD8B206ADFBB6D915CAB018AC6;5512.
+ ) 
 Here is how much of TeX's memory you used:
- 12680 strings out of 467871
- 198520 string characters out of 5418376
- 615747 words of memory out of 5000000
- 41437 multiletter control sequences out of 15000+600000
- 628021 words of font info for 41 fonts, out of 8000000 for 9000
+ 13243 strings out of 467871
+ 211281 string characters out of 5418376
+ 649343 words of memory out of 5000000
+ 41845 multiletter control sequences out of 15000+600000
+ 640133 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,1n,82p,442b,70s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 80i,11n,82p,1189b,587s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\epsil\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1095.pk><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmcsc10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/epsil/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/epsil/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/epsil/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ep
+sil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/U
+sers/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
+b><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr9.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb><C:/Users/epsil/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on supp.pdf (20 pages, 1846101 bytes).
+PDF statistics:
+ 389 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+

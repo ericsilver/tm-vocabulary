@@ -103,3 +103,8 @@ paper/results/theme_novelty_cache/
 !docs/online-appendix/ipo-viewer/data/**
 paper/split/A_qss/build/
 paper/split/A_qss/A_qss_*_v2.pdf
+
+# Private submission correspondence and notes: keep local, never publish
+paper/split/A_qss/submission/cover_letter_qss.txt
+paper/split/A_qss/submission/ssrn_metadata_A.txt
+paper/split/README_SPLIT.md

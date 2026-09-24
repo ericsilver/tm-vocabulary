@@ -28,39 +28,59 @@
 <body>
 
 <p class="sitenav"><a href="../">tm-vocabulary</a> &middot;
-<a href="https://ssrn.com/abstract=6954598">paper</a> &middot;
+<a href="../#papers">papers</a> &middot;
 <b>online appendix</b> &middot;
-<a href="themes/">theme explorer</a> &middot;
+<a href="themes_T50.html">the fifty themes</a> &middot;
 <a href="ipo-viewer/">IPO viewer</a> &middot;
+<a href="themes/">500-theme explorer</a> &middot;
 <a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>
 
 <h1>Online appendix: per-industry results</h1>
 
-<p>Supplement to <a href="https://ssrn.com/abstract=6954598"><em>Business Themes in the
-Trademark Record: Language Signals of Product Survival, Funding, and
-Listing</em></a> (SSRN 6954598).</p>
+<p>Online appendix to two papers built on the same corpus and measure:
+<em>An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure
+of Vocabulary Position</em>, which builds and validates the measure, and
+<em>Arrows in Their Backs: Vocabulary Lead and Product Survival in the US
+Trademark Record</em>, which asks whether being early pays. Both develop the
+earlier combined working paper,
+<a href="https://ssrn.com/abstract=6954598">SSRN 6954598</a>.</p>
+
+<p><strong>The measure in brief.</strong> Every goods/services description is
+reduced to a mix of fifty themes (lists of words that tend to appear together;
+<a href="themes_T50.html">what they are and how they were found</a>). Each
+filing's theme mix is compared with its own Nice class's filings in the five
+years before and the five years after its filing date. <em>Atypicality</em> is
+the average of the two comparisons: how unusual the language is for its
+industry. <em>Lead</em> is their difference: positive when the industry's
+language later moved toward the filing's, negative when the filing was written
+in language the industry was leaving.</p>
 
 <p>Everything here is computed on the same corpus and the same per-filing
-reference windows as the paper. The paper reports pooled estimates because
+reference windows as the papers. The papers report pooled estimates because
 they are what the design identifies cleanly; this appendix reports the class
 level because the pooled numbers average over real and large industry
 variation, and a reader who cares about one industry should be able to see it.</p>
 
 <h2>How to read these</h2>
 
-<p>The gate contrast is <strong>top minus bottom lead quintile</strong>, in percentage points
-of failure at the five-year proof of continued use, not a per-quintile slope.
-Panel A of each class figure
-is a linear probability model with registration-cohort fixed effects and log
-description length held fixed, estimated within that class alone; panel B is
-raw completion rates by quintile; panel C places the class in the
-cross-industry distribution. Shaded bands and whiskers are 95% intervals.</p>
+<p>The contrast is the failure rate at the five-year proof of continued use
+of the <strong>most leading fifth of registrations minus the most lagging
+fifth</strong> (2002&ndash;2018 registrations), in percentage points: a positive
+number means leading marks were cancelled more often. Panel A of each class
+figure is a linear probability model with registration-cohort fixed effects and
+log description length held fixed, estimated within that class alone &mdash;
+simpler than the papers' pooled specification, which adds drafting and filer
+controls and clusters errors on the owner (pooled: +1.4 points, t = 8.3; with
+fixed effects alone, +2.3). Panel B is raw registration completion rates by
+quintile; panel C places the class in the cross-industry distribution. Shaded
+bands and whiskers are 95% intervals; the &plusmn; in the table is a 95%
+interval.</p>
 
 <p>Per-class estimates are noisier than the pooled figure by construction, and
 small classes are noisy enough that individual signs should not be read as
 findings. The cross-industry exhibits below are the honest summary:
-<strong>33 of 44 classes show a positive raw gate lift</strong>, and <strong>32 of 44</strong> do so under
-the cohort-fixed-effects specification, which is the claim the paper makes.
+<strong>33 of 44 classes show a positive raw contrast</strong>, and <strong>32 of 44</strong> do so under
+the cohort-fixed-effects specification, which is the claim the papers make.
 The spread around it is what this appendix shows, and it is wide: the
 fixed-effects contrast runs from about &minus;6pp to +19pp across classes.</p>
 
@@ -69,9 +89,9 @@ no raw entry; its figure is still generated.</p>
 
 <h2>Cross-industry comparisons</h2>
 
-<p><img src="figures/cross_forest.png" alt="Gate lift by industry"></p>
+<p><img src="figures/cross_forest.png" alt="Leading-minus-lagging contrast by industry"></p>
 
-<p><img src="figures/cross_scatter.png" alt="Gate lift against class size and base rate"></p>
+<p><img src="figures/cross_scatter.png" alt="Contrast against class size and base rate"></p>
 
 <p>The scatter matters because the two obvious mechanical explanations for
 cross-class variation are class size (more registrations, tighter estimate,
@@ -81,18 +101,19 @@ has less room to move). Neither organises the variation.</p>
 <h2>Interactive: the IPO viewer</h2>
 
 <p><a href="ipo-viewer/index.html"><strong>Open the IPO viewer</strong></a> &mdash; every class&rsquo;s
-registrations (1996&ndash;2018) as dots on the lead/atypicality plane, colored
-by the latest gate the record reaches: cancelled at the five-year proof of
+registrations (1996&ndash;2018, a longer span than the 2002&ndash;2018
+cohorts the estimates use) as dots on the lead/atypicality plane, colored by
+the furthest outcome the record reaches: cancelled at the five-year proof of
 continued use, passed it, owner in SEC financial reporting, owner with an
-IPO marker. Later gates draw on top. Filter by Nice class and by
+IPO marker. Later outcomes draw on top. Filter by Nice class and by
 registration year range.</p>
 
 <h2>Machine-readable</h2>
 
 <p><a href="per_class_estimates.csv"><code>per_class_estimates.csv</code></a> &mdash; one row per class:
-scored filings, registrations, base failure rate, raw and fixed-effects gate
-contrasts with standard errors, and registration completion at both tails of
-each axis.</p>
+scored filings, registrations, base failure rate at the five-year proof, raw
+and fixed-effects leading-minus-lagging contrasts with standard errors, and
+registration completion at both tails of each axis.</p>
 
 <h2>Per-industry breakouts</h2>
 
@@ -107,8 +128,8 @@ Nice number links to that class&rsquo;s figure below.</p>
   <th>Industry</th>
   <th class="num">Registrations</th>
   <th class="num">Base fail</th>
-  <th class="num">Gate lift (raw)</th>
-  <th class="num">Gate Q5, cohort FE</th>
+  <th class="num">Leading &minus; lagging, raw (pp)</th>
+  <th class="num">Leading &minus; lagging, cohort FE (pp)</th>
 </tr>
 </thead>
 <tbody>
@@ -297,7 +318,7 @@ Nice number links to that class&rsquo;s figure below.</p>
 <p><img src="figures/class_045.png" alt="Nice 45" loading="lazy"></p>
 
 <p style="margin-top:2em"><a href="../">tm-vocabulary</a> &middot;
-<a href="https://ssrn.com/abstract=6954598">the paper</a> &middot;
+<a href="https://ssrn.com/abstract=6954598">working paper</a> &middot;
 <a href="https://aporia.institute/">aporia.institute</a></p>
 
 <script>
@@ -310,20 +331,20 @@ Nice number links to that class&rsquo;s figure below.</p>
   function key(row, col) {
     const t = row.cells[col].textContent.trim();
     if (col === 1) return t.toLowerCase();
-    if (t === "—") return NaN;                       // em dash: no entry
-    const n = parseFloat(t.replace(/[+,%]/g, "").replace(/−/g, "-"));
+    if (t === "\u2014") return NaN;                     // em dash: no entry
+    const n = parseFloat(t.replace(/[+,%]/g, "").replace(/\u2212/g, "-"));
     return isNaN(n) ? NaN : n;
   }
 
   for (let c = 0; c < heads.length; c++) {
     heads[c].addEventListener("click", function () {
-      asc = (sortCol === c) ? !asc : (c === 1);           // text asc, numbers desc first
+      asc = (sortCol === c) ? !asc : (c === 1);          // text asc, numbers desc first
       sortCol = c;
       const rows = Array.from(tbody.rows);
       rows.sort(function (a, b) {
         const ka = key(a, c), kb = key(b, c);
         if (typeof ka === "string") return asc ? ka.localeCompare(kb) : kb.localeCompare(ka);
-        if (isNaN(ka)) return 1;                          // missing values sink
+        if (isNaN(ka)) return 1;                         // missing values sink
         if (isNaN(kb)) return -1;
         return asc ? ka - kb : kb - ka;
       });
@@ -334,7 +355,7 @@ Nice number links to that class&rsquo;s figure below.</p>
       }
       const mark = document.createElement("span");
       mark.className = "dir";
-      mark.textContent = asc ? " ▲" : " ▼";
+      mark.textContent = asc ? " \u25B2" : " \u25BC";
       heads[c].appendChild(mark);
     });
   }

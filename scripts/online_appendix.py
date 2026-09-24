@@ -220,12 +220,12 @@ def class_figure(cls: str, gate, reg_atyp, reg_lead, allrows) -> None:
         ax.fill_between(QX, lo, hi, color=C_LEAD, alpha=0.13, linewidth=0)
         ax.plot(QX, b, "o-", color=C_LEAD, lw=2.0, ms=5)
         ax.axhline(0, color=INK2, lw=1.0, ls=(0, (4, 3)))
-        style(ax, f"A. First-gate failure by lead\n(cohort FE, length held; base {base:.1f}%, n={n:,})",
+        style(ax, f"A. Failure at the five-year proof, by lead\n(cohort FE, length held; base {base:.1f}%, n={n:,})",
               "pp vs bottom quintile", "lead $L$ quintile")
     else:
         ax.text(0.5, 0.5, "too few registrations\nto estimate", ha="center",
                 va="center", fontsize=9, color=INK2, transform=ax.transAxes)
-        style(ax, "A. First-gate failure by lead", "pp vs bottom quintile", "")
+        style(ax, "A. Failure at the five-year proof, by lead", "pp vs bottom quintile", "")
 
     ax = axes[1]
     ax.plot(QX, reg_atyp, "s-", color=C_ATYP, lw=2.0, ms=5, label="atypicality $A$")
@@ -243,9 +243,9 @@ def class_figure(cls: str, gate, reg_atyp, reg_lead, allrows) -> None:
                     xytext=(6, 0), textcoords="offset points", fontsize=8,
                     color=C_LEAD, ha="left")
     ax.axvline(0, color=INK2, lw=1.0, ls=(0, (4, 3)))
-    ax.set_title("C. This class against all 45\n(raw Q5$-$Q1 gate lift)", fontsize=9.5,
+    ax.set_title("C. This class against the others\n(raw leading minus lagging fifth)", fontsize=9.5,
                  color=INK, pad=7)
-    ax.set_xlabel("gate lift (pp)", fontsize=8.5, color=INK2)
+    ax.set_xlabel("leading minus lagging (pp)", fontsize=8.5, color=INK2)
     ax.set_ylabel("classes", fontsize=8.5, color=INK2)
     ax.grid(alpha=0.28, color=GRID)
     for s in ax.spines.values():
@@ -272,9 +272,9 @@ def cross_figures(rows: list[dict]) -> None:
     ax.scatter(lift, y, s=26, c=cols, zorder=2)
     ax.axvline(0, color=INK2, lw=1.1, ls=(0, (4, 3)))
     ax.set_yticks(y); ax.set_yticklabels(names, fontsize=7.6)
-    ax.set_xlabel("first-gate failure, top minus bottom lead quintile (pp)",
+    ax.set_xlabel("failure at the five-year proof, leading minus lagging fifth (pp)",
                   fontsize=9, color=INK2)
-    ax.set_title("Gate lift by industry, all 45 Nice classes\n"
+    ax.set_title(f"Leading minus lagging, by industry ({len(names)} Nice classes)\n"
                  "(raw quintile contrast, 95% intervals)", fontsize=11, color=INK)
     ax.grid(alpha=0.28, color=GRID, axis="x")
     for s in ax.spines.values():
@@ -297,12 +297,12 @@ def cross_figures(rows: list[dict]) -> None:
             ax.set_xscale("log")
         ax.axhline(0, color=INK2, lw=1.0, ls=(0, (4, 3)))
         ax.set_xlabel(xl, fontsize=9, color=INK2)
-        ax.set_ylabel("gate lift (pp)", fontsize=9, color=INK2)
+        ax.set_ylabel("leading minus lagging (pp)", fontsize=9, color=INK2)
         ax.grid(alpha=0.28, color=GRID)
         for s in ax.spines.values():
             s.set_color(GRID)
         ax.tick_params(colors=INK2, labelsize=8.5)
-    axes[0].set_title("Gate lift is not a size artifact", fontsize=10.5, color=INK)
+    axes[0].set_title("The class contrast is not a size artifact", fontsize=10.5, color=INK)
     axes[1].set_title("Nor a base-rate artifact", fontsize=10.5, color=INK)
     fig.tight_layout()
     fig.savefig(FIG / "cross_scatter.png", dpi=130, bbox_inches="tight")
@@ -340,11 +340,11 @@ def main() -> int:
         rows.append({
             "cls": cls, "name": NICE_NAMES[cls],
             "n_scored": d.height, "n_registrations": regs.height,
-            "gate_base_pct": round(base["base"], 2) if base else None,
-            "gate_lift_raw_pp": round(base["lift"], 3) if base else None,
-            "gate_lift_raw_se": round(base["se"], 3) if base else None,
-            "gate_q5_fe_pp": round(gate[0][4], 3) if gate else None,
-            "gate_q5_fe_se": round(gate[1][4], 3) if gate else None,
+            "proof_base_pct": round(base["base"], 2) if base else None,
+            "proof_lift_raw_pp": round(base["lift"], 3) if base else None,
+            "proof_lift_raw_se": round(base["se"], 3) if base else None,
+            "proof_q5_fe_pp": round(gate[0][4], 3) if gate else None,
+            "proof_q5_fe_se": round(gate[1][4], 3) if gate else None,
             "reg_atyp_q1": round(ra[0], 2), "reg_atyp_q5": round(ra[4], 2),
             "reg_lead_q1": round(rl[0], 2), "reg_lead_q5": round(rl[4], 2),
         })
@@ -372,9 +372,9 @@ INDEX_HEAD = """<!DOCTYPE html>
   h2 { font-size: 1.15em; margin-top: 1.6em; }
   h3 { font-size: 1.02em; margin-top: 1.5em; }
   a { color: #2b6cb0; }
-  img { max-width: 100%; height: auto; }
+  img { max-width: 100%%; height: auto; }
   .tablewrap { overflow-x: auto; }
-  table { border-collapse: collapse; font-size: 0.9em; width: 100%; }
+  table { border-collapse: collapse; font-size: 0.9em; width: 100%%; }
   th, td { padding: 4px 9px; border-bottom: 1px solid #ddd; white-space: nowrap; }
   td.num, th.num { text-align: right; }
   th { cursor: pointer; user-select: none; border-bottom: 2px solid #999; text-align: left; }
@@ -390,39 +390,59 @@ INDEX_HEAD = """<!DOCTYPE html>
 <body>
 
 <p class="sitenav"><a href="../">tm-vocabulary</a> &middot;
-<a href="https://ssrn.com/abstract=6954598">paper</a> &middot;
+<a href="../#papers">papers</a> &middot;
 <b>online appendix</b> &middot;
-<a href="themes/">theme explorer</a> &middot;
+<a href="themes_T50.html">the fifty themes</a> &middot;
 <a href="ipo-viewer/">IPO viewer</a> &middot;
+<a href="themes/">500-theme explorer</a> &middot;
 <a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>
 
 <h1>Online appendix: per-industry results</h1>
 
-<p>Supplement to <a href="https://ssrn.com/abstract=6954598"><em>Business Themes in the
-Trademark Record: Language Signals of Product Survival, Funding, and
-Listing</em></a> (SSRN 6954598).</p>
+<p>Online appendix to two papers built on the same corpus and measure:
+<em>An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure
+of Vocabulary Position</em>, which builds and validates the measure, and
+<em>Arrows in Their Backs: Vocabulary Lead and Product Survival in the US
+Trademark Record</em>, which asks whether being early pays. Both develop the
+earlier combined working paper,
+<a href="https://ssrn.com/abstract=6954598">SSRN 6954598</a>.</p>
+
+<p><strong>The measure in brief.</strong> Every goods/services description is
+reduced to a mix of fifty themes (lists of words that tend to appear together;
+<a href="themes_T50.html">what they are and how they were found</a>). Each
+filing's theme mix is compared with its own Nice class's filings in the five
+years before and the five years after its filing date. <em>Atypicality</em> is
+the average of the two comparisons: how unusual the language is for its
+industry. <em>Lead</em> is their difference: positive when the industry's
+language later moved toward the filing's, negative when the filing was written
+in language the industry was leaving.</p>
 
 <p>Everything here is computed on the same corpus and the same per-filing
-reference windows as the paper. The paper reports pooled estimates because
+reference windows as the papers. The papers report pooled estimates because
 they are what the design identifies cleanly; this appendix reports the class
 level because the pooled numbers average over real and large industry
 variation, and a reader who cares about one industry should be able to see it.</p>
 
 <h2>How to read these</h2>
 
-<p>The gate contrast is <strong>top minus bottom lead quintile</strong>, in percentage points
-of failure at the five-year proof of continued use, not a per-quintile slope.
-Panel A of each class figure
-is a linear probability model with registration-cohort fixed effects and log
-description length held fixed, estimated within that class alone; panel B is
-raw completion rates by quintile; panel C places the class in the
-cross-industry distribution. Shaded bands and whiskers are 95% intervals.</p>
+<p>The contrast is the failure rate at the five-year proof of continued use
+of the <strong>most leading fifth of registrations minus the most lagging
+fifth</strong> (2002&ndash;2018 registrations), in percentage points: a positive
+number means leading marks were cancelled more often. Panel A of each class
+figure is a linear probability model with registration-cohort fixed effects and
+log description length held fixed, estimated within that class alone &mdash;
+simpler than the papers' pooled specification, which adds drafting and filer
+controls and clusters errors on the owner (pooled: +1.4 points, t = 8.3; with
+fixed effects alone, +2.3). Panel B is raw registration completion rates by
+quintile; panel C places the class in the cross-industry distribution. Shaded
+bands and whiskers are 95%% intervals; the &plusmn; in the table is a 95%%
+interval.</p>
 
 <p>Per-class estimates are noisier than the pooled figure by construction, and
 small classes are noisy enough that individual signs should not be read as
 findings. The cross-industry exhibits below are the honest summary:
-<strong>%(pos)d of %(nraw)d classes show a positive raw gate lift</strong>, and <strong>%(fepos)d of %(nfe)d</strong> do so under
-the cohort-fixed-effects specification, which is the claim the paper makes.
+<strong>%(pos)d of %(nraw)d classes show a positive raw contrast</strong>, and <strong>%(fepos)d of %(nfe)d</strong> do so under
+the cohort-fixed-effects specification, which is the claim the papers make.
 The spread around it is what this appendix shows, and it is wide: the
 fixed-effects contrast runs from about %(femin)s to %(femax)s across classes.</p>
 
@@ -431,9 +451,9 @@ no raw entry; its figure is still generated.</p>
 
 <h2>Cross-industry comparisons</h2>
 
-<p><img src="figures/cross_forest.png" alt="Gate lift by industry"></p>
+<p><img src="figures/cross_forest.png" alt="Leading-minus-lagging contrast by industry"></p>
 
-<p><img src="figures/cross_scatter.png" alt="Gate lift against class size and base rate"></p>
+<p><img src="figures/cross_scatter.png" alt="Contrast against class size and base rate"></p>
 
 <p>The scatter matters because the two obvious mechanical explanations for
 cross-class variation are class size (more registrations, tighter estimate,
@@ -443,18 +463,19 @@ has less room to move). Neither organises the variation.</p>
 <h2>Interactive: the IPO viewer</h2>
 
 <p><a href="ipo-viewer/index.html"><strong>Open the IPO viewer</strong></a> &mdash; every class&rsquo;s
-registrations (1996&ndash;2018) as dots on the lead/atypicality plane, colored
-by the latest gate the record reaches: cancelled at the five-year proof of
+registrations (1996&ndash;2018, a longer span than the 2002&ndash;2018
+cohorts the estimates use) as dots on the lead/atypicality plane, colored by
+the furthest outcome the record reaches: cancelled at the five-year proof of
 continued use, passed it, owner in SEC financial reporting, owner with an
-IPO marker. Later gates draw on top. Filter by Nice class and by
+IPO marker. Later outcomes draw on top. Filter by Nice class and by
 registration year range.</p>
 
 <h2>Machine-readable</h2>
 
 <p><a href="per_class_estimates.csv"><code>per_class_estimates.csv</code></a> &mdash; one row per class:
-scored filings, registrations, base failure rate, raw and fixed-effects gate
-contrasts with standard errors, and registration completion at both tails of
-each axis.</p>
+scored filings, registrations, base failure rate at the five-year proof, raw
+and fixed-effects leading-minus-lagging contrasts with standard errors, and
+registration completion at both tails of each axis.</p>
 
 <h2>Per-industry breakouts</h2>
 
@@ -469,8 +490,8 @@ Nice number links to that class&rsquo;s figure below.</p>
   <th>Industry</th>
   <th class="num">Registrations</th>
   <th class="num">Base fail</th>
-  <th class="num">Gate lift (raw)</th>
-  <th class="num">Gate Q5, cohort FE</th>
+  <th class="num">Leading &minus; lagging, raw (pp)</th>
+  <th class="num">Leading &minus; lagging, cohort FE (pp)</th>
 </tr>
 </thead>
 <tbody>
@@ -478,7 +499,7 @@ Nice number links to that class&rsquo;s figure below.</p>
 
 INDEX_FOOT = """
 <p style="margin-top:2em"><a href="../">tm-vocabulary</a> &middot;
-<a href="https://ssrn.com/abstract=6954598">the paper</a> &middot;
+<a href="https://ssrn.com/abstract=6954598">working paper</a> &middot;
 <a href="https://aporia.institute/">aporia.institute</a></p>
 
 <script>
@@ -534,7 +555,7 @@ def _num(s: str) -> str:
 
 def write_index(rows: list[dict], allrows: list[dict]) -> None:
     pos = sum(1 for r in allrows if r["lift"] > 0)
-    fes = [r["gate_q5_fe_pp"] for r in rows if r.get("gate_q5_fe_pp") is not None]
+    fes = [r["proof_q5_fe_pp"] for r in rows if r.get("proof_q5_fe_pp") is not None]
     head = INDEX_HEAD % {
         "pos": pos, "nraw": len(allrows),
         "fepos": sum(1 for v in fes if v > 0), "nfe": len(fes),
@@ -545,12 +566,12 @@ def write_index(rows: list[dict], allrows: list[dict]) -> None:
         # Classes below the pooled analysis's volume floor have no entry in
         # event_gates_all.json, so raw lift and base rate are absent for them.
         n = int(r["cls"])
-        lift = _num(f"{r['gate_lift_raw_pp']:+.1f} &plusmn; {1.96*r['gate_lift_raw_se']:.1f}") \
-            if r.get("gate_lift_raw_pp") is not None else "&mdash;"
-        fe = _num(f"{r['gate_q5_fe_pp']:+.2f} ({r['gate_q5_fe_se']:.2f})") \
-            if r.get("gate_q5_fe_pp") is not None else "&mdash;"
-        base = f"{r['gate_base_pct']:.1f}%" \
-            if r.get("gate_base_pct") is not None else "&mdash;"
+        lift = _num(f"{r['proof_lift_raw_pp']:+.1f} &plusmn; {1.96*r['proof_lift_raw_se']:.1f}") \
+            if r.get("proof_lift_raw_pp") is not None else "&mdash;"
+        fe = _num(f"{r['proof_q5_fe_pp']:+.2f} ({r['proof_q5_fe_se']:.2f})") \
+            if r.get("proof_q5_fe_pp") is not None else "&mdash;"
+        base = f"{r['proof_base_pct']:.1f}%" \
+            if r.get("proof_base_pct") is not None else "&mdash;"
         name = r["name"].replace("&", "&amp;")
         L.append(f'<tr><td class="num"><a href="#nice-{n}">{n}</a></td>'
                  f'<td>{name}</td><td class="num">{r["n_registrations"]:,}</td>'
