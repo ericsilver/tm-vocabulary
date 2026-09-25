@@ -2,7 +2,8 @@
 
 \subsection{Corpus and parse}
 
-The USPTO Trademark Annual Applications backfile (product TRTYRAP) is the
+The USPTO Trademark Annual Applications backfile (product TRTYRAP;
+\citealp{USPTOtrtyrap}) is the
 complete record of US trademark filings from 1884 onward: 13.99 million
 case files, each carrying the goods/services description by class, the
 prosecution history, and the ownership and correspondence records. The
@@ -105,10 +106,11 @@ cohort old enough for its proof window to have essentially elapsed.
 
 Owners are matched to three external records by normalized exact name.
 \emph{SEC reporting} is any appearance of the owner as a registrant in
-the Commission's EDGAR filer index; roughly half the matched firms carry
-a ticker and the rest report for other reasons. \emph{Regulation~D}
-rounds are Form~D notices of exempt offerings, electronic and therefore
-complete only from March 2009. \emph{Patents} are PatentsView assignee
+the Commission's EDGAR filer index \citep{SECfsds, SECtickers}; roughly
+half the matched firms carry a ticker and the rest report for other
+reasons. \emph{Regulation~D} rounds are Form~D notices of exempt
+offerings \citep{SECformd}, electronic and therefore complete only from
+March 2009. \emph{Patents} are PatentsView assignee
 records \citep{PatentsView}. The SEC match runs over all 5.67 million
 owners in the corpus; names resolving to more than one registrant are
 dropped rather than assigned, yielding 19{,}889 matched owners covering
