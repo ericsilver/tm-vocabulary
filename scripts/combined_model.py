@@ -115,11 +115,41 @@ CLASS_GROUPS = [  # main effects absorbed by the class x year fixed effects
 CONTROLS = ["log_len", "log_owner_n", "basis_44e", "basis_66a"]
 MISSING = ["m_geo", "m_env"]
 YEAR_TYPES = ("boom", "bust")
+CHUNK = 250_000          # rows per streamed chunk in Design.ols
 
 
 # ------------------------------------------------------------------ frame
+FRAME_COLS = (["failed1", "z", "cell", "reg_year", "owner_key", "cls", "has_attorney", "patenter", "itu",
+               "prior", "ctry", "dom_cn", "r_site", "r_switching", "r_network", "s_pre", "s_pre_max_any",
+               "group_has_hub", "in_hub", "fy", "volatility", "debut_share_fwd", "geo_L", "tech_pace",
+               "mkt_pace", "log_len", "log_owner_n", "basis_44e", "basis_66a"]
+              + [f"v_{n}" for n in INVENTION + GPT + CONSUMER])
+
+
+def peak_gb() -> float:
+    """Peak working set of this process in GB (Windows), for the memory log."""
+    try:
+        import ctypes
+        from ctypes import wintypes
+
+        class PMC(ctypes.Structure):
+            _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD),
+                        ("PeakWorkingSetSize", ctypes.c_size_t), ("WorkingSetSize", ctypes.c_size_t),
+                        ("QuotaPeakPagedPoolUsage", ctypes.c_size_t), ("QuotaPagedPoolUsage", ctypes.c_size_t),
+                        ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t), ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
+                        ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t)]
+        c = PMC(); c.cb = ctypes.sizeof(PMC)
+        k32, psapi = ctypes.WinDLL("kernel32"), ctypes.WinDLL("psapi")
+        k32.GetCurrentProcess.restype = wintypes.HANDLE
+        psapi.GetProcessMemoryInfo.argtypes = [wintypes.HANDLE, ctypes.POINTER(PMC), wintypes.DWORD]
+        psapi.GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(c), c.cb)
+        return c.PeakWorkingSetSize / 1e9
+    except Exception:
+        return float("nan")
+
+
 def frame() -> pl.DataFrame:
-    d = pl.read_parquet(PROC / "battery_frame.parquet")
+    d = pl.read_parquet(PROC / "battery_frame.parquet", columns=FRAME_COLS)
     d = d.with_columns(
         (100 * (1 - pl.col("failed1").cast(pl.Float64))).alias("surv"),
         ((pl.col("z").rank("average").over("cell") - 0.5) / pl.len().over("cell") - 0.5).alias("lead"),
@@ -152,24 +182,56 @@ class Design:
         og = np.array(d["owner_key"].cast(pl.Categorical).to_physical().to_numpy(), dtype=np.int64)
         _, og = np.unique(og, return_inverse=True)
         self.G = int(og.max()) + 1
-        self.Z = sp.csr_matrix((np.ones(len(og)), (og, np.arange(len(og)))), shape=(self.G, len(og)))
         self.n = len(og)
+        # rows sorted by owner, cut into chunks that never split an owner, so the
+        # clustered "meat" can be accumulated chunk by chunk
+        self.order = np.argsort(og, kind="stable")
+        ogs = og[self.order]
+        starts = np.flatnonzero(np.r_[True, ogs[1:] != ogs[:-1]])
+        self.owner_starts = starts
+        cuts = [0]
+        for target in range(CHUNK, self.n, CHUNK):
+            j = int(np.searchsorted(starts, target))
+            if j < len(starts) and starts[j] > cuts[-1]:
+                cuts.append(int(starts[j]))
+        cuts.append(self.n)
+        self.cuts = sorted(set(cuts))
 
     def dm(self, v: np.ndarray) -> np.ndarray:
         return v - (np.bincount(self.cell, weights=v, minlength=len(self.cnt)) / np.maximum(self.cnt, 1))[self.cell]
 
     def ols(self, y: np.ndarray, X: np.ndarray, names: list[str]) -> dict:
-        yd = self.dm(y)
-        Xd = np.column_stack([self.dm(X[:, j]) for j in range(X.shape[1])])
-        keep = np.abs(Xd).sum(0) > 1e-9
-        Xk = Xd[:, keep]
-        XtX = Xk.T @ Xk
-        b = np.linalg.solve(XtX, Xk.T @ yd)
-        e = yd - Xk @ b
-        S = self.Z @ (Xk * e[:, None])
-        inv = np.linalg.inv(XtX)
-        n, k = Xk.shape
-        V = (self.G / (self.G - 1)) * ((n - 1) / (n - k)) * inv @ (S.T @ S) @ inv
+        """Within-cell OLS with owner-clustered covariance, streamed in owner-aligned
+        chunks so no demeaned copy of X is ever held whole."""
+        y = np.asarray(y, dtype=np.float64)
+        k = X.shape[1]
+        C = len(self.cnt)
+        cntc = np.maximum(self.cnt, 1)[:, None]
+        M = np.column_stack([np.bincount(self.cell, weights=X[:, j], minlength=C) for j in range(k)]) / cntc
+        my = np.bincount(self.cell, weights=y, minlength=C) / cntc[:, 0]
+        XtX = np.zeros((k, k)); Xty = np.zeros(k)
+        for a, b_ in zip(self.cuts[:-1], self.cuts[1:]):
+            ix = self.order[a:b_]
+            c = self.cell[ix]
+            Xc = X[ix].astype(np.float64) - M[c]
+            yc = y[ix] - my[c]
+            XtX += Xc.T @ Xc
+            Xty += Xc.T @ yc
+        keep = np.diag(XtX) > 1e-9
+        XtXk = XtX[np.ix_(keep, keep)]
+        b = np.linalg.solve(XtXk, Xty[keep])
+        meat = np.zeros((keep.sum(), keep.sum()))
+        for a, b_ in zip(self.cuts[:-1], self.cuts[1:]):
+            ix = self.order[a:b_]
+            c = self.cell[ix]
+            Xc = (X[ix].astype(np.float64) - M[c])[:, keep]
+            e = (y[ix] - my[c]) - Xc @ b
+            st = self.owner_starts[(self.owner_starts >= a) & (self.owner_starts < b_)] - a
+            s = np.add.reduceat(Xc * e[:, None], st, axis=0)
+            meat += s.T @ s
+        inv = np.linalg.inv(XtXk)
+        n, kk = self.n, int(keep.sum())
+        V = (self.G / (self.G - 1)) * ((n - 1) / (n - kk)) * inv @ meat @ inv
         out, idx = {}, np.where(keep)[0]
         li = next((i for i, j in enumerate(idx) if names[j] == "lead"), None)
         for i, j in enumerate(idx):
@@ -199,23 +261,28 @@ def stars(p):
 
 # ------------------------------------------------------------------ models
 def build_X(d: pl.DataFrame, factors: list[str], inter: list[str], extra_inter: dict | None = None):
-    """Columns: lead, centred factor mains, centred factor x lead, controls, missing flags."""
-    cols, names = [d["lead"].to_numpy()], ["lead"]
-    means = {}
+    """Columns: lead, centred factor mains, centred factor x lead, controls, missing flags.
+    Stored as float32 (sums are taken in float64 inside Design.ols)."""
+    extra_inter = extra_inter or {}
+    ncol = 1 + len(factors) + len(inter) + len(extra_inter) + len(CONTROLS) + len(MISSING)
+    X = np.empty((d.height, ncol), dtype=np.float32)
+    lead = d["lead"].to_numpy().astype(np.float64)
+    X[:, 0] = lead
+    names, means, j = ["lead"], {}, 1
     for f in factors:
-        v = d[f].to_numpy().astype(float)
+        v = d[f].to_numpy().astype(np.float64)
         means[f] = float(v.mean())
-        cols.append(v - means[f]); names.append(f)
+        X[:, j] = v - means[f]; names.append(f); j += 1
     for f in inter:
-        v = d[f].to_numpy().astype(float)
+        v = d[f].to_numpy().astype(np.float64)
         mu = means.get(f, float(v.mean()))
         means.setdefault(f, mu)
-        cols.append((v - mu) * cols[0]); names.append(f"{f}:lead")
-    for k, v in (extra_inter or {}).items():
-        cols.append(v * cols[0]); names.append(k)
+        X[:, j] = (v - mu) * lead; names.append(f"{f}:lead"); j += 1
+    for kname, v in extra_inter.items():
+        X[:, j] = v * lead; names.append(kname); j += 1
     for c in CONTROLS + MISSING:
-        cols.append(d[c].cast(pl.Float64).to_numpy()); names.append(c)
-    return np.column_stack(cols), names, means
+        X[:, j] = d[c].cast(pl.Float64).to_numpy(); names.append(c); j += 1
+    return X, names, means
 
 
 def main() -> int:
@@ -250,7 +317,7 @@ def main() -> int:
         stage_two(d, y, des, fac, cg, out)
     stage_groups(d, fac, out)
     FULL.write_text(json.dumps(out, indent=1, default=lambda o: None if isinstance(o, np.ndarray) else str(o)))
-    log("[done]")
+    log(f"[done] peak working set {peak_gb():.2f} GB")
     return 0
 
 

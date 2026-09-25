@@ -197,9 +197,7 @@ def main() -> int:
         f"({len(La['entry_order'])} enter anywhere on the path); the stricter one-standard-error "
         "rule keeps none, because for a pass/fail outcome the gain in out-of-sample fit is within the "
         f"fold-to-fold noise. The last column re-estimates the first {top} terms to enter, jointly, on all "
-        "registrations with clustered errors (after selection, so the stars are optimistic). The LASSO and "
-        "these re-estimates predate the filing-year trend and the revised boom and bust years, which are "
-        "not among their candidate terms.\n")
+        "registrations with clustered errors (after selection, so the stars are optimistic).\n")
     L.append(r"{\small\begin{longtable}{r>{\raggedright\arraybackslash}p{8.2cm}r}")
     L.append(r"\toprule Order & Lead interaction & Re-estimated (pp) \\ \midrule \endhead")
     pp = holm({k: p_of(*v[:2]) for k, v in P.items()})

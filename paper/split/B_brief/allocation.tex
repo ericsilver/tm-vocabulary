@@ -1,0 +1,93 @@
+\input{../../v3_rp/preamble}
+\usepackage{longtable}
+\usepackage{array}
+\graphicspath{{../../}}
+\makeatletter\def\input@path{{./}{../../}{../../v3_rp/}}\makeatother
+\title{\bfseries Where Being Early Costs\\
+\large Which results go in the paper, and which in the online appendix}
+\author{Eric Silver}
+\date{Working document, September 2026}
+
+\begin{document}
+\maketitle
+
+\noindent The paper is organized as the exchange it answers: each
+literature's claim, the test of it in the trademark record, and the
+result. A result goes in the paper when it tests a named literature's
+central claim and either survives the adjustment for multiple testing or
+is an informative null for that claim. Everything else goes in the online
+appendix. All estimates are survival of the five-year proof of continued
+use, in percentage points; a lead effect is the survival of the most
+leading minus the most lagging filing of the same class and year.
+
+\section*{In the paper}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{5.9cm}>{\raggedright\arraybackslash}p{4.8cm}}
+\toprule
+Claim tested & Result & Exhibit \\
+\midrule
+\endhead
+\emph{Headline} & Leading costs 1.1 points for the average registration with all factors held, 2.3 without them; about half the raw cost is who files leading language and what it describes. & Table 1, first rows \\
+\addlinespace
+\emph{Pioneers fail; followers win} \citep{GolderTellis1993} (hyp.\ 15) & Filings using a new vocabulary in its first two years in a class fail 12.8 points more often than their class and year; filings two to five years in, 11.8; the two do not differ ($t = 0.5$). Pioneers fail, and early followers fail at the same rate. & Table 2, row 1 \\
+\addlinespace
+\emph{Advantage lasts when change is slow} \citep{SuarezLanzolla2007} (hyp.\ 8--11) & With the time trend held, leading costs 4.7 points where theme mix and filing volume both change fast, 2.7 where volume grows, 1.0 in calm class-years, 0.8 where only the mix turns over. The cost is highest where the account predicts the most durable advantage. & Table 2, pace rows \\
+\addlinespace
+\emph{Network effects protect the first mover} \citep{LiebermanMontgomery1988} (hyp.\ 4) & Among platform and network offerings leading costs 6.1 points, against 1.0 among others (difference $-5.1$, Holm $p < 0.001$). & Table 1; Figure 1 \\
+\addlinespace
+\emph{Resources decide whether moving first pays} \citep{LiebermanMontgomery1998} (hyp.\ 31) & With counsel leading costs nothing (0.0); self-filed, 5.0 (difference $+5.1$, Holm $p < 0.001$). Counsel is the first term to enter the LASSO. & Table 1; Figure 1 \\
+\addlinespace
+\emph{Incumbents with complementary assets capture the gains} \citep{Teece1986} (hyp.\ 14) & In consumer packaged goods, leading costs established owners 4.9 points and first-time filers nothing ($-0.9$; Holm $p = 0.0001$). & Table 2 \\
+\addlinespace
+\emph{Kinds of new} (hyp.\ 23, 25, 27) & General-purpose-technology vocabulary raises the cost of leading to 2.9 points (difference $-2.1$, Holm $p < 0.001$). Invention and emergent consumer vocabularies survive less (6.6 and 12.6 points) with no detectable change in the lead effect; their samples are small (0.4\% of registrations each). & Table 1 \\
+\addlinespace
+\emph{Timing in the cycle} (hyp.\ 34) & The cost of leading grows about 0.8 points every five years. Against years that were neither, boom and bust years do not differ ($+0.1$, $-0.2$). & Table 1, year rows \\
+\addlinespace
+\emph{Where: classes that behave alike} & Classes grouped on half of owners and tested on the other half: leading costs 5.5 points in one group (tobacco, wine and spirits, technology services, medical devices, fuels, chemicals, machinery and others), nothing in the middle, and is worth 7.1 in paints, legal and personal services, lace and ribbons, and beer and soft drinks, where survival is an inverted U in lead (41\% most lagging, 53\% near the 65th percentile, 46\% most leading). & Table 3; Figure 1 \\
+\addlinespace
+\emph{Beer and tobacco} & The class-34 penalty is confined to 2013--18 registrations, when vaping went from 0\% to 46\% of the class; within each product leading is not penalized. In class 32 the rising product was beer, which survives better. The class-level penalty is between products. & Text; appendix table \\
+\addlinespace
+\emph{Uncontested market space} \citep{KimMauborgne2004} (hyp.\ 20--22) & The exemplar firms' own marks sit in the middle of the lead distribution (mean fifth 2.7--3.2; Curves 3.8); themes imported from another class survive more (2.0 points) but pay the same for leading. & Text \\
+\addlinespace
+\emph{Clusters speed imitation} (hyp.\ 28--29) & A multi-hub co-location measure recognizes Santa Clara for semiconductors and New York, San Francisco and Los Angeles for social networking. Co-location lowers survival (1.6 points per SD) but does not change the cost of leading; filers inside a hub pay the same as filers outside. & Text; measure and validation in appendix \\
+\bottomrule
+\end{longtable}
+
+\noindent Proposed exhibits: Table 1, the joint model restricted to the
+headline and the factors that change the cost of leading (counsel,
+platforms, general-purpose technology, trend) plus boom and bust;
+Table 2, the literature tests that are not single factors (pioneers
+against followers, pace quadrants, the consumer-goods incumbent test);
+Table 3, class groups against all other classes; Figure 1, the grid of
+survival by lead with and without each attribute.
+
+\section*{In the online appendix}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{12.8cm}}
+\toprule
+& Contents \\
+\midrule
+\endhead
+A1 & The full catalogue of 34 hypotheses, with the literature each comes from and where it looked. \\
+A2 & The hypothesis battery: all 30 pre-stated contrasts, predicted signs, Holm-adjusted $p$. \\
+A3 & The full joint model (28 factors: survival, lead effect with and without, difference) and each factor alone against the joint estimate. \\
+A4 & LASSO over the lead interactions: entry order, cross-validated and one-standard-error selections, post-LASSO re-estimates. \\
+A5 & Class groups: construction (shrinkage, $k$-means, cross-fitting), membership, per-class lead effects; the descriptive clusters on survival, its volatility, lead mean and variance and froth, with their correlations with the lead effect (variance $-0.54$, froth $-0.40$). \\
+A6 & Geography: owner ZIP codes re-parsed from the annual archives, the co-location index and its baseline, the hub rule and its 1.2 margin, the validation groups, and the hub and co-location results. \\
+A7 & Vertical cases: the Golder--Tellis categories (diapers, video recorders, personal computers, beer, razors) and the blue-ocean verticals (wine, fitness, live entertainment, air travel, hotels, coffee, home improvement), with the exemplar firms' marks. \\
+A8 & Beer, wine and tobacco: lead effects by period and by product, product shares by period, leading themes. \\
+A9 & Pace quadrants with and without the time trend. \\
+A10 & Contrasts without a detectable difference: patenting owners, first-time against established owners overall, site-based and contract offerings, fads against surges that held, themes grown by first-time filers, vocabulary new to its class against new to the corpus, foreign owners, intent-to-use filings, regulated classes. \\
+\bottomrule
+\end{longtable}
+
+\section*{Not yet run}
+
+Hypothesis 16 (survivor conditioning: whether the lead gradient fades as
+the sample is restricted to applications, then registrations, then marks
+that passed the proof) is the direct test of the survivor bias Golder and
+Tellis attribute to the pioneer-advantage studies. The data are ready. It
+belongs in the paper beside the pioneer--follower test.
+
+\input{bib_alloc}
+\end{document}
