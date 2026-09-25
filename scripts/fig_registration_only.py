@@ -52,6 +52,32 @@ NDEC = 10
 def log(m): print(m, file=sys.stderr, flush=True)
 
 
+def plot_deciles(out: dict) -> None:
+    xs = [i + 1 for i in range(NDEC)]
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.4), sharey=True)
+    colors = {"009": "#2b6cb0", "025": "#c0392b", "035": "#2f855a"}
+    for ax, var, lab in ((axes[0], "A", "atypicality"), (axes[1], "L", "lead")):
+        p, se = out["pooled"][var]
+        ax.fill_between(xs, [100 * (a - 1.96 * b) for a, b in zip(p, se)],
+                        [100 * (a + 1.96 * b) for a, b in zip(p, se)], color="#444", alpha=0.15, lw=0)
+        ax.plot(xs, [100 * v for v in p], "o-", color="#222", lw=2.2, ms=4, label="all classes")
+        for c, name in SHOW.items():
+            pc, sec_ = out["industries"][c][var]
+            ax.fill_between(xs, [100 * (a - 1.96 * b) for a, b in zip(pc, sec_)],
+                            [100 * (a + 1.96 * b) for a, b in zip(pc, sec_)],
+                            color=colors[c], alpha=0.13, lw=0)
+            ax.plot(xs, [100 * v for v in pc], "-", color=colors[c], lw=1.4, alpha=0.9, label=name)
+        ax.set_xlabel(f"decile of {lab}, within Nice class and filing year")
+        ax.set_xticks(xs)
+        ax.grid(alpha=0.3)
+    axes[0].set_ylabel("% of class-records reaching registration")
+    # legend beside the right panel, clear of the curves
+    axes[1].legend(fontsize=8, frameon=False, loc="center left", bbox_to_anchor=(1.01, 0.5))
+    fig.tight_layout()
+    fig.savefig(RES / "fig_registration_deciles.png", dpi=150, bbox_inches="tight")
+    plt.close(fig)
+
+
 def main() -> int:
     parts = []
     for c in CLASSES:
@@ -85,28 +111,7 @@ def main() -> int:
     for c in SHOW:
         out["industries"][c] = {v: decile_curve(d.filter(pl.col("cls") == c), v) for v in ("A", "L")}
 
-    xs = [i + 1 for i in range(NDEC)]
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.4), sharey=True)
-    colors = {"009": "#2b6cb0", "025": "#c0392b", "035": "#2f855a"}
-    for ax, var, lab in ((axes[0], "A", "atypicality"), (axes[1], "L", "lead")):
-        p, se = out["pooled"][var]
-        ax.fill_between(xs, [100 * (a - 1.96 * b) for a, b in zip(p, se)],
-                        [100 * (a + 1.96 * b) for a, b in zip(p, se)], color="#444", alpha=0.15, lw=0)
-        ax.plot(xs, [100 * v for v in p], "o-", color="#222", lw=2.2, ms=4, label="all classes")
-        for c, name in SHOW.items():
-            pc, sec_ = out["industries"][c][var]
-            ax.fill_between(xs, [100 * (a - 1.96 * b) for a, b in zip(pc, sec_)],
-                            [100 * (a + 1.96 * b) for a, b in zip(pc, sec_)],
-                            color=colors[c], alpha=0.13, lw=0)
-            ax.plot(xs, [100 * v for v in pc], "-", color=colors[c], lw=1.4, alpha=0.9, label=name)
-        ax.set_xlabel(f"decile of {lab}, within Nice class and filing year")
-        ax.set_xticks(xs)
-        ax.grid(alpha=0.3)
-    axes[0].set_ylabel("% of class-records reaching registration")
-    axes[1].legend(fontsize=8, frameon=False, loc="lower center")
-    fig.tight_layout()
-    fig.savefig(RES / "fig_registration_deciles.png", dpi=150, bbox_inches="tight")
-    plt.close(fig)
+    plot_deciles(out)
     log("[fig] deciles done")
 
     # Plane figure: K-/K+ hexbin coloured by registration rate, with contours.
@@ -176,4 +181,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    if "--deciles-from-json" in sys.argv:   # redraw panel figure 1 from the saved curves
+        plot_deciles(json.loads((RES / "fig_registration_only.json").read_text()))
+        raise SystemExit(0)
     raise SystemExit(main())
