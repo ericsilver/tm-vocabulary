@@ -1,0 +1,108 @@
+\section*{Where being leading costs: one model}
+One linear probability model of surviving the five-year proof (percentage points), with class $\times$ registration-year fixed effects and standard errors clustered by owner; 3,104,534 registrations, 2002--2018. \emph{Lead} is the filing's percentile of lead within its class and year, so a lead coefficient is the survival difference between the most leading and the most lagging filing (negative: leading costs). Every factor enters as a main effect and as an interaction with lead, all at once. \emph{Survival} is the factor's association with survival at median lead. \emph{Lead $\times$ factor} is how much the factor changes the lead effect. \emph{With} and \emph{without} give the lead effect among filings that have and lack the factor (continuous factors: one SD above and below the mean). Stars: Holm-adjusted $p$ within each column, $^{*}<0.05$, $^{**}<0.01$, $^{***}<0.001$. Controls: description length, owner filing count, foreign filing basis, missing-data flags.
+
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{5.4cm}rrrrr}
+\toprule & & & & \multicolumn{2}{c}{Lead effect} \\ \cmidrule(l){5-6} Factor & Share & Survival & Lead $\times$ factor & With & Without \\ \midrule \endhead
+\textbf{Lead, average filing} & & & & \multicolumn{2}{c}{$-$1.08$^{***}$} \\
+\quad (lead alone, no factors) & & & & \multicolumn{2}{c}{$-$2.30$^{***}$} \\
+\addlinespace\multicolumn{6}{l}{\emph{The owner and the filing}} \\
+Represented by counsel & 78\% & +18.74$^{***}$ & +5.14$^{***}$ & +0.06 & $-$5.08$^{***}$ \\
+Owner files patents & 20\% & $-$1.73$^{***}$ & +0.19 & $-$0.93 & $-$1.12$^{***}$ \\
+Owner's first-ever filing & 33\% & $-$1.12 & +0.67 & $-$0.63 & $-$1.30$^{***}$ \\
+Owner has 25+ earlier filings & 20\% & $-$10.25$^{***}$ & $-$0.21 & $-$1.25 & $-$1.04$^{***}$ \\
+Foreign owner (not China) & 18\% & +0.98 & +0.84 & $-$0.39 & $-$1.23$^{***}$ \\
+Owner in China & 3\% & +1.03 & +0.93 & $-$0.19 & $-$1.11$^{***}$ \\
+Intent-to-use filing & 41\% & $-$6.93$^{***}$ & $-$0.66 & $-$1.47$^{***}$ & $-$0.81$^{**}$ \\
+\addlinespace\multicolumn{6}{l}{\emph{The offering}} \\
+Site-based offering (stores, restaurants, clinics) & 9\% & +2.89$^{***}$ & $-$1.20 & $-$2.17$^{***}$ & $-$0.98$^{**}$ \\
+Contract or subscription offering & 5\% & $-$0.50 & +2.01 & +0.82 & $-$1.19$^{***}$ \\
+Platform or network offering & 2\% & $-$5.61$^{***}$ & $-$5.24$^{***}$ & $-$6.23$^{***}$ & $-$0.98$^{***}$ \\
+Invention vocabulary & 0.4\% & $-$6.59$^{***}$ & $-$1.21 & $-$2.29 & $-$1.08$^{***}$ \\
+General-purpose-technology vocabulary & 15\% & $-$5.12$^{***}$ & $-$2.28$^{***}$ & $-$3.02$^{***}$ & $-$0.75$^{*}$ \\
+Emergent consumer-category vocabulary & 0.4\% & $-$12.60$^{***}$ & $-$0.40 & $-$1.48 & $-$1.08$^{***}$ \\
+Theme imported from another class & 5\% & +2.00$^{***}$ & $-$0.42 & $-$1.48 & $-$1.06$^{***}$ \\
+\addlinespace\multicolumn{6}{l}{\emph{The theme and its geography}} \\
+Theme-share volatility (per SD) & SD & +0.05 & +0.40 & $-$0.69$^{*}$ & $-$1.48$^{**}$ \\
+Theme growth from first-time filers (per SD) & SD & $-$1.36$^{***}$ & $-$0.18 & $-$1.26$^{***}$ & $-$0.90 \\
+Theme co-location L (per SD) & SD & $-$1.58$^{***}$ & $-$0.29 & $-$1.38$^{***}$ & $-$0.79$^{*}$ \\
+Theme has a geographic hub & 28\% & $-$0.07 & $-$0.02 & $-$1.10$^{*}$ & $-$1.08$^{**}$ \\
+Filer located in a hub & 5\% & +0.26 & +0.10 & $-$0.99 & $-$1.09$^{***}$ \\
+\addlinespace\multicolumn{6}{l}{\emph{The class and the year}} \\
+Class theme-mix turnover (per SD) & SD & +0.55$^{***}$ & $-$0.34 & $-$1.42$^{**}$ & $-$0.75$^{**}$ \\
+Class filing-volume growth (per SD) & SD & +0.18 & $-$0.97$^{***}$ & $-$2.05$^{***}$ & $-$0.12 \\
+Filed in a boom year (2004-07, 2014-17) & 47\% & +0.25 & +1.78$^{***}$ & $-$0.15 & $-$1.93$^{***}$ \\
+Filed in a bust year (2001-02, 2008-10) & 23\% & +0.10 & +0.78 & $-$0.48 & $-$1.26$^{***}$ \\
+\addlinespace\multicolumn{6}{l}{\emph{Class groups (main effect absorbed by class fixed effects)}} \\
+Services classes (35-45) & 37\% & -- & +0.08 & $-$1.03 & $-$1.11$^{*}$ \\
+Pharmaceuticals and devices (5, 10) & 5\% & -- & $-$2.95 & $-$3.87 & $-$0.93$^{**}$ \\
+Consumer packaged goods (3, 29-33) & 12\% & -- & $-$1.04 & $-$2.00 & $-$0.96$^{**}$ \\
+Machinery, electronics, vehicles (7, 9, 12) & 17\% & -- & $-$1.28 & $-$2.14$^{**}$ & $-$0.86$^{*}$ \\
+Alcohol, tobacco, finance (33, 34, 36) & 7\% & -- & $-$1.90 & $-$2.85$^{***}$ & $-$0.95$^{**}$ \\
+\bottomrule\end{longtable}}
+\paragraph{Each factor alone.} The same two coefficients from models with lead, one factor and the controls, against the joint model above (Holm stars within column).
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{6.0cm}rrrr}
+\toprule & \multicolumn{2}{c}{Survival} & \multicolumn{2}{c}{Lead $\times$ factor} \\ \cmidrule(lr){2-3}\cmidrule(l){4-5} Factor & Alone & Joint & Alone & Joint \\ \midrule \endhead
+Represented by counsel & +18.80$^{***}$ & +18.74$^{***}$ & +4.85$^{***}$ & +5.14$^{***}$ \\
+Owner files patents & $-$2.74$^{***}$ & $-$1.73$^{***}$ & +0.88 & +0.19 \\
+Intent-to-use filing & $-$5.99$^{***}$ & $-$6.93$^{***}$ & +0.23 & $-$0.66 \\
+Owner's first-ever filing & $-$5.14$^{***}$ & $-$1.12 & $-$0.25 & +0.67 \\
+Owner has 25+ earlier filings & $-$12.38$^{***}$ & $-$10.25$^{***}$ & +0.77 & $-$0.21 \\
+Foreign owner (not China) & +2.93$^{***}$ & +0.98 & +1.28 & +0.84 \\
+Owner in China & $-$3.42$^{***}$ & +1.03 & $-$0.27 & +0.93 \\
+Site-based offering (stores, restaurants, clinics) & +2.74$^{***}$ & +2.89$^{***}$ & $-$1.57$^{*}$ & $-$1.20 \\
+Contract or subscription offering & $-$0.85 & $-$0.50 & +2.33 & +2.01 \\
+Platform or network offering & $-$9.18$^{***}$ & $-$5.61$^{***}$ & $-$8.41$^{***}$ & $-$5.24$^{***}$ \\
+Invention vocabulary & $-$8.18$^{***}$ & $-$6.59$^{***}$ & $-$2.45 & $-$1.21 \\
+General-purpose-technology vocabulary & $-$5.91$^{***}$ & $-$5.12$^{***}$ & $-$1.92$^{***}$ & $-$2.28$^{***}$ \\
+Emergent consumer-category vocabulary & $-$13.82$^{***}$ & $-$12.60$^{***}$ & +0.70 & $-$0.40 \\
+Theme imported from another class & +3.17$^{***}$ & +2.00$^{***}$ & $-$0.37 & $-$0.42 \\
+Theme has a geographic hub & $-$1.71$^{***}$ & $-$0.07 & $-$0.84 & $-$0.02 \\
+Filer located in a hub & $-$1.93$^{***}$ & +0.26 & $-$0.47 & +0.10 \\
+Filed in a boom year (2004-07, 2014-17) & +0.64$^{***}$ & +0.25 & +0.08 & +1.78$^{***}$ \\
+Filed in a bust year (2001-02, 2008-10) & $-$0.07 & +0.10 & +1.16$^{*}$ & +0.78 \\
+Theme-share volatility (per SD) & +0.50$^{***}$ & +0.05 & $-$0.43 & +0.40 \\
+Theme growth from first-time filers (per SD) & $-$1.90$^{***}$ & $-$1.36$^{***}$ & $-$0.12 & $-$0.18 \\
+Theme co-location L (per SD) & $-$2.03$^{***}$ & $-$1.58$^{***}$ & $-$0.43 & $-$0.29 \\
+Class theme-mix turnover (per SD) & +0.64$^{***}$ & +0.55$^{***}$ & $-$1.12$^{***}$ & $-$0.34 \\
+Class filing-volume growth (per SD) & +0.15 & +0.18 & $-$1.59$^{***}$ & $-$0.97$^{***}$ \\
+Services classes (35-45) & -- & -- & +1.77$^{***}$ & +0.08 \\
+Pharmaceuticals and devices (5, 10) & -- & -- & $-$1.47 & $-$2.95 \\
+Consumer packaged goods (3, 29-33) & -- & -- & $-$0.96 & $-$1.04 \\
+Machinery, electronics, vehicles (7, 9, 12) & -- & -- & $-$2.64$^{***}$ & $-$1.28 \\
+Alcohol, tobacco, finance (33, 34, 36) & -- & -- & $-$0.43 & $-$1.90 \\
+\bottomrule\end{longtable}}
+\section*{Classes that behave alike}
+Class-specific lead effects were estimated on a random half of owners (split by owner name), shrunk toward the pooled effect in proportion to their noise, and grouped into three by $k$-means. The groups' lead effects below are estimated on the other half of owners, which played no part in forming them.
+
+{\small\begin{longtable}{>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{7.0cm}r}
+\toprule Group & Nice classes (shrunk lead effect, first half) & Lead effect, second half \\ \midrule \endhead
+Classes where leading costs most & 34 ($-$11.4), 23 ($-$7.9), 33 ($-$7.8), 42 ($-$7.6), 10 ($-$7.5), 4 ($-$6.0), 11 ($-$5.9), 29 ($-$5.7), 27 ($-$5.0), 1 ($-$4.8), 6 ($-$4.0), 7 ($-$3.5) & $-$5.51$^{***}$ (s.e.\ 0.50) \\
+Middle classes & 17 ($-$3.1), 9 ($-$3.0), 43 ($-$3.0), 13 ($-$2.5), 20 ($-$2.2), 16 ($-$1.9), 12 ($-$1.6), 24 ($-$1.6), 22 ($-$1.4), 5 ($-$1.0), 31 ($-$0.8), 8 ($-$0.6), 38 ($-$0.5), 28 ($-$0.4), 30 ($-$0.4), 19 ($-$0.4), 35 ($-$0.2), 41 ($-$0.1), 40 (+0.1), 14 (+0.4), 3 (+0.7), 21 (+1.0), 36 (+1.1), 15 (+1.2), 25 (+1.9), 39 (+2.5), 37 (+2.5), 44 (+2.8), 18 (+3.3) & $-$0.35 (s.e.\ 0.42) \\
+Classes where leading costs least & 2 (+5.6), 45 (+7.3), 26 (+8.8), 32 (+10.3) & +7.09$^{***}$ (s.e.\ 1.11) \\
+\bottomrule\end{longtable}}
+\section*{Which factors explain where leading costs (LASSO)}
+With fixed effects, main effects and controls partialled out, a LASSO was fitted over every lead interaction: the factors above, the 45 classes and the three class groups (all standardized), on 1,250,681 registrations from a random 40\% of owners. The penalty was chosen by five-fold cross-validation with folds grouped by owner. Terms are listed in the order they enter as the penalty is relaxed, the usual ranking of explanatory value. At the cross-validated penalty 39 of the 76 candidate terms are kept (61 enter anywhere on the path); the stricter one-standard-error rule keeps none, because for a pass/fail outcome the gain in out-of-sample fit is within the fold-to-fold noise. The last column re-estimates the first 10 terms to enter, jointly, on all registrations with clustered errors (after selection, so the stars are optimistic).
+
+{\small\begin{longtable}{r>{\raggedright\arraybackslash}p{8.2cm}r}
+\toprule Order & Lead interaction & Re-estimated (pp) \\ \midrule \endhead
+1 & Represented by counsel & +5.01$^{***}$ (0.37) \\
+2 & Nice class 28 & +6.82 (4.99) \\
+3 & Classes where leading costs most & $-$4.12$^{***}$ (0.45) \\
+4 & Class filing-volume growth (per SD) & $-$0.96$^{***}$ (0.17) \\
+5 & Platform or network offering & $-$5.57$^{***}$ (1.12) \\
+6 & Classes where leading costs least & +8.22$^{***}$ (0.94) \\
+7 & Nice class 34 & $-$8.01$^{*}$ (3.05) \\
+8 & General-purpose-technology vocabulary & $-$1.79$^{***}$ (0.44) \\
+9 & Nice class 42 & $-$2.50$^{**}$ (0.74) \\
+10 & Nice class 32 & +2.33 (1.58) \\
+11 & Nice class 33 &  \\
+12 & Nice class 39 &  \\
+13 & Nice class 43 &  \\
+14 & Theme co-location L (per SD) &  \\
+15 & Nice class 38 &  \\
+16 & Nice class 6 &  \\
+17 & Nice class 37 &  \\
+18 & Nice class 10 &  \\
+19 & Nice class 31 &  \\
+20 & Filed in a boom year (2004-07, 2014-17) &  \\
+\bottomrule\end{longtable}}
