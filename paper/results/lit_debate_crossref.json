@@ -1,0 +1,132 @@
+{
+ "anchors": {
+  "RobinsonFornell1985": {
+   "doi": "10.2307/3151427",
+   "title": "Sources of Market Pioneer Advantages in Consumer Goods Industries",
+   "n_refs_deposited": 0
+  },
+  "LiebermanMontgomery1988": {
+   "doi": "10.1002/smj.4250090706",
+   "title": "First-mover advantages",
+   "n_refs_deposited": 101
+  },
+  "GolderTellis1993": {
+   "doi": "10.2307/3172825",
+   "title": "Pioneer Advantage: Marketing Logic or Marketing Legend?",
+   "n_refs_deposited": 0
+  },
+  "LiebermanMontgomery1998": {
+   "doi": "10.1002/(sici)1097-0266(1998120)19:12<1111::aid-smj21>3.0.co;2-w",
+   "title": "First-mover (dis)advantages: retrospective and link with the resource-based view",
+   "n_refs_deposited": 0
+  },
+  "KimMauborgne2004": {
+   "doi": "10.1177/000812560504700301",
+   "title": "Blue Ocean Strategy: From Theory to Practice",
+   "n_refs_deposited": 0
+  },
+  "SuarezLanzolla2007": {
+   "doi": "10.5465/amr.2007.24349587",
+   "title": "The Role of Environmental Dynamics in Building a First Mover Advantage Theory",
+   "n_refs_deposited": 111
+  },
+  "Teece1986": {
+   "doi": "10.1016/0048-7333(86)90027-2",
+   "title": "Profiting from technological innovation: Implications for integration, collaboration, licensing and public policy",
+   "n_refs_deposited": 10
+  },
+  "Klepper1997": {
+   "doi": "10.1093/icc/6.1.145",
+   "title": "Industry Life Cycles",
+   "n_refs_deposited": 0
+  },
+  "SemadeniAnderson2010": {
+   "doi": "10.5465/amj.2010.54533232",
+   "title": "The Follower's Dilemma: Innovation and Imitation in the Professional Services Industry",
+   "n_refs_deposited": 68
+  }
+ },
+ "cites": {
+  "RobinsonFornell1985": [],
+  "LiebermanMontgomery1988": [
+   "RobinsonFornell1985",
+   "Teece1986"
+  ],
+  "GolderTellis1993": [],
+  "LiebermanMontgomery1998": [],
+  "KimMauborgne2004": [],
+  "SuarezLanzolla2007": [
+   "RobinsonFornell1985",
+   "LiebermanMontgomery1988",
+   "GolderTellis1993",
+   "LiebermanMontgomery1998",
+   "Teece1986"
+  ],
+  "Teece1986": [],
+  "Klepper1997": [],
+  "SemadeniAnderson2010": [
+   "LiebermanMontgomery1988",
+   "LiebermanMontgomery1998",
+   "SuarezLanzolla2007"
+  ]
+ },
+ "title_scan": {
+  "n": 283,
+  "tally": {
+   "consumer goods / brands": 3,
+   "network effects / standards": 3,
+   "pharmaceuticals / biotech": 1,
+   "international entry / emerging markets": 6,
+   "internet / e-commerce": 2,
+   "electronics / computers": 4,
+   "software / platforms": 1,
+   "food and beverage": 2
+  },
+  "examples": {
+   "internet / e-commerce": [
+    "THE SENIORS COMPUTER INFORMATION PROGRAM: A PIONEER WEBSITE FOR SENIORS [7 cites]",
+    "Online Pioneer Winds Up Lost in Cyberspace [3 cites]"
+   ],
+   "software / platforms": [
+    "Memoirs of a software pioneer.1 [6 cites]"
+   ],
+   "telecommunications / wireless": [],
+   "consumer goods / brands": [
+    "Brand Retrieval, Consideration Set Composition, Consumer Choice, and the Pioneering Advantage [192 cites]",
+    "Pioneer brand advantage with UK consumers [7 cites]",
+    "An empirical investigation of consumer memory, attitude, and perceptions toward pioneer and follower brands Frank H. Alpert and Michael A. Kamins, Journal of Marketing (October 1995), pp. 34\u201345 [0 cites]"
+   ],
+   "pharmaceuticals / biotech": [
+    "Orphan G protein-coupled receptors: a neglected opportunity for pioneer drug discovery [46 cites]"
+   ],
+   "electronics / computers": [
+    "THE SENIORS COMPUTER INFORMATION PROGRAM: A PIONEER WEBSITE FOR SENIORS [7 cites]",
+    "A Manchester computer pioneer: Ferranti in retrospect [3 cites]",
+    "SWAC-Standards Western Automatic Computer: the Pioneer Day session at NCC July 1978 [3 cites]",
+    "Retiring computer pioneer? [2 cites]"
+   ],
+   "automobiles": [],
+   "airlines / transport": [],
+   "retail": [],
+   "financial services": [],
+   "network effects / standards": [
+    "SEARCH FOR A STANDARD EXPLANATION OF THE PIONEER ANOMALY [48 cites]",
+    "SWAC-Standards Western Automatic Computer: the Pioneer Day session at NCC July 1978 [3 cites]",
+    "<i>Standard Oil Company (Indiana): Oil Pioneer of the Middle West.</i>Paul H. Giddens<i>The Empire of Oil.</i>Harvey O'Connor [0 cites]"
+   ],
+   "international entry / emerging markets": [
+    "A pioneer project of wastewater reuse in China [9 cites]",
+    "<i>J.E.M. Ag Supply, Inc., DBA Farm Advantage, Inc., et al. v. Pioneer Hi-Bred International, Inc.</i> [6 cites]",
+    "Samuel L. Katz: Pioneer in development of and international advocate for vaccines [1 cites]",
+    "Corn rootworm control via formation of limonene in transgenic plants (TE Meyer, US) Pioneer Hi-Bred International Inc N\u00b0 WO 96/37102, PCT [0 cites]",
+    "Analyse du g\u00e9nome: Maize gene and protein for insect control (TW Fox era/, US) Pioneer Hi-Bred International Inc N\u00b0 WO 96/37615, PCT. [0 cites]",
+    "CAFC Decision in\n                    <i>Pioneer Hi-Bred International, Inc. vs. J.E.M. Ag Supply, Inc. et al</i> [0 cites]"
+   ],
+   "services": [],
+   "food and beverage": [
+    "<i>Cope: Master Naturalist. The Life and Letters of Edward Drinker Cope. A Study of the Pioneer Foundations of Paleontology in America.</i>Edward Drinker Cope , Henry Fairfield Osborn [0 cites]",
+    "Pioneer studies in trace element contamination of the food chain: disregard of prior work risks re\u2010inventing the wheel [0 cites]"
+   ]
+  }
+ }
+}
