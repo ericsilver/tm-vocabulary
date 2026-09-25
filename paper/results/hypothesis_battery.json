@@ -1,0 +1,982 @@
+{
+ "H0": {
+  "title": "All registrations 2002-2018",
+  "groups": {
+   "all": {
+    "penalty_pp": 1.3900074232321076,
+    "se_pp": 0.16804136109734497,
+    "n": 3104534,
+    "fail_rate": 52.307560490559936
+   }
+  }
+ },
+ "H1": {
+  "title": "Owners who patent vs those who do not",
+  "groups": {
+   "patenter": {
+    "penalty_pp": 1.1006881053896014,
+    "se_pp": 0.6857756178703611,
+    "n": 608659,
+    "fail_rate": 45.282005195027104
+   },
+   "no patents": {
+    "penalty_pp": 1.4951980186892477,
+    "se_pp": 0.13222777077113798,
+    "n": 2495875,
+    "fail_rate": 54.020854409776135
+   }
+  },
+  "contrast": "patenter minus no patents",
+  "predicted": "-",
+  "diff_pp": -0.39450991329964635,
+  "se_pp": 0.6980132250473458,
+  "t": -0.5651897401698757,
+  "n": 3104534,
+  "note": "",
+  "p": 0.5719447144092347,
+  "p_holm": 1.0,
+  "agrees": true
+ },
+ "H2": {
+  "title": "Site-based offerings vs others",
+  "groups": {
+   "site-based": {
+    "penalty_pp": 2.6782354491488407,
+    "se_pp": 0.39069870378750027,
+    "n": 275842,
+    "fail_rate": 51.21591345770404
+   },
+   "other": {
+    "penalty_pp": 1.3985027338651252,
+    "se_pp": 0.18003236899065803,
+    "n": 2828692,
+    "fail_rate": 52.414013261252904
+   }
+  },
+  "contrast": "site-based minus other",
+  "predicted": "-",
+  "diff_pp": 1.2797327152837155,
+  "se_pp": 0.4278249912346147,
+  "t": 2.9912528288510467,
+  "n": 3104534,
+  "note": "",
+  "p": 0.0027783535671523298,
+  "p_holm": 0.06515789964309822,
+  "agrees": false
+ },
+ "H3": {
+  "title": "Contract / subscription offerings vs others",
+  "groups": {
+   "switching costs": {
+    "penalty_pp": -0.3172655323865174,
+    "se_pp": 0.6722400104606618,
+    "n": 165611,
+    "fail_rate": 52.85880768789512
+   },
+   "other": {
+    "penalty_pp": 1.511821310306522,
+    "se_pp": 0.174034625797439,
+    "n": 2938923,
+    "fail_rate": 52.27649720662978
+   }
+  },
+  "contrast": "switching costs minus other",
+  "predicted": "-",
+  "diff_pp": -1.8290868426930391,
+  "se_pp": 0.6810735220942358,
+  "t": -2.685593821161587,
+  "n": 3104534,
+  "note": "",
+  "p": 0.00724010446492817,
+  "p_holm": 0.15928229822841974,
+  "agrees": true
+ },
+ "H4": {
+  "title": "Platform / network offerings vs others",
+  "groups": {
+   "network": {
+    "penalty_pp": 7.172699810486647,
+    "se_pp": 1.0245425542540172,
+    "n": 58088,
+    "fail_rate": 62.443189643299824
+   },
+   "other": {
+    "penalty_pp": 1.1725325949046286,
+    "se_pp": 0.17091654820205845,
+    "n": 3046446,
+    "fail_rate": 52.1142997446861
+   }
+  },
+  "contrast": "network minus other",
+  "predicted": "-",
+  "diff_pp": 6.000167215582019,
+  "se_pp": 1.03841545764848,
+  "t": 5.778195202495888,
+  "n": 3104534,
+  "note": "",
+  "p": 7.550617746515565e-09,
+  "p_holm": 2.1141729690243582e-07,
+  "agrees": false
+ },
+ "H5": {
+  "title": "Easy-to-imitate goods vs capital-heavy goods",
+  "groups": {
+   "easy to imitate": {
+    "penalty_pp": -0.010145731130923529,
+    "se_pp": 0.4626140385459215,
+    "n": 789542,
+    "fail_rate": 55.8983562622381
+   },
+   "capital heavy": {
+    "penalty_pp": 1.5295760766136475,
+    "se_pp": 0.3776047362249724,
+    "n": 341526,
+    "fail_rate": 42.57216141670034
+   }
+  },
+  "contrast": "easy to imitate minus capital heavy",
+  "predicted": "+",
+  "diff_pp": -1.539721807744571,
+  "se_pp": 0.6057652236136291,
+  "t": -2.5417797980536445,
+  "n": 1131068,
+  "note": "",
+  "p": 0.011028963251508117,
+  "p_holm": 0.23160822828167046,
+  "agrees": false
+ },
+ "H6": {
+  "title": "Volatile themes vs steady themes (top vs bottom third of share volatility)",
+  "groups": {
+   "volatile": {
+    "penalty_pp": 2.1030326087070117,
+    "se_pp": 0.20558235670472785,
+    "n": 1036698,
+    "fail_rate": 50.753064055298644
+   },
+   "steady": {
+    "penalty_pp": 0.9265868774142988,
+    "se_pp": 0.3460030034960859,
+    "n": 1035227,
+    "fail_rate": 54.87955781678801
+   }
+  },
+  "contrast": "volatile minus steady",
+  "predicted": "+",
+  "diff_pp": 1.176445731292713,
+  "se_pp": 0.3923710624418301,
+  "t": 2.998298916264049,
+  "n": 2071925,
+  "note": "",
+  "p": 0.0027149124851290926,
+  "p_holm": 0.06515789964309822,
+  "agrees": true
+ },
+ "H7": {
+  "title": "Debut owners vs established owners (25+ prior filings)",
+  "groups": {
+   "debut": {
+    "penalty_pp": 1.7292741826276128,
+    "se_pp": 0.1537918713475765,
+    "n": 1015179,
+    "fail_rate": 60.167024731599064
+   },
+   "established": {
+    "penalty_pp": 1.3621230629761742,
+    "se_pp": 0.6174058376730581,
+    "n": 613498,
+    "fail_rate": 45.8428552334319
+   }
+  },
+  "contrast": "debut minus established",
+  "predicted": "+",
+  "diff_pp": 0.36715111965143854,
+  "se_pp": 0.6229952713635255,
+  "t": 0.5893321129835691,
+  "n": 1628677,
+  "note": "",
+  "p": 0.5556385067950191,
+  "p_holm": 1.0,
+  "agrees": true
+ },
+ "H8-11": {
+  "title": "Pace of change quadrants (class-year theme-mix turnover x filing-volume growth)",
+  "groups": {
+   "calm": {
+    "penalty_pp": 0.5491101486835704,
+    "se_pp": 0.28452896503962927,
+    "n": 830672,
+    "fail_rate": 51.67502937380819
+   },
+   "technology leads": {
+    "penalty_pp": -0.23512370881501937,
+    "se_pp": 0.32116781890587975,
+    "n": 718425,
+    "fail_rate": 50.75185301179664
+   },
+   "market leads": {
+    "penalty_pp": 1.9188184734601699,
+    "se_pp": 0.25012228465229297,
+    "n": 707755,
+    "fail_rate": 54.203220040833344
+   },
+   "rough": {
+    "penalty_pp": 3.211428946195343,
+    "se_pp": 0.2864504040174735,
+    "n": 847682,
+    "fail_rate": 52.663144905754756
+   }
+  },
+  "n": 3104534,
+  "medians": {
+   "tech_pace": 0.049777256643560905,
+   "mkt_pace": 0.2769115924981114
+  }
+ },
+ "H8": {
+  "title": "Pace: technology leads vs calm",
+  "contrast": "technology leads minus calm",
+  "predicted": "+",
+  "diff_pp": -0.7842338574985899,
+  "se_pp": 0.36079118176674757,
+  "t": -2.1736502917235905,
+  "groups": {
+   "calm": {
+    "penalty_pp": 0.5491101486835704,
+    "se_pp": 0.28452896503962927,
+    "n": 830672,
+    "fail_rate": 51.67502937380819
+   },
+   "technology leads": {
+    "penalty_pp": -0.23512370881501937,
+    "se_pp": 0.32116781890587975,
+    "n": 718425,
+    "fail_rate": 50.75185301179664
+   }
+  },
+  "p": 0.029731408418857335,
+  "p_holm": 0.5946281683771467,
+  "agrees": false
+ },
+ "H10": {
+  "title": "Pace: market leads vs technology leads",
+  "contrast": "market leads minus technology leads",
+  "predicted": "-",
+  "diff_pp": 2.1539421822751894,
+  "se_pp": 0.40219837175437284,
+  "t": 5.355422432168936,
+  "groups": {
+   "technology leads": {
+    "penalty_pp": -0.23512370881501937,
+    "se_pp": 0.32116781890587975,
+    "n": 718425,
+    "fail_rate": 50.75185301179664
+   },
+   "market leads": {
+    "penalty_pp": 1.9188184734601699,
+    "se_pp": 0.25012228465229297,
+    "n": 707755,
+    "fail_rate": 54.203220040833344
+   }
+  },
+  "p": 8.535675938644563e-08,
+  "p_holm": 2.3046325034340317e-06,
+  "agrees": false
+ },
+ "H11": {
+  "title": "Pace: rough vs calm",
+  "contrast": "rough minus calm",
+  "predicted": "+",
+  "diff_pp": 2.6623187975117726,
+  "se_pp": 0.38002776008346,
+  "t": 7.005590320367875,
+  "groups": {
+   "calm": {
+    "penalty_pp": 0.5491101486835704,
+    "se_pp": 0.28452896503962927,
+    "n": 830672,
+    "fail_rate": 51.67502937380819
+   },
+   "rough": {
+    "penalty_pp": 3.211428946195343,
+    "se_pp": 0.2864504040174735,
+    "n": 847682,
+    "fail_rate": 52.663144905754756
+   }
+  },
+  "p": 2.459466091565389e-12,
+  "p_holm": 7.132451665539628e-11,
+  "agrees": true
+ },
+ "H12": {
+  "title": "Pharmaceuticals and medical devices (classes 5, 10) vs all other classes",
+  "groups": {
+   "pharma/devices": {
+    "penalty_pp": 2.8766997003574413,
+    "se_pp": 1.1560287853419522,
+    "n": 163718,
+    "fail_rate": 50.757399919373555
+   },
+   "other": {
+    "penalty_pp": 1.3071498377561477,
+    "se_pp": 0.16756317615853922,
+    "n": 2940816,
+    "fail_rate": 52.39385939140702
+   }
+  },
+  "contrast": "pharma/devices minus other",
+  "predicted": "-",
+  "diff_pp": 1.5695498626012931,
+  "se_pp": 1.174083539367269,
+  "t": 1.3368297995619178,
+  "n": 3104534,
+  "note": "",
+  "p": 0.181278199680924,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H13": {
+  "title": "Services (classes 35-45) vs goods",
+  "groups": {
+   "services": {
+    "penalty_pp": 1.1216892371907852,
+    "se_pp": 0.20446793946020872,
+    "n": 1160468,
+    "fail_rate": 53.90230493214806
+   },
+   "goods": {
+    "penalty_pp": 1.5551978949977507,
+    "se_pp": 0.24842441412387756,
+    "n": 1944066,
+    "fail_rate": 51.355612412335795
+   }
+  },
+  "contrast": "services minus goods",
+  "predicted": "+",
+  "diff_pp": -0.43350865780696546,
+  "se_pp": 0.33110137748312407,
+  "t": -1.30929282476048,
+  "n": 3104534,
+  "note": "",
+  "p": 0.19043517921964234,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H14": {
+  "title": "Consumer packaged goods: debut owners vs established owners",
+  "groups": {
+   "debut": {
+    "penalty_pp": -0.8600167725146962,
+    "se_pp": 0.5224564228405464,
+    "n": 94015,
+    "fail_rate": 57.30362176248471
+   },
+   "established": {
+    "penalty_pp": 4.887313458667558,
+    "se_pp": 1.1341699231028135,
+    "n": 95921,
+    "fail_rate": 49.35832612253834
+   }
+  },
+  "contrast": "debut minus established",
+  "predicted": "+",
+  "diff_pp": -5.7473302311822545,
+  "se_pp": 1.2537679514891102,
+  "t": -4.584046213939433,
+  "n": 189936,
+  "note": "",
+  "p": 4.560633702372055e-06,
+  "p_holm": 0.00011857647626167342,
+  "agrees": false
+ },
+ "H15": {
+  "title": "Pioneers of a new vocabulary in a class vs early followers (excess failure over same class-year)",
+  "groups": {
+   "pioneer (arrival year or next)": {
+    "excess_pp": 12.77657260076435,
+    "se_pp": 1.8093195484841573,
+    "n": 1564
+   },
+   "early follower (2-5 years in)": {
+    "excess_pp": 11.826104370126853,
+    "se_pp": 0.6169120792945675,
+    "n": 10575
+   },
+   "later (6+ years in)": {
+    "excess_pp": 5.999811631550209,
+    "se_pp": 0.15135783029562763,
+    "n": 466305
+   }
+  },
+  "contrast": "pioneer minus early follower",
+  "predicted": "+",
+  "diff_pp": 0.9504682306374967,
+  "se_pp": 1.8488547347808322,
+  "t": 0.5140848617023271,
+  "note": "vocabularies: internet, mobile apps, cloud / SaaS, social media, ai, blockchain, 3d printing, drones, virtual reality, electric vehicles, gene therapy, nanotechnology, electronic cigarettes, energy drinks, kombucha, cold brew, plant-based milk, hard seltzer, cbd / hemp",
+  "p": 0.6071926608651627,
+  "p_holm": 1.0,
+  "agrees": true
+ },
+ "H17": {
+  "title": "Consumer packaged goods vs industrial goods",
+  "groups": {
+   "CPG": {
+    "penalty_pp": 1.5695857238415711,
+    "se_pp": 0.4404316804345657,
+    "n": 339708,
+    "fail_rate": 51.147750420949755
+   },
+   "industrial": {
+    "penalty_pp": 0.9579969929964225,
+    "se_pp": 0.47370055801530964,
+    "n": 202763,
+    "fail_rate": 39.77944694051676
+   }
+  },
+  "contrast": "CPG minus industrial",
+  "predicted": "-",
+  "diff_pp": 0.6115887308451486,
+  "se_pp": 0.6524849614829884,
+  "t": 0.9373223398974753,
+  "n": 542471,
+  "note": "",
+  "p": 0.3485927749214221,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H18": {
+  "title": "Manufactured goods (7, 9, 12) vs services (35-45)",
+  "groups": {
+   "manufactured": {
+    "penalty_pp": 2.3345832258806603,
+    "se_pp": 0.3465907682896704,
+    "n": 535774,
+    "fail_rate": 50.67509808240042
+   },
+   "services": {
+    "penalty_pp": 1.08319469117056,
+    "se_pp": 0.20292571312969504,
+    "n": 1160468,
+    "fail_rate": 53.90230493214806
+   }
+  },
+  "contrast": "manufactured minus services",
+  "predicted": "-",
+  "diff_pp": 1.2513885347101,
+  "se_pp": 0.3905164471741788,
+  "t": 3.204445148892675,
+  "n": 1696242,
+  "note": "",
+  "p": 0.0013532307243054162,
+  "p_holm": 0.033830768107635405,
+  "agrees": false
+ },
+ "H19": {
+  "title": "Golder-Tellis cases: penalty within each vertical",
+  "groups": {
+   "gt_diapers": {
+    "penalty_pp": 0.36180356428236055,
+    "se_pp": 1.9695165623842548,
+    "n": 9788,
+    "fail_rate": 57.4989783408255
+   },
+   "gt_video_recorders": {
+    "penalty_pp": 3.6465904952183945,
+    "se_pp": 3.4694976113944427,
+    "n": 10306,
+    "fail_rate": 59.082088104017075
+   },
+   "gt_personal_computers": {
+    "penalty_pp": 2.191617222492033,
+    "se_pp": 1.5408563785712532,
+    "n": 27690,
+    "fail_rate": 59.44023113037198
+   },
+   "gt_beer": {
+    "penalty_pp": -6.155197472458947,
+    "se_pp": 1.32515593461546,
+    "n": 39290,
+    "fail_rate": 49.43751590735556
+   },
+   "gt_razors": {
+    "penalty_pp": 0.3353915170810035,
+    "se_pp": 2.929495677624253,
+    "n": 4090,
+    "fail_rate": 49.095354523227385
+   }
+  }
+ },
+ "H20": {
+  "title": "Theme imported from another class vs native theme",
+  "groups": {
+   "imported": {
+    "penalty_pp": 1.9173392258199524,
+    "se_pp": 0.4406872696087075,
+    "n": 164556,
+    "fail_rate": 48.93653224434235
+   },
+   "native": {
+    "penalty_pp": 1.3528846086629271,
+    "se_pp": 0.17276158718660736,
+    "n": 2939978,
+    "fail_rate": 52.49624316916657
+   }
+  },
+  "contrast": "imported minus native",
+  "predicted": "-",
+  "diff_pp": 0.5644546171570253,
+  "se_pp": 0.45033223319561116,
+  "t": 1.253418200051078,
+  "n": 3104534,
+  "note": "",
+  "p": 0.21005355134700898,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H21": {
+  "title": "Blue-ocean exemplar verticals: penalty within each",
+  "groups": {
+   "bo_wine": {
+    "penalty_pp": 1.2893436508595602,
+    "se_pp": 0.9427511648170446,
+    "n": 49428,
+    "fail_rate": 44.32103261309379
+   },
+   "bo_fitness": {
+    "penalty_pp": 2.930590868611993,
+    "se_pp": 1.0628438355836873,
+    "n": 47894,
+    "fail_rate": 58.57101098258654
+   },
+   "bo_live_entertainment": {
+    "penalty_pp": -5.576908057857352,
+    "se_pp": 1.4954424152700092,
+    "n": 26045,
+    "fail_rate": 57.243232866193125
+   },
+   "bo_air_travel": {
+    "penalty_pp": 1.2057255713301396,
+    "se_pp": 2.9383301149330765,
+    "n": 5729,
+    "fail_rate": 52.67935067201955
+   },
+   "bo_hotels": {
+    "penalty_pp": -1.6716465490690946,
+    "se_pp": 1.4748388866087707,
+    "n": 24879,
+    "fail_rate": 48.01237991880703
+   },
+   "bo_coffee": {
+    "penalty_pp": 3.16412005683391,
+    "se_pp": 1.0670125445765397,
+    "n": 38624,
+    "fail_rate": 53.528893951946976
+   },
+   "bo_home_improvement": {
+    "penalty_pp": 1.1030307071155467,
+    "se_pp": 1.9607934137772005,
+    "n": 13176,
+    "fail_rate": 49.32452944748027
+   }
+  },
+  "exemplar_firms": {
+   "[yellow tail] (Casella)": {
+    "n_marks": 109,
+    "mean_lead_fifth": 3.0275229357798166,
+    "share_top_fifth": 0.22935779816513763,
+    "fail_rate": 47.706422018348626
+   },
+   "Curves": {
+    "n_marks": 65,
+    "mean_lead_fifth": 3.8153846153846156,
+    "share_top_fifth": 0.4153846153846154,
+    "fail_rate": 50.76923076923077
+   },
+   "Cirque du Soleil": {
+    "n_marks": 64,
+    "mean_lead_fifth": 2.671875,
+    "share_top_fifth": 0.21875,
+    "fail_rate": 34.375
+   },
+   "Southwest Airlines": {
+    "n_marks": 103,
+    "mean_lead_fifth": 2.7184466019417473,
+    "share_top_fifth": 0.11650485436893204,
+    "fail_rate": 41.74757281553398
+   },
+   "NetJets": {
+    "n_marks": 9,
+    "mean_lead_fifth": 2.666666666666667,
+    "share_top_fifth": 0.1111111111111111,
+    "fail_rate": 100.0
+   },
+   "Accor (Formule 1)": {
+    "n_marks": 284,
+    "mean_lead_fifth": 2.859154929577465,
+    "share_top_fifth": 0.19014084507042253,
+    "fail_rate": 45.07042253521127
+   },
+   "Starbucks": {
+    "n_marks": 239,
+    "mean_lead_fifth": 3.196652719665272,
+    "share_top_fifth": 0.301255230125523,
+    "fail_rate": 42.25941422594142
+   },
+   "Home Depot": {
+    "n_marks": 346,
+    "mean_lead_fifth": 2.9364161849710984,
+    "share_top_fifth": 0.18497109826589594,
+    "fail_rate": 17.052023121387283
+   }
+  }
+ },
+ "H22": {
+  "title": "Themes growing through first-time filers vs through established filers (top vs bottom third)",
+  "groups": {
+   "new demand": {
+    "penalty_pp": 1.0506230637923855,
+    "se_pp": 0.2221391430477126,
+    "n": 1036842,
+    "fail_rate": 56.04547269497184
+   },
+   "established demand": {
+    "penalty_pp": 0.3323375222039418,
+    "se_pp": 0.37655981020701185,
+    "n": 1038186,
+    "fail_rate": 48.56085518394585
+   }
+  },
+  "contrast": "new demand minus established demand",
+  "predicted": "-",
+  "diff_pp": 0.7182855415884436,
+  "se_pp": 0.45207464314651075,
+  "t": 1.5888649197156095,
+  "n": 2075028,
+  "note": "",
+  "p": 0.11209089265076512,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H23": {
+  "title": "Invention vocabularies vs all other filings",
+  "groups": {
+   "invention": {
+    "penalty_pp": 3.3316774331426364,
+    "se_pp": 1.7503331929652663,
+    "n": 12612,
+    "fail_rate": 60.79130986362195
+   },
+   "other": {
+    "penalty_pp": 1.37888503031678,
+    "se_pp": 0.16835926700361584,
+    "n": 3091922,
+    "fail_rate": 52.27295513923055
+   }
+  },
+  "contrast": "invention minus other",
+  "predicted": "-",
+  "diff_pp": 1.9527924028258563,
+  "se_pp": 1.7532236937027892,
+  "t": 1.11382957567815,
+  "n": 3104534,
+  "note": "",
+  "p": 0.2653523062854753,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H24": {
+  "title": "Fads vs surges that held",
+  "groups": {
+   "fad (surge given back)": {
+    "penalty_pp": 1.4086518902508403,
+    "se_pp": 2.745820927051351,
+    "n": 6812,
+    "fail_rate": 50.088079859072224
+   },
+   "surge held": {
+    "penalty_pp": 2.8695445265053485,
+    "se_pp": 1.5179182679979328,
+    "n": 100487,
+    "fail_rate": 53.63280822394937
+   }
+  },
+  "contrast": "fad (surge given back) minus surge held",
+  "predicted": "+",
+  "diff_pp": -1.4608926362545083,
+  "se_pp": 3.0665145341760183,
+  "t": -0.4764016670956541,
+  "n": 107299,
+  "note": "",
+  "p": 0.6337882472170623,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H25": {
+  "title": "General-purpose technology filings: first 3 years in a class vs 6+ years",
+  "groups": {
+   "early adopter": {
+    "penalty_pp": -2.3034577675589296,
+    "se_pp": 5.099759844135237,
+    "n": 1166,
+    "fail_rate": 62.00686106346483
+   },
+   "late adopter": {
+    "penalty_pp": 1.8555146938657094,
+    "se_pp": 0.3546080080756203,
+    "n": 450439,
+    "fail_rate": 57.939254815857424
+   }
+  },
+  "contrast": "early adopter minus late adopter",
+  "predicted": "-",
+  "diff_pp": -4.158972461424639,
+  "se_pp": 5.095145940244741,
+  "t": -0.8162616949937387,
+  "n": 451605,
+  "note": "",
+  "p": 0.4143504775849441,
+  "p_holm": 1.0,
+  "agrees": true
+ },
+ "H26": {
+  "title": "Vocabulary new to its class vs new to the corpus (excess failure, first five years)",
+  "groups": {
+   "new to class": {
+    "excess_pp": 11.093939119338305,
+    "se_pp": 0.7505177114041599,
+    "n": 7591
+   },
+   "new to corpus": {
+    "excess_pp": 9.461882324978427,
+    "se_pp": 2.6252663777948224,
+    "n": 511
+   }
+  },
+  "contrast": "new to class minus new to corpus",
+  "predicted": "-",
+  "diff_pp": 1.6320567943598792,
+  "se_pp": 2.7356678373801295,
+  "t": 0.5965844142550775,
+  "p": 0.5507848795526247,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H27": {
+  "title": "Emergent consumer categories: first three years vs later (excess failure)",
+  "groups": {
+   "first 3 years": {
+    "excess_pp": 12.618156942785394,
+    "se_pp": 2.3266719263558824,
+    "n": 1227
+   },
+   "later": {
+    "excess_pp": 12.632793028422965,
+    "se_pp": 0.8015469823316433,
+    "n": 11765
+   }
+  },
+  "contrast": "first 3 years minus later",
+  "predicted": "?",
+  "diff_pp": -0.014636085637570462,
+  "se_pp": 2.430517129942531,
+  "t": -0.006021799006171386,
+  "p": 0.9951953285826185,
+  "p_holm": 1.0,
+  "agrees": null
+ },
+ "H28": {
+  "title": "Geographically concentrated themes vs dispersed (top vs bottom third of co-location L)",
+  "groups": {
+   "concentrated": {
+    "penalty_pp": 1.8010361540298996,
+    "se_pp": 0.3898551474698808,
+    "n": 822448,
+    "fail_rate": 52.93270820769216
+   },
+   "dispersed": {
+    "penalty_pp": 2.309482172364032,
+    "se_pp": 0.2488553417274972,
+    "n": 808663,
+    "fail_rate": 49.805295902001205
+   }
+  },
+  "contrast": "concentrated minus dispersed",
+  "predicted": "+",
+  "diff_pp": -0.5084460183341324,
+  "se_pp": 0.4676283566484326,
+  "t": -1.087286540915197,
+  "n": 1631111,
+  "note": "",
+  "p": 0.2769101948519978,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H29": {
+  "title": "Within themes that have a hub: filers in a hub vs filers outside",
+  "groups": {
+   "in hub": {
+    "penalty_pp": 2.8123090613861605,
+    "se_pp": 0.6187207407047646,
+    "n": 155890,
+    "fail_rate": 50.57283982295209
+   },
+   "outside hub": {
+    "penalty_pp": 3.0814309697259037,
+    "se_pp": 0.24896222046696526,
+    "n": 709225,
+    "fail_rate": 51.202368782826326
+   }
+  },
+  "contrast": "in hub minus outside hub",
+  "predicted": "?",
+  "diff_pp": -0.2691219083397433,
+  "se_pp": 0.6461301581838641,
+  "t": -0.4165134608422989,
+  "n": 865115,
+  "note": "",
+  "hub_main_effect_pp": {
+   "b": 1.1875179592909375,
+   "se": 0.4541093411891153,
+   "n": 865115
+  },
+  "p": 0.6770343195121292,
+  "p_holm": 1.0,
+  "agrees": null
+ },
+ "H30": {
+  "title": "Foreign-domiciled owners vs US owners",
+  "groups": {
+   "foreign (not China)": {
+    "penalty_pp": 0.6333383624419194,
+    "se_pp": 0.4369602346686043,
+    "n": 562988,
+    "fail_rate": 54.583401422410425
+   },
+   "US": {
+    "penalty_pp": 1.6492557852201009,
+    "se_pp": 0.19502113383779177,
+    "n": 2430642,
+    "fail_rate": 51.478086859356495
+   }
+  },
+  "contrast": "foreign (not China) minus US",
+  "predicted": "+",
+  "diff_pp": -1.0159174227781813,
+  "se_pp": 0.5227119326450914,
+  "t": -1.9435512360265257,
+  "n": 2993630,
+  "note": "",
+  "p": 0.05194959113405354,
+  "p_holm": 0.9870422315470173,
+  "agrees": false
+ },
+ "H31": {
+  "title": "Self-filed vs counsel-represented",
+  "groups": {
+   "self-filed": {
+    "penalty_pp": 4.201699349812349,
+    "se_pp": 0.29771559107301593,
+    "n": 690216,
+    "fail_rate": 69.17689534870244
+   },
+   "counsel": {
+    "penalty_pp": 0.5917701443755792,
+    "se_pp": 0.2255378150445428,
+    "n": 2414318,
+    "fail_rate": 47.4848797879981
+   }
+  },
+  "contrast": "self-filed minus counsel",
+  "predicted": "+",
+  "diff_pp": 3.6099292054367704,
+  "se_pp": 0.46710833429799214,
+  "t": 7.728248332074958,
+  "n": 3104534,
+  "note": "",
+  "p": 1.0903648610448681e-14,
+  "p_holm": 3.2710945831346045e-13,
+  "agrees": true
+ },
+ "H32": {
+  "title": "Intent-to-use vs use-based filings",
+  "groups": {
+   "intent to use": {
+    "penalty_pp": 1.432729933859001,
+    "se_pp": 0.326923593041759,
+    "n": 1288363,
+    "fail_rate": 53.952108217947895
+   },
+   "in use": {
+    "penalty_pp": 1.3590721651699766,
+    "se_pp": 0.17271975885425175,
+    "n": 1816171,
+    "fail_rate": 51.14094432737887
+   }
+  },
+  "contrast": "intent to use minus in use",
+  "predicted": "+",
+  "diff_pp": 0.0736577686890243,
+  "se_pp": 0.36222448868874585,
+  "t": 0.20334839578534772,
+  "n": 3104534,
+  "note": "",
+  "p": 0.8388627312551802,
+  "p_holm": 1.0,
+  "agrees": true
+ },
+ "H33": {
+  "title": "Regulated classes (5, 10, 33, 34, 36) vs others",
+  "groups": {
+   "regulated": {
+    "penalty_pp": 1.9637370761584436,
+    "se_pp": 0.5912434972900591,
+    "n": 371750,
+    "fail_rate": 49.20699394754539
+   },
+   "unregulated": {
+    "penalty_pp": 1.3112765735980183,
+    "se_pp": 0.17703679962772206,
+    "n": 2732784,
+    "fail_rate": 52.72934121394154
+   }
+  },
+  "contrast": "regulated minus unregulated",
+  "predicted": "-",
+  "diff_pp": 0.6524605025604252,
+  "se_pp": 0.6255161475943377,
+  "t": 1.043075394727558,
+  "n": 3104534,
+  "note": "",
+  "p": 0.2969133754679055,
+  "p_holm": 1.0,
+  "agrees": false
+ },
+ "H34": {
+  "title": "Filed in a boom (2004-07, 2014-17) vs a bust (2001-02, 2008-10)",
+  "groups": {
+   "boom": {
+    "penalty_pp": 0.9215660828757865,
+    "se_pp": 0.20177938850953503,
+    "n": 1473673,
+    "fail_rate": 52.39215212601439
+   },
+   "bust": {
+    "penalty_pp": 1.0090363202951864,
+    "se_pp": 0.29275142785662345,
+    "n": 726604,
+    "fail_rate": 51.75845439881972
+   }
+  },
+  "contrast": "boom minus bust",
+  "predicted": "+",
+  "diff_pp": -0.08747023741940002,
+  "se_pp": 0.3328857347074577,
+  "t": -0.26276355007002467,
+  "n": 2200277,
+  "note": "",
+  "p": 0.7927328313627025,
+  "p_holm": 1.0,
+  "agrees": false
+ }
+}

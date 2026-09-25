@@ -1,0 +1,188 @@
+{
+ "internet vocabulary, classes 9/35/38/42, 1998-2001": {
+  "n": 60903,
+  "n_class": 369252,
+  "C": 0.07525429813159834,
+  "B": 0.06166430846852714,
+  "L": 0.014483078695312929,
+  "hubs": [
+   {
+    "cell": 8565,
+    "share_nearby": 0.12554528142506205,
+    "class_share_nearby": 0.0961344068632885,
+    "name": "San Francisco, CA"
+   }
+  ]
+ },
+ "semiconductors, class 9, 1995-2005": {
+  "n": 4517,
+  "n_class": 324023,
+  "C": 0.2542517936226284,
+  "B": 0.06431212960251756,
+  "L": 0.2029946844768053,
+  "hubs": [
+   {
+    "cell": 8432,
+    "share_nearby": 0.4789267864907912,
+    "class_share_nearby": 0.11734303422961899,
+    "name": "Santa Clara, CA"
+   }
+  ]
+ },
+ "wine, class 33, 2000-2010": {
+  "n": 18799,
+  "n_class": 28745,
+  "C": 0.15880915492566847,
+  "B": 0.10849332650914228,
+  "L": 0.05643909340521854,
+  "hubs": [
+   {
+    "cell": 9951,
+    "share_nearby": 0.34645554367049064,
+    "class_share_nearby": 0.2555255709142139,
+    "name": "Napa, CA"
+   }
+  ]
+ },
+ "country music, class 41, 1995-2010": {
+  "n": 163,
+  "n_class": 350458,
+  "C": 0.10594229815182034,
+  "B": 0.06737705389746461,
+  "L": 0.041351378298723256,
+  "hubs": [
+   {
+    "cell": 6992,
+    "share_nearby": 0.27727083815664805,
+    "class_share_nearby": 0.012609296668996725,
+    "name": "Nashville, TN"
+   }
+  ]
+ },
+ "casino gaming, class 41, 1995-2010": {
+  "n": 4662,
+  "n_class": 350458,
+  "C": 0.15643741278143714,
+  "B": 0.06737705389746461,
+  "L": 0.09549449673757111,
+  "hubs": [
+   {
+    "cell": 6920,
+    "share_nearby": 0.36549301971507003,
+    "class_share_nearby": 0.016724436102988082,
+    "name": "Las Vegas, NV"
+   }
+  ]
+ },
+ "biotechnology, classes 1/5/42, 1995-2010": {
+  "n": 2695,
+  "n_class": 497938,
+  "C": 0.0895279976235822,
+  "B": 0.05992524171695138,
+  "L": 0.03148978913198058,
+  "hubs": [
+   {
+    "cell": 12654,
+    "share_nearby": 0.1568379344801498,
+    "class_share_nearby": 0.13050960786730378,
+    "name": "Philadelphia, PA"
+   },
+   {
+    "cell": 8691,
+    "share_nearby": 0.13866875108416038,
+    "class_share_nearby": 0.06932529736060283,
+    "name": "Foster City, CA"
+   },
+   {
+    "cell": 15591,
+    "share_nearby": 0.13459200207390531,
+    "class_share_nearby": 0.1079201558832351,
+    "name": "New Haven, CT"
+   }
+  ]
+ },
+ "social networking, classes 38/42/45, 2004-2012": {
+  "n": 14041,
+  "n_class": 209727,
+  "C": 0.08790548555978828,
+  "B": 0.057109133394371576,
+  "L": 0.032661629522706494,
+  "hubs": [
+   {
+    "cell": 13906,
+    "share_nearby": 0.18018277956892187,
+    "class_share_nearby": 0.1426665388059063,
+    "name": "New York, NY"
+   },
+   {
+    "cell": 8691,
+    "share_nearby": 0.14548187987475042,
+    "class_share_nearby": 0.08142280794135992,
+    "name": "San Francisco, CA"
+   },
+   {
+    "cell": 4362,
+    "share_nearby": 0.13386278647957167,
+    "class_share_nearby": 0.09391896981441376,
+    "name": "Los Angeles, CA"
+   }
+  ]
+ },
+ "online advertising, classes 35/42, 2005-2015": {
+  "n": 12028,
+  "n_class": 545703,
+  "C": 0.07931806524558341,
+  "B": 0.054192311166316655,
+  "L": 0.026565394187321963,
+  "hubs": [
+   {
+    "cell": 13906,
+    "share_nearby": 0.17421534793335447,
+    "class_share_nearby": 0.14356322854203787,
+    "name": "New York, NY"
+   },
+   {
+    "cell": 8691,
+    "share_nearby": 0.13511492172172568,
+    "class_share_nearby": 0.06634524963403593,
+    "name": "San Francisco, CA"
+   },
+   {
+    "cell": 4249,
+    "share_nearby": 0.12152265940641221,
+    "class_share_nearby": 0.08976227290369786,
+    "name": "Los Angeles, CA"
+   }
+  ]
+ },
+ "software as a service, class 42, 2008-2016": {
+  "n": 20783,
+  "n_class": 173809,
+  "C": 0.06406267720828211,
+  "B": 0.05681902664924925,
+  "L": 0.007680021929724706,
+  "hubs": [
+   {
+    "cell": 8691,
+    "share_nearby": 0.1543034255829561,
+    "class_share_nearby": 0.10178696258602837,
+    "name": "San Francisco, CA"
+   }
+  ]
+ },
+ "hip hop, classes 9/25/41, 1995-2010": {
+  "n": 507,
+  "n_class": 1025995,
+  "C": 0.1218308701148885,
+  "B": 0.06771026212102203,
+  "L": 0.05805127504352295,
+  "hubs": [
+   {
+    "cell": 13906,
+    "share_nearby": 0.2891817106385571,
+    "class_share_nearby": 0.16161479412700946,
+    "name": "New York, NY"
+   }
+  ]
+ }
+}

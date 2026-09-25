@@ -246,13 +246,13 @@ entrants compared with its later entrants and with the class. & ready \\
 \endhead
 28 & \emph{Clusters speed imitation.} Where a theme's early filers are
 geographically concentrated (a Silicon Valley or Silicon Alley),
-followers learn fastest. & Share of a theme's first five years of
-filers in its top state; expect a larger penalty in concentrated
-themes. & build (state only) \\
+followers learn fastest. & Co-location index of the theme's filers
+in a five-year window, net of its class (see the clustering measure
+below); expect a larger penalty in concentrated themes. & ready (ZIP) \\
 29 & \emph{Distance from the cluster.} Early filers far from a theme's
-home state are shielded from local imitation, or cut off from its
-resources. & Within theme, filers in the theme's hub state against
-filers elsewhere; the sign is the question. & build (state only) \\
+hubs are shielded from local imitation, or cut off from their
+resources. & Within themes that have a hub, filers in a hub against
+filers outside; the sign is the question. & ready (ZIP) \\
 30 & \emph{Foreign pioneers.} Foreign firms bringing a theme into the US
 market face local imitators. & Foreign-domiciled and Madrid filers
 against US filers. & ready \\
@@ -278,9 +278,14 @@ for ``switching costs'' is not a measured switching cost). The battery
 should be run with one pre-stated prediction per hypothesis, a common
 estimator, owner-clustered errors, and a correction for testing thirty
 comparisons at once; the paper would then report where the evidence
-lines up with each literature, not a search for significance. City-level
-geography would need owner addresses re-parsed from the raw case files;
-the state-level version is ready.
+lines up with each literature, not a search for significance. Owner
+locations are the applicant's ZIP code as filed, re-parsed from the
+annual case-file archives and placed at Census ZIP centroids (99.8\% of
+US owners placed).
+
+\input{battery_summary}
+
+\input{battery_results}
 
 \input{bib_hyp}
 \end{document}
