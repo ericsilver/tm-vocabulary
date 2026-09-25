@@ -9,7 +9,7 @@ This repository builds an event-dated corpus of all 13.99 million USPTO trademar
 | Title | *An Event-Dated Corpus of US Trademark Prosecution and a Two-Sided Measure of Vocabulary Position* | *Arrows in Their Backs: Vocabulary Lead and Product Survival in the US Trademark Record* |
 | What it does | Builds the corpus and the measure, validates the measure by rescoring under every alternative construction, documents two hazards for trademark-text research | Asks whether being early pays: the five-year proof, the era swing and its themes, the internet, surges, funding and listing |
 | Source | `paper/split/A_qss/` (`main.tex`, supplement `supp.tex`) | `paper/split/B_lead/` (`main.tex`, supplement `supp.tex`) |
-| PDF | [SSRN 7520758](https://ssrn.com/abstract=7520758); `paper/split/A_qss/submission/manuscript.pdf`, `supplementary_material.pdf` | `paper/split/B_lead/main.pdf`, `supp.pdf` |
+| PDF | [SSRN 7520758](https://ssrn.com/abstract=7520758); `paper/split/A_qss/submission/manuscript_final.pdf`, `supplementary_final.pdf` | `paper/split/B_lead/main.pdf`, `supp.pdf` |
 | Build | `cd paper/split/A_qss && pdflatex main` (×3), then `pdflatex supp` (×2) | `cd paper/split/B_lead && pdflatex main` (×3), then `pdflatex supp` (×2) |
 
 Both develop the earlier combined working paper, *Business Themes in the Trademark Record* ([SSRN 6954598](https://ssrn.com/abstract=6954598)). `paper/split/A_corpus/` is a longer version of Paper A kept for reference. Everything else under `paper/` — `v3/`, `v3_rp/`, `frozen/`, `_legacy/`, and the older `.tex` files at the top level — is earlier work, kept for provenance only; it does not describe the current measure or results. (`paper/v3_rp/` still supplies the shared preamble, back matter and bibliography the two papers `\input`.)
@@ -43,7 +43,7 @@ For filing *i* made on date *d*, with theme mix *P<sub>i</sub>*:
 
 The repository holds **code only**; `data/` is gitignored. Two routes to the data:
 
-1. **Data release** (`gh release` tag `data-v1`, built by `scripts/build_release_tables.py`): the event-dated proof outcomes for every registration (`proof_outcomes.parquet` — reusable without the text measure), per-filing scores under the production scoring (`scores_T50.zip`), the fitted theme model (`theme_model_T50.zip`), the 242 million dated prosecution events (`case_events.parquet`), counsel/basis/declaration fields (`case_extras.parquet`), the event-code dictionary, and the owner links (`owner_links.zip`), with `MANIFEST.txt` giving SHA-256 digests.
+1. **Data release**, archived at Zenodo ([doi:10.5281/zenodo.22963531](https://doi.org/10.5281/zenodo.22963531)) and attached to the GitHub release `data-v1` (built by `scripts/build_release_tables.py`): the event-dated proof outcomes for every registration (`proof_outcomes.parquet` — reusable without the text measure), per-filing scores under the production scoring (`scores_T50.zip`), the fitted theme model (`theme_model_T50.zip`), the 242 million dated prosecution events (`case_events.parquet`), counsel/basis/declaration fields (`case_extras.parquet`), the event-code dictionary, and the owner links (`owner_links.zip`), with `MANIFEST.txt` giving SHA-256 digests.
 2. **Rebuild from public sources** with the pipeline below.
 
 `data_publish/firm_year_dkl.csv` and `firm_year_patents_and_dkl.csv` are an early **word-scored** firm-year panel from a retired build. They are not the papers' measure, and Paper A documents why word-scored firm-level correlations are unreliable; they are kept only for provenance.
@@ -164,6 +164,8 @@ Published from `docs/` at <https://aporia.institute/tm-vocabulary/>.
 > Silver, E. (2026). *An event-dated corpus of US trademark prosecution and a two-sided measure of vocabulary position*. SSRN Working Paper 7520758. https://ssrn.com/abstract=7520758
 >
 > Silver, E. (2026). *Arrows in their backs: Vocabulary lead and product survival in the US trademark record*. Working paper.
+>
+> Data: Silver, E. (2026). *tm-vocabulary: Event-dated US trademark prosecution corpus, outcomes, theme model and lead/atypicality scores* (Version data-v1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22963531
 >
 > Earlier combined version: Silver, E. (2026). *Business themes in the trademark record: Language signals of product survival, funding, and listing*. SSRN Working Paper 6954598. https://doi.org/10.2139/ssrn.6954598
 

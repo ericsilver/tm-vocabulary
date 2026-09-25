@@ -500,7 +500,8 @@ Nice number links to that class&rsquo;s figure below.</p>
 
 INDEX_FOOT = """
 <p style="margin-top:2em"><a href="../">tm-vocabulary</a> &middot;
-<a href="https://ssrn.com/abstract=6954598">working paper</a> &middot;
+<a href="https://ssrn.com/abstract=7520758">paper</a> &middot;
+<a href="https://doi.org/10.5281/zenodo.22963531">data</a> &middot;
 <a href="https://aporia.institute/">aporia.institute</a></p>
 
 <script>

@@ -13,6 +13,13 @@ authors:
     email: epsilver@gmail.com
     orcid: https://orcid.org/0000-0003-3351-1109
 repository-code: https://github.com/ericsilver/tm-vocabulary
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22963531
+    description: Data release data-v1 (Zenodo)
+  - type: doi
+    value: 10.2139/ssrn.7520758
+    description: Paper (SSRN 7520758)
 url: https://aporia.institute/tm-vocabulary/
 license: GPL-3.0-or-later
 abstract: >-
@@ -39,4 +46,5 @@ preferred-citation:
       orcid: https://orcid.org/0000-0003-3351-1109
   year: 2026
   url: https://ssrn.com/abstract=7520758
+  doi: 10.2139/ssrn.7520758
   journal: SSRN Working Paper 7520758

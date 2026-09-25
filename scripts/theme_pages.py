@@ -365,7 +365,7 @@ def main() -> int:
     body = (
         '<p style="font-size:.82rem;color:var(--mut);margin:0 0 1rem">'
         '<a href="../../">tm-vocabulary</a> &middot; '
-        '<a href="https://ssrn.com/abstract=6954598">paper</a> &middot; '
+        '<a href="https://ssrn.com/abstract=7520758">paper</a> &middot; '
         '<a href="../">online appendix</a> &middot; '
         '<b style="font-weight:600;color:var(--fg)">theme explorer</b> &middot; '
         '<a href="../ipo-viewer/">IPO viewer</a> &middot; '
