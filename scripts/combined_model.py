@@ -88,10 +88,12 @@ BINARY = [  # (key, label, expression)
      ((pl.col("s_pre") < 0.01) & (pl.col("s_pre_max_any") >= 0.05)).fill_null(False).cast(pl.Float64)),
     ("has_hub", "Theme has a geographic hub", pl.col("group_has_hub").fill_null(False).cast(pl.Float64)),
     ("in_hub", "Filer located in a hub", pl.col("in_hub").fill_null(False).cast(pl.Float64)),
-    ("boom", "Filed in a boom year (2004-07, 2014-17)",
-     pl.col("fy").is_in([2004, 2005, 2006, 2007, 2014, 2015, 2016, 2017]).cast(pl.Float64)),
-    ("bust", "Filed in a bust year (2001-02, 2008-10)",
-     pl.col("fy").is_in([2001, 2002, 2008, 2009, 2010]).cast(pl.Float64)),
+    # year types against "neither" years (1995-97, 2003-04, 2010-19): the two bubble
+    # peaks and the two crashes that ended them
+    ("boom", "Filed in a boom (1998-2000, 2005-07)",
+     pl.col("fy").is_in([1998, 1999, 2000, 2005, 2006, 2007]).cast(pl.Float64)),
+    ("bust", "Filed in a bust (2001-02, 2008-09)",
+     pl.col("fy").is_in([2001, 2002, 2008, 2009]).cast(pl.Float64)),
 ]
 CONTINUOUS = [
     ("volatility", "Theme-share volatility (per SD)", pl.col("volatility").log()),
@@ -99,6 +101,9 @@ CONTINUOUS = [
     ("colocation", "Theme co-location L (per SD)", pl.col("geo_L")),
     ("tech_pace", "Class theme-mix turnover (per SD)", pl.col("tech_pace")),
     ("mkt_pace", "Class filing-volume growth (per SD)", pl.col("mkt_pace")),
+    # the lead penalty has grown over time; without a trend, boom and bust years are
+    # compared with "neither" years that are mostly 2010-19
+    ("trend", "Filing year (per SD, about 5 years)", pl.col("fy").cast(pl.Float64)),
 ]
 CLASS_GROUPS = [  # main effects absorbed by the class x year fixed effects
     ("services", "Services classes (35-45)", pl.col("cls").cast(pl.Int32) >= 35),
@@ -109,6 +114,7 @@ CLASS_GROUPS = [  # main effects absorbed by the class x year fixed effects
 ]
 CONTROLS = ["log_len", "log_owner_n", "basis_44e", "basis_66a"]
 MISSING = ["m_geo", "m_env"]
+YEAR_TYPES = ("boom", "bust")
 
 
 # ------------------------------------------------------------------ frame
@@ -130,7 +136,7 @@ def frame() -> pl.DataFrame:
         pl.col("owner_key").map_elements(lambda s: int(hashlib.md5(s.encode()).hexdigest()[:8], 16) % 10,
                                          return_dtype=pl.Int8).alias("h10"))
     d = d.with_columns((pl.col("h10") % 2).alias("half"), (pl.col("h10") < 4).alias("lasso_rows"))
-    keep = (["surv", "lead", "cell", "owner_key", "cls", "half", "lasso_rows"]
+    keep = (["surv", "lead", "cell", "reg_year", "owner_key", "cls", "half", "lasso_rows"]
             + [k for k, _, _ in BINARY + CONTINUOUS + CLASS_GROUPS] + CONTROLS + MISSING)
     return d.select(keep)
 
@@ -139,8 +145,9 @@ def frame() -> pl.DataFrame:
 class Design:
     """Holds FE and cluster codes for a row subset, and demeans columns."""
 
-    def __init__(self, d: pl.DataFrame):
-        self.cell = np.array(d["cell"].cast(pl.Categorical).to_physical().to_numpy(), dtype=np.int64)
+    def __init__(self, d: pl.DataFrame, fe: str = "cell"):
+        self.cell = np.array(d[fe].cast(pl.Utf8).cast(pl.Categorical).to_physical().to_numpy(), dtype=np.int64)
+        _, self.cell = np.unique(self.cell, return_inverse=True)
         self.cnt = np.bincount(self.cell)
         og = np.array(d["owner_key"].cast(pl.Categorical).to_physical().to_numpy(), dtype=np.int64)
         _, og = np.unique(og, return_inverse=True)
@@ -226,12 +233,24 @@ def main() -> int:
     if PART.exists() and not os.environ.get("REBUILD"):
         out.update(json.loads(PART.read_text()))
         log("  [resume] alone + joint loaded")
-    else:
+    if "joint_V" not in out:
         stage_one(d, y, des, fac, cg, out)
         RES.mkdir(parents=True, exist_ok=True)
-        PART.write_text(json.dumps({k: out[k] for k in ("lead_only", "alone", "joint")}, indent=1))
+        PART.write_text(json.dumps({k: out[k] for k in ("lead_only", "alone", "joint", "joint_V")}, indent=1))
     gc.collect()
-    stage_two(d, y, des, fac, cg, out)
+    FULL = RES / "combined_model.json"
+    prev = json.loads(FULL.read_text()) if FULL.exists() else {}
+    if os.environ.get("SKIP_STAGE2") and "lasso" in prev:
+        for k in ("class_slopes_halfA", "class_groups", "class_groups_halfB", "lasso", "post_lasso",
+                  "post_lasso_top", "post_lasso_cvmin"):
+            if k in prev:
+                out[k] = prev[k]
+        log("  [resume] class groups + lasso loaded")
+    else:
+        stage_two(d, y, des, fac, cg, out)
+    stage_groups(d, fac, out)
+    FULL.write_text(json.dumps(out, indent=1, default=lambda o: None if isinstance(o, np.ndarray) else str(o)))
+    log("[done]")
     return 0
 
 
@@ -246,7 +265,10 @@ def stage_one(d, y, des, fac, cg, out):
     alone = {}
     for f in fac + cg:
         mains = [f] if f not in cg else []
-        X, nm, means = build_X(d, mains, [f])
+        inter = [f]
+        if f in YEAR_TYPES:            # boom and bust against years that are neither, net of trend
+            mains, inter = list(YEAR_TYPES) + ["trend"], list(YEAR_TYPES) + ["trend"]
+        X, nm, means = build_X(d, mains, inter)
         r = des.ols(y, X, nm)
         alone[f] = {"lead": r["lead"], "inter": r.get(f"{f}:lead"), "main": r.get(f)}
         log(f"  alone {f:12s} main {r.get(f, (float('nan'),0))[0]:+.2f}  x lead {r[f'{f}:lead'][0]:+.2f} "
@@ -260,7 +282,51 @@ def stage_one(d, y, des, fac, cg, out):
     for f in fac + cg:
         joint[f] = {"main": r.get(f), "inter": r.get(f"{f}:lead")}
     out["joint"] = joint
+    V, vn = r["_V"]
+    out["joint_V"] = {"names": vn, "V": V.tolist()}
     log(f"  joint lead {r['lead'][0]:+.2f} ({r['lead'][1]:.2f})")
+
+
+def lincomb(r: dict, w: dict) -> tuple[float, float]:
+    """Estimate and SE of sum_k w_k * b_k from an ols() result."""
+    V, vn = r["_V"]
+    ix = {n: i for i, n in enumerate(vn)}
+    a = np.zeros(len(vn))
+    b = 0.0
+    for k, wk in w.items():
+        a[ix[k]] = wk
+        b += wk * r[k][0]
+    return float(b), float(math.sqrt(max(a @ V @ a, 0)))
+
+
+def stage_groups(d, fac, out):
+    """Each class group against all other classes: registration-year fixed effects only
+    (so the group's survival level is identified), the factors and their lead
+    interactions held, the group's own survival difference and lead interaction."""
+    res = {}
+    grp_of = {c: g for g, (name, members) in enumerate(out["class_groups"].items()) for c in members}
+    gnames = list(out["class_groups"].keys())
+    specs = [(k, lab, d) for k, lab, _ in CLASS_GROUPS]
+    B = d.filter(pl.col("half") == 1)
+    for gi, gname in enumerate(gnames):
+        col = f"_kg{gi}"
+        B = B.with_columns((pl.col("cls").replace_strict(grp_of, return_dtype=pl.Int32) == gi)
+                           .cast(pl.Float64).alias(col))
+        specs.append((col, gname + " (held-out half)", B))
+    for key, lab, dd in specs:
+        des = Design(dd, fe="reg_year")
+        X, nm, means = build_X(dd, fac + [key], fac + [key])
+        r = des.ols(dd["surv"].to_numpy(), X, nm)
+        m = means[key]
+        res[lab] = {"share": m, "n": dd.height,
+                    "survival": r[key][:2], "inter": r[f"{key}:lead"][:2],
+                    "lead_in": lincomb(r, {"lead": 1.0, f"{key}:lead": 1 - m}),
+                    "lead_out": lincomb(r, {"lead": 1.0, f"{key}:lead": -m})}
+        log(f"  group {lab[:40]:40s} surv {r[key][0]:+.2f}  lead in {res[lab]['lead_in'][0]:+.2f} "
+            f"out {res[lab]['lead_out'][0]:+.2f}")
+        del X
+        gc.collect()
+    out["class_group_vs_other"] = res
 
 
 def stage_two(d, y, des, fac, cg, out):

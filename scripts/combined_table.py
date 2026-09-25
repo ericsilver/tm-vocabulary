@@ -8,19 +8,22 @@ import json
 import math
 from pathlib import Path
 
+import numpy as np
+
 REPO = Path(__file__).resolve().parents[1]
 RES = REPO / "paper" / "results"
 OUT = REPO / "paper" / "split" / "B_brief" / "combined_results.tex"
 
 BINARY = ["counsel", "patents", "itu", "debut", "established", "foreign", "china", "site", "contract",
           "platform", "invention", "gpt", "consumer", "imported", "has_hub", "in_hub", "boom", "bust"]
-CONT = ["volatility", "new_demand", "colocation", "tech_pace", "mkt_pace"]
+CONT = ["volatility", "new_demand", "colocation", "tech_pace", "mkt_pace", "trend"]
 CG = ["services", "pharma", "cpg", "manufactured", "regulated"]
+YEAR = ["boom", "bust"]
 SECTIONS = [("The owner and the filing", ["counsel", "patents", "debut", "established", "foreign", "china", "itu"]),
             ("The offering", ["site", "contract", "platform", "invention", "gpt", "consumer", "imported"]),
             ("The theme and its geography", ["volatility", "new_demand", "colocation", "has_hub", "in_hub"]),
-            ("The class and the year", ["tech_pace", "mkt_pace", "boom", "bust"]),
-            ("Class groups (main effect absorbed by class fixed effects)", CG)]
+            ("The class and the year (boom and bust against years that are neither)",
+             ["tech_pace", "mkt_pace", "trend", "boom", "bust"])]
 
 
 def p_of(b, se):
@@ -45,6 +48,10 @@ def num(b, p=None, d=2):
     return s + (st(p) if p is not None else "")
 
 
+def est(b, se):
+    return f"{num(b)} ({se:.2f})"
+
+
 def esc(s):
     return s.replace("&", r"\&").replace("%", r"\%")
 
@@ -54,64 +61,108 @@ def main() -> int:
     J, lab, sh = R["joint"], R["labels"], R["shares"]
     lead_b, lead_se = J["lead"][0], J["lead"][1]
     keys = BINARY + CONT + CG
-    # lead effect for filings with the factor
-    def lead_at(k, w):
-        bi, si, ci = J[k]["inter"]
-        v = lead_se ** 2 + w ** 2 * si ** 2 + 2 * w * ci
-        return (lead_b + w * bi, math.sqrt(max(v, 0)))
+    vn = R["joint_V"]["names"]
+    V = np.array(R["joint_V"]["V"])
+    ix = {n: i for i, n in enumerate(vn)}
+    coef = {"lead": lead_b, **{f"{k}:lead": J[k]["inter"][0] for k in keys}}
 
-    # lead effect among filings with / without the factor (continuous: +1 / -1 SD)
-    cond = {k: lead_at(k, (1 - J["means"][k]) if k in BINARY + CG else 1.0) for k in keys}
-    uncond = {k: lead_at(k, -J["means"][k] if k in BINARY + CG else -1.0) for k in keys}
-    pm = holm({k: p_of(*J[k]["main"][:2]) for k in keys if J[k]["main"]})
-    pi = holm({k: p_of(*J[k]["inter"][:2]) for k in keys})
-    pc = holm({k: p_of(*cond[k]) for k in keys})
-    pu = holm({k: p_of(*uncond[k]) for k in keys})
+    def comb(w: dict) -> tuple[float, float]:
+        a = np.zeros(len(vn))
+        for k, wk in w.items():
+            a[ix[k]] = wk
+        return float(sum(wk * coef[k] for k, wk in w.items())), float(math.sqrt(max(a @ V @ a, 0)))
+
+    mean = J["means"]
+    withv, without, diff = {}, {}, {}
+    for k in keys:
+        if k in YEAR:
+            other = [y for y in YEAR if y != k][0]
+            base = {"lead": 1.0, f"{other}:lead": -mean[other]}
+            withv[k] = comb({**base, f"{k}:lead": 1 - mean[k]})
+            without[k] = comb({**base, f"{k}:lead": -mean[k]})        # years that are neither
+            diff[k] = tuple(J[k]["inter"][:2])
+        elif k in CONT:
+            withv[k] = comb({"lead": 1.0, f"{k}:lead": 1.0})
+            without[k] = comb({"lead": 1.0, f"{k}:lead": -1.0})
+            diff[k] = (2 * J[k]["inter"][0], 2 * J[k]["inter"][1])
+        else:
+            withv[k] = comb({"lead": 1.0, f"{k}:lead": 1 - mean[k]})
+            without[k] = comb({"lead": 1.0, f"{k}:lead": -mean[k]})
+            diff[k] = tuple(J[k]["inter"][:2])
+    main_keys = [k for _, ks in SECTIONS for k in ks]
+    pm = holm({k: p_of(*J[k]["main"][:2]) for k in main_keys if J[k]["main"]})
+    pd_ = holm({k: p_of(*diff[k]) for k in main_keys})
     L = [r"\section*{Where being leading costs: one model}"]
     L.append(
         "One linear probability model of surviving the five-year proof (percentage points), with class "
         "$\\times$ registration-year fixed effects and standard errors clustered by owner; "
         f"{R['n']:,} registrations, 2002--2018. \\emph{{Lead}} is the filing's percentile of lead within its "
-        "class and year, so a lead coefficient is the survival difference between the most leading and the "
-        "most lagging filing (negative: leading costs). Every factor enters as a main effect and as an "
-        "interaction with lead, all at once. \\emph{Survival} is the factor's association with survival at "
-        "median lead. \\emph{Lead $\\times$ factor} is how much the factor changes the lead effect. "
-        "\\emph{With} and \\emph{without} give the lead effect among filings that have and lack the factor "
-        "(continuous factors: one SD above and below the mean). Stars: Holm-adjusted $p$ within each column, "
-        "$^{*}<0.05$, $^{**}<0.01$, $^{***}<0.001$. Controls: description length, owner filing count, "
-        "foreign filing basis, missing-data flags.\n")
+        "class and year, so a lead effect is the survival difference between the most leading and the most "
+        "lagging filing (negative: leading costs). Every factor enters as a main effect and as an interaction "
+        "with lead, all at once. \\emph{Survival} is the factor's association with survival at median lead. "
+        "\\emph{With} and \\emph{without} are the lead effects among filings that have and lack the factor, "
+        "with standard errors (continuous factors: one SD above and below the mean; boom and bust: against "
+        "years that are neither). \\emph{Difference} is with minus without; it is the test of whether the "
+        "factor changes the cost of leading. Stars (Survival and Difference only): Holm-adjusted $p$ within "
+        "the column, $^{*}<0.05$, $^{**}<0.01$, $^{***}<0.001$. The with and without estimates carry no stars "
+        "because they answer a different question -- is leading costly within this subgroup? -- and a small "
+        "subgroup can be indistinguishable from zero while the large remainder, whose estimate sits near the "
+        "average of $-1.1$, is not. Controls: description length, owner filing count, foreign filing basis, "
+        "missing-data flags.\n")
+
     def share_of(k):
         if k not in sh:
             return "SD"
         return f"{100*sh[k]:.1f}\\%" if sh[k] < 0.01 else f"{100*sh[k]:.0f}\\%"
 
-    L.append(r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{5.4cm}rrrrr}")
-    L.append(r"\toprule & & & & \multicolumn{2}{c}{Lead effect} \\ \cmidrule(l){5-6}"
-             r" Factor & Share & Survival & Lead $\times$ factor & With & Without \\ \midrule \endhead")
-    L.append(f"\\textbf{{Lead, average filing}} & & & & \\multicolumn{{2}}{{c}}{{{num(lead_b, p_of(lead_b, lead_se))}}} \\\\")
-    L.append(f"\\quad (lead alone, no factors) & & & & \\multicolumn{{2}}{{c}}{{{num(R['lead_only']['b'], p_of(R['lead_only']['b'], R['lead_only']['se']))}}} \\\\")
+    L.append(r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{4.9cm}rrrrr}")
+    L.append(r"\toprule & & & \multicolumn{3}{c}{Lead effect} \\ \cmidrule(l){4-6}"
+             r" Factor & Share & Survival & With & Without & Difference \\ \midrule \endhead")
+    L.append(f"\\textbf{{Lead, average filing}} & & & \\multicolumn{{2}}{{c}}{{{est(lead_b, lead_se)}}} & \\\\")
+    L.append(f"\\quad lead alone, no factors & & & \\multicolumn{{2}}{{c}}{{{est(R['lead_only']['b'], R['lead_only']['se'])}}} & \\\\")
     for title, ks in SECTIONS:
         L.append(f"\\addlinespace\\multicolumn{{6}}{{l}}{{\\emph{{{esc(title)}}}}} \\\\")
         for k in ks:
             main = num(J[k]["main"][0], pm[k]) if J[k]["main"] else "--"
-            L.append(f"{esc(lab[k])} & {share_of(k)} & {main} & {num(J[k]['inter'][0], pi[k])} & "
-                     f"{num(cond[k][0], pc[k])} & {num(uncond[k][0], pu[k])} \\\\")
+            L.append(f"{esc(lab[k])} & {share_of(k)} & {main} & {est(*withv[k])} & {est(*without[k])} & "
+                     f"{num(diff[k][0], pd_[k])} \\\\")
+    L.append(r"\bottomrule\end{longtable}}")
+
+    # class groups against all other classes
+    Gv = R["class_group_vs_other"]
+    pg = holm({k: p_of(*v["inter"]) for k, v in Gv.items()})
+    ps = holm({k: p_of(*v["survival"]) for k, v in Gv.items()})
+    L.append(r"\paragraph{Class groups against all other classes.} Class fixed effects absorb a class "
+             "group's survival level, so the groups are compared here with all other classes in a model with "
+             "registration-year fixed effects only, the factors above and their lead interactions held. "
+             "Survival is the group's difference from all other classes; the lead effects are within the "
+             "group and within all other classes. The three composite groups (next section) are estimated "
+             "on the half of owners that played no part in forming them.\n")
+    L.append(r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{4.9cm}rrrrr}")
+    L.append(r"\toprule & & & \multicolumn{3}{c}{Lead effect} \\ \cmidrule(l){4-6}"
+             r" Class group & Share & Survival & In group & Other classes & Difference \\ \midrule \endhead")
+    for k, v in Gv.items():
+        L.append(f"{esc(k[0].upper() + k[1:])} & {100*v['share']:.0f}\\% & {num(v['survival'][0], ps[k])} & "
+                 f"{est(*v['lead_in'])} & {est(*v['lead_out'])} & {num(v['inter'][0], pg[k])} \\\\")
     L.append(r"\bottomrule\end{longtable}}")
 
     # one-at-a-time comparison
     A = R["alone"]
-    pma = holm({k: p_of(*A[k]["main"][:2]) for k in keys if A[k]["main"]})
-    pia = holm({k: p_of(*A[k]["inter"][:2]) for k in keys})
-    L.append(r"\paragraph{Each factor alone.} The same two coefficients from models with lead, one factor and "
-             "the controls, against the joint model above (Holm stars within column).")
+    pma = holm({k: p_of(*A[k]["main"][:2]) for k in main_keys if A[k]["main"]})
+    pia = holm({k: p_of(*A[k]["inter"][:2]) for k in main_keys})
+    L.append(r"\paragraph{Each factor alone.} The survival and lead-interaction coefficients from models with "
+             "lead, one factor and the controls (boom and bust together with the trend), against the joint "
+             "model (Holm stars within column).")
     L.append(r"{\small\begin{longtable}{>{\raggedright\arraybackslash}p{6.0cm}rrrr}")
     L.append(r"\toprule & \multicolumn{2}{c}{Survival} & \multicolumn{2}{c}{Lead $\times$ factor} \\"
              r" \cmidrule(lr){2-3}\cmidrule(l){4-5} Factor & Alone & Joint & Alone & Joint \\ \midrule \endhead")
-    for k in keys:
+    pmj = holm({k: p_of(*J[k]["main"][:2]) for k in main_keys if J[k]["main"]})
+    pij = holm({k: p_of(*J[k]["inter"][:2]) for k in main_keys})
+    for k in main_keys:
         ma = num(A[k]["main"][0], pma[k]) if A[k]["main"] else "--"
-        mj = num(J[k]["main"][0], pm[k]) if J[k]["main"] else "--"
+        mj = num(J[k]["main"][0], pmj[k]) if J[k]["main"] else "--"
         L.append(f"{esc(lab[k])} & {ma} & {mj} & {num(A[k]['inter'][0], pia[k])} & "
-                 f"{num(J[k]['inter'][0], pi[k])} \\\\")
+                 f"{num(J[k]['inter'][0], pij[k])} \\\\")
     L.append(r"\bottomrule\end{longtable}}")
 
     # class groups
@@ -146,7 +197,9 @@ def main() -> int:
         f"({len(La['entry_order'])} enter anywhere on the path); the stricter one-standard-error "
         "rule keeps none, because for a pass/fail outcome the gain in out-of-sample fit is within the "
         f"fold-to-fold noise. The last column re-estimates the first {top} terms to enter, jointly, on all "
-        "registrations with clustered errors (after selection, so the stars are optimistic).\n")
+        "registrations with clustered errors (after selection, so the stars are optimistic). The LASSO and "
+        "these re-estimates predate the filing-year trend and the revised boom and bust years, which are "
+        "not among their candidate terms.\n")
     L.append(r"{\small\begin{longtable}{r>{\raggedright\arraybackslash}p{8.2cm}r}")
     L.append(r"\toprule Order & Lead interaction & Re-estimated (pp) \\ \midrule \endhead")
     pp = holm({k: p_of(*v[:2]) for k, v in P.items()})
