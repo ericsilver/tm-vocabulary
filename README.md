@@ -165,7 +165,7 @@ Published from `docs/` at <https://aporia.institute/tm-vocabulary/>.
 >
 > Silver, E. (2026). *Arrows in their backs: Vocabulary lead and product survival in the US trademark record*. Working paper.
 >
-> Data: Silver, E. (2026). *tm-vocabulary: Event-dated US trademark prosecution corpus, outcomes, theme model and lead/atypicality scores* (Version data-v1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22963531
+> Data: Silver, E. (2026). *Event-dated US trademark prosecution corpus: Dated events, five-year-proof outcomes, theme model and lead/atypicality scores* (Version data-v1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.22963531
 >
 > Earlier combined version: Silver, E. (2026). *Business themes in the trademark record: Language signals of product survival, funding, and listing*. SSRN Working Paper 6954598. https://doi.org/10.2139/ssrn.6954598
 

@@ -50,8 +50,8 @@ carries PatentsView's CC-BY-4.0 attribution requirement. An interactive online a
 <a href="https://aporia.institute/tm-vocabulary/">aporia.institute/tm-vocabulary</a>.</p>"""
 
 METADATA = {
-    "title": "tm-vocabulary: Event-dated US trademark prosecution corpus, outcomes, theme model "
-             "and lead/atypicality scores",
+    "title": "Event-Dated US Trademark Prosecution Corpus: Dated Events, Five-Year-Proof Outcomes, "
+             "Theme Model and Lead/Atypicality Scores",
     "upload_type": "dataset",
     "description": DESCRIPTION,
     "creators": [{"name": "Silver, Eric", "orcid": "0000-0003-3351-1109",
@@ -94,11 +94,14 @@ def main() -> int:
         r.raise_for_status()
         dep = r.json()
         print(f"created draft {dep['id']}", flush=True)
-    r = requests.put(f"{API}/{dep['id']}", headers=H, json={"metadata": METADATA}, timeout=60)
-    if r.status_code >= 400:
-        print(r.text, file=sys.stderr)
-        r.raise_for_status()
-    dep = r.json()
+    if not state.get("id"):
+        # metadata is set once, at creation; later edits are made on the Zenodo page and
+        # must not be overwritten by a re-run
+        r = requests.put(f"{API}/{dep['id']}", headers=H, json={"metadata": METADATA}, timeout=60)
+        if r.status_code >= 400:
+            print(r.text, file=sys.stderr)
+            r.raise_for_status()
+        dep = r.json()
     doi = dep["metadata"].get("prereserve_doi", {}).get("doi")
     state = {"id": dep["id"], "doi": doi, "bucket": dep["links"]["bucket"],
              "html": dep["links"]["html"], "state": dep.get("state"), "submitted": dep.get("submitted")}
