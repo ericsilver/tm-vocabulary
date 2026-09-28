@@ -119,7 +119,7 @@ CHUNK = 250_000          # rows per streamed chunk in Design.ols
 
 
 # ------------------------------------------------------------------ frame
-FRAME_COLS = (["failed1", "z", "cell", "reg_year", "owner_key", "cls", "has_attorney", "patenter", "itu",
+FRAME_COLS = (["serial_number", "failed1", "z", "cell", "reg_year", "owner_key", "cls", "has_attorney", "patenter", "itu",
                "prior", "ctry", "dom_cn", "r_site", "r_switching", "r_network", "s_pre", "s_pre_max_any",
                "group_has_hub", "in_hub", "fy", "volatility", "debut_share_fwd", "geo_L", "tech_pace",
                "mkt_pace", "log_len", "log_owner_n", "basis_44e", "basis_66a"]
@@ -166,7 +166,7 @@ def frame() -> pl.DataFrame:
         pl.col("owner_key").map_elements(lambda s: int(hashlib.md5(s.encode()).hexdigest()[:8], 16) % 10,
                                          return_dtype=pl.Int8).alias("h10"))
     d = d.with_columns((pl.col("h10") % 2).alias("half"), (pl.col("h10") < 4).alias("lasso_rows"))
-    keep = (["surv", "lead", "cell", "reg_year", "owner_key", "cls", "half", "lasso_rows"]
+    keep = (["serial_number", "fy", "surv", "lead", "cell", "reg_year", "owner_key", "cls", "half", "lasso_rows"]
             + [k for k, _, _ in BINARY + CONTINUOUS + CLASS_GROUPS] + CONTROLS + MISSING)
     return d.select(keep)
 
