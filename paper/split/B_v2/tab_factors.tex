@@ -1,0 +1,32 @@
+\begin{small}
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.3cm}lr>{\raggedright\arraybackslash}p{6.6cm}}
+\caption{The factors, where each comes from, and how common it is}\label{tab:factors}\\
+\toprule Factor & Source & Share & Definition \\ \midrule \endfirsthead
+\toprule Factor & Source & Share & Definition \\ \midrule \endhead
+Represented by counsel & Record & 78\% & An attorney of record on the application. \\
+Owner files patents & Record & 20\% & The owner, matched by name, holds US patents (PatentsView). \\
+Owner's first-ever filing & Record & 33\% & The owner's first filing in the record. \\
+Owner has 25+ earlier filings & Record & 20\% & The owner had filed 25 or more marks before this one. \\
+Intent-to-use filing & Record & 41\% & Filed on an intent-to-use basis rather than on use in commerce. \\
+Foreign owner (not China) & Record & 18\% & Owner domiciled outside the US, other than China. \\
+Owner in China & Record & 3\% & Owner domiciled in China. \\
+Site-based offering (stores, restaurants, clinics) & Forced & 9\% & Description names a physical site: store, restaurant, hotel, clinic, salon, gym and similar. \\
+Contract or subscription offering & Forced & 5\% & Description names a subscription, membership, account, insurance, banking or leasing. \\
+Platform or network offering & Forced & 2\% & Description names a platform, marketplace, social network, online community or peer-to-peer service. \\
+General-purpose-technology vocabulary & Forced & 15\% & Internet, mobile-app, cloud, social-media, artificial-intelligence or blockchain vocabulary. \\
+New-invention vocabulary & Forced & 0.4\% & 3D printing, drone, virtual-reality, electric-vehicle, gene-therapy or nanotechnology vocabulary. \\
+Emergent consumer-category vocabulary & Forced & 0.4\% & E-cigarette, energy-drink, kombucha, cold-brew, plant-milk, hard-seltzer or CBD vocabulary. \\
+Primary theme imported from another class & Emergent & 5\% & The filing's primary theme held under 1\% of its class in the five prior years and at least 5\% of another class. \\
+Theme-share volatility (per SD) & Emergent & SD & Year-to-year variability of the primary theme's share of its class, over the filing year $\pm 5$. \\
+Theme growth from first-time filers (per SD) & Emergent & SD & Share of the primary theme's filings in its class over the next five years made by first-time filers. \\
+Class theme-mix turnover (per SD) & Emergent & SD & Change in the class's theme mix between the five years before and after the filing year. \\
+Theme's geographic co-location (per SD) & Geography & SD & Co-location index of the class's US filers of the same primary theme within two years of the filing (Section 7). \\
+Theme has a geographic hub & Geography & 28\% & That group of filers has at least one hub (Section 7). \\
+Filer located in a hub & Geography & 5\% & The filer is located in such a hub. \\
+Class filing-volume growth (per SD) & Record & SD & Growth in the class's filing volume, five years after against five years before. \\
+Filing year (per SD, about 5 years) & Record & SD & Filing year. \\
+Filed in a boom (1998-2000, 2005-07) & Record & 19\% & Filed in 1998--2000 or 2005--07. \\
+Filed in a bust (2001-02, 2008-09) & Record & 18\% & Filed in 2001--02 or 2008--09. \\
+\bottomrule
+\multicolumn{4}{p{14.2cm}}{\footnotesize Record: a field of the filing or the owner's filing history. Forced: a curated list of terms matched in the description (Appendix~\ref{app:vocab}). Emergent: derived from the fifty themes the topic model found without guidance. Geography: from the applicant's ZIP code. Share: percentage of the 3.10 million registrations with the factor; SD marks continuous factors.} \\
+\end{longtable}\end{small}
