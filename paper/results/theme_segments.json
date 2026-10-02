@@ -1,0 +1,850 @@
+{
+ "K": 60,
+ "n": 3104534,
+ "r2": {
+  "class_x_year": [
+   0.01292476374509044,
+   758
+  ],
+  "segment_x_year": [
+   0.015524334129547568,
+   1020
+  ],
+  "class_x_segment_x_year": [
+   0.032865287161115586,
+   29463
+  ]
+ },
+ "class_composition": {
+  "009": [
+   {
+    "segment": "Media and entertainment goods",
+    "share": 0.1523099557226223
+   },
+   {
+    "segment": "Computer, software and information services",
+    "share": 0.12335719665772672
+   },
+   {
+    "segment": "Electronic apparatus and control systems",
+    "share": 0.11091400990668196
+   },
+   {
+    "segment": "Media and entertainment goods + Electronic apparatus and control systems",
+    "share": 0.1061976596578417
+   },
+   {
+    "segment": "Computer, software and information services + Electronic apparatus and control systems",
+    "share": 0.0657074408051115
+   },
+   {
+    "segment": "Computer, software and information services + Media and entertainment goods",
+    "share": 0.05448675081010942
+   }
+  ],
+  "025": [
+   {
+    "segment": "Clothing, bags and footwear",
+    "share": 0.6803035602938269
+   },
+   {
+    "segment": "Clothing, bags and footwear",
+    "share": 0.2524346164180088
+   },
+   {
+    "segment": "Toys, games and sporting goods",
+    "share": 0.011279586736219894
+   },
+   {
+    "segment": "Education, training, travel and events",
+    "share": 0.008942557754018829
+   },
+   {
+    "segment": "Retail store services",
+    "share": 0.007776578001510704
+   },
+   {
+    "segment": "Education, training, travel and events + Media and entertainment goods",
+    "share": 0.005140449865405381
+   }
+  ],
+  "035": [
+   {
+    "segment": "Retail store services",
+    "share": 0.1866852214839894
+   },
+   {
+    "segment": "Computer, software and information services",
+    "share": 0.1225975612860525
+   },
+   {
+    "segment": "Computer, software and information services + Retail store services",
+    "share": 0.11188611415172522
+   },
+   {
+    "segment": "Computer, software and information services + Health and wellness services",
+    "share": 0.05918873586821554
+   },
+   {
+    "segment": "Retail store services + Marketing of consumer goods",
+    "share": 0.054776309797565814
+   },
+   {
+    "segment": "Education, training, travel and events + Computer, software and information services",
+    "share": 0.05251635567548303
+   }
+  ],
+  "042": [
+   {
+    "segment": "Computer, software and information services",
+    "share": 0.2319417300462298
+   },
+   {
+    "segment": "Computer, software and information services + Downloadable and online software",
+    "share": 0.20562449472948896
+   },
+   {
+    "segment": "Design and technical development services",
+    "share": 0.12853296914612228
+   },
+   {
+    "segment": "Research, scientific and diagnostic",
+    "share": 0.06766504195216903
+   },
+   {
+    "segment": "Construction, engineering and waste services",
+    "share": 0.04558619228142881
+   },
+   {
+    "segment": "Computer, software and information services + Health and wellness services",
+    "share": 0.04216408831539868
+   }
+  ],
+  "041": [
+   {
+    "segment": "Education, training, travel and events",
+    "share": 0.2414456809084803
+   },
+   {
+    "segment": "Media and entertainment goods",
+    "share": 0.12881659524155567
+   },
+   {
+    "segment": "Education, training, travel and events + Health and wellness services",
+    "share": 0.12305414036507331
+   },
+   {
+    "segment": "Education, training, travel and events + Media and entertainment goods",
+    "share": 0.09577380695186956
+   },
+   {
+    "segment": "Media and entertainment goods + Education, training, travel and events",
+    "share": 0.09355445657340157
+   },
+   {
+    "segment": "Education, training, travel and events + Computer, software and information services",
+    "share": 0.08274838065983448
+   }
+  ],
+  "005": [
+   {
+    "segment": "Nutritional supplements",
+    "share": 0.43846886236954735
+   },
+   {
+    "segment": "Pharmaceutical preparations",
+    "share": 0.2326656252022074
+   },
+   {
+    "segment": "Research, scientific and diagnostic",
+    "share": 0.03958181196328375
+   },
+   {
+    "segment": "Medical-purpose apparatus and textile yarn (mixed)",
+    "share": 0.035459091707416276
+   },
+   {
+    "segment": "Pets and animal feed",
+    "share": 0.03426664571412725
+   },
+   {
+    "segment": "Plants, seeds and agriculture",
+    "share": 0.024385058374391068
+   }
+  ]
+ },
+ "lead_effect_segment": {
+  "n_groups": 53,
+  "tau": 2.624198478706644,
+  "shrunk_sd": 2.213483542236979,
+  "raw_sd": 3.069059816425605
+ },
+ "lead_effect_class": {
+  "n_groups": 32,
+  "tau": 3.587365404534654,
+  "shrunk_sd": 3.3667458953317864,
+  "raw_sd": 3.7141484793684296
+ },
+ "segments": [
+  {
+   "seg": 1,
+   "name": "Computer, software and information services",
+   "n": 207627,
+   "survival": 45.19884215444041,
+   "top_class": "036",
+   "top_class_share": 0.28988522687319085,
+   "classes_over_5pct": 5,
+   "lead_effect": -1.8189058157873352,
+   "lead_effect_se": 0.8478465202546422
+  },
+  {
+   "seg": 2,
+   "name": "Clothing, bags and footwear",
+   "n": 183803,
+   "survival": 39.95527820546999,
+   "top_class": "025",
+   "top_class_share": 0.7301077784366958,
+   "classes_over_5pct": 2,
+   "lead_effect": -0.9045180135496154,
+   "lead_effect_se": 0.631731263058217
+  },
+  {
+   "seg": 32,
+   "name": "Education, training, travel and events",
+   "n": 164459,
+   "survival": 50.985960026511165,
+   "top_class": "041",
+   "top_class_share": 0.3737527286436133,
+   "classes_over_5pct": 4,
+   "lead_effect": -2.3674417597712494,
+   "lead_effect_se": 0.735488998406353
+  },
+  {
+   "seg": 18,
+   "name": "Beverages and dairy",
+   "n": 140212,
+   "survival": 50.622628590990786,
+   "top_class": "033",
+   "top_class_share": 0.35186004051008474,
+   "classes_over_5pct": 4,
+   "lead_effect": 1.8133679754252687,
+   "lead_effect_se": 0.799621388780319
+  },
+  {
+   "seg": 41,
+   "name": "Media and entertainment goods",
+   "n": 109944,
+   "survival": 41.79946154405879,
+   "top_class": "009",
+   "top_class_share": 0.5904005675616678,
+   "classes_over_5pct": 2,
+   "lead_effect": -4.100375299515243,
+   "lead_effect_se": 1.8849702584227184
+  },
+  {
+   "seg": 17,
+   "name": "Toys, games and sporting goods",
+   "n": 86072,
+   "survival": 43.749419090993584,
+   "top_class": "028",
+   "top_class_share": 0.7711334696533135,
+   "classes_over_5pct": 1,
+   "lead_effect": 4.445090992173141,
+   "lead_effect_se": 1.7708248807855453
+  },
+  {
+   "seg": 57,
+   "name": "Clothing, bags and footwear",
+   "n": 84826,
+   "survival": 42.24765991559192,
+   "top_class": "025",
+   "top_class_share": 0.587025204536345,
+   "classes_over_5pct": 3,
+   "lead_effect": -2.6936476442405293,
+   "lead_effect_se": 0.8738162778111679
+  },
+  {
+   "seg": 28,
+   "name": "Paper, books and stationery",
+   "n": 79228,
+   "survival": 46.454536275054274,
+   "top_class": "016",
+   "top_class_share": 0.8030241833695159,
+   "classes_over_5pct": 1,
+   "lead_effect": -1.5072473662739398,
+   "lead_effect_se": 1.0545527830344377
+  },
+  {
+   "seg": 22,
+   "name": "Furniture and lighting",
+   "n": 78334,
+   "survival": 49.920851737432024,
+   "top_class": "020",
+   "top_class_share": 0.3537289044348559,
+   "classes_over_5pct": 3,
+   "lead_effect": -0.9146161151557817,
+   "lead_effect_se": 1.0448321174836994
+  },
+  {
+   "seg": 39,
+   "name": "Retail store services",
+   "n": 74947,
+   "survival": 44.479432132039975,
+   "top_class": "035",
+   "top_class_share": 0.8806489919543143,
+   "classes_over_5pct": 1,
+   "lead_effect": -3.2671277900599525,
+   "lead_effect_se": 1.0901014538453027
+  },
+  {
+   "seg": 16,
+   "name": "Education, training, travel and events + Computer, software and information services",
+   "n": 71951,
+   "survival": 49.70188044641492,
+   "top_class": "041",
+   "top_class_share": 0.2927825881502689,
+   "classes_over_5pct": 5,
+   "lead_effect": -3.409691805741137,
+   "lead_effect_se": 1.3122386508914972
+  },
+  {
+   "seg": 52,
+   "name": "Hair and skin care",
+   "n": 70941,
+   "survival": 44.12117111402433,
+   "top_class": "003",
+   "top_class_share": 0.8991274439322817,
+   "classes_over_5pct": 1,
+   "lead_effect": 0.6111820033377917,
+   "lead_effect_se": 1.632578210446571
+  },
+  {
+   "seg": 34,
+   "name": "Computer, software and information services + Downloadable and online software",
+   "n": 68154,
+   "survival": 36.556915221410335,
+   "top_class": "042",
+   "top_class_share": 0.38439416615312383,
+   "classes_over_5pct": 4,
+   "lead_effect": -9.954382304098415,
+   "lead_effect_se": 1.1174235176441376
+  },
+  {
+   "seg": 46,
+   "name": "Education, training, travel and events + Health and wellness services",
+   "n": 63736,
+   "survival": 47.78931843855906,
+   "top_class": "041",
+   "top_class_share": 0.4915118614283921,
+   "classes_over_5pct": 4,
+   "lead_effect": -4.550571806029194,
+   "lead_effect_se": 1.370459490342317
+  },
+  {
+   "seg": 37,
+   "name": "Electronic apparatus and control systems",
+   "n": 60383,
+   "survival": 56.703045559180566,
+   "top_class": "009",
+   "top_class_share": 0.7828196677872912,
+   "classes_over_5pct": 2,
+   "lead_effect": 0.40739241619592276,
+   "lead_effect_se": 1.3509961753673
+  },
+  {
+   "seg": 14,
+   "name": "Land vehicles and parts",
+   "n": 59268,
+   "survival": 58.43288115003037,
+   "top_class": "012",
+   "top_class_share": 0.45397178916109876,
+   "classes_over_5pct": 4,
+   "lead_effect": -0.315062241748949,
+   "lead_effect_se": 1.3091166890277683
+  },
+  {
+   "seg": 42,
+   "name": "Computer, software and information services + Education, training, travel and events",
+   "n": 57740,
+   "survival": 47.914790439903015,
+   "top_class": "035",
+   "top_class_share": 0.31981295462417736,
+   "classes_over_5pct": 5,
+   "lead_effect": -2.638208679571348,
+   "lead_effect_se": 1.6074353441472602
+  },
+  {
+   "seg": 15,
+   "name": "Nutritional supplements",
+   "n": 56060,
+   "survival": 45.884766321798075,
+   "top_class": "005",
+   "top_class_share": 0.8461291473421334,
+   "classes_over_5pct": 1,
+   "lead_effect": -2.255846300521159,
+   "lead_effect_se": 1.5994957903192561
+  },
+  {
+   "seg": 43,
+   "name": "Processed foods",
+   "n": 54620,
+   "survival": 51.17905529110216,
+   "top_class": "030",
+   "top_class_share": 0.4467960454046137,
+   "classes_over_5pct": 3,
+   "lead_effect": 0.8048690150205007,
+   "lead_effect_se": 1.5034990593375053
+  },
+  {
+   "seg": 26,
+   "name": "Computer, software and information services + Retail store services",
+   "n": 53302,
+   "survival": 38.98165172038573,
+   "top_class": "035",
+   "top_class_share": 0.742129751228847,
+   "classes_over_5pct": 3,
+   "lead_effect": -5.714960311931757,
+   "lead_effect_se": 1.4653230266225992
+  },
+  {
+   "seg": 10,
+   "name": "Media and entertainment goods + Electronic apparatus and control systems",
+   "n": 47852,
+   "survival": 43.920839254367635,
+   "top_class": "009",
+   "top_class_share": 0.9458120872690796,
+   "classes_over_5pct": 1,
+   "lead_effect": -2.301783925283055,
+   "lead_effect_se": 1.7756342900806938
+  },
+  {
+   "seg": 35,
+   "name": "Computer, software and information services + Health and wellness services",
+   "n": 46838,
+   "survival": 46.39822366454588,
+   "top_class": "035",
+   "top_class_share": 0.4467739869336863,
+   "classes_over_5pct": 4,
+   "lead_effect": -3.3746829462699965,
+   "lead_effect_se": 1.4957813756623861
+  },
+  {
+   "seg": 23,
+   "name": "Construction, engineering and waste services",
+   "n": 44640,
+   "survival": 52.056451612903224,
+   "top_class": "037",
+   "top_class_share": 0.4695116487455197,
+   "classes_over_5pct": 4,
+   "lead_effect": 0.6959805085921178,
+   "lead_effect_se": 1.3795229320501419
+  },
+  {
+   "seg": 49,
+   "name": "Medical and healthcare services",
+   "n": 44515,
+   "survival": 51.162529484443446,
+   "top_class": "044",
+   "top_class_share": 0.4191845445355498,
+   "classes_over_5pct": 5,
+   "lead_effect": -2.178689075974472,
+   "lead_effect_se": 1.4592630473848498
+  },
+  {
+   "seg": 48,
+   "name": "Design and technical development services",
+   "n": 44287,
+   "survival": 50.317248854065525,
+   "top_class": "042",
+   "top_class_share": 0.36976990990584147,
+   "classes_over_5pct": 5,
+   "lead_effect": -2.385685098638118,
+   "lead_effect_se": 1.3928788185023546
+  },
+  {
+   "seg": 33,
+   "name": "Precious metal and household glassware",
+   "n": 42407,
+   "survival": 44.71903223524418,
+   "top_class": "014",
+   "top_class_share": 0.4106161718584196,
+   "classes_over_5pct": 2,
+   "lead_effect": -1.4261298217861116,
+   "lead_effect_se": 1.528923018706354
+  },
+  {
+   "seg": 12,
+   "name": "Metal and building hardware",
+   "n": 42231,
+   "survival": 57.509886102626034,
+   "top_class": "006",
+   "top_class_share": 0.4748644360777628,
+   "classes_over_5pct": 2,
+   "lead_effect": 0.026771848823983296,
+   "lead_effect_se": 1.3206047364708648
+  },
+  {
+   "seg": 51,
+   "name": "Computer, software and information services + Media and entertainment goods",
+   "n": 42145,
+   "survival": 38.804128603630325,
+   "top_class": "009",
+   "top_class_share": 0.5509787637916717,
+   "classes_over_5pct": 4,
+   "lead_effect": -7.8133123666482165,
+   "lead_effect_se": 1.9020471657693316
+  },
+  {
+   "seg": 9,
+   "name": "Processed foods + Beverages and dairy",
+   "n": 41833,
+   "survival": 50.56534315014462,
+   "top_class": "029",
+   "top_class_share": 0.5179642865680205,
+   "classes_over_5pct": 2,
+   "lead_effect": 2.608174024822188,
+   "lead_effect_se": 1.6664132775181657
+  },
+  {
+   "seg": 25,
+   "name": "Bicycles, vehicle rental and tobacco (mixed)",
+   "n": 41275,
+   "survival": 50.61175045427014,
+   "top_class": "034",
+   "top_class_share": 0.3204603270745003,
+   "classes_over_5pct": 5,
+   "lead_effect": -2.7121916529732624,
+   "lead_effect_se": 1.513480063182584
+  },
+  {
+   "seg": 19,
+   "name": "Research, scientific and diagnostic",
+   "n": 38576,
+   "survival": 54.054334301119866,
+   "top_class": "042",
+   "top_class_share": 0.22348092077975942,
+   "classes_over_5pct": 6,
+   "lead_effect": -2.323807863201339,
+   "lead_effect_se": 1.5637886746545013
+  },
+  {
+   "seg": 5,
+   "name": "Education, training, travel and events + Media and entertainment goods",
+   "n": 38432,
+   "survival": 50.05724396336387,
+   "top_class": "041",
+   "top_class_share": 0.6344192339716903,
+   "classes_over_5pct": 4,
+   "lead_effect": -3.953186965406958,
+   "lead_effect_se": 1.5869467924646803
+  },
+  {
+   "seg": 56,
+   "name": "Computer, software and information services + Electronic apparatus and control systems",
+   "n": 37004,
+   "survival": 47.17327856447952,
+   "top_class": "009",
+   "top_class_share": 0.756756026375527,
+   "classes_over_5pct": 2,
+   "lead_effect": 1.056411883686812,
+   "lead_effect_se": 1.8153060642103336
+  },
+  {
+   "seg": 11,
+   "name": "Media and entertainment goods + Education, training, travel and events",
+   "n": 35993,
+   "survival": 45.7338927013586,
+   "top_class": "041",
+   "top_class_share": 0.6617119995554691,
+   "classes_over_5pct": 2,
+   "lead_effect": -2.1675004219059986,
+   "lead_effect_se": 1.9683317477282805
+  },
+  {
+   "seg": 27,
+   "name": "Energy, transport and storage services",
+   "n": 35583,
+   "survival": 51.83093050051991,
+   "top_class": "039",
+   "top_class_share": 0.35353961161228675,
+   "classes_over_5pct": 4,
+   "lead_effect": 2.3131031306798966,
+   "lead_effect_se": 1.7165350104085253
+  },
+  {
+   "seg": 13,
+   "name": "Hair and skin care",
+   "n": 34650,
+   "survival": 44.68975468975469,
+   "top_class": "003",
+   "top_class_share": 0.4716305916305916,
+   "classes_over_5pct": 3,
+   "lead_effect": 3.717336857887271,
+   "lead_effect_se": 1.5802064425812004
+  },
+  {
+   "seg": 44,
+   "name": "Hand tools and knives",
+   "n": 34610,
+   "survival": 58.786477896561685,
+   "top_class": "008",
+   "top_class_share": 0.3739092747760763,
+   "classes_over_5pct": 4,
+   "lead_effect": -1.5508876628440416,
+   "lead_effect_se": 1.5259099056784307
+  },
+  {
+   "seg": 30,
+   "name": "Plastics, textiles and packaging materials",
+   "n": 34532,
+   "survival": 58.66732306266651,
+   "top_class": "017",
+   "top_class_share": 0.28170971852195065,
+   "classes_over_5pct": 5,
+   "lead_effect": -1.2449272905032143,
+   "lead_effect_se": 1.4502923653404525
+  },
+  {
+   "seg": 50,
+   "name": "Media and entertainment goods + Downloadable and online software",
+   "n": 34520,
+   "survival": 38.99478563151796,
+   "top_class": "009",
+   "top_class_share": 0.5572132097334879,
+   "classes_over_5pct": 2,
+   "lead_effect": -8.930154158141267,
+   "lead_effect_se": 1.8159264201198853
+  },
+  {
+   "seg": 0,
+   "name": "Education, training, travel and events + Downloadable and online software",
+   "n": 33739,
+   "survival": 42.54720056907436,
+   "top_class": "041",
+   "top_class_share": 0.4622247250955867,
+   "classes_over_5pct": 5,
+   "lead_effect": -10.127716725100127,
+   "lead_effect_se": 1.97667406638666
+  },
+  {
+   "seg": 55,
+   "name": "Heating and air apparatus",
+   "n": 33096,
+   "survival": 54.296591733139955,
+   "top_class": "011",
+   "top_class_share": 0.5184916606236403,
+   "classes_over_5pct": 4,
+   "lead_effect": -3.575143610520631,
+   "lead_effect_se": 1.658073943470036
+  },
+  {
+   "seg": 45,
+   "name": "Pharmaceutical preparations",
+   "n": 32827,
+   "survival": 40.53370700947391,
+   "top_class": "005",
+   "top_class_share": 0.766746885185975,
+   "classes_over_5pct": 2,
+   "lead_effect": -0.94353492913696,
+   "lead_effect_se": 2.9211767177452
+  },
+  {
+   "seg": 4,
+   "name": "Precious metal and household glassware",
+   "n": 31795,
+   "survival": 45.37820412014468,
+   "top_class": "014",
+   "top_class_share": 0.5080987576662997,
+   "classes_over_5pct": 2,
+   "lead_effect": -1.5200222552450977,
+   "lead_effect_se": 1.8841386933369664
+  },
+  {
+   "seg": 29,
+   "name": "Health and wellness services",
+   "n": 31652,
+   "survival": 45.82964741564514,
+   "top_class": "044",
+   "top_class_share": 0.45937065588272463,
+   "classes_over_5pct": 6,
+   "lead_effect": -2.4423815002095592,
+   "lead_effect_se": 1.6478337609840974
+  },
+  {
+   "seg": 40,
+   "name": "Cleaning preparations and coatings",
+   "n": 30744,
+   "survival": 56.876138433515486,
+   "top_class": "003",
+   "top_class_share": 0.30116445485297944,
+   "classes_over_5pct": 6,
+   "lead_effect": -0.5810664414874961,
+   "lead_effect_se": 1.8632936457319245
+  },
+  {
+   "seg": 31,
+   "name": "Industrial machines and parts",
+   "n": 29501,
+   "survival": 61.821633164977456,
+   "top_class": "007",
+   "top_class_share": 0.6965526592318905,
+   "classes_over_5pct": 3,
+   "lead_effect": -0.2805875304365548,
+   "lead_effect_se": 1.7483402450945609
+  },
+  {
+   "seg": 21,
+   "name": "Plants, seeds and agriculture",
+   "n": 29262,
+   "survival": 59.401271273323765,
+   "top_class": "031",
+   "top_class_share": 0.29847583897204566,
+   "classes_over_5pct": 5,
+   "lead_effect": 1.6738675125287996,
+   "lead_effect_se": 1.9814103052163952
+  },
+  {
+   "seg": 20,
+   "name": "Retail store services + Education, training, travel and events",
+   "n": 28641,
+   "survival": 46.48580705980937,
+   "top_class": "035",
+   "top_class_share": 0.6111169302747809,
+   "classes_over_5pct": 3,
+   "lead_effect": -5.694395127418507,
+   "lead_effect_se": 1.5820360147692214
+  },
+  {
+   "seg": 38,
+   "name": "Musical and surgical instruments",
+   "n": 28475,
+   "survival": 57.18349429323968,
+   "top_class": "010",
+   "top_class_share": 0.564811237928007,
+   "classes_over_5pct": 3,
+   "lead_effect": -4.441179357511744,
+   "lead_effect_se": 1.6636385372123659
+  },
+  {
+   "seg": 36,
+   "name": "Pets and animal feed",
+   "n": 28169,
+   "survival": 51.24427562213781,
+   "top_class": "031",
+   "top_class_share": 0.33583016791508397,
+   "classes_over_5pct": 5,
+   "lead_effect": -3.6461881836114496,
+   "lead_effect_se": 1.841272998595699
+  },
+  {
+   "seg": 58,
+   "name": "Medical-purpose apparatus and textile yarn (mixed)",
+   "n": 24542,
+   "survival": 50.72528726265178,
+   "top_class": "010",
+   "top_class_share": 0.4572569472740608,
+   "classes_over_5pct": 4,
+   "lead_effect": -4.8145911850099585,
+   "lead_effect_se": 1.945019361021081
+  },
+  {
+   "seg": 53,
+   "name": "Retail store services + Marketing of consumer goods",
+   "n": 23034,
+   "survival": 39.15516193453156,
+   "top_class": "035",
+   "top_class_share": 0.8407571416167404,
+   "classes_over_5pct": 2,
+   "lead_effect": -4.50915281728929,
+   "lead_effect_se": 1.9804060435462736
+  },
+  {
+   "seg": 8,
+   "name": "Paper, books and stationery + Media and entertainment goods",
+   "n": 20054,
+   "survival": 49.4913732921113,
+   "top_class": "009",
+   "top_class_share": 0.4727236461553805,
+   "classes_over_5pct": 4,
+   "lead_effect": 2.098422547346463,
+   "lead_effect_se": 2.0390421049192327
+  },
+  {
+   "seg": 59,
+   "name": "Cleaning preparations and coatings + Industrial chemicals",
+   "n": 19122,
+   "survival": 61.36387407174982,
+   "top_class": "001",
+   "top_class_share": 0.6495136491998745,
+   "classes_over_5pct": 2,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 47,
+   "name": "Essential oils and candles",
+   "n": 18903,
+   "survival": 43.485161085541975,
+   "top_class": "003",
+   "top_class_share": 0.6154578638311379,
+   "classes_over_5pct": 3,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 7,
+   "name": "Water treatment",
+   "n": 17956,
+   "survival": 57.841390064602365,
+   "top_class": "011",
+   "top_class_share": 0.4031521496992649,
+   "classes_over_5pct": 4,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 54,
+   "name": "Mats, floor coverings and printing",
+   "n": 16804,
+   "survival": 51.803142109021664,
+   "top_class": "027",
+   "top_class_share": 0.25601047369673885,
+   "classes_over_5pct": 5,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 3,
+   "name": "Retail store services + Beverages and dairy",
+   "n": 16059,
+   "survival": 48.83243041285261,
+   "top_class": "035",
+   "top_class_share": 0.4347095086867177,
+   "classes_over_5pct": 4,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 6,
+   "name": "Automotive vehicles and lubricants",
+   "n": 14706,
+   "survival": 54.8687610499116,
+   "top_class": "004",
+   "top_class_share": 0.22671018631850945,
+   "classes_over_5pct": 5,
+   "lead_effect": null,
+   "lead_effect_se": null
+  },
+  {
+   "seg": 24,
+   "name": "Pharmaceutical preparations + Medical-purpose apparatus and textile yarn (mixed)",
+   "n": 7923,
+   "survival": 46.00530102234002,
+   "top_class": "010",
+   "top_class_share": 0.4893348479111448,
+   "classes_over_5pct": 3,
+   "lead_effect": null,
+   "lead_effect_se": null
+  }
+ ]
+}

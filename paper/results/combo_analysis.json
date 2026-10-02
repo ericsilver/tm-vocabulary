@@ -1,0 +1,1694 @@
+{
+ "n": 3104534,
+ "share_pair": 0.6564215434586962,
+ "H_corr_within_class": {
+  "log_len": -0.36243672648748054,
+  "z": -0.05932766904704245,
+  "atyp": 0.12538909643317875
+ },
+ "H_summary": {
+  "mean": 1.3314336160067564,
+  "sd": 0.5545712113380432,
+  "eff_n_median": 3.806774616241455,
+  "n_present_dist": {
+   "3": 680473,
+   "6": 4176,
+   "0": 1697,
+   "4": 242043,
+   "7": 172,
+   "1": 1064954,
+   "2": 1065883,
+   "8": 3,
+   "5": 45133
+  }
+ },
+ "surv_by_H_decile": [
+  45.84604905207129,
+  46.14455015124841,
+  47.07083477576469,
+  47.132623566390436,
+  47.679370048425305,
+  48.17530512130829,
+  47.98320658745948,
+  48.6675083770868,
+  49.02473461976251,
+  49.20021604838933
+ ],
+ "surv_by_H_decile_within_length_tercile": {
+  "0": [
+   43.88999410024628,
+   46.009145469634205,
+   46.69808952838658,
+   47.73951519485913,
+   46.9160921462993,
+   47.230654964896814,
+   47.94624213930874,
+   48.201275592576394,
+   48.06225236039765,
+   49.78503675871349
+  ],
+  "1": [
+   45.708140874243234,
+   46.363344309398585,
+   47.4150597803037,
+   47.40986701441328,
+   47.741483481695646,
+   47.69747894859023,
+   48.166484944069026,
+   48.91525749529044,
+   48.63938646819986,
+   48.51808964992398
+  ],
+  "2": [
+   46.22586802924424,
+   46.37869694837781,
+   47.278852186348665,
+   47.1916594097107,
+   47.466113556790816,
+   47.96860955390087,
+   48.91720648014377,
+   49.2748698072506,
+   49.87893864239934,
+   51.13953513472893
+  ]
+ },
+ "model_breadth": {
+  "lead": {
+   "b": -1.3897286574305718,
+   "se": 0.2045252692612366,
+   "p": 1.0838803209672601e-11
+  },
+  "Hz": {
+   "b": 1.1971567979809075,
+   "se": 0.11635401612210935,
+   "p": 7.906068965003487e-25
+  },
+  "Hz_x_lead": {
+   "b": -0.8858994641403699,
+   "se": 0.19036635029775034,
+   "p": 3.2610104252520683e-06
+  },
+  "has_attorney": {
+   "b": 19.408537350963293,
+   "se": 0.17686598199007836,
+   "p": 0.0
+  },
+  "itu": {
+   "b": -7.2073945197751685,
+   "se": 0.12329142520847505,
+   "p": 0.0
+  },
+  "log_len": {
+   "b": 1.1736524173606082,
+   "se": 0.051823966011486484,
+   "p": 1.4966290570115917e-113
+  },
+  "log_owner_n": {
+   "b": 3.216928274320556,
+   "se": 0.286984446679365,
+   "p": 3.666009303534434e-29
+  },
+  "dom_us": {
+   "b": 0.055742076480660964,
+   "se": 0.32338026775301076,
+   "p": 0.8631441767884466
+  },
+  "dom_cn": {
+   "b": 0.5626658341794109,
+   "se": 0.43108618945850663,
+   "p": 0.19181516780790459
+  },
+  "basis_44e": {
+   "b": -15.401809947215543,
+   "se": 0.7494193902000857,
+   "p": 7.438118017188139e-94
+  },
+  "basis_66a": {
+   "b": -10.623468739161051,
+   "se": 0.3850986335355047,
+   "p": 1.6220915627789764e-167
+  }
+ },
+ "single_vs_pair_excess": {
+  "single": -0.7197683023272936,
+  "pair": 0.37673486625371005
+ },
+ "pairs": [
+  {
+   "a": "Downloadable and online software",
+   "b": "Retail store services",
+   "pa": 5,
+   "pb": 12,
+   "n": 6943,
+   "excess_pp": -16.524762651110724,
+   "surv": 28.114647846752124,
+   "counsel_share": 0.6570646694512459
+  },
+  {
+   "a": "Retail store services",
+   "b": "Marketing of consumer goods",
+   "pa": 12,
+   "pb": 29,
+   "n": 11671,
+   "excess_pp": -9.2581475077515,
+   "surv": 35.82383686059464,
+   "counsel_share": 0.6921429183446148
+  },
+  {
+   "a": "Bicycles, vehicle rental and tobacco (mixed)",
+   "b": "Electronic cigarettes and tobacco",
+   "pa": 21,
+   "pb": 30,
+   "n": 7190,
+   "excess_pp": -9.113654798679459,
+   "surv": 35.14603616133519,
+   "counsel_share": 0.7318497913769124
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Downloadable and online software",
+   "pa": 3,
+   "pb": 5,
+   "n": 6444,
+   "excess_pp": -8.421826288379512,
+   "surv": 36.281812538795776,
+   "counsel_share": 0.6530105524518932
+  },
+  {
+   "a": "Downloadable and online software",
+   "b": "Computer, software and information services",
+   "pa": 5,
+   "pb": 9,
+   "n": 66662,
+   "excess_pp": -7.486790041029463,
+   "surv": 37.154600822057546,
+   "counsel_share": 0.7757793045513186
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Retail store services",
+   "pa": 9,
+   "pb": 12,
+   "n": 45455,
+   "excess_pp": -7.405010793945258,
+   "surv": 37.7780222197778,
+   "counsel_share": 0.7627103728962711
+  },
+  {
+   "a": "Retail store services",
+   "b": "Media and entertainment goods",
+   "pa": 12,
+   "pb": 18,
+   "n": 12636,
+   "excess_pp": -7.048310437564183,
+   "surv": 38.065843621399175,
+   "counsel_share": 0.711855017410573
+  },
+  {
+   "a": "Pharmaceutical preparations",
+   "b": "Medical and healthcare services",
+   "pa": 7,
+   "pb": 38,
+   "n": 10227,
+   "excess_pp": -7.014429874094605,
+   "surv": 40.36374303314755,
+   "counsel_share": 0.8042436687200547
+  },
+  {
+   "a": "Nutritional supplements",
+   "b": "Education, training, travel and events",
+   "pa": 16,
+   "pb": 35,
+   "n": 3369,
+   "excess_pp": -6.824592552637572,
+   "surv": 41.13980409617097,
+   "counsel_share": 0.7672899970317602
+  },
+  {
+   "a": "Art, home and interior decoration",
+   "b": "Paper, books and stationery",
+   "pa": 22,
+   "pb": 33,
+   "n": 5043,
+   "excess_pp": -6.760280098820308,
+   "surv": 41.602220900257784,
+   "counsel_share": 0.7083085465000991
+  },
+  {
+   "a": "Downloadable and online software",
+   "b": "Media and entertainment goods",
+   "pa": 5,
+   "pb": 18,
+   "n": 29775,
+   "excess_pp": -6.675214162021137,
+   "surv": 38.85810243492863,
+   "counsel_share": 0.7501259445843829
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Nutritional supplements",
+   "pa": 3,
+   "pb": 16,
+   "n": 3268,
+   "excess_pp": -6.600731786739747,
+   "surv": 39.99388004895961,
+   "counsel_share": 0.7270501835985312
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Media and entertainment goods",
+   "pa": 1,
+   "pb": 18,
+   "n": 14032,
+   "excess_pp": -6.358675639371523,
+   "surv": 39.81613454960091,
+   "counsel_share": 0.6284920182440137
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Media and entertainment goods",
+   "pa": 9,
+   "pb": 18,
+   "n": 46200,
+   "excess_pp": -6.1039672060893775,
+   "surv": 39.183982683982684,
+   "counsel_share": 0.8113852813852814
+  },
+  {
+   "a": "Pharmaceutical preparations",
+   "b": "Research, scientific and diagnostic",
+   "pa": 7,
+   "pb": 13,
+   "n": 4122,
+   "excess_pp": -5.955944783371567,
+   "surv": 43.03736050460941,
+   "counsel_share": 0.8726346433770015
+  },
+  {
+   "a": "Precious metal and household glassware",
+   "b": "Heating and air apparatus",
+   "pa": 27,
+   "pb": 39,
+   "n": 4258,
+   "excess_pp": -5.678785433299967,
+   "surv": 48.121183654297795,
+   "counsel_share": 0.7494128698919681
+  },
+  {
+   "a": "Heating and air apparatus",
+   "b": "Industrial machines and parts",
+   "pa": 39,
+   "pb": 40,
+   "n": 3494,
+   "excess_pp": -5.313559025333851,
+   "surv": 52.718946765884375,
+   "counsel_share": 0.8176874642243847
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Retail store services",
+   "pa": 3,
+   "pb": 12,
+   "n": 4937,
+   "excess_pp": -4.873208406289436,
+   "surv": 40.753494024711365,
+   "counsel_share": 0.7279724529066235
+  },
+  {
+   "a": "Beverages and dairy",
+   "b": "Water treatment",
+   "pa": 44,
+   "pb": 45,
+   "n": 4008,
+   "excess_pp": -4.619033809528104,
+   "surv": 43.013972055888225,
+   "counsel_share": 0.8086327345309381
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Energy, transport and storage services",
+   "pa": 0,
+   "pb": 28,
+   "n": 4277,
+   "excess_pp": -4.462686895911803,
+   "surv": 45.54594341828384,
+   "counsel_share": 0.817629179331307
+  },
+  {
+   "a": "Nutritional supplements",
+   "b": "Beverages and dairy",
+   "pa": 16,
+   "pb": 44,
+   "n": 9834,
+   "excess_pp": -4.324319444099058,
+   "surv": 43.45129143786862,
+   "counsel_share": 0.8191986983933293
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Paper, books and stationery",
+   "pa": 9,
+   "pb": 33,
+   "n": 9441,
+   "excess_pp": -3.739208484633015,
+   "surv": 43.70299756381739,
+   "counsel_share": 0.8304205063022985
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Marketing of consumer goods",
+   "pa": 9,
+   "pb": 29,
+   "n": 10888,
+   "excess_pp": -3.702079929811213,
+   "surv": 42.2391623806025,
+   "counsel_share": 0.7732365907421014
+  },
+  {
+   "a": "Education, training, travel and events",
+   "b": "Beverages and dairy",
+   "pa": 35,
+   "pb": 44,
+   "n": 5292,
+   "excess_pp": -3.425113739872397,
+   "surv": 45.55933484504913,
+   "counsel_share": 0.7932728647014361
+  },
+  {
+   "a": "Pharmaceutical preparations",
+   "b": "Nutritional supplements",
+   "pa": 7,
+   "pb": 16,
+   "n": 5305,
+   "excess_pp": -3.168937345345036,
+   "surv": 43.39302544769086,
+   "counsel_share": 0.7566446748350613
+  },
+  {
+   "a": "Musical and surgical instruments",
+   "b": "Medical-purpose apparatus and textile yarn (mixed)",
+   "pa": 23,
+   "pb": 43,
+   "n": 4190,
+   "excess_pp": -2.9777439456074917,
+   "surv": 51.02625298329355,
+   "counsel_share": 0.7556085918854415
+  },
+  {
+   "a": "Furniture and lighting",
+   "b": "Heating and air apparatus",
+   "pa": 34,
+   "pb": 39,
+   "n": 10118,
+   "excess_pp": -2.903776262709078,
+   "surv": 49.15991302628978,
+   "counsel_share": 0.6921328325756079
+  },
+  {
+   "a": "Metal and building hardware",
+   "b": "Building and construction materials",
+   "pa": 6,
+   "pb": 15,
+   "n": 5927,
+   "excess_pp": -2.7080133101960433,
+   "surv": 54.0745739834655,
+   "counsel_share": 0.8311118609751983
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Media and entertainment goods",
+   "pa": 3,
+   "pb": 18,
+   "n": 4688,
+   "excess_pp": -2.6666443739342283,
+   "surv": 42.85409556313993,
+   "counsel_share": 0.7295221843003413
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Hair and skin care",
+   "pa": 14,
+   "pb": 24,
+   "n": 3831,
+   "excess_pp": -2.6539864330707177,
+   "surv": 41.73844949099452,
+   "counsel_share": 0.7447141738449491
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Beverages and dairy",
+   "pa": 17,
+   "pb": 44,
+   "n": 4397,
+   "excess_pp": -2.6312214932944817,
+   "surv": 50.14782806458949,
+   "counsel_share": 0.7948601319081192
+  },
+  {
+   "a": "Retail store services",
+   "b": "Paper, books and stationery",
+   "pa": 12,
+   "pb": 33,
+   "n": 9108,
+   "excess_pp": -2.514284503914863,
+   "surv": 43.522178304787,
+   "counsel_share": 0.7463768115942029
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Precious metal and household glassware",
+   "pa": 14,
+   "pb": 27,
+   "n": 8877,
+   "excess_pp": -2.474557588371392,
+   "surv": 41.89478427396643,
+   "counsel_share": 0.6742142615748564
+  },
+  {
+   "a": "Education, training, travel and events",
+   "b": "Dental, industrial gases and fundraising (mixed)",
+   "pa": 35,
+   "pb": 49,
+   "n": 8886,
+   "excess_pp": -2.3804972167810057,
+   "surv": 47.69300022507315,
+   "counsel_share": 0.8047490434391177
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Media and entertainment goods",
+   "pa": 0,
+   "pb": 18,
+   "n": 38890,
+   "excess_pp": -2.306399899393185,
+   "surv": 44.37644638724608,
+   "counsel_share": 0.695551555669838
+  },
+  {
+   "a": "Retail store services",
+   "b": "Hair and skin care",
+   "pa": 12,
+   "pb": 24,
+   "n": 4568,
+   "excess_pp": -2.214525004944121,
+   "surv": 43.08231173380035,
+   "counsel_share": 0.7408056042031523
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Components sold as a unit (drafting formula)",
+   "pa": 9,
+   "pb": 11,
+   "n": 3489,
+   "excess_pp": -2.1956822454599414,
+   "surv": 44.16738320435655,
+   "counsel_share": 0.7578102608197191
+  },
+  {
+   "a": "Downloadable and online software",
+   "b": "Education, training, travel and events",
+   "pa": 5,
+   "pb": 35,
+   "n": 24583,
+   "excess_pp": -2.193901841192089,
+   "surv": 43.046007403490215,
+   "counsel_share": 0.7357930277020706
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Paper, books and stationery",
+   "pa": 3,
+   "pb": 33,
+   "n": 3897,
+   "excess_pp": -1.9773710553040615,
+   "surv": 45.62483962022068,
+   "counsel_share": 0.7287657172183731
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Media and entertainment goods",
+   "pa": 14,
+   "pb": 18,
+   "n": 6085,
+   "excess_pp": -1.6269386145009712,
+   "surv": 43.779786359901394,
+   "counsel_share": 0.7677896466721447
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Paper, books and stationery",
+   "pa": 14,
+   "pb": 33,
+   "n": 9332,
+   "excess_pp": -1.6189837327530536,
+   "surv": 45.43506215173596,
+   "counsel_share": 0.7308186883840548
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Plastics, textiles and packaging materials",
+   "pa": 14,
+   "pb": 32,
+   "n": 4567,
+   "excess_pp": -1.5444498140057603,
+   "surv": 45.675498138821986,
+   "counsel_share": 0.7490694109918984
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Hair and skin care",
+   "pa": 3,
+   "pb": 24,
+   "n": 5832,
+   "excess_pp": -1.4240656771948772,
+   "surv": 45.06172839506173,
+   "counsel_share": 0.7223936899862826
+  },
+  {
+   "a": "Art, home and interior decoration",
+   "b": "Education, training, travel and events",
+   "pa": 22,
+   "pb": 35,
+   "n": 3522,
+   "excess_pp": -1.4211639640290743,
+   "surv": 43.89551391254969,
+   "counsel_share": 0.7265758091993185
+  },
+  {
+   "a": "Bicycles, vehicle rental and tobacco (mixed)",
+   "b": "Land vehicles and parts",
+   "pa": 21,
+   "pb": 37,
+   "n": 6116,
+   "excess_pp": -1.3811050785246046,
+   "surv": 52.190974493132764,
+   "counsel_share": 0.7300523217789405
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Land vehicles and parts",
+   "pa": 17,
+   "pb": 37,
+   "n": 3255,
+   "excess_pp": -1.3684470340161976,
+   "surv": 44.7926267281106,
+   "counsel_share": 0.8067588325652841
+  },
+  {
+   "a": "Retail store services",
+   "b": "Nutritional supplements",
+   "pa": 12,
+   "pb": 16,
+   "n": 3373,
+   "excess_pp": -1.205051090512378,
+   "surv": 44.53009190631485,
+   "counsel_share": 0.7927660836050994
+  },
+  {
+   "a": "Hair and skin care",
+   "b": "Precious metal and household glassware",
+   "pa": 24,
+   "pb": 27,
+   "n": 3838,
+   "excess_pp": -1.1767428756939071,
+   "surv": 43.27774882751433,
+   "counsel_share": 0.5984887962480459
+  },
+  {
+   "a": "Hair and skin care",
+   "b": "Essential oils and candles",
+   "pa": 24,
+   "pb": 25,
+   "n": 9045,
+   "excess_pp": -1.1151109951700133,
+   "surv": 44.10171365395246,
+   "counsel_share": 0.6990602542841349
+  },
+  {
+   "a": "Downloadable and online software",
+   "b": "Paper, books and stationery",
+   "pa": 5,
+   "pb": 33,
+   "n": 3437,
+   "excess_pp": -1.0879755238775715,
+   "surv": 45.41751527494908,
+   "counsel_share": 0.7154495199301717
+  },
+  {
+   "a": "Precious metal and household glassware",
+   "b": "Furniture and lighting",
+   "pa": 27,
+   "pb": 34,
+   "n": 9128,
+   "excess_pp": -1.0383752875876797,
+   "surv": 47.79798422436459,
+   "counsel_share": 0.7315950920245399
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Medical-purpose apparatus and textile yarn (mixed)",
+   "pa": 14,
+   "pb": 43,
+   "n": 3075,
+   "excess_pp": -1.0096070842741585,
+   "surv": 46.796747967479675,
+   "counsel_share": 0.7414634146341463
+  },
+  {
+   "a": "Retail store services",
+   "b": "Clothing, bags and footwear",
+   "pa": 12,
+   "pb": 14,
+   "n": 17206,
+   "excess_pp": -0.6467322241898907,
+   "surv": 42.985005230733464,
+   "counsel_share": 0.7621759851214692
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Clothing, bags and footwear",
+   "pa": 1,
+   "pb": 14,
+   "n": 5273,
+   "excess_pp": -0.5732956982727748,
+   "surv": 44.111511473544475,
+   "counsel_share": 0.7075668499905178
+  },
+  {
+   "a": "Metal and building hardware",
+   "b": "Construction, engineering and waste services",
+   "pa": 6,
+   "pb": 42,
+   "n": 4321,
+   "excess_pp": -0.5123309685563134,
+   "surv": 54.848414718815086,
+   "counsel_share": 0.817634806757695
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Furniture and lighting",
+   "pa": 14,
+   "pb": 34,
+   "n": 10035,
+   "excess_pp": -0.495485727786169,
+   "surv": 46.10861983059292,
+   "counsel_share": 0.7415047334329845
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Computer, software and information services",
+   "pa": 0,
+   "pb": 9,
+   "n": 28240,
+   "excess_pp": -0.4300182212785828,
+   "surv": 46.490793201133144,
+   "counsel_share": 0.8439801699716714
+  },
+  {
+   "a": "Energy, transport and storage services",
+   "b": "Construction, engineering and waste services",
+   "pa": 28,
+   "pb": 42,
+   "n": 4233,
+   "excess_pp": -0.353641346627195,
+   "surv": 48.64162532482872,
+   "counsel_share": 0.8445546893456177
+  },
+  {
+   "a": "Metal and building hardware",
+   "b": "Furniture and lighting",
+   "pa": 6,
+   "pb": 34,
+   "n": 6345,
+   "excess_pp": -0.3113959011212995,
+   "surv": 55.240346729708435,
+   "counsel_share": 0.8225374310480693
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Pets and animal feed",
+   "pa": 14,
+   "pb": 20,
+   "n": 3786,
+   "excess_pp": -0.22843986164724855,
+   "surv": 42.63074484944533,
+   "counsel_share": 0.6262546222926572
+  },
+  {
+   "a": "Processed foods",
+   "b": "Education, training, travel and events",
+   "pa": 8,
+   "pb": 35,
+   "n": 8540,
+   "excess_pp": -0.11925760234015971,
+   "surv": 49.43793911007026,
+   "counsel_share": 0.8249414519906323
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Media and entertainment goods",
+   "pa": 17,
+   "pb": 18,
+   "n": 7658,
+   "excess_pp": -0.08963559676212884,
+   "surv": 44.98563593627579,
+   "counsel_share": 0.7992948550535388
+  },
+  {
+   "a": "Plants, seeds and agriculture",
+   "b": "Beverages and dairy",
+   "pa": 4,
+   "pb": 44,
+   "n": 3107,
+   "excess_pp": 0.08944699425325515,
+   "surv": 54.77953009333763,
+   "counsel_share": 0.7981976182813003
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Paper, books and stationery",
+   "pa": 17,
+   "pb": 33,
+   "n": 5956,
+   "excess_pp": 0.09038573522706946,
+   "surv": 46.12155809267965,
+   "counsel_share": 0.7666218938885158
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Computer, software and information services",
+   "pa": 3,
+   "pb": 9,
+   "n": 33837,
+   "excess_pp": 0.09813601579122924,
+   "surv": 46.48166208588232,
+   "counsel_share": 0.8000709282737831
+  },
+  {
+   "a": "Metal and building hardware",
+   "b": "Plastics, textiles and packaging materials",
+   "pa": 6,
+   "pb": 32,
+   "n": 3772,
+   "excess_pp": 0.15522034945199603,
+   "surv": 58.24496288441145,
+   "counsel_share": 0.870625662778367
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Medical and healthcare services",
+   "pa": 9,
+   "pb": 38,
+   "n": 20032,
+   "excess_pp": 0.18151407373931316,
+   "surv": 46.21106230031949,
+   "counsel_share": 0.8531349840255591
+  },
+  {
+   "a": "Automotive vehicles and lubricants",
+   "b": "Land vehicles and parts",
+   "pa": 26,
+   "pb": 37,
+   "n": 5981,
+   "excess_pp": 0.35783103865930704,
+   "surv": 53.920749038622304,
+   "counsel_share": 0.7950175555927103
+  },
+  {
+   "a": "Pharmaceutical preparations",
+   "b": "Hair and skin care",
+   "pa": 7,
+   "pb": 24,
+   "n": 5216,
+   "excess_pp": 0.642834867086146,
+   "surv": 47.354294478527606,
+   "counsel_share": 0.8013803680981595
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Education, training, travel and events",
+   "pa": 3,
+   "pb": 35,
+   "n": 50565,
+   "excess_pp": 0.6775701122265032,
+   "surv": 46.10896865420746,
+   "counsel_share": 0.7341243943439137
+  },
+  {
+   "a": "Retail store services",
+   "b": "Toys, games and sporting goods",
+   "pa": 12,
+   "pb": 17,
+   "n": 4043,
+   "excess_pp": 0.7602527254471821,
+   "surv": 45.75810042047984,
+   "counsel_share": 0.7618105367301509
+  },
+  {
+   "a": "Marketing of consumer goods",
+   "b": "Education, training, travel and events",
+   "pa": 29,
+   "pb": 35,
+   "n": 5907,
+   "excess_pp": 0.7758230267190885,
+   "surv": 48.36634501438971,
+   "counsel_share": 0.829862874555612
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Computer, software and information services",
+   "pa": 2,
+   "pb": 9,
+   "n": 41863,
+   "excess_pp": 0.8539536912940235,
+   "surv": 46.24131094283735,
+   "counsel_share": 0.7874734252203617
+  },
+  {
+   "a": "Processed foods",
+   "b": "Nutritional supplements",
+   "pa": 8,
+   "pb": 16,
+   "n": 3032,
+   "excess_pp": 0.8590631473730899,
+   "surv": 50.0,
+   "counsel_share": 0.8159630606860159
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Precious metal and household glassware",
+   "pa": 17,
+   "pb": 27,
+   "n": 3432,
+   "excess_pp": 1.115073187441209,
+   "surv": 47.63986013986014,
+   "counsel_share": 0.7738927738927739
+  },
+  {
+   "a": "Processed foods",
+   "b": "Beverages and dairy",
+   "pa": 8,
+   "pb": 44,
+   "n": 41433,
+   "excess_pp": 1.1242756426990592,
+   "surv": 50.47667318321145,
+   "counsel_share": 0.8094996741727608
+  },
+  {
+   "a": "Retail store services",
+   "b": "Furniture and lighting",
+   "pa": 12,
+   "pb": 34,
+   "n": 6585,
+   "excess_pp": 1.132583272038513,
+   "surv": 47.289293849658314,
+   "counsel_share": 0.7998481397114654
+  },
+  {
+   "a": "Precious metal and household glassware",
+   "b": "Paper, books and stationery",
+   "pa": 27,
+   "pb": 33,
+   "n": 3099,
+   "excess_pp": 1.4050428004419582,
+   "surv": 50.080671184252985,
+   "counsel_share": 0.7931590835753469
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Research, scientific and diagnostic",
+   "pa": 9,
+   "pb": 13,
+   "n": 10646,
+   "excess_pp": 1.7681364018436163,
+   "surv": 47.93349614878828,
+   "counsel_share": 0.8268833364643998
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Education, training, travel and events",
+   "pa": 9,
+   "pb": 35,
+   "n": 94839,
+   "excess_pp": 1.8108311552859035,
+   "surv": 48.48427334746254,
+   "counsel_share": 0.8270542709222999
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Construction, engineering and waste services",
+   "pa": 9,
+   "pb": 42,
+   "n": 11041,
+   "excess_pp": 1.8452118752857316,
+   "surv": 48.537270174803005,
+   "counsel_share": 0.8029164024997736
+  },
+  {
+   "a": "Media and entertainment goods",
+   "b": "Education, training, travel and events",
+   "pa": 18,
+   "pb": 35,
+   "n": 52467,
+   "excess_pp": 2.0326732937746974,
+   "surv": 47.32307926887377,
+   "counsel_share": 0.7736481979148798
+  },
+  {
+   "a": "Heating and air apparatus",
+   "b": "Water treatment",
+   "pa": 39,
+   "pb": 45,
+   "n": 4609,
+   "excess_pp": 2.033376362814845,
+   "surv": 55.95573877196789,
+   "counsel_share": 0.7901931004556303
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Furniture and lighting",
+   "pa": 1,
+   "pb": 34,
+   "n": 4327,
+   "excess_pp": 2.040136827830781,
+   "surv": 55.211462907326094,
+   "counsel_share": 0.7936214467298359
+  },
+  {
+   "a": "Retail store services",
+   "b": "Beverages and dairy",
+   "pa": 12,
+   "pb": 44,
+   "n": 8403,
+   "excess_pp": 2.1237563655014835,
+   "surv": 49.101511364988696,
+   "counsel_share": 0.7951921932643103
+  },
+  {
+   "a": "Research, scientific and diagnostic",
+   "b": "Medical and healthcare services",
+   "pa": 13,
+   "pb": 38,
+   "n": 7399,
+   "excess_pp": 2.131121729415153,
+   "surv": 49.41208271388025,
+   "counsel_share": 0.8714691174483038
+  },
+  {
+   "a": "Media and entertainment goods",
+   "b": "Paper, books and stationery",
+   "pa": 18,
+   "pb": 33,
+   "n": 12072,
+   "excess_pp": 2.2252267114943485,
+   "surv": 49.45328031809145,
+   "counsel_share": 0.7808151093439364
+  },
+  {
+   "a": "Retail store services",
+   "b": "Medical and healthcare services",
+   "pa": 12,
+   "pb": 38,
+   "n": 4074,
+   "excess_pp": 2.238110911475864,
+   "surv": 47.839960726558665,
+   "counsel_share": 0.8306332842415317
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Furniture and lighting",
+   "pa": 17,
+   "pb": 34,
+   "n": 3611,
+   "excess_pp": 2.2648137432938658,
+   "surv": 47.881473276100806,
+   "counsel_share": 0.767931320963722
+  },
+  {
+   "a": "Retail store services",
+   "b": "Education, training, travel and events",
+   "pa": 12,
+   "pb": 35,
+   "n": 29319,
+   "excess_pp": 2.4328410418037465,
+   "surv": 49.029639482929156,
+   "counsel_share": 0.8120331525631843
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Medical and healthcare services",
+   "pa": 0,
+   "pb": 38,
+   "n": 3551,
+   "excess_pp": 2.4798745272033917,
+   "surv": 54.632497887918895,
+   "counsel_share": 0.8349760630808223
+  },
+  {
+   "a": "Processed foods",
+   "b": "Retail store services",
+   "pa": 8,
+   "pb": 12,
+   "n": 7541,
+   "excess_pp": 2.776710725801802,
+   "surv": 50.709454979445695,
+   "counsel_share": 0.8063917252353799
+  },
+  {
+   "a": "Energy, transport and storage services",
+   "b": "Education, training, travel and events",
+   "pa": 28,
+   "pb": 35,
+   "n": 6771,
+   "excess_pp": 2.8147305428326326,
+   "surv": 51.51380889085807,
+   "counsel_share": 0.8396101019051839
+  },
+  {
+   "a": "Cleaning preparations and coatings",
+   "b": "Hair and skin care",
+   "pa": 10,
+   "pb": 24,
+   "n": 4058,
+   "excess_pp": 3.035920888637837,
+   "surv": 49.08822079842287,
+   "counsel_share": 0.7895515032035485
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Toys, games and sporting goods",
+   "pa": 14,
+   "pb": 17,
+   "n": 13790,
+   "excess_pp": 3.0363322906663575,
+   "surv": 46.53372008701958,
+   "counsel_share": 0.7635242929659173
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Furniture and lighting",
+   "pa": 0,
+   "pb": 34,
+   "n": 3519,
+   "excess_pp": 3.058904883580332,
+   "surv": 53.168513782324524,
+   "counsel_share": 0.8300653594771242
+  },
+  {
+   "a": "Musical and surgical instruments",
+   "b": "Precious metal and household glassware",
+   "pa": 23,
+   "pb": 27,
+   "n": 4150,
+   "excess_pp": 3.1481151573242756,
+   "surv": 58.265060240963855,
+   "counsel_share": 0.7298795180722891
+  },
+  {
+   "a": "Furniture and lighting",
+   "b": "Land vehicles and parts",
+   "pa": 34,
+   "pb": 37,
+   "n": 4297,
+   "excess_pp": 3.220628025481247,
+   "surv": 56.62089830114033,
+   "counsel_share": 0.8154526413777053
+  },
+  {
+   "a": "Retail store services",
+   "b": "Precious metal and household glassware",
+   "pa": 12,
+   "pb": 27,
+   "n": 3354,
+   "excess_pp": 3.422061514316465,
+   "surv": 48.41979725700656,
+   "counsel_share": 0.7826475849731663
+  },
+  {
+   "a": "Land vehicles and parts",
+   "b": "Heating and air apparatus",
+   "pa": 37,
+   "pb": 39,
+   "n": 4001,
+   "excess_pp": 3.459131890527602,
+   "surv": 59.985003749062734,
+   "counsel_share": 0.8772806798300425
+  },
+  {
+   "a": "Metal and building hardware",
+   "b": "Land vehicles and parts",
+   "pa": 6,
+   "pb": 37,
+   "n": 5021,
+   "excess_pp": 3.791977933073573,
+   "surv": 62.796255725951006,
+   "counsel_share": 0.867755427205736
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Toys, games and sporting goods",
+   "pa": 1,
+   "pb": 17,
+   "n": 5233,
+   "excess_pp": 4.058377108386403,
+   "surv": 48.06038601184789,
+   "counsel_share": 0.7626600420408943
+  },
+  {
+   "a": "Computer, software and information services",
+   "b": "Energy, transport and storage services",
+   "pa": 9,
+   "pb": 28,
+   "n": 12556,
+   "excess_pp": 4.087388879675866,
+   "surv": 51.1707550175215,
+   "counsel_share": 0.8653233513857916
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Retail store services",
+   "pa": 2,
+   "pb": 12,
+   "n": 3322,
+   "excess_pp": 4.205040236830929,
+   "surv": 49.54846478025286,
+   "counsel_share": 0.810957254665864
+  },
+  {
+   "a": "Health and wellness services",
+   "b": "Medical and healthcare services",
+   "pa": 3,
+   "pb": 38,
+   "n": 14697,
+   "excess_pp": 4.4295363773688985,
+   "surv": 50.71783357147717,
+   "counsel_share": 0.8292848880723958
+  },
+  {
+   "a": "Industrial machines and parts",
+   "b": "Hand tools and knives",
+   "pa": 40,
+   "pb": 47,
+   "n": 5040,
+   "excess_pp": 4.4816951039046415,
+   "surv": 64.14682539682539,
+   "counsel_share": 0.827579365079365
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Beverages and dairy",
+   "pa": 14,
+   "pb": 44,
+   "n": 3238,
+   "excess_pp": 4.552112937088852,
+   "surv": 51.019147621988886,
+   "counsel_share": 0.7618900555898703
+  },
+  {
+   "a": "Cleaning preparations and coatings",
+   "b": "Plastics, textiles and packaging materials",
+   "pa": 10,
+   "pb": 32,
+   "n": 3235,
+   "excess_pp": 4.840964040944085,
+   "surv": 62.442040185471406,
+   "counsel_share": 0.8676970633693972
+  },
+  {
+   "a": "Paper, books and stationery",
+   "b": "Education, training, travel and events",
+   "pa": 33,
+   "pb": 35,
+   "n": 23006,
+   "excess_pp": 4.845531155386585,
+   "surv": 52.116839085455965,
+   "counsel_share": 0.7761888203077458
+  },
+  {
+   "a": "Cleaning preparations and coatings",
+   "b": "Industrial chemicals",
+   "pa": 10,
+   "pb": 31,
+   "n": 3506,
+   "excess_pp": 5.103205958245178,
+   "surv": 64.11865373645179,
+   "counsel_share": 0.8502567027952083
+  },
+  {
+   "a": "Media and entertainment goods",
+   "b": "Industrial machines and parts",
+   "pa": 18,
+   "pb": 40,
+   "n": 4339,
+   "excess_pp": 5.246658647688672,
+   "surv": 53.03065222401475,
+   "counsel_share": 0.9124222171007145
+  },
+  {
+   "a": "Musical and surgical instruments",
+   "b": "Medical and healthcare services",
+   "pa": 23,
+   "pb": 38,
+   "n": 8562,
+   "excess_pp": 5.47214598152819,
+   "surv": 59.00490539593553,
+   "counsel_share": 0.858093903293623
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Media and entertainment goods",
+   "pa": 2,
+   "pb": 18,
+   "n": 4398,
+   "excess_pp": 5.57112239064983,
+   "surv": 52.455661664392906,
+   "counsel_share": 0.8599363346975898
+  },
+  {
+   "a": "Land vehicles and parts",
+   "b": "Industrial machines and parts",
+   "pa": 37,
+   "pb": 40,
+   "n": 6857,
+   "excess_pp": 5.57152205558024,
+   "surv": 65.23260901268776,
+   "counsel_share": 0.846142627971416
+  },
+  {
+   "a": "Heating and air apparatus",
+   "b": "Construction, engineering and waste services",
+   "pa": 39,
+   "pb": 42,
+   "n": 3213,
+   "excess_pp": 5.607681192005244,
+   "surv": 56.89386865857454,
+   "counsel_share": 0.7703081232492998
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Research, scientific and diagnostic",
+   "pa": 2,
+   "pb": 13,
+   "n": 3746,
+   "excess_pp": 5.728506613237517,
+   "surv": 52.00213561131874,
+   "counsel_share": 0.8267485317672184
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Heating and air apparatus",
+   "pa": 0,
+   "pb": 39,
+   "n": 4668,
+   "excess_pp": 6.184277964676263,
+   "surv": 56.8337617823479,
+   "counsel_share": 0.8725364181662382
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Education, training, travel and events",
+   "pa": 2,
+   "pb": 35,
+   "n": 8218,
+   "excess_pp": 6.195109231180749,
+   "surv": 52.50669262594305,
+   "counsel_share": 0.8085908980287174
+  },
+  {
+   "a": "Toys, games and sporting goods",
+   "b": "Education, training, travel and events",
+   "pa": 17,
+   "pb": 35,
+   "n": 13705,
+   "excess_pp": 6.201065525555138,
+   "surv": 51.601605253557096,
+   "counsel_share": 0.7954761036118205
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Metal and building hardware",
+   "pa": 1,
+   "pb": 6,
+   "n": 3837,
+   "excess_pp": 6.43920276807078,
+   "surv": 64.89444878811571,
+   "counsel_share": 0.8756841282251759
+  },
+  {
+   "a": "Education, training, travel and events",
+   "b": "Construction, engineering and waste services",
+   "pa": 35,
+   "pb": 42,
+   "n": 12291,
+   "excess_pp": 6.626661322247667,
+   "surv": 54.788056301358715,
+   "counsel_share": 0.8503783256041005
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Hand tools and knives",
+   "pa": 1,
+   "pb": 47,
+   "n": 3398,
+   "excess_pp": 6.94938383180416,
+   "surv": 60.30017657445556,
+   "counsel_share": 0.836962919364332
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Industrial machines and parts",
+   "pa": 0,
+   "pb": 40,
+   "n": 5012,
+   "excess_pp": 7.657764495861256,
+   "surv": 60.53471667996808,
+   "counsel_share": 0.8393854748603352
+  },
+  {
+   "a": "Design and technical development services",
+   "b": "Construction, engineering and waste services",
+   "pa": 2,
+   "pb": 42,
+   "n": 5405,
+   "excess_pp": 7.753090135931636,
+   "surv": 54.59759481961147,
+   "counsel_share": 0.7920444033302497
+  },
+  {
+   "a": "Accessories and cables",
+   "b": "Land vehicles and parts",
+   "pa": 1,
+   "pb": 37,
+   "n": 5020,
+   "excess_pp": 7.806901352751186,
+   "surv": 61.69322709163347,
+   "counsel_share": 0.850199203187251
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Design and technical development services",
+   "pa": 0,
+   "pb": 2,
+   "n": 8934,
+   "excess_pp": 8.15523780015153,
+   "surv": 56.30176852473696,
+   "counsel_share": 0.8664651891649877
+  },
+  {
+   "a": "Retail store services",
+   "b": "Land vehicles and parts",
+   "pa": 12,
+   "pb": 37,
+   "n": 3393,
+   "excess_pp": 8.659548473673288,
+   "surv": 55.378720895962275,
+   "counsel_share": 0.8051871500147362
+  },
+  {
+   "a": "Education, training, travel and events",
+   "b": "Medical and healthcare services",
+   "pa": 35,
+   "pb": 38,
+   "n": 13639,
+   "excess_pp": 8.902758600689697,
+   "surv": 55.00403255370628,
+   "counsel_share": 0.8408241073392477
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Land vehicles and parts",
+   "pa": 0,
+   "pb": 37,
+   "n": 11278,
+   "excess_pp": 9.122447598180635,
+   "surv": 59.50523142401135,
+   "counsel_share": 0.8378258556481646
+  },
+  {
+   "a": "Clothing, bags and footwear",
+   "b": "Education, training, travel and events",
+   "pa": 14,
+   "pb": 35,
+   "n": 11248,
+   "excess_pp": 9.301841177221918,
+   "surv": 51.004623044096725,
+   "counsel_share": 0.7773826458036984
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Research, scientific and diagnostic",
+   "pa": 0,
+   "pb": 13,
+   "n": 5811,
+   "excess_pp": 9.33295136645539,
+   "surv": 58.61297539149888,
+   "counsel_share": 0.8647392875580795
+  },
+  {
+   "a": "Research, scientific and diagnostic",
+   "b": "Education, training, travel and events",
+   "pa": 13,
+   "pb": 35,
+   "n": 4497,
+   "excess_pp": 10.253633329706627,
+   "surv": 56.19301756726707,
+   "counsel_share": 0.8154325105625972
+  },
+  {
+   "a": "Retail store services",
+   "b": "Energy, transport and storage services",
+   "pa": 12,
+   "pb": 28,
+   "n": 3960,
+   "excess_pp": 10.95922690898507,
+   "surv": 57.07070707070707,
+   "counsel_share": 0.8808080808080808
+  },
+  {
+   "a": "Nutritional supplements",
+   "b": "Pets and animal feed",
+   "pa": 16,
+   "pb": 20,
+   "n": 4775,
+   "excess_pp": 11.371621553671934,
+   "surv": 58.80628272251309,
+   "counsel_share": 0.8102617801047121
+  },
+  {
+   "a": "Electronic apparatus and control systems",
+   "b": "Accessories and cables",
+   "pa": 0,
+   "pb": 1,
+   "n": 5101,
+   "excess_pp": 11.604431721792961,
+   "surv": 59.87061360517546,
+   "counsel_share": 0.8406194863752205
+  },
+  {
+   "a": "Education, training, travel and events",
+   "b": "Legal services, weapons and printer supplies (mixed)",
+   "pa": 35,
+   "pb": 36,
+   "n": 8315,
+   "excess_pp": 15.024616848080743,
+   "surv": 59.85568250150331,
+   "counsel_share": 0.8582080577269994
+  }
+ ],
+ "software_partners": [
+  {
+   "software": "Downloadable and online software",
+   "partner": "Retail store services",
+   "n": 6943,
+   "excess_pp": -16.524762651110724
+  },
+  {
+   "software": "Downloadable and online software",
+   "partner": "Health and wellness services",
+   "n": 6444,
+   "excess_pp": -8.421826288379512
+  },
+  {
+   "software": "Downloadable and online software",
+   "partner": "Computer, software and information services",
+   "n": 66662,
+   "excess_pp": -7.486790041029463
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Downloadable and online software",
+   "n": 66662,
+   "excess_pp": -7.486790041029463
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Retail store services",
+   "n": 45455,
+   "excess_pp": -7.405010793945258
+  },
+  {
+   "software": "Downloadable and online software",
+   "partner": "Media and entertainment goods",
+   "n": 29775,
+   "excess_pp": -6.675214162021137
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Media and entertainment goods",
+   "n": 46200,
+   "excess_pp": -6.1039672060893775
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Paper, books and stationery",
+   "n": 9441,
+   "excess_pp": -3.739208484633015
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Marketing of consumer goods",
+   "n": 10888,
+   "excess_pp": -3.702079929811213
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Components sold as a unit (drafting formula)",
+   "n": 3489,
+   "excess_pp": -2.1956822454599414
+  },
+  {
+   "software": "Downloadable and online software",
+   "partner": "Education, training, travel and events",
+   "n": 24583,
+   "excess_pp": -2.193901841192089
+  },
+  {
+   "software": "Downloadable and online software",
+   "partner": "Paper, books and stationery",
+   "n": 3437,
+   "excess_pp": -1.0879755238775715
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Electronic apparatus and control systems",
+   "n": 28240,
+   "excess_pp": -0.4300182212785828
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Health and wellness services",
+   "n": 33837,
+   "excess_pp": 0.09813601579122924
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Medical and healthcare services",
+   "n": 20032,
+   "excess_pp": 0.18151407373931316
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Design and technical development services",
+   "n": 41863,
+   "excess_pp": 0.8539536912940235
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Research, scientific and diagnostic",
+   "n": 10646,
+   "excess_pp": 1.7681364018436163
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Education, training, travel and events",
+   "n": 94839,
+   "excess_pp": 1.8108311552859035
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Construction, engineering and waste services",
+   "n": 11041,
+   "excess_pp": 1.8452118752857316
+  },
+  {
+   "software": "Computer, software and information services",
+   "partner": "Energy, transport and storage services",
+   "n": 12556,
+   "excess_pp": 4.087388879675866
+  }
+ ],
+ "pmi_corr_within_class": {
+  "lead_z": 0.009517599051801296,
+  "H": -0.09450258518506907
+ },
+ "model_pmi": {
+  "lead": {
+   "b": -2.0016950679367578,
+   "se": 0.19908085026485645,
+   "p": 8.760190085292433e-24
+  },
+  "pmiz": {
+   "b": 0.21624318024873604,
+   "se": 0.0492914968010308,
+   "p": 1.1490996305374242e-05
+  },
+  "pmiz_x_lead": {
+   "b": -0.10397393593422152,
+   "se": 0.15546373385157586,
+   "p": 0.50362392551687
+  },
+  "Hz": {
+   "b": 1.4506458530773527,
+   "se": 0.11029222106941976,
+   "p": 1.6409900677781372e-39
+  },
+  "has_attorney": {
+   "b": 19.691100138028272,
+   "se": 0.17967427897520852,
+   "p": 0.0
+  },
+  "itu": {
+   "b": -7.208510655085515,
+   "se": 0.12127885125150431,
+   "p": 0.0
+  },
+  "log_len": {
+   "b": 0.9413088536377121,
+   "se": 0.05604026535390994,
+   "p": 2.5666354437254936e-63
+  },
+  "log_owner_n": {
+   "b": 3.5316278466641924,
+   "se": 0.18582047315165248,
+   "p": 1.533105512220737e-80
+  },
+  "dom_us": {
+   "b": 0.42104637949302454,
+   "se": 0.2937555116162395,
+   "p": 0.1517656995039454
+  },
+  "dom_cn": {
+   "b": -0.052047731131914694,
+   "se": 0.41068735514209315,
+   "p": 0.8991515516757063
+  },
+  "basis_44e": {
+   "b": -14.854171585026274,
+   "se": 0.7404041537805347,
+   "p": 1.5778765472712215e-89
+  },
+  "basis_66a": {
+   "b": -10.80374003413793,
+   "se": 0.384930088585994,
+   "p": 2.4945230558490926e-173
+  }
+ },
+ "n_pmi": 2002749,
+ "surv_by_pmi_quintile": [
+  48.257798261581975,
+  48.09738704620147,
+  49.39693057929201,
+  47.96385742573364,
+  48.49061385635752
+ ]
+}
