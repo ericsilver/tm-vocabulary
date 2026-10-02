@@ -1,0 +1,485 @@
+{
+ "episodes_all_onsets": 491,
+ "episodes": 162,
+ "episode_onset_years": [
+  {
+   "t0": 1998,
+   "len": 11
+  },
+  {
+   "t0": 1999,
+   "len": 11
+  },
+  {
+   "t0": 2000,
+   "len": 24
+  },
+  {
+   "t0": 2001,
+   "len": 23
+  },
+  {
+   "t0": 2002,
+   "len": 23
+  },
+  {
+   "t0": 2003,
+   "len": 19
+  },
+  {
+   "t0": 2004,
+   "len": 16
+  },
+  {
+   "t0": 2005,
+   "len": 11
+  },
+  {
+   "t0": 2006,
+   "len": 11
+  },
+  {
+   "t0": 2007,
+   "len": 5
+  },
+  {
+   "t0": 2008,
+   "len": 8
+  }
+ ],
+ "episode_ratio_median": 1.6975367564299755,
+ "frame_acquired_rate": 0.00993740123316414,
+ "frame_acq_established_rate": 0.0031234961511131783,
+ "n_registrations": 189886,
+ "groups": {
+  "pre": {
+   "n": 19128,
+   "surv_raw": 48.91781681304894,
+   "surv_cell_adj": 50.25292982933968,
+   "acquired_pct": 2.1434546214972814,
+   "acq_by_established_pct": 0.6273525721455459,
+   "incumbent_share": 0.18606231702216647,
+   "debut_share": 0.3160288582183187,
+   "mean_lead": 0.25289702101188916
+  },
+  "pre_non_incumbent": {
+   "n": 15569,
+   "surv_raw": 47.890037895818615,
+   "surv_cell_adj": 49.14628856912281,
+   "acquired_pct": 1.9525981116320894,
+   "acq_by_established_pct": 0.5009955681161282,
+   "incumbent_share": 0.0,
+   "debut_share": 0.38827156528999934,
+   "mean_lead": 0.2551832901941499
+  },
+  "pioneer": {
+   "n": 19378,
+   "surv_raw": 50.129012281969246,
+   "surv_cell_adj": 49.391687613395106,
+   "acquired_pct": 1.403653627825369,
+   "acq_by_established_pct": 0.3663948807926515,
+   "incumbent_share": 0.17256682836206008,
+   "debut_share": 0.3417793373929198,
+   "mean_lead": 0.3620570152509632
+  },
+  "pioneer_non_incumbent": {
+   "n": 16034,
+   "surv_raw": 49.42621928402146,
+   "surv_cell_adj": 48.79110785990606,
+   "acquired_pct": 1.1725084196083324,
+   "acq_by_established_pct": 0.24946987651241112,
+   "incumbent_share": 0.0,
+   "debut_share": 0.4130597480354247,
+   "mean_lead": 0.35996976923285445
+  },
+  "follower": {
+   "n": 46163,
+   "surv_raw": 46.938023958581546,
+   "surv_cell_adj": 47.01306125942959,
+   "acquired_pct": 1.0852847518575481,
+   "acq_by_established_pct": 0.34009921365595824,
+   "incumbent_share": 0.17665662976842927,
+   "debut_share": 0.34943569525377466,
+   "mean_lead": 0.27759145160802706
+  },
+  "follower_non_incumbent": {
+   "n": 38008,
+   "surv_raw": 45.43517154283309,
+   "surv_cell_adj": 45.48091866266911,
+   "acquired_pct": 0.9208587665754577,
+   "acq_by_established_pct": 0.22626815407282677,
+   "incumbent_share": 0.0,
+   "debut_share": 0.4244106503893917,
+   "mean_lead": 0.27431347800238914
+  },
+  "late": {
+   "n": 105217,
+   "surv_raw": 44.40537175551479,
+   "surv_cell_adj": 45.66832567221426,
+   "acquired_pct": 0.6510354790575668,
+   "acq_by_established_pct": 0.20243876940038208,
+   "incumbent_share": 0.15965100696655485,
+   "debut_share": 0.3782848779189675,
+   "mean_lead": 0.08796173908588435
+  },
+  "late_non_incumbent": {
+   "n": 88419,
+   "surv_raw": 42.675216865153416,
+   "surv_cell_adj": 44.076594543315075,
+   "acquired_pct": 0.570013232450039,
+   "acq_by_established_pct": 0.13911037220506903,
+   "incumbent_share": 0.0,
+   "debut_share": 0.45015211662651694,
+   "mean_lead": 0.09599133757486376
+  },
+  "incumbent": {
+   "n": 31856,
+   "surv_raw": 53.609994977398294,
+   "surv_cell_adj": 54.00477065249511,
+   "acquired_pct": 1.6386238071320942,
+   "acq_by_established_pct": 0.7345554997488699,
+   "incumbent_share": 1.0,
+   "debut_share": 0.0,
+   "mean_lead": 0.165262772085963
+  },
+  "non_incumbent": {
+   "n": 158030,
+   "surv_raw": 44.537745997595394,
+   "surv_cell_adj": 45.392155664206236,
+   "acquired_pct": 0.8517370119597545,
+   "acq_by_established_pct": 0.20692273618933113,
+   "incumbent_share": 0.0,
+   "debut_share": 0.43410112004049867,
+   "mean_lead": 0.1813470143255015
+  },
+  "all_frame": {
+   "surv_raw": 47.692439509440064
+  }
+ },
+ "regression_vs_pioneers": {
+  "spec": "y ~ pre + follower + late + incumbent + controls | class x reg-year FE (pioneers omitted; incumbents overlap the timing groups)",
+  "note": "log_owner_n (owner's registrations in the frame) is nearly collinear with incumbent status, so controls_without_owner_size is the main reading",
+  "no_controls": {
+   "surv": {
+    "pre": {
+     "b": -1.8166655978662967,
+     "se": 0.7027757793375048
+    },
+    "follower": {
+     "b": 0.28572733970841163,
+     "se": 0.6168019485355777
+    },
+    "late": {
+     "b": 2.8664966438922472,
+     "se": 0.7259091693524707
+    },
+    "incumbent_f": {
+     "b": 8.31274117713867,
+     "se": 0.6663874761332943
+    }
+   },
+   "surv_with_lead": {
+    "pre": {
+     "b": -2.770457445723098,
+     "se": 0.7072849542909234
+    },
+    "follower": {
+     "b": -0.4134143326560541,
+     "se": 0.6179978767722866
+    },
+    "late": {
+     "b": 0.3366111259506242,
+     "se": 0.7399657136053331
+    },
+    "incumbent_f": {
+     "b": 8.26174666001501,
+     "se": 0.6631928840502734
+    },
+    "lead": {
+     "b": -7.86178272520518,
+     "se": 0.5935444802612336
+    }
+   },
+   "n": 189886,
+   "acquired_pct": {
+    "pre": {
+     "b": 0.31137602290788935,
+     "se": 0.21599699882823242
+    },
+    "follower": {
+     "b": -0.15892449618188484,
+     "se": 0.16205835095000629
+    },
+    "late": {
+     "b": -0.47444458626584385,
+     "se": 0.17340030982532398
+    },
+    "incumbent_f": {
+     "b": 0.7239491714572284,
+     "se": 0.1647540557808438
+    }
+   },
+   "acq_established_pct": {
+    "pre": {
+     "b": 0.10305423163826892,
+     "se": 0.11674787762089775
+    },
+    "follower": {
+     "b": 0.02614698311458645,
+     "se": 0.0723355310280072
+    },
+    "late": {
+     "b": -0.09298853196627632,
+     "se": 0.08151497935620622
+    },
+    "incumbent_f": {
+     "b": 0.4595207776716597,
+     "se": 0.08926270266426119
+    }
+   }
+  },
+  "controls_without_owner_size": {
+   "surv": {
+    "pre": {
+     "b": -1.2569619677585135,
+     "se": 0.6953799152846739
+    },
+    "follower": {
+     "b": 0.2448940969566617,
+     "se": 0.6102313411065942
+    },
+    "late": {
+     "b": 2.8096040514748557,
+     "se": 0.7204828362652161
+    },
+    "incumbent_f": {
+     "b": 6.146276785060458,
+     "se": 0.6549841765730163
+    }
+   },
+   "surv_with_lead": {
+    "pre": {
+     "b": -2.259156158460389,
+     "se": 0.7001462928441742
+    },
+    "follower": {
+     "b": -0.45020682780829285,
+     "se": 0.611495458569295
+    },
+    "late": {
+     "b": 0.27558106033055524,
+     "se": 0.733631163511623
+    },
+    "incumbent_f": {
+     "b": 6.085742668437489,
+     "se": 0.6518167779036024
+    },
+    "lead": {
+     "b": -8.047593646958765,
+     "se": 0.579256165038875
+    }
+   },
+   "n": 189886,
+   "acquired_pct": {
+    "pre": {
+     "b": 0.2991333142510249,
+     "se": 0.21738993431991988
+    },
+    "follower": {
+     "b": -0.13355699218634556,
+     "se": 0.1628295069714498
+    },
+    "late": {
+     "b": -0.4131138269191789,
+     "se": 0.1758494469784583
+    },
+    "incumbent_f": {
+     "b": 0.5948465843439149,
+     "se": 0.16424692833230484
+    }
+   },
+   "acq_established_pct": {
+    "pre": {
+     "b": 0.1140508202240697,
+     "se": 0.11658090213723768
+    },
+    "follower": {
+     "b": 0.026345263410853338,
+     "se": 0.07230509951591149
+    },
+    "late": {
+     "b": -0.09224221092370763,
+     "se": 0.08285435580553803
+    },
+    "incumbent_f": {
+     "b": 0.4150929679586548,
+     "se": 0.08781779365976786
+    }
+   }
+  },
+  "controls_full": {
+   "surv": {
+    "pre": {
+     "b": -1.0698964149079033,
+     "se": 0.6804532650581526
+    },
+    "follower": {
+     "b": 0.4002950439047864,
+     "se": 0.608612172264482
+    },
+    "late": {
+     "b": 3.361447231357257,
+     "se": 0.7233386901297802
+    },
+    "incumbent_f": {
+     "b": -15.346245032660129,
+     "se": 0.7915583507916863
+    }
+   },
+   "surv_with_lead": {
+    "pre": {
+     "b": -2.0913086590295222,
+     "se": 0.684541485866679
+    },
+    "follower": {
+     "b": -0.30809007279742834,
+     "se": 0.6091219270110408
+    },
+    "late": {
+     "b": 0.778970323561277,
+     "se": 0.7343122955186512
+    },
+    "incumbent_f": {
+     "b": -15.44569697021612,
+     "se": 0.7880841036422833
+    },
+    "lead": {
+     "b": -8.204551608368206,
+     "se": 0.5708714615706844
+    }
+   },
+   "n": 189886,
+   "acquired_pct": {
+    "pre": {
+     "b": 0.29943341845804833,
+     "se": 0.21751059099395337
+    },
+    "follower": {
+     "b": -0.13330768665016393,
+     "se": 0.16273236985038597
+    },
+    "late": {
+     "b": -0.4122285198309621,
+     "se": 0.17588198232471586
+    },
+    "incumbent_f": {
+     "b": 0.5603667128830807,
+     "se": 0.251771971629166
+    }
+   },
+   "acq_established_pct": {
+    "pre": {
+     "b": 0.11261673375022181,
+     "se": 0.11663773968544568
+    },
+    "follower": {
+     "b": 0.025153924906006046,
+     "se": 0.07226301545591543
+    },
+    "late": {
+     "b": -0.09647276448044192,
+     "se": 0.08356422247063229
+    },
+    "incumbent_f": {
+     "b": 0.579859459479892,
+     "se": 0.18502544048275768
+    }
+   }
+  }
+ },
+ "shares_pooled_k_minus4_to_10": {
+  "pre": {
+   "share_of_registrations": 0.10073412468533752,
+   "share_of_in_use": 0.10698482752312459
+  },
+  "pioneer": {
+   "share_of_registrations": 0.10205070410667454,
+   "share_of_in_use": 0.11106664684830954
+  },
+  "follower": {
+   "share_of_registrations": 0.24310902330872208,
+   "share_of_in_use": 0.2477447090703285
+  },
+  "late": {
+   "share_of_registrations": 0.5541061478992658,
+   "share_of_in_use": 0.5342038165582373
+  },
+  "incumbent": {
+   "share_of_registrations": 0.16776381618444752,
+   "share_of_in_use": 0.19526417488937928
+  }
+ },
+ "shares_pooled_surge_entrants_only": {
+  "pre": {
+   "share_of_registrations": 0.0,
+   "share_of_in_use": 0.0
+  },
+  "pioneer": {
+   "share_of_registrations": 0.11348223802105904,
+   "share_of_in_use": 0.12437263136331046
+  },
+  "follower": {
+   "share_of_registrations": 0.27034165309970837,
+   "share_of_in_use": 0.27742497183242854
+  },
+  "late": {
+   "share_of_registrations": 0.6161761088792326,
+   "share_of_in_use": 0.598202396804261
+  },
+  "incumbent": {
+   "share_of_registrations": 0.16571405146464588,
+   "share_of_in_use": 0.19431783263341187
+  }
+ },
+ "shares_episode_mean_entrants_only": {
+  "pioneer": {
+   "share_of_registrations": 0.11936725792494386,
+   "share_of_in_use": 0.12609145518570306
+  },
+  "follower": {
+   "share_of_registrations": 0.28267075134249936,
+   "share_of_in_use": 0.2882682659129953
+  },
+  "late": {
+   "share_of_registrations": 0.5979619907325567,
+   "share_of_in_use": 0.5856402789013017
+  },
+  "incumbent": {
+   "share_of_registrations": 0.16710992787004939,
+   "share_of_in_use": 0.19014148595330563
+  }
+ },
+ "shares_episode_n": 141,
+ "shares_end_of_surge_stock": {
+  "pre": {
+   "share_of_registrations": 0.22591503383765013,
+   "share_of_in_use": 0.22968163185154275
+  },
+  "pioneer": {
+   "share_of_registrations": 0.22886770837024176,
+   "share_of_in_use": 0.23844473354770612
+  },
+  "follower": {
+   "share_of_registrations": 0.5452172577921081,
+   "share_of_in_use": 0.5318736346007511
+  },
+  "late": {
+   "share_of_registrations": 0.0,
+   "share_of_in_use": 0.0
+  },
+  "incumbent": {
+   "share_of_registrations": 0.17784549244705855,
+   "share_of_in_use": 0.19855666560298485
+  }
+ }
+}

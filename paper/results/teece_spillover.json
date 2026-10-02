@@ -1,0 +1,316 @@
+{
+ "classes": {
+  "001": {
+   "new_bigrams_2002_2015": 450351,
+   "kept": 12706
+  },
+  "002": {
+   "new_bigrams_2002_2015": 237283,
+   "kept": 4358
+  },
+  "003": {
+   "new_bigrams_2002_2015": 564093,
+   "kept": 27669
+  },
+  "004": {
+   "new_bigrams_2002_2015": 311649,
+   "kept": 13065
+  },
+  "005": {
+   "new_bigrams_2002_2015": 560593,
+   "kept": 26441
+  },
+  "006": {
+   "new_bigrams_2002_2015": 557668,
+   "kept": 15471
+  },
+  "007": {
+   "new_bigrams_2002_2015": 645225,
+   "kept": 20393
+  },
+  "008": {
+   "new_bigrams_2002_2015": 422850,
+   "kept": 13235
+  },
+  "009": {
+   "new_bigrams_2002_2015": 1643229,
+   "kept": 84000
+  },
+  "010": {
+   "new_bigrams_2002_2015": 504700,
+   "kept": 24002
+  },
+  "011": {
+   "new_bigrams_2002_2015": 632654,
+   "kept": 25574
+  },
+  "012": {
+   "new_bigrams_2002_2015": 523866,
+   "kept": 21094
+  },
+  "013": {
+   "new_bigrams_2002_2015": 134307,
+   "kept": 2345
+  },
+  "014": {
+   "new_bigrams_2002_2015": 454172,
+   "kept": 24066
+  },
+  "015": {
+   "new_bigrams_2002_2015": 135558,
+   "kept": 3907
+  },
+  "016": {
+   "new_bigrams_2002_2015": 940724,
+   "kept": 33579
+  },
+  "017": {
+   "new_bigrams_2002_2015": 354143,
+   "kept": 8539
+  },
+  "018": {
+   "new_bigrams_2002_2015": 544276,
+   "kept": 33279
+  },
+  "019": {
+   "new_bigrams_2002_2015": 352301,
+   "kept": 9205
+  },
+  "020": {
+   "new_bigrams_2002_2015": 576528,
+   "kept": 22026
+  },
+  "021": {
+   "new_bigrams_2002_2015": 587226,
+   "kept": 32341
+  },
+  "022": {
+   "new_bigrams_2002_2015": 243116,
+   "kept": 6680
+  },
+  "023": {
+   "new_bigrams_2002_2015": 108886,
+   "kept": 2032
+  },
+  "024": {
+   "new_bigrams_2002_2015": 424873,
+   "kept": 20097
+  },
+  "025": {
+   "new_bigrams_2002_2015": 778705,
+   "kept": 51925
+  },
+  "026": {
+   "new_bigrams_2002_2015": 270246,
+   "kept": 10731
+  },
+  "027": {
+   "new_bigrams_2002_2015": 240959,
+   "kept": 9803
+  },
+  "028": {
+   "new_bigrams_2002_2015": 604019,
+   "kept": 34245
+  },
+  "029": {
+   "new_bigrams_2002_2015": 362768,
+   "kept": 16929
+  },
+  "030": {
+   "new_bigrams_2002_2015": 422545,
+   "kept": 21179
+  },
+  "031": {
+   "new_bigrams_2002_2015": 243436,
+   "kept": 8357
+  },
+  "032": {
+   "new_bigrams_2002_2015": 323554,
+   "kept": 18318
+  },
+  "033": {
+   "new_bigrams_2002_2015": 204383,
+   "kept": 8728
+  },
+  "034": {
+   "new_bigrams_2002_2015": 176383,
+   "kept": 5441
+  },
+  "035": {
+   "new_bigrams_2002_2015": 1505726,
+   "kept": 98385
+  },
+  "036": {
+   "new_bigrams_2002_2015": 584267,
+   "kept": 32633
+  },
+  "037": {
+   "new_bigrams_2002_2015": 646167,
+   "kept": 26611
+  },
+  "038": {
+   "new_bigrams_2002_2015": 605037,
+   "kept": 34185
+  },
+  "039": {
+   "new_bigrams_2002_2015": 490730,
+   "kept": 23564
+  },
+  "040": {
+   "new_bigrams_2002_2015": 538201,
+   "kept": 22188
+  },
+  "041": {
+   "new_bigrams_2002_2015": 1194788,
+   "kept": 70531
+  },
+  "042": {
+   "new_bigrams_2002_2015": 1174892,
+   "kept": 61876
+  },
+  "043": {
+   "new_bigrams_2002_2015": 499414,
+   "kept": 60234
+  },
+  "044": {
+   "new_bigrams_2002_2015": 630536,
+   "kept": 76312
+  },
+  "045": {
+   "new_bigrams_2002_2015": 638659,
+   "kept": 78413
+  }
+ },
+ "n_bigrams": 1256692,
+ "t_range": [
+  2002,
+  2015
+ ],
+ "min_later_uses": 20,
+ "with_registered_first_filer": 894033,
+ "first_filers": {
+  "mean_n_first_filings": 1.8431222606653022,
+  "share_first_filings_never_in_frame": 0.3544844504254099,
+  "bigram_mean_first_filer_failure": 0.5205043779323203,
+  "bigram_mean_class_year_baseline": 0.5132362363647122,
+  "filing_weighted_first_filer_failure": 0.5140375623592549,
+  "filing_weighted_baseline": 0.5142457907561835
+ },
+ "single_introducer": {
+  "n_bigrams": 504761,
+  "share_introduced_by_failed_filing": 0.5183740423685665,
+  "class_year_failure_rate": 0.5122433008065278
+ },
+ "later_users": {
+  "all": {
+   "n_bigrams": 636131,
+   "later_registrations": 13470831,
+   "weighted_later_survival": 0.45901592856446644,
+   "weighted_baseline_survival": 0.467528386059067,
+   "bigram_mean_later_survival": 0.47007245898764943,
+   "bigram_mean_baseline_survival": 0.47495250213586104
+  },
+  "introducer_failed": {
+   "n_bigrams": 350230,
+   "later_registrations": 7618144,
+   "weighted_later_survival": 0.4463307598281156,
+   "weighted_baseline_survival": 0.4660971704401673,
+   "bigram_mean_later_survival": 0.45473802881515535,
+   "bigram_mean_baseline_survival": 0.4728733284240046
+  },
+  "introducer_survived": {
+   "n_bigrams": 285901,
+   "later_registrations": 5852687,
+   "weighted_later_survival": 0.4755275653729646,
+   "weighted_baseline_survival": 0.46939132639396397,
+   "bigram_mean_later_survival": 0.4888572043341595,
+   "bigram_mean_baseline_survival": 0.4774994992051387
+  }
+ },
+ "by_first_year": [
+  {
+   "first": 2002,
+   "n": 115781,
+   "first_fail": 0.5389904426147732,
+   "base_fail": 0.5031056533972798
+  },
+  {
+   "first": 2003,
+   "n": 79103,
+   "first_fail": 0.4485631427800183,
+   "base_fail": 0.4880543085662014
+  },
+  {
+   "first": 2004,
+   "n": 101686,
+   "first_fail": 0.5228011292736627,
+   "base_fail": 0.4972097397592536
+  },
+  {
+   "first": 2005,
+   "n": 104161,
+   "first_fail": 0.5226954315016826,
+   "base_fail": 0.5034662225752919
+  },
+  {
+   "first": 2006,
+   "n": 86745,
+   "first_fail": 0.5034759414014973,
+   "base_fail": 0.5173259819344599
+  },
+  {
+   "first": 2007,
+   "n": 80755,
+   "first_fail": 0.5019931277755901,
+   "base_fail": 0.525571085930267
+  },
+  {
+   "first": 2008,
+   "n": 66572,
+   "first_fail": 0.5263233436191727,
+   "base_fail": 0.5259436515539639
+  },
+  {
+   "first": 2009,
+   "n": 52093,
+   "first_fail": 0.5973893464396828,
+   "base_fail": 0.5188628051852905
+  },
+  {
+   "first": 2010,
+   "n": 43177,
+   "first_fail": 0.5230924068241833,
+   "base_fail": 0.5217260859482753
+  },
+  {
+   "first": 2011,
+   "n": 41742,
+   "first_fail": 0.47541945960966253,
+   "base_fail": 0.5279324084782571
+  },
+  {
+   "first": 2012,
+   "n": 36724,
+   "first_fail": 0.5790495397370439,
+   "base_fail": 0.5314790761116499
+  },
+  {
+   "first": 2013,
+   "n": 31694,
+   "first_fail": 0.5043401168015837,
+   "base_fail": 0.5352827878957471
+  },
+  {
+   "first": 2014,
+   "n": 27073,
+   "first_fail": 0.5643621143099219,
+   "base_fail": 0.5303364565880305
+  },
+  {
+   "first": 2015,
+   "n": 26727,
+   "first_fail": 0.5434493390953249,
+   "base_fail": 0.5323416199335907
+  }
+ ]
+}
