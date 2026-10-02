@@ -1,0 +1,221 @@
+{
+ "raters": [
+  "raterA_sonnet",
+  "raterB_opus",
+  "raterC_haiku"
+ ],
+ "n_segments": 53,
+ "agreement": {
+  "entry_threat": 0.6975171597998523,
+  "rivalry": 0.6900223125627818,
+  "substitutes": 0.7590271962380141,
+  "buyer_power": 0.4424611341049949,
+  "supplier_power": 0.5109310530021459,
+  "scale_economies": 0.5638084860162388,
+  "imitability": 0.6843090565870362,
+  "complementary_assets": 0.5790927030663741,
+  "incumbents_hold_assets": 0.5579781158647562,
+  "attractiveness": 0.5697143462356816,
+  "pioneer_advantage": 0.4815997343876099
+ },
+ "vs_outcomes": {
+  "entry_threat": {
+   "mean_rating_vs_survival": -0.4688509342642902,
+   "mean_rating_vs_lead_effect": -0.1407668548883564,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": -0.49513697528232364,
+     "lead_effect": -0.21091448639274368
+    },
+    "raterB_opus": {
+     "survival": -0.5631503993782936,
+     "lead_effect": -0.245004941185979
+    },
+    "raterC_haiku": {
+     "survival": -0.19995314526049157,
+     "lead_effect": 0.06294275695386937
+    }
+   }
+  },
+  "rivalry": {
+   "mean_rating_vs_survival": -0.6445184104870313,
+   "mean_rating_vs_lead_effect": 0.0017136944642995888,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": -0.5961470393733118,
+     "lead_effect": -0.07913059657359708
+    },
+    "raterB_opus": {
+     "survival": -0.570897855818866,
+     "lead_effect": 0.015645108877879673
+    },
+    "raterC_haiku": {
+     "survival": -0.5520817120151115,
+     "lead_effect": 0.08486073675298414
+    }
+   }
+  },
+  "substitutes": {
+   "mean_rating_vs_survival": -0.5676135899622792,
+   "mean_rating_vs_lead_effect": -0.03708306681914295,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": -0.5208252909490672,
+     "lead_effect": -0.07789956858038885
+    },
+    "raterB_opus": {
+     "survival": -0.5078744159747294,
+     "lead_effect": -0.10606022441997269
+    },
+    "raterC_haiku": {
+     "survival": -0.5282628790003765,
+     "lead_effect": 0.07963529567805547
+    }
+   }
+  },
+  "buyer_power": {
+   "mean_rating_vs_survival": -0.16834727612582465,
+   "mean_rating_vs_lead_effect": 0.39477054140647033,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.059547196562927535,
+     "lead_effect": 0.46399275334193035
+    },
+    "raterB_opus": {
+     "survival": 0.06158021768527498,
+     "lead_effect": 0.4455165710062241
+    },
+    "raterC_haiku": {
+     "survival": -0.45079578107588086,
+     "lead_effect": 0.10125939643426801
+    }
+   }
+  },
+  "supplier_power": {
+   "mean_rating_vs_survival": -0.20169804136435157,
+   "mean_rating_vs_lead_effect": -0.41397816393242154,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.06825754874917672,
+     "lead_effect": -0.14161879316281117
+    },
+    "raterB_opus": {
+     "survival": -0.18287083365394674,
+     "lead_effect": -0.43207645721516386
+    },
+    "raterC_haiku": {
+     "survival": -0.36231894720058927,
+     "lead_effect": -0.44780746656917436
+    }
+   }
+  },
+  "scale_economies": {
+   "mean_rating_vs_survival": -0.3242533917850638,
+   "mean_rating_vs_lead_effect": -0.2058222156817847,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": -0.42787818043185905,
+     "lead_effect": -0.21326183870070678
+    },
+    "raterB_opus": {
+     "survival": -0.2043689546735246,
+     "lead_effect": -0.2678297473593324
+    },
+    "raterC_haiku": {
+     "survival": -0.24495645234894176,
+     "lead_effect": -0.05324101941053698
+    }
+   }
+  },
+  "imitability": {
+   "mean_rating_vs_survival": -0.4017973253291091,
+   "mean_rating_vs_lead_effect": 0.023067985454891627,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": -0.35399779745535176,
+     "lead_effect": -0.12833115320566146
+    },
+    "raterB_opus": {
+     "survival": -0.46377706237814154,
+     "lead_effect": 0.021767889412454035
+    },
+    "raterC_haiku": {
+     "survival": -0.2981755096495211,
+     "lead_effect": 0.10433661642046037
+    }
+   }
+  },
+  "complementary_assets": {
+   "mean_rating_vs_survival": 0.055081843209772455,
+   "mean_rating_vs_lead_effect": 0.23478119554912125,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.10905574577446961,
+     "lead_effect": 0.23668346805962526
+    },
+    "raterB_opus": {
+     "survival": 0.16492007886450413,
+     "lead_effect": 0.40968846135024733
+    },
+    "raterC_haiku": {
+     "survival": -0.07995905436703625,
+     "lead_effect": 0.01855083257805508
+    }
+   }
+  },
+  "incumbents_hold_assets": {
+   "mean_rating_vs_survival": -0.025020197587425495,
+   "mean_rating_vs_lead_effect": 0.08093018372558505,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.08229321361423447,
+     "lead_effect": 0.22821908102111896
+    },
+    "raterB_opus": {
+     "survival": 0.09993846160203437,
+     "lead_effect": 0.2765899896684684
+    },
+    "raterC_haiku": {
+     "survival": -0.18030719719993196,
+     "lead_effect": -0.21033412270035498
+    }
+   }
+  },
+  "attractiveness": {
+   "mean_rating_vs_survival": 0.35114327894394404,
+   "mean_rating_vs_lead_effect": 0.01509250020388837,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.2708486827259771,
+     "lead_effect": 0.11724919706970983
+    },
+    "raterB_opus": {
+     "survival": 0.17807718550242735,
+     "lead_effect": 0.032650618312226674
+    },
+    "raterC_haiku": {
+     "survival": 0.4426986767096351,
+     "lead_effect": -0.10440588976171056
+    }
+   }
+  },
+  "pioneer_advantage": {
+   "mean_rating_vs_survival": -0.0137053731062607,
+   "mean_rating_vs_lead_effect": -0.23055157061570927,
+   "by_rater": {
+    "raterA_sonnet": {
+     "survival": 0.06659373674195708,
+     "lead_effect": -0.34371214419246615
+    },
+    "raterB_opus": {
+     "survival": -0.06968031485280779,
+     "lead_effect": -0.45872483506278294
+    },
+    "raterC_haiku": {
+     "survival": -0.03275987991820453,
+     "lead_effect": -0.00959892086593634
+    }
+   }
+  }
+ }
+}
