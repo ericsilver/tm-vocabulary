@@ -1,0 +1,579 @@
+% Paper B, Teece framing (October 2026): built on B_v2 (September 29), reorganized around who profits.
+\input{../../v3_rp/preamble}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{placeins}
+\graphicspath{{../../}}
+\makeatletter\def\input@path{{./}{../../}{../../v3_rp/}}\makeatother
+\input{front}
+
+\section{Registrations, positions and factors}\label{sec:data}
+
+\subsection{Registrations and outcomes}
+
+The unit is the registration: 3,104,534 US trademark registrations issued
+2002--2018, each counted once in its lowest Nice class (the international
+classification's 45 classes of goods and services). The main outcome is
+survival of the five-year proof: a registration passes unless it was
+cancelled for want of the declaration between 4.0 and 8.5 years after
+registration. 47.7\% of registrations pass. The second outcome is
+renewal at year ten among registrations that passed the proof, observed
+for the 871,819 registrations of 2002--2013 that reached a terminal
+status; 59.9\% were renewed. For the capital-markets outcomes, the unit
+is the owner's first registered filing, linked by name to private-offering
+notices and to listings \citep{SilverCorpus2026}.
+
+\subsection{Two positions of the language}
+
+A topic model reduces every goods-and-services description to a mix of
+fifty themes. For each filing, the mix is compared by Kullback--Leibler
+divergence with the mix of its own class's filings in the five years
+before its filing date and in the five years after. Atypicality is the
+average of the two divergences: how far the filing's language sits from
+its industry's, looking both ways. Lead is their difference: positive
+when the filing is closer to what its class filed afterwards than to
+what it had filed before, so that the industry moved toward it. Within a
+class and year the two are nearly uncorrelated ($r = -0.10$). Both are
+used here as percentiles within Nice class and registration year, so an
+effect is the difference between the top and the bottom of that
+distribution.
+
+The theme model is fitted once on all classes together. Under such a
+model a filing that carries a theme common in other classes but rare in
+its own registers as atypical, and a model fitted within each class does
+not register it; the survival advantage of atypicality is largely a
+reading of such imported themes \citep{SilverCorpus2026}. That is the
+content of atypicality in this paper: language that brings to a class
+what other industries describe and this one rarely does. It is close to
+what the blue-ocean literature calls reconstructing market boundaries by
+looking across industries \citep{KimMauborgne2004}.
+
+\subsection{Emergent themes and forced vocabularies}\label{sec:themes}
+
+Two kinds of content measure enter the analysis, and they answer
+different questions. \emph{Emergent} measures come from the fifty themes
+the topic model found without guidance: atypicality and lead
+themselves; each filing's primary theme, the theme its description
+draws on most; whether that theme was imported from another class;
+how volatile the theme's share of its class has been; how much of its
+growth came from first-time filers; the turnover of the class's whole
+theme mix; and the geographic groups of Section~\ref{sec:geo}, which
+are the filers of one primary theme in one class. Emergent themes cover
+every filing and impose no prior view of which products matter, but they
+are broad; a theme covers many products.
+
+\emph{Forced} measures are curated lists of terms matched in the
+description (Appendix~\ref{app:vocab}): the vocabularies of
+general-purpose technologies (internet, mobile apps, cloud, social
+media, artificial intelligence, blockchain), of named inventions (3D
+printing, drones, virtual reality, electric vehicles, gene therapy,
+nanotechnology), of emergent consumer categories (e-cigarettes, energy
+drinks, kombucha, cold brew, plant-based milk, hard seltzer, CBD), and
+of kinds of business (site-based, contract or subscription, platform).
+Forced vocabularies name products a reader recognizes and can be dated:
+a vocabulary \emph{arrives} in a class in the first year at least five
+of the class's filings use it, which is what the pioneer-and-follower
+comparison of Section~\ref{sec:blue} requires. They are chosen with
+hindsight, because these products became important, so they describe
+the fate of entrants into markets that turned out to matter, not a
+random draw of new products.
+
+\subsection{Factors and estimation}
+
+Table~\ref{tab:factors} lists the twenty-four factors, their source and
+their frequency. Every model is a linear probability model of passing
+the proof with class $\times$ registration-year fixed effects, so each
+comparison is within an industry and year; the controls are log
+description length, log owner filing count and foreign-basis flags; and
+standard errors are clustered by owner, because an owner files many
+marks and abandons them together. Each factor enters three times: as a
+main effect, and interacted with atypicality and with lead, so that it
+can change what either position is worth. Factors are centred, so the
+atypicality and lead effects are those of a registration of average
+composition. Significance stars use Holm-adjusted $p$-values within each
+panel of each column.
+
+\input{tab_factors}
+
+\section{Unusual language pays and early language costs, at every stage
+after registration}\label{sec:headline}
+
+\emph{The two positions move survival in opposite directions}
+(Figure~\ref{fig:headline}). Survival at the proof rises from 45.4\% in
+the most typical tenth of a class and year to 50.9\% in the most unusual,
+and falls from 48.7\% in the most lagging tenth to 45.6\% in the most
+leading. In the regression with class-by-year fixed effects and
+controls (Table~\ref{tab:reg}, column 1), the most unusual filing passes
+the proof 5.4 points more often than the most typical, and the most
+leading 2.2 points less often than the most lagging. The two effects do
+not depend on each other: the interaction is $-0.4$ points and not
+distinguishable from zero.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_b_headline.pdf}
+\caption{Share of registrations passing the five-year proof by tenth of
+atypicality (left) and of lead (right), both measured within Nice class
+and registration year. Survival is adjusted for class $\times$
+registration-year fixed effects; bands are 95\% intervals.
+3.10 million registrations, 2002--2018.}
+\label{fig:headline}
+\end{figure}
+
+\emph{Both effects persist at the ten-year renewal.} Among registrations
+that passed the proof, the most unusual is renewed 4.3 points more often
+than the most typical and the most leading 0.9 points less often than
+the most lagging. The advantage of unusual language keeps most of its
+size; the cost of early language keeps less than half.
+
+\emph{Unusual language is harder to register and early language easier.}
+Among first-time filers, one standard deviation of atypicality lowers the
+chance of registration by 1.0 point, and one standard deviation of lead
+raises it by 0.5 (Table~\ref{tab:stages}). Examination screens against
+unusual descriptions and passes descriptions that match where the class
+is going; the market then reverses both.
+
+\begin{table}[htbp]\centering\small
+\caption{The two positions at each stage (first-time filers)}\label{tab:stages}
+\begin{tabular}{lrr}
+\toprule
+Stage (points per standard deviation) & Atypicality & Lead \\
+\midrule
+Registered, of all filed & $-0.98$ & $+0.47$ \\
+Passed the five-year proof, of registered & $+1.31$ & $-0.97$ \\
+Renewed at year ten, of those that passed & $+1.38$ & $-0.43$ \\
+Filed a private-offering notice, of registered & $-0.17$ & $-0.32$ \\
+Listed after the offering, of those that filed one & $+0.87$ & $-0.53$ \\
+\bottomrule
+\end{tabular}
+\par\footnotesize One row per owner (the owner's first scored filing);
+class $\times$ first-filing-year fixed effects; log description length
+held. All coefficients differ from zero at $p<0.001$.
+\end{table}
+
+\emph{Capital markets agree with the proof.} Owners whose first
+registration led are less likely to file a private-offering notice
+($-0.32$ points per SD, on a base of 2.5\%) and, among those that did,
+less likely to list ($-0.53$ on a base of 3.5\%). Unusual first
+registrations are slightly less likely to raise private money and more
+likely to list once they have.
+
+\section{The magnitude of each factor}\label{sec:magnitudes}
+
+\emph{Counsel is the largest single factor, larger than either position.}
+Figure~\ref{fig:magnitudes} places every factor on one scale, each
+estimated alone with atypicality and lead. Registrations with an
+attorney of record pass the proof 18.7 points more often than those
+without. The next largest are the owner's filing history (owners with
+25 or more earlier marks pass 12.5 points less often, because large
+portfolios let more marks lapse; first-time filers 5.1 less often), the
+filing basis (intent-to-use filings 6.0 less often), and what the filing
+describes: emergent consumer categories pass 13.9 points less often,
+new-invention vocabulary 7.8, platform businesses 8.9, and
+general-purpose-technology vocabulary 5.4. Site-based businesses pass
+2.0 points more often. Owners who patent pass 3.0 points less often; as
+with large portfolios, patenting marks a larger firm with more marks to
+let go.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_b_magnitudes.pdf}
+\caption{Each factor estimated alone, with atypicality, lead and their
+interaction and the controls. Left: difference in the share passing the
+five-year proof between registrations with and without the factor
+(continuous factors: per standard deviation). Centre and right: how much
+the factor adds to or subtracts from the atypicality effect and the lead
+effect (both measured as top minus bottom of the class-and-year
+distribution). Lines are 95\% intervals; stars are Holm-adjusted within
+each panel ($^{*}<0.05$, $^{**}<0.01$, $^{***}<0.001$). Colour marks
+where the factor comes from (Table~\ref{tab:factors}).}
+\label{fig:magnitudes}
+\end{figure}
+
+\emph{Half of the raw cost of leading is composition.} Adding the
+factors lowers the cost of leading from 2.2 points to 1.2
+(Table~\ref{tab:reg}, columns 1 and 3): leading filings are more often
+self-filed, more often platforms and more often in general-purpose
+technology vocabulary, and each of these survives less. The advantage of
+atypicality changes less, from 5.4 to 4.5 points. Seventeen of the
+twenty-four factors have at least one term that survives the adjustment
+for multiple testing (column 2); dropping the other seven moves the
+atypicality and lead effects by about a tenth of a point.
+
+\emph{Where a factor changes the value of a position, it is more often
+the value of atypicality than the cost of lead.} Eight factors change
+the atypicality effect after adjustment; four change the lead effect
+(Table~\ref{tab:reg}, panels B and C). Sections~\ref{sec:blue}
+and~\ref{sec:protect} take them in turn.
+
+\clearpage
+\input{tab_regression}
+
+\section{The value of unusual offerings, and the imitation that erodes it}\label{sec:blue}
+
+\emph{A blue-ocean effect exists, and it lasts.} With every factor held,
+the most unusual filing in its class and year passes the proof 4.5
+points more often than the most typical, and among those that pass it is
+renewed 4.3 points more often. Because atypicality under a single theme
+model registers themes imported from other classes
+(Section~\ref{sec:data}), the effect belongs to filings that describe, in
+their class, what other industries describe. Flagging imported primary
+themes directly adds nothing once atypicality is held ($+1.0$ points,
+not significant): the advantage runs through how unusual the whole
+description is, not through a single borrowed theme.
+
+\emph{Growth in the class's filing volume erodes it.} Each standard
+deviation of five-year growth in the class's filings reduces the
+atypicality advantage by 1.5 points: it is worth 6.0 points one SD below
+the mean and 3.0 one SD above. Figure~\ref{fig:blue}b shows where the
+loss falls. In the fastest-growing third of class-years, survival is
+nearly flat from the 10th to the 80th percentile of atypicality, about
+one point above the most typical tenth, and rises only in the most
+unusual fifth. In the slowest-growing third it rises across the whole
+range.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_b_blueocean.pdf}
+\caption{Share passing the five-year proof by tenth of atypicality, for
+(a) the most lagging and most leading third of filings in their class
+and year; (b) class-years in the slowest- and fastest-growing third of
+filing volume (five years after against five years before); (c) themes
+in the most dispersed and most concentrated third of geographic
+co-location (Section~\ref{sec:geo}). Survival adjusted for class
+$\times$ registration-year fixed effects; bands are 95\% intervals.}
+\label{fig:blue}
+\end{figure}
+
+\emph{Geographic concentration erodes it more.} Each standard deviation
+of a theme's co-location reduces the atypicality advantage by 1.7
+points: from 6.2 points one SD below the mean to 2.8 one SD above. In
+the raw comparison (Figure~\ref{fig:blue}c), unusual filings in the most
+dispersed third of themes pass the proof 6.9 points more often than
+typical ones; in the most concentrated third, 3.9. Section~\ref{sec:geo}
+returns to this.
+
+\emph{A filing's own lead does not change the advantage detectably.} The
+most lagging third of filings gains 6.4 points from the most typical to
+the most unusual tenth and the most leading third 4.7
+(Figure~\ref{fig:blue}a), but the interaction in the regression is
+$-0.8$ points and not distinguishable from zero, at the proof or at
+renewal ($-1.4$, s.e.\ 0.9). What erodes the advantage is growth in the
+class and concentration of the theme, not the filing's own position
+ahead of its class.
+
+\emph{First-time filers keep less of it.} For an owner's first filing the
+atypicality advantage is 3.4 points; for later filings, 5.0.
+
+\emph{Pioneers of a named product fail, and so do its early followers.}
+The forced vocabularies can be dated. Filings using a vocabulary in its
+arrival year or the year after pass the proof 12.8 points less often
+than the other filings of their class and year; filings two to five
+years after arrival, 11.8 points less often; later filings, 6.0 points
+less often. The first two do not differ ($t = 0.5$). Pioneers fail, as
+\citet{GolderTellis1993} found in fifty product histories; the early
+followers here fail at the same rate.
+
+\emph{Leading costs most where markets grow and technology turns over
+together.} Dividing class-years at the median of theme-mix turnover and
+of filing-volume growth, and holding a filing-year trend, leading costs
+4.7 points where both change fast, 2.7 where only volume grows, 1.0 in
+calm class-years and 0.8 where only the theme mix turns over. The
+pace-of-change account predicts the most durable first-mover advantage
+where the market grows and technology is stable
+\citep{SuarezLanzolla2007}; the record puts a larger cost there than in
+calm class-years.
+
+\section{What lets the creator keep the value: protection and
+complementary assets}\label{sec:protect}
+
+\emph{Patents double the advantage of unusual language.} For owners who
+patent, the most unusual filing passes the proof 7.6 points more often
+than the most typical; for owners who do not, 3.7 (Table~\ref{tab:reg},
+panel B, $+3.9$ points; Figure~\ref{fig:protect}a). Patents do not change
+the cost of leading ($+0.3$, not significant). Owners who can protect the
+technology behind an unusual offering keep more of what it earns; the
+protection does not extend to being early.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_b_protect.pdf}
+\caption{Share passing the five-year proof by tenth of atypicality (a)
+and of lead (b), for registrations with and without each factor, and
+(bottom right) by registration period. Survival adjusted for class
+$\times$ registration-year fixed effects; bands are 95\% intervals.}
+\label{fig:protect}
+\end{figure}
+
+\emph{Site-based businesses, general-purpose technologies and owners in
+China also keep more of it.} The atypicality advantage is 7.0 points for
+site-based businesses (4.2 for others), 6.3 for filings in
+general-purpose-technology vocabulary (4.2), 6.0 for themes with a
+geographic hub (3.9), and 10.2 for owners in China (4.3). For owners in
+China the typical filing fares badly and the unusual one does not.
+
+\emph{Platform businesses do not keep it.} For platform and network
+offerings the atypicality advantage is 0.8 points, against 4.6 for other
+filings; the difference ($-3.8$) does not survive the adjustment for
+multiple testing, but it is the largest negative change in panel B.
+
+\emph{Counsel confines the cost of leading to the most leading filings.}
+Among counsel-represented registrations, survival is flat across the
+first nine tenths of lead (52.1--52.6\%) and 1.7 points lower in the
+most leading tenth; among self-filed registrations it falls steadily,
+from 34.0\% in the most lagging tenth to 29.3\% in the most leading
+(Figure~\ref{fig:protect}b). In the linear specification of
+Table~\ref{tab:reg} the counsel-represented slope is $-0.1$ points,
+because a drop confined to one tenth barely moves a slope; the
+quintile contrast with the same controls is 1.15 points with counsel and
+1.80 without \citep{SilverCorpus2026}. Counsel does not change the value
+of unusual language ($+0.3$). At renewal, counsel still halves the cost of
+leading ($+2.2$ points).
+
+\emph{Platforms and general-purpose technologies pay more for leading.}
+Leading costs platform businesses 6.0 points (1.1 for other filings) and
+filings in general-purpose-technology vocabulary 3.0 (0.9). The platform
+penalty persists at renewal ($-8.5$ against other filings); the extra
+cost for general-purpose technology is paid at the proof and not at
+renewal ($-0.6$, not significant).
+
+\emph{The cost of leading has grown over time.} For registrations of
+2002--07 the most leading filing passed the proof as often as the most
+lagging ($-0.1$ points); for 2008--12 and 2013--18, 2.2 and 2.0 points less
+often (Figure~\ref{fig:protect}b, right). Once a filing-year trend is
+held, booms (1998--2000, 2005--07) and busts (2001--02, 2008--09) do not
+differ from other years.
+
+\input{collect}
+
+\section{Geographic clustering}\label{sec:geo}
+
+\emph{A measure of clustering needs to allow several hubs and to net out
+where firms are anyway.} Distance to the nearest neighbour or to a
+single centre cannot recognize an industry split between the Bay Area
+and New York, and every industry's filers concentrate where people and
+firms are. We place each US applicant at the Census centroid of the ZIP
+code on its application (re-parsed from the annual case-file archives;
+99.8\% of US owners placed, 92\% at their own ZIP code) and measure a
+group of $N$ filers by the average, over all pairs, of a distance kernel:
+\[
+C = \frac{1}{N(N-1)}\sum_{i \neq j} k(d_{ij}), \qquad
+k(d) = \max\!\left(0,\; 1 - \frac{d}{200\text{ miles}}\right).
+\]
+Two filers in the same place score 1, two 100 miles apart 0.5, two more
+than 200 miles apart 0; $C$ is the chance that two filers drawn at random
+are neighbours, weighted by how near. Any number of hubs contributes: a
+group split evenly between two distant cities scores half of what it
+would in one. The same index for all filers in the same classes and
+years gives the baseline $B$, and co-location is
+$L = (C - B)/(1 - B)$: zero for a group placed like its classes, one when
+every filer is in one place. This is the distance-based comparison with
+a counterfactual of \citet{DurantonOverman2005}, summarized at one
+bandwidth. A \emph{hub} is a place near which (kernel-weighted) at least
+10\% of the group's filers sit, at least 1.2 times the share of all
+filers there; hubs are taken in order of their share, each excluding
+places within 200 miles of the last.
+
+\emph{The measure recognizes industries with known geography}
+(Figure~\ref{fig:geo}, Table~\ref{tab:geo}). Semiconductor filers of
+1995--2005 have co-location 0.20, with 48\% of them near Santa Clara
+against 12\% of all filers in their class. Social-networking filers of
+2004--12 have three hubs, New York, San Francisco and Los Angeles.
+Biotechnology filers cluster near Philadelphia, the Bay Area and New
+Haven; casino filers near Las Vegas; country-music filers near
+Nashville. Broad vocabularies used across the economy, such as internet
+language in 1998--2001, show almost no co-location ($L = 0.01$).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_geo_map.pdf}
+\caption{US filers whose descriptions use each vocabulary (blue), against
+a sample of all filers in the same classes and years (grey). Circles are
+the detected hubs, 200 miles in radius; the key gives the share of the
+group and of all filers near each.}
+\label{fig:geo}
+\end{figure}
+
+\input{tab_geo}
+
+\emph{Clustering lowers survival and erodes the advantage of unusual
+language; it does not change the cost of leading.} For the regressions,
+each registration is assigned the co-location of its group: the class's
+US filers of the same primary theme within two years of its filing. Each
+standard deviation of co-location lowers survival by 1.3 points and the
+atypicality advantage by 1.7 points; it changes the lead effect by
+$-0.3$, not distinguishable from zero. A group with an identifiable hub
+keeps more of the atypicality advantage ($+2.1$ points), and a filer
+located in a hub fares no differently from one outside it, in survival
+($+0.1$) or in either effect. Concentration in place reduces what an
+unusual description is worth; being in the hub itself neither helps nor
+hurts.
+
+\section{Industries: where the cost of leading falls and whether it
+lasts}\label{sec:industries}
+
+\emph{Industries differ in a stable way.} Estimated class by class, the
+lead effect at the proof and the lead effect at renewal correlate at
+0.67 across classes, and the atypicality effects at 0.74
+(Figure~\ref{fig:industries}). In twelve classes leading costs at least
+2 points at both tests: most in tobacco and vaping (11.3 points at the
+proof, 7.9 at renewal) and technology and science services (9.6 and
+7.9), then medical devices, meat and dairy, lighting and heating, hand
+tools and fabrics. In five it costs only at the proof: electronics and
+software, advertising and business services, hotels and restaurants,
+chemicals and clothing. In four it costs only at renewal: education and
+entertainment, housewares, jewelry and fuels. Leading is rewarded at
+both tests in construction and repair (4.0 and 4.5), transport and
+storage, toys and sporting goods, firearms and treatment of materials,
+and at the proof only in beer and soft drinks (9.6), paints and legal
+services. Appendix~\ref{app:classes} lists every class.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig_b_industries.pdf}
+\caption{The lead effect by Nice class at the five-year proof and at
+renewal among registrations that passed it (top minus bottom of the
+class-and-year distribution; class $\times$ registration-year fixed
+effects and controls). Orange: leading costs at least 2 points at both
+tests; blue: leading pays at least 1.5 points at both. Point size is
+proportional to registrations.}
+\label{fig:industries}
+\end{figure}
+
+\emph{Tobacco's penalty is a change of product.} The class-34 penalty is
+confined to registrations of 2013--18 ($-23.4$ points; $+4.1$ and $+0.5$
+in 2002--07 and 2008--12), when e-cigarette and vaping language went from
+none of the class's registrations to 46\%. Vaping registrations pass the
+proof 15.8 points less often than the class's others, and within each
+product --- vaping, cigars, cigarettes, hookah --- leading is not
+penalized. In class 34 leading language meant vaping, and vaping marks
+were abandoned.
+
+\emph{Beer's reward belongs to the craft-beer decade.} In class 32 the
+rising product was beer, which went from a third of the class's
+registrations in 2002--07 to two-thirds in 2013--18. Beer registrations
+pass the proof 7.5 points more often than the class's others, and leading
+beer filings 10.1 points more often than lagging ones; at renewal
+leading neither helps nor hurts. Across the classes where leading pays,
+survival is highest near the 65th percentile of lead and lower at both
+ends: the cost there falls on lagging filings, and the most leading tenth
+does not gain.
+
+\emph{Where leading pays, unusual language does not.} In the classes
+where leading costs least, the most unusual filings pass the proof 2.9
+points less often than the most typical; where it costs most,
+atypicality has no effect ($+0.7$); in the large middle it is worth 5.8
+points. Unusual language pays most in electronics and software ($+16$
+points), advertising and business services ($+13$), telecommunications
+($+10$) and pharmaceuticals ($+11$), and costs in machinery ($-11$),
+legal and personal services ($-7$), chemicals and paints ($-5$).
+
+\section{Discussion: who profits}\label{sec:discussion}
+
+A new kind of offering creates value in this record, and the value goes
+to its creator only under the conditions the appropriability account
+names. Offerings that bring to an industry what other industries
+describe are still in use more often, and the advantage lasts to
+renewal; it is kept where it can be protected by patents and lost where
+entry grows and rivals concentrate. Arriving where an industry is about
+to go is a different matter: early entrants lose value on average, the
+loss falls on those without the complementary assets that counsel and
+an established portfolio stand for, and neither patents nor network
+businesses protect against it.
+
+% PENDING: who collects (pioneers, followers, incumbents, acquirers);
+% product or firm; industry structure and expert ratings.
+
+\subsection*{Comparing the forces on one scale}
+
+The literatures on entry order are usually read as a contest between
+claims. Measured together on one outcome, the forces they name are all
+present, and their sizes differ by an order of magnitude. Retaining
+counsel is worth 18.7 points of survival at the five-year proof. Being
+unusual for one's industry is worth 4.5 at the proof and 4.3 at
+renewal. Being early costs 1.2 for the average registration, and 5 to 11
+points for self-filed registrations, platform businesses and a dozen
+industries.
+
+\emph{The blue-ocean effect is the larger of the two positions, and it is
+contingent on competition.} Language that brings to a class what other
+industries describe survives more often, as the practitioner literature
+holds \citep{KimMauborgne2004}. The advantage is halved where the
+class's filing volume grows by a standard deviation and where the filers
+of the same theme concentrate in place, and in fast-growing class-years
+only the most unusual filings keep it. Uncontested space pays while it
+stays uncontested; growth in entry and concentration of rivals are what
+the record shows removing the advantage.
+
+\emph{Protection is specific.} Patents double the advantage of unusual
+language and do nothing for the cost of being early, consistent with the
+appropriability account, in which protection covers a technology rather
+than a position in time \citep{Teece1986}. Counsel
+confines the cost of being early to the most leading filings and does nothing for the value of being
+unusual. Platform businesses keep neither: they pay the most for leading
+and keep the least of the atypicality advantage, the reverse of the
+network-effects argument for first movers \citep{LiebermanMontgomery1988}.
+
+\emph{Clusters cut both ways.} Concentration of a theme's filers erodes
+the value of unusual language, while a theme with an identifiable hub
+keeps more of it. The record cannot separate imitation from shared
+suppliers, labour or demand; it can say that the two measures move the
+advantage in opposite directions and by comparable amounts.
+
+\emph{What the measures cannot say.} Lead and atypicality measure the
+position of a filing's language relative to its industry's, not the
+novelty of a product, and a mark can lead because others imitated it,
+because all responded to the same change, or by coincidence. The
+five-year proof records whether goods were still sold under the mark,
+not profits. The forced vocabularies were chosen with hindsight. The
+co-location measure uses the applicant's address, which for a large firm
+may be a headquarters rather than where the product is made. The
+estimates are associations within industry and year, with the controls
+stated; none identifies a causal effect of choosing unusual or early
+language.
+
+\appendix
+\section{Every class}\label{app:classes}
+
+Lead and atypicality effects by Nice class (percentage points, top minus
+bottom of the class-and-year distribution; standard errors for lead in
+parentheses), at the five-year proof (registrations 2002--18) and at
+renewal among those that passed (2002--13). A class is placed in a lead
+pattern when its effect at a test is at least 2 points (1.5 for
+persistent rewards).
+
+\input{tab_classes}
+
+\section{Forced vocabularies}\label{app:vocab}
+
+Each vocabulary is a list of terms matched, case-insensitively, anywhere
+in the goods-and-services description.
+\begin{description}\small
+\item[General-purpose technologies.] Internet: internet, online,
+website, web page, world wide web, e-commerce, electronic commerce.
+Mobile apps: mobile app(lication), smartphone app, downloadable mobile.
+Cloud: cloud computing, cloud-based, software as a service, SaaS,
+platform as a service. Social media: social media, social network.
+Artificial intelligence: artificial intelligence, machine learning, deep
+learning, neural network, natural language processing, computer vision,
+chatbot. Blockchain: blockchain, cryptocurrency, bitcoin, non-fungible
+token, distributed ledger, virtual currency.
+\item[Inventions.] 3D printing and additive manufacturing; drones and
+unmanned aerial vehicles; virtual and augmented reality; electric
+vehicles and EV charging; gene therapy, gene editing, CRISPR;
+nanotechnology, nanoparticles, nanomaterials.
+\item[Emergent consumer categories.] Electronic cigarettes and vaping;
+energy drinks; kombucha; cold brew; plant-based, almond, oat and
+non-dairy milk; hard and alcoholic seltzer; cannabidiol, CBD,
+hemp-derived.
+\item[Kinds of business.] Site-based: restaurant, hotel, motel, retail
+store, store services, clinic, salon, spa, fitness center or club, gym,
+bar services, cafe, car wash, day or child care, dental, veterinary,
+coffee shop, bakery services. Contract or subscription: subscription,
+membership, account(s), insurance, banking, telecommunication, leasing,
+financing. Platform: platform(s), marketplace, social network, online
+community, peer-to-peer, connecting buyers, users or people.
+\end{description}
+
+\input{bib_main}
+\end{document}
