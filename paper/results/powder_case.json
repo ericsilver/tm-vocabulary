@@ -1,0 +1,802 @@
+{
+ "groups": {
+  "powder": [
+   {
+    "period": "1985-1994",
+    "filings": 49,
+    "owners": 37,
+    "top5_share": 0.32653061224489793,
+    "marks_per_owner": 1.3243243243243243,
+    "first_time_owner_share": 0.32653061224489793,
+    "foreign_share": 0.30612244897959184,
+    "counsel_share": 0.9795918367346939,
+    "b2b_share": 0.40816326530612246,
+    "in_use_at_5y": null,
+    "n_registered_2002_2018": 0,
+    "top_owners": [
+     {
+      "owner": "MORTON INTERNATIONAL",
+      "filings": 6
+     },
+     {
+      "owner": "ELF ATOCHEM NORTH AMERICA",
+      "filings": 3
+     },
+     {
+      "owner": "CYTEC TECHNOLOGY",
+      "filings": 3
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL",
+      "filings": 2
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 2
+     },
+     {
+      "owner": "EASTMAN CHEMICAL",
+      "filings": 2
+     }
+    ]
+   },
+   {
+    "period": "1995-2004",
+    "filings": 196,
+    "owners": 112,
+    "top5_share": 0.1989795918367347,
+    "marks_per_owner": 1.75,
+    "first_time_owner_share": 0.3673469387755102,
+    "foreign_share": 0.3622448979591837,
+    "counsel_share": 0.8928571428571429,
+    "b2b_share": 0.32653061224489793,
+    "in_use_at_5y": 0.627906976744186,
+    "n_registered_2002_2018": 86,
+    "top_owners": [
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL",
+      "filings": 11
+     },
+     {
+      "owner": "H B FULLER",
+      "filings": 8
+     },
+     {
+      "owner": "MORTON INTERNATIONAL",
+      "filings": 8
+     },
+     {
+      "owner": "ROHM AND HAAS",
+      "filings": 6
+     },
+     {
+      "owner": "ORICA AUSTRALIA",
+      "filings": 6
+     },
+     {
+      "owner": "AKTIEBOLAGET WILH BECKER",
+      "filings": 5
+     }
+    ]
+   },
+   {
+    "period": "2005-2014",
+    "filings": 222,
+    "owners": 131,
+    "top5_share": 0.13513513513513514,
+    "marks_per_owner": 1.6946564885496183,
+    "first_time_owner_share": 0.47297297297297297,
+    "foreign_share": 0.5540540540540541,
+    "counsel_share": 0.8063063063063063,
+    "b2b_share": 0.3783783783783784,
+    "in_use_at_5y": 0.5705882352941176,
+    "n_registered_2002_2018": 170,
+    "top_owners": [
+     {
+      "owner": "DVUV",
+      "filings": 7
+     },
+     {
+      "owner": "VOIGT SCHWEITZER KG",
+      "filings": 6
+     },
+     {
+      "owner": "PROTECH CHEMICALS PROTECH CHIMIE LTEE",
+      "filings": 6
+     },
+     {
+      "owner": "MASON COLOR WORKS",
+      "filings": 6
+     },
+     {
+      "owner": "DULUXGROUP AUSTRALIA",
+      "filings": 5
+     },
+     {
+      "owner": "AKZO NOBEL N V",
+      "filings": 5
+     }
+    ]
+   },
+   {
+    "period": "2015-2024",
+    "filings": 438,
+    "owners": 267,
+    "top5_share": 0.0867579908675799,
+    "marks_per_owner": 1.6404494382022472,
+    "first_time_owner_share": 0.5251141552511416,
+    "foreign_share": 0.5730593607305936,
+    "counsel_share": 0.8812785388127854,
+    "b2b_share": 0.3858447488584475,
+    "in_use_at_5y": 0.4920634920634921,
+    "n_registered_2002_2018": 63,
+    "top_owners": [
+     {
+      "owner": "HEMPEL A S",
+      "filings": 11
+     },
+     {
+      "owner": "KEYLAND POLYMER MATERIAL SCIENCES",
+      "filings": 9
+     },
+     {
+      "owner": "MOMENTUM MANUFACTURING GROUP",
+      "filings": 6
+     },
+     {
+      "owner": "CAS ALLIANCE",
+      "filings": 6
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 6
+     },
+     {
+      "owner": "COLLINI HOLDING",
+      "filings": 6
+     }
+    ]
+   }
+  ],
+  "architectural": [
+   {
+    "period": "1985-1994",
+    "filings": 744,
+    "owners": 360,
+    "top5_share": 0.14650537634408603,
+    "marks_per_owner": 2.066666666666667,
+    "first_time_owner_share": 0.2728494623655914,
+    "foreign_share": 0.24193548387096775,
+    "counsel_share": 0.9408602150537635,
+    "b2b_share": 0.12231182795698925,
+    "in_use_at_5y": 1.0,
+    "n_registered_2002_2018": 1,
+    "top_owners": [
+     {
+      "owner": "SWIMC",
+      "filings": 43
+     },
+     {
+      "owner": "PPG ARCHITECTURAL FINISHES",
+      "filings": 18
+     },
+     {
+      "owner": "DUNN EDWARDS",
+      "filings": 18
+     },
+     {
+      "owner": "IMPERIAL CHEMICAL INDUSTRIES",
+      "filings": 17
+     },
+     {
+      "owner": "DISTRIBUTION AMERICA",
+      "filings": 13
+     },
+     {
+      "owner": "VALSPAR THE",
+      "filings": 13
+     }
+    ]
+   },
+   {
+    "period": "1995-2004",
+    "filings": 1669,
+    "owners": 709,
+    "top5_share": 0.14140203714799282,
+    "marks_per_owner": 2.3540197461212977,
+    "first_time_owner_share": 0.3391252246854404,
+    "foreign_share": 0.28460155781905333,
+    "counsel_share": 0.9239065308568005,
+    "b2b_share": 0.19892150988615936,
+    "in_use_at_5y": 0.5634028892455858,
+    "n_registered_2002_2018": 623,
+    "top_owners": [
+     {
+      "owner": "SWIMC",
+      "filings": 72
+     },
+     {
+      "owner": "DUNN EDWARDS",
+      "filings": 45
+     },
+     {
+      "owner": "SHERWIN WILLIAMS THE",
+      "filings": 44
+     },
+     {
+      "owner": "PPG ARCHITECTURAL FINISHES",
+      "filings": 39
+     },
+     {
+      "owner": "VALSPAR THE",
+      "filings": 36
+     },
+     {
+      "owner": "BEHR PROCESS",
+      "filings": 33
+     }
+    ]
+   },
+   {
+    "period": "2005-2014",
+    "filings": 1071,
+    "owners": 474,
+    "top5_share": 0.16900093370681607,
+    "marks_per_owner": 2.259493670886076,
+    "first_time_owner_share": 0.3146591970121382,
+    "foreign_share": 0.24929971988795518,
+    "counsel_share": 0.8281979458450047,
+    "b2b_share": 0.23249299719887956,
+    "in_use_at_5y": 0.6020710059171598,
+    "n_registered_2002_2018": 676,
+    "top_owners": [
+     {
+      "owner": "COLUMBIA INSURANCE",
+      "filings": 55
+     },
+     {
+      "owner": "BEHR PROCESS",
+      "filings": 39
+     },
+     {
+      "owner": "KELLY MOORE PAINT",
+      "filings": 31
+     },
+     {
+      "owner": "MASTERCHEM INDUSTRIES",
+      "filings": 30
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 26
+     },
+     {
+      "owner": "FARROW BALL HOLDINGS",
+      "filings": 26
+     }
+    ]
+   },
+   {
+    "period": "2015-2024",
+    "filings": 1238,
+    "owners": 701,
+    "top5_share": 0.0888529886914378,
+    "marks_per_owner": 1.7660485021398002,
+    "first_time_owner_share": 0.4604200323101777,
+    "foreign_share": 0.44022617124394187,
+    "counsel_share": 0.8319870759289176,
+    "b2b_share": 0.30290791599353795,
+    "in_use_at_5y": 0.5423728813559322,
+    "n_registered_2002_2018": 177,
+    "top_owners": [
+     {
+      "owner": "BEHR PROCESS",
+      "filings": 30
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 22
+     },
+     {
+      "owner": "MASTERCHEM INDUSTRIES",
+      "filings": 20
+     },
+     {
+      "owner": "CLOVERDALE PAINT",
+      "filings": 19
+     },
+     {
+      "owner": "DUNN EDWARDS",
+      "filings": 19
+     },
+     {
+      "owner": "COLUMBIA INSURANCE",
+      "filings": 14
+     }
+    ]
+   }
+  ],
+  "industrial": [
+   {
+    "period": "1985-1994",
+    "filings": 670,
+    "owners": 463,
+    "top5_share": 0.07462686567164178,
+    "marks_per_owner": 1.4470842332613392,
+    "first_time_owner_share": 0.3925373134328358,
+    "foreign_share": 0.191044776119403,
+    "counsel_share": 0.9253731343283582,
+    "b2b_share": 0.18208955223880596,
+    "in_use_at_5y": 1.0,
+    "n_registered_2002_2018": 1,
+    "top_owners": [
+     {
+      "owner": "CRAY VALLEY",
+      "filings": 13
+     },
+     {
+      "owner": "TNEMEC",
+      "filings": 11
+     },
+     {
+      "owner": "IMPERIAL CHEMICAL INDUSTRIES",
+      "filings": 10
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 10
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS",
+      "filings": 6
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 5
+     }
+    ]
+   },
+   {
+    "period": "1995-2004",
+    "filings": 1172,
+    "owners": 732,
+    "top5_share": 0.07508532423208192,
+    "marks_per_owner": 1.6010928961748634,
+    "first_time_owner_share": 0.4121160409556314,
+    "foreign_share": 0.23122866894197952,
+    "counsel_share": 0.8967576791808873,
+    "b2b_share": 0.20733788395904437,
+    "in_use_at_5y": 0.6517094017094017,
+    "n_registered_2002_2018": 468,
+    "top_owners": [
+     {
+      "owner": "TNEMEC",
+      "filings": 28
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 24
+     },
+     {
+      "owner": "MADISON CHEMICAL INDUSTRIES",
+      "filings": 13
+     },
+     {
+      "owner": "WEAVER CARL",
+      "filings": 12
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL",
+      "filings": 11
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 11
+     }
+    ]
+   },
+   {
+    "period": "2005-2014",
+    "filings": 1600,
+    "owners": 977,
+    "top5_share": 0.06375,
+    "marks_per_owner": 1.6376663254861823,
+    "first_time_owner_share": 0.439375,
+    "foreign_share": 0.31625,
+    "counsel_share": 0.823125,
+    "b2b_share": 0.258125,
+    "in_use_at_5y": 0.6032986111111112,
+    "n_registered_2002_2018": 1152,
+    "top_owners": [
+     {
+      "owner": "WD 40 MANUFACTURING",
+      "filings": 44
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL",
+      "filings": 19
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 14
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 14
+     },
+     {
+      "owner": "LINE X",
+      "filings": 11
+     },
+     {
+      "owner": "RUST OLEUM",
+      "filings": 8
+     }
+    ]
+   },
+   {
+    "period": "2015-2024",
+    "filings": 2701,
+    "owners": 1592,
+    "top5_share": 0.042206590151795634,
+    "marks_per_owner": 1.696608040201005,
+    "first_time_owner_share": 0.44613106256941876,
+    "foreign_share": 0.457238059977786,
+    "counsel_share": 0.8748611625323954,
+    "b2b_share": 0.37874861162532397,
+    "in_use_at_5y": 0.5543710021321961,
+    "n_registered_2002_2018": 469,
+    "top_owners": [
+     {
+      "owner": "WD 40 MANUFACTURING",
+      "filings": 28
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL",
+      "filings": 26
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 24
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 23
+     },
+     {
+      "owner": "ISKO S R L",
+      "filings": 13
+     },
+     {
+      "owner": "LIQUIDNANO",
+      "filings": 13
+     }
+    ]
+   }
+  ],
+  "automotive": [
+   {
+    "period": "1985-1994",
+    "filings": 105,
+    "owners": 60,
+    "top5_share": 0.3142857142857143,
+    "marks_per_owner": 1.75,
+    "first_time_owner_share": 0.3238095238095238,
+    "foreign_share": 0.2761904761904762,
+    "counsel_share": 0.9428571428571428,
+    "b2b_share": 0.0761904761904762,
+    "in_use_at_5y": null,
+    "n_registered_2002_2018": 0,
+    "top_owners": [
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 12
+     },
+     {
+      "owner": "BASF",
+      "filings": 7
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 6
+     },
+     {
+      "owner": "AXALTA COATING SYSTEMS IP",
+      "filings": 4
+     },
+     {
+      "owner": "PPG INDUSTRIES",
+      "filings": 4
+     },
+     {
+      "owner": "AFTERMARKET APPEARANCE INDUSTRIES",
+      "filings": 3
+     }
+    ]
+   },
+   {
+    "period": "1995-2004",
+    "filings": 197,
+    "owners": 107,
+    "top5_share": 0.25888324873096447,
+    "marks_per_owner": 1.841121495327103,
+    "first_time_owner_share": 0.3401015228426396,
+    "foreign_share": 0.3299492385786802,
+    "counsel_share": 0.883248730964467,
+    "b2b_share": 0.22842639593908629,
+    "in_use_at_5y": 0.617283950617284,
+    "n_registered_2002_2018": 81,
+    "top_owners": [
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 12
+     },
+     {
+      "owner": "BASF COATINGS",
+      "filings": 12
+     },
+     {
+      "owner": "INTERNATIONAL AUTOBODY MARKETING GROUP",
+      "filings": 11
+     },
+     {
+      "owner": "BASF",
+      "filings": 9
+     },
+     {
+      "owner": "MERCK KGAA",
+      "filings": 7
+     },
+     {
+      "owner": "ALSTOM",
+      "filings": 6
+     }
+    ]
+   },
+   {
+    "period": "2005-2014",
+    "filings": 235,
+    "owners": 126,
+    "top5_share": 0.22127659574468084,
+    "marks_per_owner": 1.8650793650793651,
+    "first_time_owner_share": 0.3659574468085106,
+    "foreign_share": 0.3446808510638298,
+    "counsel_share": 0.7702127659574468,
+    "b2b_share": 0.20851063829787234,
+    "in_use_at_5y": 0.60625,
+    "n_registered_2002_2018": 160,
+    "top_owners": [
+     {
+      "owner": "DIPYOURCAR COM",
+      "filings": 18
+     },
+     {
+      "owner": "BASF COATINGS",
+      "filings": 10
+     },
+     {
+      "owner": "SWIMC",
+      "filings": 9
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 8
+     },
+     {
+      "owner": "BASF",
+      "filings": 7
+     },
+     {
+      "owner": "MATRIX SYSTEM AUTOMOTIVE FINISHES",
+      "filings": 6
+     }
+    ]
+   },
+   {
+    "period": "2015-2024",
+    "filings": 597,
+    "owners": 418,
+    "top5_share": 0.07537688442211055,
+    "marks_per_owner": 1.4282296650717703,
+    "first_time_owner_share": 0.5778894472361809,
+    "foreign_share": 0.4556113902847571,
+    "counsel_share": 0.8006700167504187,
+    "b2b_share": 0.2998324958123953,
+    "in_use_at_5y": 0.5606060606060606,
+    "n_registered_2002_2018": 66,
+    "top_owners": [
+     {
+      "owner": "AXALTA COATING SYSTEMS IP",
+      "filings": 11
+     },
+     {
+      "owner": "NESTE OYJ",
+      "filings": 10
+     },
+     {
+      "owner": "PPG INDUSTRIES OHIO",
+      "filings": 9
+     },
+     {
+      "owner": "TOUCHUPSTORE COM",
+      "filings": 8
+     },
+     {
+      "owner": "DIPYOURCAR COM",
+      "filings": 7
+     },
+     {
+      "owner": "ENGLISH COLOR SUPPLY",
+      "filings": 6
+     }
+    ]
+   }
+  ]
+ },
+ "margins": {
+  "powder": {
+   "n_firms": 4,
+   "median_gross_margin": 0.2748677702570054,
+   "firms": [
+    {
+     "name": "VALMONT INDUSTRIES INC",
+     "sic": "3440",
+     "gross_margin": 0.2760908602261919
+    },
+    {
+     "name": "NORDSON CORP",
+     "sic": "3569",
+     "gross_margin": 0.5453682789120556
+    },
+    {
+     "name": "COVIA HOLDINGS CORP",
+     "sic": "1400",
+     "gross_margin": -0.40507949559171913
+    },
+    {
+     "name": "AZZ INC",
+     "sic": "3640",
+     "gross_margin": 0.2736446802878188
+    }
+   ]
+  },
+  "architectural": {
+   "n_firms": 15,
+   "median_gross_margin": 0.3618292633697817,
+   "firms": [
+    {
+     "name": "WAL MART STORES INC",
+     "sic": "5331",
+     "gross_margin": 0.24497803818933103
+    },
+    {
+     "name": "FORD MOTOR CO",
+     "sic": "3711",
+     "gross_margin": 0.1259204618345093
+    },
+    {
+     "name": "GENUINE PARTS CO",
+     "sic": "5013",
+     "gross_margin": 0.2969597723112779
+    },
+    {
+     "name": "PPG INDUSTRIES INC",
+     "sic": "2851",
+     "gross_margin": 0.42869404463224614
+    },
+    {
+     "name": "SHERWIN WILLIAMS CO",
+     "sic": "5200",
+     "gross_margin": 0.459973846421235
+    },
+    {
+     "name": "QVC INC",
+     "sic": "5961",
+     "gross_margin": 0.3618292633697817
+    },
+    {
+     "name": "ANDERSONS, INC.",
+     "sic": "5150",
+     "gross_margin": 0.06801266251458184
+    },
+    {
+     "name": "DISCOVERY COMMUNICATIONS, INC.",
+     "sic": "4841",
+     "gross_margin": 0.681010251134857
+    },
+    {
+     "name": "VALSPAR CORP",
+     "sic": "2851",
+     "gross_margin": 0.3237343136803849
+    },
+    {
+     "name": "TIME INC.",
+     "sic": "2721",
+     "gross_margin": 0.6053032612008534
+    }
+   ]
+  },
+  "industrial": {
+   "n_firms": 47,
+   "median_gross_margin": 0.28902016655439844,
+   "firms": [
+    {
+     "name": "WAL MART STORES INC",
+     "sic": "5331",
+     "gross_margin": 0.24497803818933103
+    },
+    {
+     "name": "FORD MOTOR CO",
+     "sic": "3711",
+     "gross_margin": 0.1259204618345093
+    },
+    {
+     "name": "GENERAL MOTORS CO",
+     "sic": "3711",
+     "gross_margin": 0.09768220686733911
+    },
+    {
+     "name": "GENERAL ELECTRIC CO",
+     "sic": "3600",
+     "gross_margin": 0.19996604325566816
+    },
+    {
+     "name": "LOCKHEED MARTIN CORP",
+     "sic": "3760",
+     "gross_margin": 0.127897547744876
+    },
+    {
+     "name": "NUCOR CORP",
+     "sic": "3312",
+     "gross_margin": 0.15111986221745688
+    },
+    {
+     "name": "UNITED STATES STEEL CORP",
+     "sic": "3312",
+     "gross_margin": 0.05347363899924836
+    },
+    {
+     "name": "ILLINOIS TOOL WORKS INC",
+     "sic": "3560",
+     "gross_margin": 0.40941728804197736
+    },
+    {
+     "name": "TEXTRON INC",
+     "sic": "3720",
+     "gross_margin": 0.16661121277657628
+    },
+    {
+     "name": "SHERWIN WILLIAMS CO",
+     "sic": "5200",
+     "gross_margin": 0.459973846421235
+    }
+   ]
+  },
+  "automotive": {
+   "n_firms": 4,
+   "median_gross_margin": 0.31069264402553887,
+   "firms": [
+    {
+     "name": "ROSS STORES INC",
+     "sic": "5651",
+     "gross_margin": 0.2812068232576597
+    },
+    {
+     "name": "BARNES GROUP INC",
+     "sic": "3490",
+     "gross_margin": 0.31719662149213723
+    },
+    {
+     "name": "XPEL, INC.",
+     "sic": "3470",
+     "gross_margin": 0.30418866655894045
+    },
+    {
+     "name": "ICTV BRANDS INC.",
+     "sic": "5961",
+     "gross_margin": 0.5532533902926402
+    }
+   ]
+  }
+ }
+}
