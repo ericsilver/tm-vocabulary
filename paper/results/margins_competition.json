@@ -1,0 +1,2128 @@
+{
+ "test2_segments": {
+  "n_firms_with_margin_and_segment": 3254,
+  "n_segments_total": 60,
+  "n_segments_kept": 60,
+  "min_firms": 15,
+  "n_segments_modal_check": 47,
+  "margin_spread_pp": {
+   "unw_min": 19.43799716535191,
+   "unw_max": 61.39548977115747,
+   "unw_sd": 9.57890276044525,
+   "rw_sd": 10.930993042631194
+  },
+  "record_scores": {
+   "gm_unw": {
+    "entry_debut": {
+     "pearson": 0.24129573550370345,
+     "spearman": 0.2981939427618784,
+     "spearman_p": 0.020660530081849624,
+     "b_per_sd": -0.9375018752259252,
+     "se": 2.0826204529249415,
+     "p": 0.6525987277696947,
+     "n": 60
+    },
+    "entry_owner_growth": {
+     "pearson": 0.3186274563475184,
+     "spearman": 0.2845234787440956,
+     "spearman_p": 0.027573235359019357,
+     "b_per_sd": 0.9175718012189398,
+     "se": 1.66995884662986,
+     "p": 0.5826913636496422,
+     "n": 60
+    },
+    "rivalry_owners": {
+     "pearson": 0.10798572180904528,
+     "spearman": 0.14542928591275356,
+     "spearman_p": 0.26755949953370906,
+     "b_per_sd": 0.9260686325493701,
+     "se": 1.844958781529724,
+     "p": 0.6157059060515491,
+     "n": 60
+    },
+    "rivalry_hhi": {
+     "pearson": 0.022784935687363506,
+     "spearman": -0.11936649069185888,
+     "spearman_p": 0.36366035475424213,
+     "b_per_sd": 2.3794853926522874,
+     "se": 2.094983707555805,
+     "p": 0.2560396980904056,
+     "n": 60
+    },
+    "substitutes": {
+     "pearson": 0.32152623365473393,
+     "spearman": 0.42759961923289364,
+     "spearman_p": 0.0006550445283312159,
+     "b_per_sd": 2.782949382630395,
+     "se": 2.123857704258193,
+     "p": 0.19008503214020533,
+     "n": 60
+    },
+    "substitutes_nn3_dist": {
+     "pearson": -0.5387393839470205,
+     "spearman": -0.5457071408724646,
+     "spearman_p": 6.503318702187233e-06,
+     "b_per_sd": -3.7619119449281238,
+     "se": 1.3204274266128708,
+     "p": 0.0043855397386826,
+     "n": 60
+    },
+    "buyer_power": {
+     "pearson": 0.14857657348713138,
+     "spearman": 0.2714642956376772,
+     "spearman_p": 0.035896766171003174,
+     "b_per_sd": 0.05180373481782419,
+     "se": 1.340145478590861,
+     "p": 0.9691652066511509,
+     "n": 60
+    },
+    "platform_power": {
+     "pearson": 0.5260682565422055,
+     "spearman": 0.5928313420394555,
+     "spearman_p": 6.016111667954409e-07,
+     "b_per_sd": 4.12997562741349,
+     "se": 0.9862418131281196,
+     "p": 2.81933149546079e-05,
+     "n": 60
+    },
+    "hhi_in_use": {
+     "pearson": 0.06882432081704809,
+     "spearman": 0.024062239510975275,
+     "spearman_p": 0.8551975175104314,
+     "b_per_sd": 2.2967000445406613,
+     "se": 2.3100525778730967,
+     "p": 0.320115863731401,
+     "n": 60
+    },
+    "hhi_in_use_trend": {
+     "pearson": 0.056860602813807316,
+     "spearman": -0.11319811058627398,
+     "spearman_p": 0.38915187524673933,
+     "b_per_sd": 2.700689636012205,
+     "se": 1.1463271649266797,
+     "p": 0.018475397725972988,
+     "n": 60
+    },
+    "est_gap": {
+     "pearson": -0.25869845830141797,
+     "spearman": -0.16026674076132263,
+     "spearman_p": 0.22124222091365534,
+     "b_per_sd": -4.46538240084776,
+     "se": 1.1290670795784743,
+     "p": 7.6556741388756e-05,
+     "n": 60
+    },
+    "no_counsel_share": {
+     "pearson": 0.21210123174482823,
+     "spearman": 0.2601833842734093,
+     "spearman_p": 0.044675187986733374,
+     "b_per_sd": 0.769591466210815,
+     "se": 1.3240460267473042,
+     "p": 0.5610772091293115,
+     "n": 60
+    },
+    "no_patent_share": {
+     "pearson": 0.15898765161583134,
+     "spearman": 0.24262295081967217,
+     "spearman_p": 0.061785753471559846,
+     "b_per_sd": -0.7553839515807306,
+     "se": 1.949734761563061,
+     "p": 0.6984385762836623,
+     "n": 60
+    },
+    "incumbent_share": {
+     "pearson": -0.1654887138069436,
+     "spearman": -0.2561267018616283,
+     "spearman_p": 0.04823419579475309,
+     "b_per_sd": 0.9442837536379172,
+     "se": 2.500718695112994,
+     "p": 0.7057240881739599,
+     "n": 60
+    },
+    "regulated_share": {
+     "pearson": 0.28995283669816363,
+     "spearman": 0.15065295915532093,
+     "spearman_p": 0.25056555116568846,
+     "b_per_sd": 4.217874272685708,
+     "se": 1.3623321933009955,
+     "p": 0.001961048185583947,
+     "n": 60
+    },
+    "surv_adj": {
+     "pearson": -0.3547446029296339,
+     "spearman": -0.2884690191719923,
+     "spearman_p": 0.025403091821006887,
+     "b_per_sd": -3.7458169208417953,
+     "se": 1.2320505822303867,
+     "p": 0.0023633398098060884,
+     "n": 60
+    },
+    "lead_b": {
+     "pearson": -0.4616367106122351,
+     "spearman": -0.4612948041122535,
+     "spearman_p": 0.00020764819073814867,
+     "b_per_sd": -4.5955785514454774,
+     "se": 0.7704416468632705,
+     "p": 2.4484000755244536e-09,
+     "n": 60
+    }
+   },
+   "gm_rw": {
+    "entry_debut": {
+     "pearson": 0.031618989812491144,
+     "spearman": 0.09863851069741597,
+     "spearman_p": 0.453369532301983,
+     "b_per_sd": -2.667447129498292,
+     "se": 2.472457171181756,
+     "p": 0.28064798130313673,
+     "n": 60
+    },
+    "entry_owner_growth": {
+     "pearson": 0.18373371630663887,
+     "spearman": 0.16004445679355378,
+     "spearman_p": 0.2218919201531385,
+     "b_per_sd": 0.5977472219817841,
+     "se": 1.579841905683386,
+     "p": 0.7051640069006293,
+     "n": 60
+    },
+    "rivalry_owners": {
+     "pearson": 0.10189058023300031,
+     "spearman": 0.1160322311753265,
+     "spearman_p": 0.37731069676380546,
+     "b_per_sd": -0.5316664961183002,
+     "se": 2.0749170599686204,
+     "p": 0.797769338556352,
+     "n": 60
+    },
+    "rivalry_hhi": {
+     "pearson": 0.060343350917907976,
+     "spearman": -0.022339538760766883,
+     "spearman_p": 0.8654644739370909,
+     "b_per_sd": 3.867472595177463,
+     "se": 2.8031682702823244,
+     "p": 0.16768547963272074,
+     "n": 60
+    },
+    "substitutes": {
+     "pearson": 0.2360919719658178,
+     "spearman": 0.3663224432304789,
+     "spearman_p": 0.0039941278459516396,
+     "b_per_sd": 1.748721369310529,
+     "se": 2.0048119632774024,
+     "p": 0.38306544216071925,
+     "n": 60
+    },
+    "substitutes_nn3_dist": {
+     "pearson": -0.3855225860278938,
+     "spearman": -0.4411781050291748,
+     "spearman_p": 0.00041819859804234324,
+     "b_per_sd": -2.674247887630912,
+     "se": 1.4613826921537816,
+     "p": 0.06725837465128542,
+     "n": 60
+    },
+    "buyer_power": {
+     "pearson": -0.12351208323140814,
+     "spearman": 0.018671853292581277,
+     "spearman_p": 0.8873948808749303,
+     "b_per_sd": -2.1171207667606433,
+     "se": 1.2239608242981115,
+     "p": 0.08367867067076161,
+     "n": 60
+    },
+    "platform_power": {
+     "pearson": 0.44160778952046786,
+     "spearman": 0.4557932759099751,
+     "spearman_p": 0.00025255374393310444,
+     "b_per_sd": 3.5345269438518283,
+     "se": 1.1330909400121807,
+     "p": 0.0018123981389980678,
+     "n": 60
+    },
+    "hhi_in_use": {
+     "pearson": 0.09540313007875781,
+     "spearman": 0.03434287302028342,
+     "spearman_p": 0.7944784248406106,
+     "b_per_sd": 4.392715520881911,
+     "se": 2.384065231774203,
+     "p": 0.06539742896602274,
+     "n": 60
+    },
+    "hhi_in_use_trend": {
+     "pearson": 0.14893208595906465,
+     "spearman": -0.011447624340094473,
+     "spearman_p": 0.9308222220506812,
+     "b_per_sd": 3.9108059974348315,
+     "se": 1.4878840141947827,
+     "p": 0.008577881836004681,
+     "n": 60
+    },
+    "est_gap": {
+     "pearson": -0.34481517453036215,
+     "spearman": -0.24573492636843575,
+     "spearman_p": 0.05841835088778817,
+     "b_per_sd": -4.816971677018003,
+     "se": 1.8297795205522356,
+     "p": 0.008474851143010257,
+     "n": 60
+    },
+    "no_counsel_share": {
+     "pearson": 0.14252286178613272,
+     "spearman": 0.1783273131425396,
+     "spearman_p": 0.17281468584904158,
+     "b_per_sd": 0.027064592159379952,
+     "se": 1.36879122639108,
+     "p": 0.9842247577173208,
+     "n": 60
+    },
+    "no_patent_share": {
+     "pearson": -0.000750632880721306,
+     "spearman": 0.10147263128646848,
+     "spearman_p": 0.4404321718469553,
+     "b_per_sd": -2.4134598828719254,
+     "se": 2.306792647420992,
+     "p": 0.2954500105440201,
+     "n": 60
+    },
+    "incumbent_share": {
+     "pearson": 0.06034238396795988,
+     "spearman": -0.05762711864406781,
+     "spearman_p": 0.6618564522170094,
+     "b_per_sd": 3.2835316860796206,
+     "se": 2.650221122280254,
+     "p": 0.21535839387100608,
+     "n": 60
+    },
+    "regulated_share": {
+     "pearson": 0.27598595963741135,
+     "spearman": 0.12042233953876079,
+     "spearman_p": 0.3594012761128298,
+     "b_per_sd": 5.355772866451882,
+     "se": 1.9717929545166604,
+     "p": 0.006603714129849409,
+     "n": 60
+    },
+    "surv_adj": {
+     "pearson": -0.33904389672213864,
+     "spearman": -0.29041400388996946,
+     "spearman_p": 0.024387413258733427,
+     "b_per_sd": -4.0006154284230595,
+     "se": 1.708990715807415,
+     "p": 0.019236141313858937,
+     "n": 60
+    },
+    "lead_b": {
+     "pearson": -0.36844445324305236,
+     "spearman": -0.3543762156154488,
+     "spearman_p": 0.005469145900729598,
+     "b_per_sd": -4.02646253774559,
+     "se": 0.9854133462072835,
+     "p": 4.387517696889504e-05,
+     "n": 60
+    }
+   }
+  },
+  "blind_ratings": {
+   "gm_unw": {
+    "r_entry_threat": {
+     "pearson": -0.016643608884940875,
+     "spearman": 0.07434908055194178,
+     "spearman_p": 0.5723641824286315,
+     "b_per_sd": -1.258824099913605,
+     "se": 1.8279906785242184,
+     "p": 0.49105101369019377,
+     "n": 60
+    },
+    "r_rivalry": {
+     "pearson": 0.025288076264345413,
+     "spearman": 0.056679027651747114,
+     "spearman_p": 0.6670905920601523,
+     "b_per_sd": 0.056234825554589696,
+     "se": 1.4847434370810901,
+     "p": 0.969787255703424,
+     "n": 60
+    },
+    "r_substitutes": {
+     "pearson": 0.17095501369417876,
+     "spearman": 0.21319303065373674,
+     "spearman_p": 0.10194206632095644,
+     "b_per_sd": -0.18127068478534109,
+     "se": 1.7308144477863512,
+     "p": 0.9165889157889333,
+     "n": 60
+    },
+    "r_buyer_power": {
+     "pearson": -0.28265612479822366,
+     "spearman": -0.22972531911607588,
+     "spearman_p": 0.07744443476431552,
+     "b_per_sd": -2.8658679679749293,
+     "se": 1.2990511682497954,
+     "p": 0.02737531826282703,
+     "n": 60
+    },
+    "r_supplier_power": {
+     "pearson": 0.10028345540418113,
+     "spearman": 0.03275993837766897,
+     "spearman_p": 0.8037583896268203,
+     "b_per_sd": -0.17289729291978412,
+     "se": 1.527407732907017,
+     "p": 0.9098747270991114,
+     "n": 60
+    },
+    "r_scale_economies": {
+     "pearson": 0.146868712287278,
+     "spearman": 0.06948058586990687,
+     "spearman_p": 0.5978387412482287,
+     "b_per_sd": 1.6717969236306773,
+     "se": 1.477011607293294,
+     "p": 0.2576857348903674,
+     "n": 60
+    },
+    "r_imitability": {
+     "pearson": -0.17701838390839056,
+     "spearman": -0.06390376056150707,
+     "spearman_p": 0.6276196311883938,
+     "b_per_sd": -2.405432522144497,
+     "se": 1.5997453323358777,
+     "p": 0.1326754627169789,
+     "n": 60
+    },
+    "r_complementary_assets": {
+     "pearson": 0.10052052213107268,
+     "spearman": 0.021926033672365855,
+     "spearman_p": 0.8679322434880492,
+     "b_per_sd": 1.3384811644874082,
+     "se": 2.009997654053881,
+     "p": 0.505467474962683,
+     "n": 60
+    },
+    "r_incumbents_hold_assets": {
+     "pearson": 0.11079862712190594,
+     "spearman": 0.05259440588552615,
+     "spearman_p": 0.6898187963380318,
+     "b_per_sd": 1.5320439950846039,
+     "se": 2.0153225026501893,
+     "p": 0.4471362820583318,
+     "n": 60
+    }
+   },
+   "gm_rw": {
+    "r_entry_threat": {
+     "pearson": -0.17202051963459264,
+     "spearman": -0.08943196340900993,
+     "spearman_p": 0.49680328268091056,
+     "b_per_sd": -3.389728483419627,
+     "se": 2.1052681155521467,
+     "p": 0.10737226454317136,
+     "n": 60
+    },
+    "r_rivalry": {
+     "pearson": -0.06896359024705892,
+     "spearman": -0.043636090374033945,
+     "spearman_p": 0.7406058138297532,
+     "b_per_sd": -1.1433707493641752,
+     "se": 1.6905017192885587,
+     "p": 0.49881848769819515,
+     "n": 60
+    },
+    "r_substitutes": {
+     "pearson": 0.07067462596692596,
+     "spearman": 0.11393926816411108,
+     "spearman_p": 0.38603419656509574,
+     "b_per_sd": -1.4513174214231281,
+     "se": 1.9951350887329515,
+     "p": 0.4669637168157833,
+     "n": 60
+    },
+    "r_buyer_power": {
+     "pearson": -0.1514122012792787,
+     "spearman": -0.18123873363085127,
+     "spearman_p": 0.16579432619931064,
+     "b_per_sd": -2.192388540852091,
+     "se": 1.3637968557822713,
+     "p": 0.10793105359597079,
+     "n": 60
+    },
+    "r_supplier_power": {
+     "pearson": 0.05071906959546257,
+     "spearman": 0.0025660526144388224,
+     "spearman_p": 0.9844753771166302,
+     "b_per_sd": -0.11084018894469905,
+     "se": 1.5250088515029827,
+     "p": 0.9420594357850124,
+     "n": 60
+    },
+    "r_scale_economies": {
+     "pearson": 0.1773146223710002,
+     "spearman": 0.11662812628162939,
+     "spearman_p": 0.37484881490981464,
+     "b_per_sd": 2.6934737571317973,
+     "se": 1.5755813700850305,
+     "p": 0.0873563272511934,
+     "n": 60
+    },
+    "r_imitability": {
+     "pearson": -0.29461277657334284,
+     "spearman": -0.21622269775226977,
+     "spearman_p": 0.09705239846855625,
+     "b_per_sd": -4.420373614416861,
+     "se": 1.8568799665658253,
+     "p": 0.0172873705345357,
+     "n": 60
+    },
+    "r_complementary_assets": {
+     "pearson": 0.26494812746175705,
+     "spearman": 0.1796865198515836,
+     "spearman_p": 0.16951073894418547,
+     "b_per_sd": 3.8652651899606907,
+     "se": 2.213515901679569,
+     "p": 0.08077434324215267,
+     "n": 60
+    },
+    "r_incumbents_hold_assets": {
+     "pearson": 0.21262589158592055,
+     "spearman": 0.13517016391835704,
+     "spearman_p": 0.30313507428202574,
+     "b_per_sd": 3.813801544815655,
+     "se": 2.2583489402819374,
+     "p": 0.09126609531758788,
+     "n": 60
+    }
+   }
+  },
+  "survival": {
+   "gm_unw": {
+    "survival": {
+     "pearson": -0.5366593101345073,
+     "spearman": -0.5373159210891915,
+     "spearman_p": 9.575667339089134e-06,
+     "b_per_sd": -5.36633451730515,
+     "se": 1.2800339812395605,
+     "p": 2.760947857444542e-05,
+     "n": 60
+    }
+   },
+   "gm_rw": {
+    "survival": {
+     "pearson": -0.44007554042319413,
+     "spearman": -0.44173381494859687,
+     "spearman_p": 0.00041042393747230745,
+     "b_per_sd": -4.906306116928935,
+     "se": 1.8207045703690536,
+     "p": 0.007044581785623257,
+     "n": 60
+    }
+   }
+  },
+  "modal_assignment_check": {
+   "entry_debut": {
+    "spearman": 0.10626734505087881,
+    "spearman_p": 0.4771266921873601,
+    "n": 47
+   },
+   "entry_owner_growth": {
+    "spearman": 0.24283071230342276,
+    "spearman_p": 0.1000408193050591,
+    "n": 47
+   },
+   "rivalry_owners": {
+    "spearman": 0.16859389454209067,
+    "spearman_p": 0.25728571432467423,
+    "n": 47
+   },
+   "rivalry_hhi": {
+    "spearman": -0.04590656799259945,
+    "spearman_p": 0.7592951602253527,
+    "n": 47
+   },
+   "substitutes": {
+    "spearman": 0.3562318781718457,
+    "spearman_p": 0.01398459282112455,
+    "n": 47
+   },
+   "substitutes_nn3_dist": {
+    "spearman": -0.4768732654949121,
+    "spearman_p": 0.000701719203473585,
+    "n": 47
+   },
+   "buyer_power": {
+    "spearman": 0.14616096207215543,
+    "spearman_p": 0.32692595382005313,
+    "n": 47
+   },
+   "platform_power": {
+    "spearman": 0.4666975023126735,
+    "spearman_p": 0.0009437624701820443,
+    "n": 47
+   },
+   "hhi_in_use": {
+    "spearman": -0.005087881591119335,
+    "spearman_p": 0.9729236449575014,
+    "n": 47
+   },
+   "hhi_in_use_trend": {
+    "spearman": -0.21033765032377427,
+    "spearman_p": 0.15586852718063623,
+    "n": 47
+   },
+   "est_gap": {
+    "spearman": -0.34609158186864014,
+    "spearman_p": 0.017174373413390728,
+    "n": 47
+   },
+   "no_counsel_share": {
+    "spearman": 0.2282608695652174,
+    "spearman_p": 0.12278428600554356,
+    "n": 47
+   },
+   "no_patent_share": {
+    "spearman": 0.09366327474560593,
+    "spearman_p": 0.5311764199736968,
+    "n": 47
+   },
+   "incumbent_share": {
+    "spearman": -0.08614708603145237,
+    "spearman_p": 0.5647750954567584,
+    "n": 47
+   },
+   "regulated_share": {
+    "spearman": 0.24155874190564294,
+    "spearman_p": 0.10188659912827853,
+    "n": 47
+   },
+   "surv_adj": {
+    "spearman": -0.37800647548566146,
+    "spearman_p": 0.008800967987105337,
+    "n": 47
+   },
+   "lead_b": {
+    "spearman": -0.40020814061054577,
+    "spearman_p": 0.005314137719942402,
+    "n": 47
+   },
+   "r_entry_threat": {
+    "spearman": 0.01797516918501315,
+    "spearman_p": 0.9045442841703488,
+    "n": 47
+   },
+   "r_rivalry": {
+    "spearman": 0.1023490736235936,
+    "spearman_p": 0.4936110824242979,
+    "n": 47
+   },
+   "r_substitutes": {
+    "spearman": 0.19994940771921585,
+    "spearman_p": 0.17781107430786483,
+    "n": 47
+   },
+   "r_buyer_power": {
+    "spearman": -0.11934629070575144,
+    "spearman_p": 0.4242749434414321,
+    "n": 47
+   },
+   "r_supplier_power": {
+    "spearman": -0.08402383809313241,
+    "spearman_p": 0.5744420167429889,
+    "n": 47
+   },
+   "r_scale_economies": {
+    "spearman": 0.1034212869989525,
+    "spearman_p": 0.48907115802073836,
+    "n": 47
+   },
+   "r_imitability": {
+    "spearman": -0.07097966060486403,
+    "spearman_p": 0.6354232618415341,
+    "n": 47
+   },
+   "r_complementary_assets": {
+    "spearman": 0.11874113232818855,
+    "spearman_p": 0.4266448599089154,
+    "n": 47
+   },
+   "r_incumbents_hold_assets": {
+    "spearman": 0.11908760662134785,
+    "spearman_p": 0.4252870886955195,
+    "n": 47
+   },
+   "survival": {
+    "spearman": -0.5789777983348752,
+    "spearman_p": 2.0128743777100715e-05,
+    "n": 47
+   }
+  },
+  "segments": [
+   {
+    "seg": 45,
+    "name": "Pharmaceutical preparations",
+    "n_firms": 317,
+    "eff_firms": 150.07027556782907,
+    "gm_unw": 0.6139548977115747,
+    "gm_rw": 0.6456408892710588,
+    "modal_n_firms": 167,
+    "modal_gm": 0.640923482276595,
+    "survival": 40.53370700947391,
+    "surv_adj": 40.96236391870021,
+    "lead_effect": -0.94353492913696,
+    "top_rev_firms": [
+     "PFIZER INC",
+     "JOHNSON & JOHNSON",
+     "MERCK SHARP & DOHME CORP."
+    ],
+    "top3_rev_weight": 0.27484325955610883
+   },
+   {
+    "seg": 50,
+    "name": "Media and entertainment goods + Downloadable and online software",
+    "n_firms": 205,
+    "eff_firms": 28.511353374881303,
+    "gm_unw": 0.5519274919777248,
+    "gm_rw": 0.49360345476318346,
+    "modal_n_firms": 22,
+    "modal_gm": 0.5953480292781457,
+    "survival": 38.99478563151796,
+    "surv_adj": 41.147941147494926,
+    "lead_effect": -8.930154158141267,
+    "top_rev_firms": [
+     "APPLE INC",
+     "META PLATFORMS, INC.",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.5627829787080861
+   },
+   {
+    "seg": 34,
+    "name": "Computer, software and information services + Downloadable and online software",
+    "n_firms": 609,
+    "eff_firms": 119.07534176595713,
+    "gm_unw": 0.5446314852339291,
+    "gm_rw": 0.47709948030305127,
+    "modal_n_firms": 98,
+    "modal_gm": 0.5504858499503472,
+    "survival": 36.556915221410335,
+    "surv_adj": 39.65773770095503,
+    "lead_effect": -9.954382304098415,
+    "top_rev_firms": [
+     "AT&T INC.",
+     "APPLE INC",
+     "META PLATFORMS, INC."
+    ],
+    "top3_rev_weight": 0.28176846258980864
+   },
+   {
+    "seg": 0,
+    "name": "Education, training, travel and events + Downloadable and online software",
+    "n_firms": 173,
+    "eff_firms": 16.47734083388847,
+    "gm_unw": 0.5288034336235001,
+    "gm_rw": 0.4443799687945861,
+    "modal_n_firms": 10,
+    "modal_gm": 0.5221414947598882,
+    "survival": 42.54720056907436,
+    "surv_adj": 45.11787613132188,
+    "lead_effect": -10.127716725100127,
+    "top_rev_firms": [
+     "SPRINT CORP",
+     "APPLE INC",
+     "BOOKING HOLDINGS INC."
+    ],
+    "top3_rev_weight": 0.4098387666127797
+   },
+   {
+    "seg": 11,
+    "name": "Media and entertainment goods + Education, training, travel and events",
+    "n_firms": 112,
+    "eff_firms": 11.159721869410049,
+    "gm_unw": 0.520741374768564,
+    "gm_rw": 0.5167782666136992,
+    "modal_n_firms": 8,
+    "modal_gm": 0.5314442935976612,
+    "survival": 45.7338927013586,
+    "surv_adj": 48.17144988042578,
+    "lead_effect": -2.1675004219059986,
+    "top_rev_firms": [
+     "DISCOVERY, INC.",
+     "APPLE INC",
+     "META PLATFORMS, INC."
+    ],
+    "top3_rev_weight": 0.2920125362669579
+   },
+   {
+    "seg": 16,
+    "name": "Education, training, travel and events + Computer, software and information services",
+    "n_firms": 291,
+    "eff_firms": 49.283611397105304,
+    "gm_unw": 0.5117856510898784,
+    "gm_rw": 0.434477680098065,
+    "modal_n_firms": 44,
+    "modal_gm": 0.5111998475720407,
+    "survival": 49.70188044641492,
+    "surv_adj": 50.57605458299981,
+    "lead_effect": -3.409691805741137,
+    "top_rev_firms": [
+     "ALTRIA GROUP, INC.",
+     "COUPANG, INC.",
+     "VERIZON COMMUNICATIONS INC"
+    ],
+    "top3_rev_weight": 0.1744453676012814
+   },
+   {
+    "seg": 49,
+    "name": "Medical and healthcare services",
+    "n_firms": 368,
+    "eff_firms": 121.56450862395013,
+    "gm_unw": 0.5066492284304506,
+    "gm_rw": 0.4246545675679175,
+    "modal_n_firms": 125,
+    "modal_gm": 0.5032793882329979,
+    "survival": 51.162529484443446,
+    "surv_adj": 50.996681983260316,
+    "lead_effect": -2.178689075974472,
+    "top_rev_firms": [
+     "MEDCO HEALTH SOLUTIONS INC",
+     "MCKESSON CORP",
+     "EXPRESS SCRIPTS INC"
+    ],
+    "top3_rev_weight": 0.31138662219425767
+   },
+   {
+    "seg": 52,
+    "name": "Hair and skin care",
+    "n_firms": 119,
+    "eff_firms": 25.17148369065252,
+    "gm_unw": 0.5022127322485673,
+    "gm_rw": 0.504468659809967,
+    "modal_n_firms": 23,
+    "modal_gm": 0.49742088083789715,
+    "survival": 44.12117111402433,
+    "surv_adj": 46.68544116400728,
+    "lead_effect": 0.6111820033377917,
+    "top_rev_firms": [
+     "PROCTER & GAMBLE CO",
+     "JOHNSON & JOHNSON",
+     "KENVUE INC."
+    ],
+    "top3_rev_weight": 0.5008887296116183
+   },
+   {
+    "seg": 19,
+    "name": "Research, scientific and diagnostic",
+    "n_firms": 426,
+    "eff_firms": 176.30981703582623,
+    "gm_unw": 0.5012525684485994,
+    "gm_rw": 0.47797826529610526,
+    "modal_n_firms": 182,
+    "modal_gm": 0.4943847486551918,
+    "survival": 54.054334301119866,
+    "surv_adj": 51.91422300038639,
+    "lead_effect": -2.323807863201339,
+    "top_rev_firms": [
+     "GENERAL ELECTRIC CO",
+     "LABORATORY CORP OF AMERICA HOLDINGS",
+     "BRISTOL MYERS SQUIBB CO"
+    ],
+    "top3_rev_weight": 0.1915537342634324
+   },
+   {
+    "seg": 8,
+    "name": "Paper, books and stationery + Media and entertainment goods",
+    "n_firms": 87,
+    "eff_firms": 6.46857369163194,
+    "gm_unw": 0.5010798006387138,
+    "gm_rw": 0.44404453991566517,
+    "modal_n_firms": 4,
+    "modal_gm": 0.6096703846968764,
+    "survival": 49.4913732921113,
+    "surv_adj": 49.74577036075089,
+    "lead_effect": 2.098422547346463,
+    "top_rev_firms": [
+     "MICROSOFT CORP",
+     "BARNES & NOBLE INC",
+     "FORD MOTOR CO"
+    ],
+    "top3_rev_weight": 0.35173043401696374
+   },
+   {
+    "seg": 38,
+    "name": "Musical and surgical instruments",
+    "n_firms": 200,
+    "eff_firms": 69.22473519361242,
+    "gm_unw": 0.5007199549002915,
+    "gm_rw": 0.5762224262272146,
+    "modal_n_firms": 79,
+    "modal_gm": 0.5074786700020193,
+    "survival": 57.18349429323968,
+    "surv_adj": 50.6723795010831,
+    "lead_effect": -4.441179357511744,
+    "top_rev_firms": [
+     "JOHNSON & JOHNSON",
+     "BOSTON SCIENTIFIC CORP",
+     "COVIDIEN PLC"
+    ],
+    "top3_rev_weight": 0.30231667173787147
+   },
+   {
+    "seg": 1,
+    "name": "Computer, software and information services",
+    "n_firms": 981,
+    "eff_firms": 361.8088679876664,
+    "gm_unw": 0.4993092565582308,
+    "gm_rw": 0.4194415439444579,
+    "modal_n_firms": 426,
+    "modal_gm": 0.5120214875824043,
+    "survival": 45.19884215444041,
+    "surv_adj": 46.25135828614067,
+    "lead_effect": -1.8189058157873352,
+    "top_rev_firms": [
+     "ALPHABET INC.",
+     "WALGREENS BOOTS ALLIANCE, INC.",
+     "KROGER CO"
+    ],
+    "top3_rev_weight": 0.254728287263016
+   },
+   {
+    "seg": 3,
+    "name": "Retail store services + Beverages and dairy",
+    "n_firms": 49,
+    "eff_firms": 8.776213554670637,
+    "gm_unw": 0.49694765312193123,
+    "gm_rw": 0.25862404844718184,
+    "modal_n_firms": 8,
+    "modal_gm": 0.5025382891649339,
+    "survival": 48.83243041285261,
+    "surv_adj": 49.10883222006434,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "SYSCO CORP",
+     "ROSS STORES, INC."
+    ],
+    "top3_rev_weight": 0.427197150528687
+   },
+   {
+    "seg": 42,
+    "name": "Computer, software and information services + Education, training, travel and events",
+    "n_firms": 359,
+    "eff_firms": 65.73573987961855,
+    "gm_unw": 0.4930610926207974,
+    "gm_rw": 0.41829076620087857,
+    "modal_n_firms": 58,
+    "modal_gm": 0.49314183176200455,
+    "survival": 47.914790439903015,
+    "surv_adj": 48.91464320682447,
+    "lead_effect": -2.638208679571348,
+    "top_rev_firms": [
+     "MANPOWERGROUP INC.",
+     "AT&T INC.",
+     "CITIGROUP INC"
+    ],
+    "top3_rev_weight": 0.20148863684843793
+   },
+   {
+    "seg": 13,
+    "name": "Hair and skin care",
+    "n_firms": 124,
+    "eff_firms": 21.978043317726858,
+    "gm_unw": 0.49015114584985187,
+    "gm_rw": 0.4375308734824694,
+    "modal_n_firms": 17,
+    "modal_gm": 0.5148894850132502,
+    "survival": 44.68975468975469,
+    "surv_adj": 45.787181979234965,
+    "lead_effect": 3.717336857887271,
+    "top_rev_firms": [
+     "PROCTER & GAMBLE CO",
+     "COLGATE PALMOLIVE CO",
+     "JOHNSON & JOHNSON"
+    ],
+    "top3_rev_weight": 0.4337977472261921
+   },
+   {
+    "seg": 26,
+    "name": "Computer, software and information services + Retail store services",
+    "n_firms": 447,
+    "eff_firms": 74.3165408996627,
+    "gm_unw": 0.4808302674601231,
+    "gm_rw": 0.3256149619638017,
+    "modal_n_firms": 67,
+    "modal_gm": 0.4787439027751396,
+    "survival": 38.98165172038573,
+    "surv_adj": 41.44526215898261,
+    "lead_effect": -5.714960311931757,
+    "top_rev_firms": [
+     "MCKESSON CORP",
+     "CITIGROUP INC",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.20046648041029144
+   },
+   {
+    "seg": 51,
+    "name": "Computer, software and information services + Media and entertainment goods",
+    "n_firms": 390,
+    "eff_firms": 62.18860149176927,
+    "gm_unw": 0.4789515738775348,
+    "gm_rw": 0.49517569834428515,
+    "modal_n_firms": 51,
+    "modal_gm": 0.5155918619240427,
+    "survival": 38.804128603630325,
+    "surv_adj": 41.12754017190667,
+    "lead_effect": -7.8133123666482165,
+    "top_rev_firms": [
+     "APPLE INC",
+     "MICROSOFT CORP",
+     "INTEL CORP"
+    ],
+    "top3_rev_weight": 0.3675514624708124
+   },
+   {
+    "seg": 29,
+    "name": "Health and wellness services",
+    "n_firms": 199,
+    "eff_firms": 25.75932657924066,
+    "gm_unw": 0.47789065617036086,
+    "gm_rw": 0.5501848629716926,
+    "modal_n_firms": 18,
+    "modal_gm": 0.4112435884492608,
+    "survival": 45.82964741564514,
+    "surv_adj": 47.31394612569534,
+    "lead_effect": -2.4423815002095592,
+    "top_rev_firms": [
+     "CENTENE CORP",
+     "WALGREENS BOOTS ALLIANCE, INC.",
+     "UNITEDHEALTH GROUP INC"
+    ],
+    "top3_rev_weight": 0.49414339713455396
+   },
+   {
+    "seg": 24,
+    "name": "Pharmaceutical preparations + Medical-purpose apparatus and textile yarn (mixed)",
+    "n_firms": 72,
+    "eff_firms": 9.62384448224605,
+    "gm_unw": 0.4646444849494053,
+    "gm_rw": 0.29984660151393117,
+    "modal_n_firms": 7,
+    "modal_gm": 0.40227302695168693,
+    "survival": 46.00530102234002,
+    "surv_adj": 43.161635868183325,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "MCKESSON CORP",
+     "WALMART INC.",
+     "FLEX LTD."
+    ],
+    "top3_rev_weight": 0.5299159401284261
+   },
+   {
+    "seg": 5,
+    "name": "Education, training, travel and events + Media and entertainment goods",
+    "n_firms": 120,
+    "eff_firms": 8.739628312753416,
+    "gm_unw": 0.4560063019620248,
+    "gm_rw": 0.3580733444036724,
+    "modal_n_firms": 6,
+    "modal_gm": 0.4637662670268717,
+    "survival": 50.05724396336387,
+    "surv_adj": 52.368586728755865,
+    "lead_effect": -3.953186965406958,
+    "top_rev_firms": [
+     "UNITED TECHNOLOGIES CORP /DE/",
+     "CROWN HOLDINGS INC",
+     "TIME WARNER INC."
+    ],
+    "top3_rev_weight": 0.3609872404427206
+   },
+   {
+    "seg": 56,
+    "name": "Computer, software and information services + Electronic apparatus and control systems",
+    "n_firms": 547,
+    "eff_firms": 126.7081611991432,
+    "gm_unw": 0.4533950765791543,
+    "gm_rw": 0.39861394520788423,
+    "modal_n_firms": 121,
+    "modal_gm": 0.4480385061975531,
+    "survival": 47.17327856447952,
+    "surv_adj": 47.85551697895163,
+    "lead_effect": 1.056411883686812,
+    "top_rev_firms": [
+     "HP INC",
+     "INTEL CORP",
+     "CISCO SYSTEMS, INC."
+    ],
+    "top3_rev_weight": 0.19245442597600293
+   },
+   {
+    "seg": 46,
+    "name": "Education, training, travel and events + Health and wellness services",
+    "n_firms": 182,
+    "eff_firms": 15.223287183497092,
+    "gm_unw": 0.4471068239063196,
+    "gm_rw": 0.3927973036307946,
+    "modal_n_firms": 11,
+    "modal_gm": 0.5273147579205397,
+    "survival": 47.78931843855906,
+    "surv_adj": 49.808976222871834,
+    "lead_effect": -4.550571806029194,
+    "top_rev_firms": [
+     "APTIV PLC",
+     "WALMART INC.",
+     "UNITEDHEALTH GROUP INC"
+    ],
+    "top3_rev_weight": 0.33660313364761096
+   },
+   {
+    "seg": 35,
+    "name": "Computer, software and information services + Health and wellness services",
+    "n_firms": 295,
+    "eff_firms": 47.295603555932736,
+    "gm_unw": 0.4421362650124317,
+    "gm_rw": 0.49460755318423255,
+    "modal_n_firms": 46,
+    "modal_gm": 0.39858041156474855,
+    "survival": 46.39822366454588,
+    "surv_adj": 47.91667451448847,
+    "lead_effect": -3.3746829462699965,
+    "top_rev_firms": [
+     "UNITEDHEALTH GROUP INC",
+     "ELEVANCE HEALTH, INC.",
+     "MCKESSON CORP"
+    ],
+    "top3_rev_weight": 0.51675431473173
+   },
+   {
+    "seg": 32,
+    "name": "Education, training, travel and events",
+    "n_firms": 343,
+    "eff_firms": 51.08329369374153,
+    "gm_unw": 0.43539777276530256,
+    "gm_rw": 0.37168105362272974,
+    "modal_n_firms": 44,
+    "modal_gm": 0.44678460450643254,
+    "survival": 50.985960026511165,
+    "surv_adj": 51.42055063596935,
+    "lead_effect": -2.3674417597712494,
+    "top_rev_firms": [
+     "TRANE TECHNOLOGIES PLC",
+     "TIME WARNER INC.",
+     "ALTRIA GROUP, INC."
+    ],
+    "top3_rev_weight": 0.15181365861498378
+   },
+   {
+    "seg": 57,
+    "name": "Clothing, bags and footwear",
+    "n_firms": 235,
+    "eff_firms": 36.4900578503262,
+    "gm_unw": 0.41749309190171846,
+    "gm_rw": 0.30854591706199863,
+    "modal_n_firms": 33,
+    "modal_gm": 0.423740583986478,
+    "survival": 42.24765991559192,
+    "surv_adj": 47.361550256798296,
+    "lead_effect": -2.6936476442405293,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "NIKE, INC.",
+     "UNITED TECHNOLOGIES CORP /DE/"
+    ],
+    "top3_rev_weight": 0.40353677457734094
+   },
+   {
+    "seg": 20,
+    "name": "Retail store services + Education, training, travel and events",
+    "n_firms": 178,
+    "eff_firms": 14.817499381216749,
+    "gm_unw": 0.41569080205365505,
+    "gm_rw": 0.3415056592089317,
+    "modal_n_firms": 13,
+    "modal_gm": 0.4098753629487487,
+    "survival": 46.48580705980937,
+    "surv_adj": 48.02839210530104,
+    "lead_effect": -5.694395127418507,
+    "top_rev_firms": [
+     "CABELAS INC",
+     "YUM BRANDS INC",
+     "SYSCO CORP"
+    ],
+    "top3_rev_weight": 0.17573787876889227
+   },
+   {
+    "seg": 10,
+    "name": "Media and entertainment goods + Electronic apparatus and control systems",
+    "n_firms": 329,
+    "eff_firms": 69.29368606381799,
+    "gm_unw": 0.41120592709200765,
+    "gm_rw": 0.38826411857681103,
+    "modal_n_firms": 67,
+    "modal_gm": 0.40592578886156805,
+    "survival": 43.920839254367635,
+    "surv_adj": 44.951499241960455,
+    "lead_effect": -2.301783925283055,
+    "top_rev_firms": [
+     "APPLE INC",
+     "INTEL CORP",
+     "MICRON TECHNOLOGY INC"
+    ],
+    "top3_rev_weight": 0.2491864340727216
+   },
+   {
+    "seg": 58,
+    "name": "Medical-purpose apparatus and textile yarn (mixed)",
+    "n_firms": 127,
+    "eff_firms": 18.113810279986073,
+    "gm_unw": 0.39648420399060214,
+    "gm_rw": 0.36324852722980133,
+    "modal_n_firms": 18,
+    "modal_gm": 0.3841421065175927,
+    "survival": 50.72528726265178,
+    "surv_adj": 47.83516470723385,
+    "lead_effect": -4.8145911850099585,
+    "top_rev_firms": [
+     "MCKESSON CORP",
+     "KIMBERLY CLARK CORP",
+     "PROCTER & GAMBLE CO"
+    ],
+    "top3_rev_weight": 0.4768341767144842
+   },
+   {
+    "seg": 41,
+    "name": "Media and entertainment goods",
+    "n_firms": 304,
+    "eff_firms": 60.08571450871858,
+    "gm_unw": 0.3894242639789736,
+    "gm_rw": 0.41159316443763483,
+    "modal_n_firms": 57,
+    "modal_gm": 0.36189190322666115,
+    "survival": 41.79946154405879,
+    "surv_adj": 43.29162920482108,
+    "lead_effect": -4.100375299515243,
+    "top_rev_firms": [
+     "APPLE INC",
+     "MICROSOFT CORP",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.3642145163666886
+   },
+   {
+    "seg": 15,
+    "name": "Nutritional supplements",
+    "n_firms": 181,
+    "eff_firms": 68.56985286638731,
+    "gm_unw": 0.38608118298263977,
+    "gm_rw": 0.2963215679490073,
+    "modal_n_firms": 79,
+    "modal_gm": 0.38839679695581364,
+    "survival": 45.884766321798075,
+    "surv_adj": 46.89630668159305,
+    "lead_effect": -2.255846300521159,
+    "top_rev_firms": [
+     "ALBERTSONS COMPANIES, INC.",
+     "ARCHER-DANIELS-MIDLAND CO",
+     "ABBOTT LABORATORIES"
+    ],
+    "top3_rev_weight": 0.6551183776674028
+   },
+   {
+    "seg": 36,
+    "name": "Pets and animal feed",
+    "n_firms": 75,
+    "eff_firms": 14.099765272270618,
+    "gm_unw": 0.3834558248617734,
+    "gm_rw": 0.21321070590469063,
+    "modal_n_firms": 15,
+    "modal_gm": 0.3721172940831608,
+    "survival": 51.24427562213781,
+    "surv_adj": 48.95661332553426,
+    "lead_effect": -3.6461881836114496,
+    "top_rev_firms": [
+     "ARCHER-DANIELS-MIDLAND CO",
+     "WALMART INC.",
+     "LENNOX INTERNATIONAL INC"
+    ],
+    "top3_rev_weight": 0.5648085642340729
+   },
+   {
+    "seg": 53,
+    "name": "Retail store services + Marketing of consumer goods",
+    "n_firms": 188,
+    "eff_firms": 21.678191580389427,
+    "gm_unw": 0.3756884530343338,
+    "gm_rw": 0.23455712057229286,
+    "modal_n_firms": 17,
+    "modal_gm": 0.3249761682021547,
+    "survival": 39.15516193453156,
+    "surv_adj": 41.32191203736655,
+    "lead_effect": -4.50915281728929,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "U. S. PREMIUM BEEF, LLC",
+     "MCKESSON CORP"
+    ],
+    "top3_rev_weight": 0.5632957587786914
+   },
+   {
+    "seg": 37,
+    "name": "Electronic apparatus and control systems",
+    "n_firms": 626,
+    "eff_firms": 184.24604970275718,
+    "gm_unw": 0.37162099992483943,
+    "gm_rw": 0.31947712383515453,
+    "modal_n_firms": 196,
+    "modal_gm": 0.38226923760068093,
+    "survival": 56.703045559180566,
+    "surv_adj": 55.54940274149825,
+    "lead_effect": 0.40739241619592276,
+    "top_rev_firms": [
+     "ENERGY TRANSFER LP",
+     "JOHNSON CONTROLS INC",
+     "HONEYWELL INTERNATIONAL INC"
+    ],
+    "top3_rev_weight": 0.23721393920902942
+   },
+   {
+    "seg": 28,
+    "name": "Paper, books and stationery",
+    "n_firms": 269,
+    "eff_firms": 33.64499784400862,
+    "gm_unw": 0.36502446809142763,
+    "gm_rw": 0.37113052000677305,
+    "modal_n_firms": 34,
+    "modal_gm": 0.3532713131418289,
+    "survival": 46.454536275054274,
+    "surv_adj": 45.892926666788036,
+    "lead_effect": -1.5072473662739398,
+    "top_rev_firms": [
+     "GENERAL MOTORS CO",
+     "MERCK & CO., INC.",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.28565811491305887
+   },
+   {
+    "seg": 17,
+    "name": "Toys, games and sporting goods",
+    "n_firms": 168,
+    "eff_firms": 28.998681673433406,
+    "gm_unw": 0.36014360861564343,
+    "gm_rw": 0.2564932417434886,
+    "modal_n_firms": 29,
+    "modal_gm": 0.37339009285607583,
+    "survival": 43.749419090993584,
+    "surv_adj": 47.741771324624835,
+    "lead_effect": 4.445090992173141,
+    "top_rev_firms": [
+     "AMAZON COM INC",
+     "WALMART INC.",
+     "BOEING CO"
+    ],
+    "top3_rev_weight": 0.7331250450089594
+   },
+   {
+    "seg": 33,
+    "name": "Precious metal and household glassware",
+    "n_firms": 98,
+    "eff_firms": 9.087869784953558,
+    "gm_unw": 0.359298540364124,
+    "gm_rw": 0.3166782163198598,
+    "modal_n_firms": 8,
+    "modal_gm": 0.34203528180174864,
+    "survival": 44.71903223524418,
+    "surv_adj": 46.753410680756254,
+    "lead_effect": -1.4261298217861116,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "MACY'S, INC.",
+     "GENERAL MOTORS CO"
+    ],
+    "top3_rev_weight": 0.2671151107903065
+   },
+   {
+    "seg": 48,
+    "name": "Design and technical development services",
+    "n_firms": 540,
+    "eff_firms": 113.52953209687533,
+    "gm_unw": 0.35851168750035184,
+    "gm_rw": 0.26118572679303237,
+    "modal_n_firms": 97,
+    "modal_gm": 0.345533778467731,
+    "survival": 50.317248854065525,
+    "surv_adj": 50.825104538428604,
+    "lead_effect": -2.385685098638118,
+    "top_rev_firms": [
+     "SCHLUMBERGER LIMITED/NV",
+     "BOEING CO",
+     "FLEX LTD."
+    ],
+    "top3_rev_weight": 0.23651502408433245
+   },
+   {
+    "seg": 40,
+    "name": "Cleaning preparations and coatings",
+    "n_firms": 155,
+    "eff_firms": 23.499907593881062,
+    "gm_unw": 0.35549249140292183,
+    "gm_rw": 0.3357418117019667,
+    "modal_n_firms": 26,
+    "modal_gm": 0.39903100376329675,
+    "survival": 56.876138433515486,
+    "surv_adj": 52.179616297395114,
+    "lead_effect": -0.5810664414874961,
+    "top_rev_firms": [
+     "PPG INDUSTRIES INC",
+     "PROCTER & GAMBLE CO",
+     "SHERWIN WILLIAMS CO"
+    ],
+    "top3_rev_weight": 0.40381368548350677
+   },
+   {
+    "seg": 27,
+    "name": "Energy, transport and storage services",
+    "n_firms": 355,
+    "eff_firms": 133.9940596837659,
+    "gm_unw": 0.3530745535939324,
+    "gm_rw": 0.34196763777932465,
+    "modal_n_firms": 145,
+    "modal_gm": 0.3535338570685741,
+    "survival": 51.83093050051991,
+    "surv_adj": 50.0718416351044,
+    "lead_effect": 2.3131031306798966,
+    "top_rev_firms": [
+     "ENERGY TRANSFER OPERATING, L.P.",
+     "MARATHON PETROLEUM CORP",
+     "PHILLIPS 66"
+    ],
+    "top3_rev_weight": 0.17955398758190216
+   },
+   {
+    "seg": 2,
+    "name": "Clothing, bags and footwear",
+    "n_firms": 220,
+    "eff_firms": 46.603112473663494,
+    "gm_unw": 0.3512379207519582,
+    "gm_rw": 0.3080849291864564,
+    "modal_n_firms": 46,
+    "modal_gm": 0.3398586397587337,
+    "survival": 39.95527820546999,
+    "surv_adj": 46.74969757787551,
+    "lead_effect": -0.9045180135496154,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "GENERAL MOTORS CO",
+     "NIKE, INC."
+    ],
+    "top3_rev_weight": 0.37253357164285855
+   },
+   {
+    "seg": 39,
+    "name": "Retail store services",
+    "n_firms": 408,
+    "eff_firms": 71.98074613913042,
+    "gm_unw": 0.34916505885200266,
+    "gm_rw": 0.2646779388870549,
+    "modal_n_firms": 60,
+    "modal_gm": 0.3328109478497037,
+    "survival": 44.479432132039975,
+    "surv_adj": 46.949026687884306,
+    "lead_effect": -3.2671277900599525,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "BEST BUY CO INC",
+     "PUBLIX SUPER MARKETS INC"
+    ],
+    "top3_rev_weight": 0.36867469582256474
+   },
+   {
+    "seg": 31,
+    "name": "Industrial machines and parts",
+    "n_firms": 167,
+    "eff_firms": 31.951958924103643,
+    "gm_unw": 0.33578197465532056,
+    "gm_rw": 0.2650776732631369,
+    "modal_n_firms": 32,
+    "modal_gm": 0.33869720418691207,
+    "survival": 61.821633164977456,
+    "surv_adj": 51.31381974110985,
+    "lead_effect": -0.2805875304365548,
+    "top_rev_firms": [
+     "CATERPILLAR INC",
+     "DEERE & CO",
+     "TEREX CORP"
+    ],
+    "top3_rev_weight": 0.32492403070108217
+   },
+   {
+    "seg": 4,
+    "name": "Precious metal and household glassware",
+    "n_firms": 123,
+    "eff_firms": 9.30463616344598,
+    "gm_unw": 0.3334651395984084,
+    "gm_rw": 0.28113109014264887,
+    "modal_n_firms": 8,
+    "modal_gm": 0.399265184972604,
+    "survival": 45.37820412014468,
+    "surv_adj": 46.4532073763799,
+    "lead_effect": -1.5200222552450977,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "PHILLIPS 66",
+     "QVC INC"
+    ],
+    "top3_rev_weight": 0.5076982445528239
+   },
+   {
+    "seg": 25,
+    "name": "Bicycles, vehicle rental and tobacco (mixed)",
+    "n_firms": 189,
+    "eff_firms": 35.61550474719394,
+    "gm_unw": 0.33231551411435717,
+    "gm_rw": 0.3129502243596596,
+    "modal_n_firms": 32,
+    "modal_gm": 0.33803465548376976,
+    "survival": 50.61175045427014,
+    "surv_adj": 48.31180505893207,
+    "lead_effect": -2.7121916529732624,
+    "top_rev_firms": [
+     "FREEPORT-MCMORAN INC",
+     "WALMART INC.",
+     "RANGE RESOURCES CORP"
+    ],
+    "top3_rev_weight": 0.15363351463770125
+   },
+   {
+    "seg": 44,
+    "name": "Hand tools and knives",
+    "n_firms": 160,
+    "eff_firms": 22.39625488591883,
+    "gm_unw": 0.328864119398274,
+    "gm_rw": 0.3176640210156569,
+    "modal_n_firms": 17,
+    "modal_gm": 0.34152479163902033,
+    "survival": 58.786477896561685,
+    "surv_adj": 51.87077859653532,
+    "lead_effect": -1.5508876628440416,
+    "top_rev_firms": [
+     "STANLEY BLACK & DECKER, INC.",
+     "WALMART INC.",
+     "EMERSON ELECTRIC CO"
+    ],
+    "top3_rev_weight": 0.24459786327928007
+   },
+   {
+    "seg": 22,
+    "name": "Furniture and lighting",
+    "n_firms": 227,
+    "eff_firms": 49.23470908355886,
+    "gm_unw": 0.32565571481819294,
+    "gm_rw": 0.2641347341010126,
+    "modal_n_firms": 52,
+    "modal_gm": 0.30557531192727844,
+    "survival": 49.920851737432024,
+    "surv_adj": 47.0843524808891,
+    "lead_effect": -0.9146161151557817,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "HOLLYFRONTIER CORP",
+     "JOHNSON CONTROLS INC"
+    ],
+    "top3_rev_weight": 0.5328411932068132
+   },
+   {
+    "seg": 18,
+    "name": "Beverages and dairy",
+    "n_firms": 184,
+    "eff_firms": 62.99154429244482,
+    "gm_unw": 0.3134714501139319,
+    "gm_rw": 0.3427849437058356,
+    "modal_n_firms": 73,
+    "modal_gm": 0.3114095044964519,
+    "survival": 50.622628590990786,
+    "surv_adj": 46.450083167254604,
+    "lead_effect": 1.8133679754252687,
+    "top_rev_firms": [
+     "PEPSICO INC",
+     "MONDELEZ INTERNATIONAL, INC.",
+     "COCA COLA CO"
+    ],
+    "top3_rev_weight": 0.3250800405303021
+   },
+   {
+    "seg": 7,
+    "name": "Water treatment",
+    "n_firms": 135,
+    "eff_firms": 22.53566133028331,
+    "gm_unw": 0.30503236614548024,
+    "gm_rw": 0.34786320327386605,
+    "modal_n_firms": 22,
+    "modal_gm": 0.3016603960760032,
+    "survival": 57.841390064602365,
+    "surv_adj": 51.83238036450455,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "PEPSICO INC",
+     "PARKER HANNIFIN CORP",
+     "CAMERON INTERNATIONAL CORP"
+    ],
+    "top3_rev_weight": 0.2625818769142152
+   },
+   {
+    "seg": 55,
+    "name": "Heating and air apparatus",
+    "n_firms": 158,
+    "eff_firms": 30.120747724785375,
+    "gm_unw": 0.2973833519571641,
+    "gm_rw": 0.3212859774602787,
+    "modal_n_firms": 25,
+    "modal_gm": 0.2847735858628321,
+    "survival": 54.296591733139955,
+    "surv_adj": 48.17023282338413,
+    "lead_effect": -3.575143610520631,
+    "top_rev_firms": [
+     "EMERSON ELECTRIC CO",
+     "GENERAL ELECTRIC CO",
+     "JOHNSON CONTROLS INC"
+    ],
+    "top3_rev_weight": 0.27025512264277185
+   },
+   {
+    "seg": 54,
+    "name": "Mats, floor coverings and printing",
+    "n_firms": 104,
+    "eff_firms": 13.493714733953325,
+    "gm_unw": 0.29680662595324836,
+    "gm_rw": 0.2638641357815129,
+    "modal_n_firms": 12,
+    "modal_gm": 0.2898482149409875,
+    "survival": 51.803142109021664,
+    "surv_adj": 46.657167879600436,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "GENERAL MOTORS CO",
+     "DOMTAR CORP"
+    ],
+    "top3_rev_weight": 0.2973224997881099
+   },
+   {
+    "seg": 59,
+    "name": "Cleaning preparations and coatings + Industrial chemicals",
+    "n_firms": 170,
+    "eff_firms": 31.94176471607888,
+    "gm_unw": 0.29341104589052097,
+    "gm_rw": 0.23267918540295274,
+    "modal_n_firms": 30,
+    "modal_gm": 0.2697869747003107,
+    "survival": 61.36387407174982,
+    "surv_adj": 51.03241370564196,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "CHEMOURS CO",
+     "BUNGELTD",
+     "ARCHER-DANIELS-MIDLAND CO"
+    ],
+    "top3_rev_weight": 0.2190805227059069
+   },
+   {
+    "seg": 43,
+    "name": "Processed foods",
+    "n_firms": 117,
+    "eff_firms": 27.230988907978233,
+    "gm_unw": 0.28066430909678275,
+    "gm_rw": 0.2068456831098129,
+    "modal_n_firms": 30,
+    "modal_gm": 0.2757941796253674,
+    "survival": 51.17905529110216,
+    "surv_adj": 49.34140696349695,
+    "lead_effect": 0.8048690150205007,
+    "top_rev_firms": [
+     "TYSON FOODS, INC.",
+     "SYSCO CORP",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.38308723782604576
+   },
+   {
+    "seg": 47,
+    "name": "Essential oils and candles",
+    "n_firms": 67,
+    "eff_firms": 10.53595489086361,
+    "gm_unw": 0.2798492531895996,
+    "gm_rw": 0.43803408530684984,
+    "modal_n_firms": 11,
+    "modal_gm": 0.28015850122245856,
+    "survival": 43.485161085541975,
+    "surv_adj": 44.23283655290196,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "PROCTER & GAMBLE CO",
+     "COTY INC.",
+     "BATH & BODY WORKS, INC."
+    ],
+    "top3_rev_weight": 0.5183728805828404
+   },
+   {
+    "seg": 21,
+    "name": "Plants, seeds and agriculture",
+    "n_firms": 105,
+    "eff_firms": 25.547462500556815,
+    "gm_unw": 0.2794937276111384,
+    "gm_rw": 0.16733974360902726,
+    "modal_n_firms": 26,
+    "modal_gm": 0.27043223150567275,
+    "survival": 59.401271273323765,
+    "surv_adj": 52.301898120177896,
+    "lead_effect": 1.6738675125287996,
+    "top_rev_firms": [
+     "CHS INC",
+     "UNIVAR INC.",
+     "WALMART INC."
+    ],
+    "top3_rev_weight": 0.387983006485468
+   },
+   {
+    "seg": 14,
+    "name": "Land vehicles and parts",
+    "n_firms": 284,
+    "eff_firms": 85.08694844291468,
+    "gm_unw": 0.26968226231393017,
+    "gm_rw": 0.1971170225383693,
+    "modal_n_firms": 99,
+    "modal_gm": 0.26753900003004305,
+    "survival": 58.43288115003037,
+    "surv_adj": 51.24066229208763,
+    "lead_effect": -0.315062241748949,
+    "top_rev_firms": [
+     "GENERAL MOTORS CO",
+     "FORD MOTOR CO",
+     "FCA US LLC"
+    ],
+    "top3_rev_weight": 0.3517741103937481
+   },
+   {
+    "seg": 6,
+    "name": "Automotive vehicles and lubricants",
+    "n_firms": 109,
+    "eff_firms": 17.78462222581694,
+    "gm_unw": 0.26805636852904524,
+    "gm_rw": 0.12314372466679169,
+    "modal_n_firms": 15,
+    "modal_gm": 0.2688892203024221,
+    "survival": 54.8687610499116,
+    "surv_adj": 50.42534151844286,
+    "lead_effect": null,
+    "top_rev_firms": [
+     "PHILLIPS 66",
+     "FORD MOTOR CO",
+     "MARATHON PETROLEUM CORP"
+    ],
+    "top3_rev_weight": 0.45061587106040213
+   },
+   {
+    "seg": 30,
+    "name": "Plastics, textiles and packaging materials",
+    "n_firms": 265,
+    "eff_firms": 55.24985618140144,
+    "gm_unw": 0.26395403220401953,
+    "gm_rw": 0.2227029900673757,
+    "modal_n_firms": 62,
+    "modal_gm": 0.25141260843478164,
+    "survival": 58.66732306266651,
+    "surv_adj": 50.87308699747656,
+    "lead_effect": -1.2449272905032143,
+    "top_rev_firms": [
+     "AMCOR PLC",
+     "SONOCO PRODUCTS CO",
+     "PHILLIPS 66"
+    ],
+    "top3_rev_weight": 0.14616866231437134
+   },
+   {
+    "seg": 23,
+    "name": "Construction, engineering and waste services",
+    "n_firms": 262,
+    "eff_firms": 65.0863102173487,
+    "gm_unw": 0.25824034940005514,
+    "gm_rw": 0.23037301192226514,
+    "modal_n_firms": 65,
+    "modal_gm": 0.2354864312993822,
+    "survival": 52.056451612903224,
+    "surv_adj": 50.122646231727366,
+    "lead_effect": 0.6959805085921178,
+    "top_rev_firms": [
+     "AECOM",
+     "AUTONATION, INC.",
+     "WASTE MANAGEMENT INC"
+    ],
+    "top3_rev_weight": 0.19539432145581095
+   },
+   {
+    "seg": 12,
+    "name": "Metal and building hardware",
+    "n_firms": 178,
+    "eff_firms": 41.0514262510277,
+    "gm_unw": 0.20796594029919002,
+    "gm_rw": 0.19911370017736063,
+    "modal_n_firms": 50,
+    "modal_gm": 0.1825514101975904,
+    "survival": 57.509886102626034,
+    "surv_adj": 47.801373342023915,
+    "lead_effect": 0.026771848823983296,
+    "top_rev_firms": [
+     "NUCOR CORP",
+     "ALCOA INC",
+     "STEEL DYNAMICS INC"
+    ],
+    "top3_rev_weight": 0.35844116642445134
+   },
+   {
+    "seg": 9,
+    "name": "Processed foods + Beverages and dairy",
+    "n_firms": 92,
+    "eff_firms": 15.5524838023293,
+    "gm_unw": 0.19437997165351908,
+    "gm_rw": 0.24224516396935739,
+    "modal_n_firms": 11,
+    "modal_gm": 0.15502490630315816,
+    "survival": 50.56534315014462,
+    "surv_adj": 48.86200711439742,
+    "lead_effect": 2.608174024822188,
+    "top_rev_firms": [
+     "WALMART INC.",
+     "SYSCO CORP",
+     "SAFEWAY INC"
+    ],
+    "top3_rev_weight": 0.35914623769296217
+   }
+  ]
+ },
+ "test3_powder": {
+  "regex": "powder[- ]coat|powder paint|coating powder",
+  "powder_filings": 991,
+  "powder_owners": 537,
+  "matched_owner_keys": 10,
+  "matched_firms": 10,
+  "matched_firms_with_margin": 8,
+  "matched_powder_filings": 18,
+  "formulator_share_of_matched_firms": 0.25,
+  "by_group": [
+   {
+    "group": "other chemicals (28xx)",
+    "n_firms": 2,
+    "median_gm": 0.20380942648369038,
+    "powder_filings": 3
+   },
+   {
+    "group": "formulator (2851 paints)",
+    "n_firms": 2,
+    "median_gm": 0.2935715606079652,
+    "powder_filings": 4
+   },
+   {
+    "group": "other",
+    "n_firms": 2,
+    "median_gm": -0.06449431768276365,
+    "powder_filings": 6
+   },
+   {
+    "group": "equipment / machinery (35xx-38xx)",
+    "n_firms": 1,
+    "median_gm": 0.5479733322271264,
+    "powder_filings": 2
+   },
+   {
+    "group": "coating services (347x)",
+    "n_firms": 1,
+    "median_gm": 0.2736446802878188,
+    "powder_filings": 1
+   }
+  ],
+  "firms": [
+   {
+    "cik": 102729,
+    "name": "VALMONT INDUSTRIES INC",
+    "owner_name": "Valmont Industries, Inc.",
+    "sic": "3440",
+    "group": "other",
+    "powder_filings": 4,
+    "first": 2002,
+    "last": 2016,
+    "gm_med": 0.2760908602261919,
+    "n_years": 14
+   },
+   {
+    "cik": 35214,
+    "name": "FERRO CORP",
+    "owner_name": "Ferro Corporation",
+    "sic": "2851",
+    "group": "formulator (2851 paints)",
+    "powder_filings": 3,
+    "first": 1995,
+    "last": 1998,
+    "gm_med": 0.2634088075355455,
+    "n_years": 11
+   },
+   {
+    "cik": 1722287,
+    "name": "COVIA HOLDINGS CORP",
+    "owner_name": "COVIA HOLDINGS LLC",
+    "sic": "1400",
+    "group": "other",
+    "powder_filings": 2,
+    "first": 2017,
+    "last": 2017,
+    "gm_med": -0.40507949559171913,
+    "n_years": 1
+   },
+   {
+    "cik": 72331,
+    "name": "NORDSON CORP",
+    "owner_name": "Nordson Corporation",
+    "sic": "3569",
+    "group": "equipment / machinery (35xx-38xx)",
+    "powder_filings": 2,
+    "first": 2001,
+    "last": 2009,
+    "gm_med": 0.5479733322271264,
+    "n_years": 14
+   },
+   {
+    "cik": 915389,
+    "name": "EASTMAN CHEMICAL CO",
+    "owner_name": "Eastman Chemical Company",
+    "sic": "2821",
+    "group": "other chemicals (28xx)",
+    "powder_filings": 2,
+    "first": 1994,
+    "last": 1994,
+    "gm_med": 0.23309335536409773,
+    "n_years": 15
+   },
+   {
+    "cik": 8947,
+    "name": "AZZ INC",
+    "owner_name": "AZZ, Inc.",
+    "sic": "3470",
+    "group": "coating services (347x)",
+    "powder_filings": 1,
+    "first": 2015,
+    "last": 2015,
+    "gm_med": 0.2736446802878188,
+    "n_years": 13
+   },
+   {
+    "cik": 721083,
+    "name": null,
+    "owner_name": "Smith International, Inc.",
+    "sic": null,
+    "group": null,
+    "powder_filings": 1,
+    "first": 2001,
+    "last": 2001,
+    "gm_med": null,
+    "n_years": null
+   },
+   {
+    "cik": 1707925,
+    "name": null,
+    "owner_name": "Linde GmbH",
+    "sic": null,
+    "group": null,
+    "powder_filings": 1,
+    "first": 2023,
+    "last": 2023,
+    "gm_med": null,
+    "n_years": null
+   },
+   {
+    "cik": 102741,
+    "name": "VALSPAR CORP",
+    "owner_name": "VALSPAR CORPORATION, THE",
+    "sic": "2851",
+    "group": "formulator (2851 paints)",
+    "powder_filings": 1,
+    "first": 1994,
+    "last": 1994,
+    "gm_med": 0.3237343136803849,
+    "n_years": 7
+   },
+   {
+    "cik": 94049,
+    "name": "STEPAN CO",
+    "owner_name": "STEPAN COMPANY",
+    "sic": "2840",
+    "group": "other chemicals (28xx)",
+    "powder_filings": 1,
+    "first": 1989,
+    "last": 1989,
+    "gm_med": 0.17452549760328304,
+    "n_years": 13
+   }
+  ],
+  "known_formulators": {
+   "AkzoNobel": {
+    "powder_filings": 36,
+    "filing_owner_names": [
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL B.V.",
+      "n": 14
+     },
+     {
+      "owner": "Akzo Nobel N.V.",
+      "n": 9
+     },
+     {
+      "owner": "Akzo Nobel Coatings International B.V.",
+      "n": 5
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INC.",
+      "n": 4
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNTIONAL B.V.",
+      "n": 2
+     },
+     {
+      "owner": "AKZO NOBEL COATINGS INTERNATIONAL B. V.",
+      "n": 1
+     }
+    ],
+    "matched_powder_filings": 0,
+    "sec_registrant": null,
+    "crosswalk_names_for_registrant": []
+   },
+   "Axalta": {
+    "powder_filings": 4,
+    "filing_owner_names": [
+     {
+      "owner": "AXALTA COATING SYSTEMS IP CO. LLC",
+      "n": 3
+     },
+     {
+      "owner": "E. I. DU PONT DE NEMOURS AND COMPANY",
+      "n": 1
+     }
+    ],
+    "matched_powder_filings": 0,
+    "sec_registrant": {
+     "cik": 1616862,
+     "name": "AXALTA COATING SYSTEMS LTD.",
+     "sic": "2851"
+    },
+    "crosswalk_names_for_registrant": []
+   },
+   "PPG": {
+    "powder_filings": 14,
+    "filing_owner_names": [
+     {
+      "owner": "PPG INDUSTRIES OHIO, INC.",
+      "n": 12
+     },
+     {
+      "owner": "PPG Industries Ohio, Inc.",
+      "n": 2
+     }
+    ],
+    "matched_powder_filings": 0,
+    "sec_registrant": {
+     "cik": 79879,
+     "name": "PPG INDUSTRIES INC",
+     "sic": "2851"
+    },
+    "crosswalk_names_for_registrant": [
+     "PPG Industries, Inc.",
+     "PPG INDUSTRIES, INC."
+    ]
+   },
+   "Sherwin-Williams (incl. Valspar)": {
+    "powder_filings": 13,
+    "filing_owner_names": [
+     {
+      "owner": "VALSPAR SOURCING, INC.",
+      "n": 5
+     },
+     {
+      "owner": "SWIMC LLC",
+      "n": 4
+     },
+     {
+      "owner": "VALSPAR (VERNICOLOR) CORPORATION AG, THE",
+      "n": 1
+     },
+     {
+      "owner": "VALSPAR SOLUTIONS, INC.",
+      "n": 1
+     },
+     {
+      "owner": "VALSPAR CORPORATION, THE",
+      "n": 1
+     },
+     {
+      "owner": "Valspar Sourcing, Inc.",
+      "n": 1
+     }
+    ],
+    "matched_powder_filings": 1,
+    "sec_registrant": {
+     "cik": 89800,
+     "name": "SHERWIN WILLIAMS CO",
+     "sic": "5200"
+    },
+    "crosswalk_names_for_registrant": [
+     "The Sherwin-Williams Company",
+     "SHERWIN-WILLIAMS CO., THE",
+     "THE SHERWIN-WILLIAMS COMPANY",
+     "Sherwin-Williams Company",
+     "SHERWIN WILLIAMS COMPANY, THE",
+     "Sherwin-Williams Company, The",
+     "SHERWIN}WILLIAMS COMPANY, THE",
+     "SHERWIN-WILLIAMS COMPANY, INC."
+    ]
+   },
+   "RPM": {
+    "powder_filings": 3,
+    "filing_owner_names": [
+     {
+      "owner": "TCI Powder Coatings",
+      "n": 2
+     },
+     {
+      "owner": "TCI, Inc.",
+      "n": 1
+     }
+    ],
+    "matched_powder_filings": 0,
+    "sec_registrant": {
+     "cik": 110621,
+     "name": "RPM INTERNATIONAL INC/DE/",
+     "sic": "2851"
+    },
+    "crosswalk_names_for_registrant": []
+   },
+   "Tiger": {
+    "powder_filings": 9,
+    "filing_owner_names": [
+     {
+      "owner": "TIGER Coatings GmbH & Co. KG",
+      "n": 5
+     },
+     {
+      "owner": "TIGER COATINGS GMBH & CO. KG",
+      "n": 2
+     },
+     {
+      "owner": "Tiger Coatings GmbH & Co. KG",
+      "n": 1
+     },
+     {
+      "owner": "TIGER Coatings GmbH & Co KG",
+      "n": 1
+     }
+    ],
+    "matched_powder_filings": 0,
+    "sec_registrant": null,
+    "crosswalk_names_for_registrant": []
+   }
+  }
+ }
+}

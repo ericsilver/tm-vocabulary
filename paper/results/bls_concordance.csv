@@ -1,0 +1,130 @@
+unit_type,unit,unit_label,segments,role,series_id,database,series_title,naics,base_date,first_year,last_year,n_years,fit,justification
+class,001,Industrial chemicals,"",primary,WPU061,wp,Chemicals and allied products-Industrial chemicals,3251,198200,1926,2025,100,good,Industrial chemicals commodity index covers the core of class 1 (industrial/agricultural chemicals); fertilizers and adhesives only partly.
+class,001,Industrial chemicals,"",alternate,PCU3251--3251--,pc,Basic chemical mfg,3251,198412,1985,2025,41,"","basic chemical mfg, 1984-"
+class,002,"Paints, varnishes, colorants","",primary,PCU325510325510,pc,Paint and coating manufacturing,325510,198306,1984,2025,42,good,Paint and coating manufacturing is the industry that makes class 2 goods.
+class,002,"Paints, varnishes, colorants","",alternate,WPU0621,wp,Chemicals and allied products-Prepared paint,325510,198200,1926,2025,100,"","prepared paint commodity, 1926-"
+class,002,"Paints, varnishes, colorants","",alternate,WPU06210201,wp,Chemicals and allied products-OEM finishes excluding marine coatings,325510,198306,1984,2025,42,"","OEM product finishes (where powder coatings sit), 1983-"
+class,003,Cosmetics and cleaning preparations,"",primary,PCU3256--3256--,pc,"Soap, cleaners, and toilet preparation mfg",3256,198412,1985,2025,41,good,"Soap, cleaning compound and toilet preparation mfg spans both halves of class 3 (cosmetics and cleaners)."
+class,003,Cosmetics and cleaning preparations,"",alternate,PCU325620325620,pc,Toilet preparation manufacturing,325620,198003,1981,2025,45,"","toilet preparations only, 1980-"
+class,004,"Industrial oils, lubricants, fuels, candles","",primary,WPU0576,wp,Fuels and related products and power-Finished lubricants,324191,198200,1974,2025,52,partial,Finished lubricants match the oils/greases core; fuels and candles are not covered.
+class,005,Pharmaceuticals and supplements,"",primary,PCU325412325412,pc,Pharmaceutical preparation manufacturing,325412,198106,1982,2025,44,good,Pharmaceutical preparation mfg; dietary supplements and veterinary products only partly.
+class,005,Pharmaceuticals and supplements,"",alternate,PCU325411325411,pc,Medicinal and botanical manufacturing,325411,198206,1983,2025,43,"","medicinal and botanical mfg (supplements), 1982-"
+class,006,Common metals and hardware,"",primary,PCU332510332510,pc,Hardware mfg,332510,198506,1986,2025,40,partial,"Hardware mfg covers locks/fittings; base metals, metal building materials and safes are outside it."
+class,006,Common metals and hardware,"",alternate,WPU1041,wp,"Metals and metal products-Hardware, n.e.c.",3325,198200,1947,2025,79,"","hardware n.e.c. commodity, 1947-"
+class,007,Machines and machine tools,"",primary,WPU114,wp,Machinery and equipment-General purpose machinery and equipment,3339,198200,1939,2025,87,partial,"General purpose machinery; class 7 also includes engines, agricultural and kitchen machines."
+class,007,Machines and machine tools,"",alternate,PCU333---333---,pc,Machinery manufacturing,333,200312,2004,2025,22,"","machinery mfg, 2003- only"
+class,008,Hand tools and cutlery,"",primary,WPU1042,wp,Metals and metal products-Hand and edge tools,332216,198200,1947,2025,79,good,Hand and edge tools commodity index; cutlery and razors partly.
+class,008,Hand tools and cutlery,"",alternate,PCU332216332216,pc,"Saw blade, handsaw, and hand and edge tool mfg",332216,201112,2012,2025,14,"","industry series, 2011- only"
+class,009,"Scientific/electronic apparatus, computers, software","",primary,PCU334---334---,pc,Computer & electronic product mfg,334,200312,2004,2025,22,partial,"Computer and electronic product mfg; class 9 is dominated by downloadable software and media, which this does not price. Starts 2003."
+class,009,"Scientific/electronic apparatus, computers, software","",alternate,PCU3341--3341--,pc,Computer & peripheral equipment mfg,3341,200612,1995,2025,31,"","computers and peripherals, 1995-"
+class,009,"Scientific/electronic apparatus, computers, software","",alternate,PCU513210513210,pc,Software publishers,513210,199712,1998,2025,28,"","software publishers, 1997-"
+class,010,Medical apparatus,"",primary,PCU339112339112,pc,Surgical and medical instrument mfg,339112,198206,1983,2025,43,good,Surgical and medical instrument mfg.
+class,010,Medical apparatus,"",alternate,WPU1563,wp,Miscellaneous products-Medical and surgical appliances and supplies,339113,198306,1984,2025,42,"","medical and surgical appliances, 1983-"
+class,011,"Lighting, heating, cooking, refrigeration, sanitary","",primary,PCU333415333415,pc,"Air-conditioning, refrigeration, and forced air heating equipment mfg",333415,198212,1978,2025,48,partial,"HVAC and refrigeration equipment; lighting, cooking appliances and sanitary fixtures are separate industries."
+class,011,"Lighting, heating, cooking, refrigeration, sanitary","",alternate,WPU124,wp,Furniture and household durables-Household appliances,3352,198200,1947,2025,79,"","household appliances, 1947-"
+class,011,"Lighting, heating, cooking, refrigeration, sanitary","",alternate,WPU1083,wp,Metals and metal products-Lighting fixtures,3351,198200,1960,2025,66,"","lighting fixtures, 1960-"
+class,012,Vehicles,"",primary,PCU336110336110,pc,"Automobile, light truck and utility vehicle mfg",336110,198206,1976,2025,50,partial,"Light vehicle assembly; parts, tyres, bicycles, boats and aircraft also sit in class 12."
+class,012,Vehicles,"",alternate,PCU3363--3363--,pc,Motor vehicle parts manufacturing,3363,200312,2004,2025,22,"","motor vehicle parts, 2003-"
+class,013,"Firearms, ammunition, fireworks","",primary,WPU1514,wp,Miscellaneous products-Small arms,332994,198200,1947,2024,78,good,Small arms commodity index; ammunition and fireworks not separately priced.
+class,014,"Jewelry, precious metals, watches","",primary,WPU1594,wp,Miscellaneous products-Jewelry and jewelry products,339910,198200,1979,2025,47,good,Jewelry and jewelry products; watches/clocks not covered.
+class,015,Musical instruments,"",primary,PCU339992339992,pc,Musical instrument mfg,339992,198506,1979,2025,47,good,Musical instrument mfg.
+class,016,Paper goods and printed matter,"",primary,WPU0915,wp,"Pulp, paper, and allied products-Converted paper and paperboard products",3222,198200,1947,2025,79,partial,"Converted paper (stationery, envelopes, bags); printed matter (books, periodicals) is priced separately."
+class,016,Paper goods and printed matter,"",alternate,WPU3311,wp,"Publishing sales, excluding software-Sales of books",513130,198200,1981,2025,45,"","book publishing sales, 1980-"
+class,017,"Rubber, plastics (semi-finished), insulation","",primary,PCU326---326---,pc,Plastics and rubber products mfg,326,198412,1985,2025,41,partial,Plastics and rubber products; includes finished plastic goods outside class 17.
+class,018,Leather goods and luggage,"",primary,PCU316210316210,pc,Footwear manufacturing,316210,201112,2012,2025,14,poor,No long PPI for luggage/handbags/leather goods (wp group 04 discontinued); footwear (2011-) is the nearest live leather series but belongs to class 25.
+class,019,Non-metallic building materials,"",primary,PCU327---327---,pc,Nonmetallic mineral product manufacturing,327,198412,1985,2025,41,partial,"Nonmetallic mineral products (cement, concrete, glass, clay); lumber and asphalt building materials are outside it."
+class,020,Furniture,"",primary,PCU337---337---,pc,Furniture & related product mfg,337,198412,1985,2025,41,good,Furniture and related product mfg.
+class,021,"Household utensils, glassware, cookware","",primary,WPU126101,wp,"Furniture and household durables-Vitreous china, porcelain, and earthenware table and kitchenware and other pottery products",327110,198200,1975,2025,51,partial,"Table and kitchenware pottery; cookware, glassware, brushes and containers are only partly covered."
+class,021,"Household utensils, glassware, cookware","",alternate,PCU327212327212,pc,Other pressed and blown glass and glassware,327212,198306,1984,2025,42,"","pressed and blown glassware, 1983-"
+class,022,"Ropes, tents, bags, fibres","",primary,WPU0383,wp,Textile products and apparel-Industrial and other fabricated products,3149,198200,1978,2025,48,partial,"Industrial and other fabricated textile products (tents, cordage, bags); raw fibres not covered."
+class,023,Yarns and threads,"",primary,PCU3131--3131--,pc,"Fiber, yarn, and thread mills",3131,198412,1985,2025,41,good,"Fiber, yarn and thread mills."
+class,024,Textiles and household linens,"",primary,WPU0382,wp,Textile products and apparel-Textile house furnishings,3141,198200,1947,2025,79,partial,"Textile house furnishings (linens, curtains); piece-goods fabrics priced separately."
+class,024,Textiles and household linens,"",alternate,WPU034,wp,Textile products and apparel-Finished fabrics,3133,198200,1976,2025,50,"","finished fabrics, 1975-"
+class,025,"Clothing, footwear, headwear","",primary,WPU0381,wp,Textile products and apparel-Apparel,315,198200,1947,2025,79,good,Apparel commodity index; footwear and headwear partly.
+class,026,"Lace, buttons, notions, artificial flowers","",primary,WPU153201,wp,"Miscellaneous products-Fasteners, zippers, buttons, needles, pins, and buckles",339993,198200,1986,2024,39,partial,"Fasteners, zippers, buttons, needles, pins; lace, ribbons and artificial flowers not covered. Ends 2025."
+class,026,"Lace, buttons, notions, artificial flowers","",alternate,WPU0347,wp,"Textile products and apparel-Screen printed textile materials, embroideries, and lace goods",3132,198506,1986,2025,40,"","embroideries and lace, 1985-"
+class,027,Carpets and floor coverings,"",primary,WPU1231,wp,Furniture and household durables-Carpets and rugs,314110,198200,1947,2025,79,good,Carpets and rugs.
+class,028,"Toys, games, sporting goods","",primary,PCU339920339920,pc,Sporting and athletic goods mfg,339920,198512,1986,2025,40,partial,Sporting and athletic goods; toys and games have no live PPI.
+class,029,"Meat, fish, dairy, preserved foods","",primary,WPU022,wp,"Processed foods and feeds-Meats, poultry, and fish",3116,198200,1926,2025,100,partial,"Meats, poultry and fish; dairy, preserved produce and snack foods are priced in other series."
+class,029,"Meat, fish, dairy, preserved foods","",alternate,WPU023,wp,Processed foods and feeds-Dairy products,3115,198200,1926,2025,100,"","dairy products, 1926-"
+class,030,"Coffee, bakery, confectionery, staples","",primary,WPU021,wp,Processed foods and feeds-Cereal and bakery products,3118,198200,1926,2025,100,partial,"Cereal and bakery products; coffee, confectionery and condiments are separate."
+class,031,"Agricultural products, live animals, feed","",primary,WPU01,wp,Farm products,111,198200,1913,2025,113,partial,"Farm products (crops and livestock); live plants, seeds and animal feed only partly."
+class,032,Beer and non-alcoholic beverages,"",primary,PCU3121--3121--,pc,Beverage mfg,3121,198412,1985,2025,41,partial,"Beverage mfg (soft drinks, water, beer) but also includes wine and spirits (class 33)."
+class,032,Beer and non-alcoholic beverages,"",alternate,PCU312111312111,pc,Soft drink manufacturing,312111,198106,1982,2025,44,"","soft drinks, 1981-"
+class,032,Beer and non-alcoholic beverages,"",alternate,PCU312120312120,pc,Breweries,312120,198206,2010,2025,16,"","breweries, 1982-"
+class,033,Wine and spirits,"",primary,PCU312130312130,pc,Wineries,312130,198312,1984,2025,42,partial,Wineries; spirits are a separate industry.
+class,033,Wine and spirits,"",alternate,PCU312140312140,pc,Distilleries,312140,198306,1976,2025,50,"","distilleries, 1975-"
+class,034,Tobacco and smokers' articles,"",primary,PCU3122--3122--,pc,Tobacco mfg,3122,198412,1985,2025,41,good,Tobacco mfg; smokers' articles and e-cigarette devices only partly.
+class,035,"Advertising, business management, retail","",primary,PCU541810541810,pc,Advertising agencies,541810,199506,1996,2025,30,partial,Advertising agencies; business management and retail-store services (the bulk of class 35) are not priced here (retail margins only from 2006).
+class,035,"Advertising, business management, retail","",alternate,PCUARETTRARETTR,pc,Total retail trade industries,44-45,200612,2007,2025,19,"","total retail trade margins, 2006-"
+class,036,"Insurance, finance, real estate","",primary,PCU524126524126,pc,Direct property and casualty insurers,524126,199806,1999,2025,27,partial,Property and casualty insurance; banking (2003-) and real estate are separate.
+class,037,"Construction, repair, installation","",primary,PCU2381MR2381MR,pc,Nonresidential building maintenance & repair,2381,200904,2010,2025,16,poor,"Only nonresidential building maintenance and repair, from 2009; no residential construction or installation services PPI."
+class,038,Telecommunications,"",primary,PCU517311517311,pc,Wired telecommunications carriers,517311,200312,1996,2025,30,partial,"Wired telecom carriers; broadcasting, streaming and online messaging services are separate."
+class,038,Telecommunications,"",alternate,PCU517312517312,pc,Wireless telecommunications carriers,517312,199906,2000,2025,26,"","wireless carriers, 1999-"
+class,039,"Transport, travel, storage","",primary,PCU481---481---,pc,Air transportation,481,199212,1993,2025,33,partial,"Air transportation; trucking, travel arrangement and storage are separate."
+class,040,Treatment of materials,"",primary,PCU332812332812,pc,Metal coating and nonprecious engraving,332812,198412,1985,2025,41,partial,"Metal coating and engraving services (incl. powder-coating job shops); class 40 also covers custom manufacturing, printing and food processing."
+class,041,"Education, entertainment, sport, culture","",primary,PCU713940713940,pc,Fitness and recreational sports centers,713940,200412,2005,2025,21,poor,No PPI for education or entertainment content; fitness centres (2004-) are a sliver of class 41.
+class,042,"Scientific, technology, software services","",primary,PCU518210518210,pc,"Data processing, hosting and related services",518210,200012,2001,2025,25,partial,"Data processing and hosting (SaaS); engineering, design and research services are separate."
+class,042,"Scientific, technology, software services","",alternate,PCU541330541330,pc,Engineering services,541330,199612,1997,2025,29,"","engineering services, 1996-"
+class,042,"Scientific, technology, software services","",alternate,PCU513210513210,pc,Software publishers,513210,199712,1998,2025,28,"","software publishers, 1997-"
+class,043,Restaurants and accommodation,"",primary,PCU721---721---,pc,Accommodation,721,199612,1997,2025,29,poor,"Accommodation only; restaurants and food service, the bulk of class 43, have no PPI."
+class,044,"Medical, beauty, agricultural services","",primary,PCU621111621111,pc,"Offices of physicians, except mental health",621111,199312,1994,2025,32,partial,"Physicians' offices; beauty, spa, veterinary and landscaping services not covered."
+class,044,"Medical, beauty, agricultural services","",alternate,PCU622110622110,pc,General medical and surgical hospitals,622110,199212,1993,2025,33,"","general hospitals, 1992-"
+class,045,"Legal, security, personal services","",primary,PCU541110541110,pc,Offices of lawyers,541110,199612,1997,2025,29,partial,"Offices of lawyers; security, dating, funeral and religious services not covered."
+segment,"Education, training, travel and events + Downloadable and online software","n=33,739",0,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Computer, software and information services","n=207,627",1,primary,PCU518210518210,pc,"Data processing, hosting and related services",518210,200012,2001,2025,25,partial,Data processing/hosting; software publishing and IT consulting priced separately.
+segment,"Clothing, bags and footwear","n=268,629",2;57,primary,WPU0381,wp,Textile products and apparel-Apparel,315,198200,1947,2025,79,good,Apparel commodity index.
+segment,Retail store services + Beverages and dairy,"n=16,059",3,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Precious metal and household glassware,"n=74,202",4;33,primary,WPU1594,wp,Miscellaneous products-Jewelry and jewelry products,339910,198200,1979,2025,47,partial,Jewelry; household glassware not covered.
+segment,"Education, training, travel and events + Media and entertainment goods","n=38,432",5,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Automotive vehicles and lubricants,"n=14,706",6,primary,PCU336110336110,pc,"Automobile, light truck and utility vehicle mfg",336110,198206,1976,2025,50,partial,Light vehicles; lubricants separate.
+segment,Water treatment,"n=17,956",7,none,"","","","","",,,,poor,No PPI for water treatment equipment as a group.
+segment,"Paper, books and stationery + Media and entertainment goods","n=20,054",8,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Processed foods + Beverages and dairy,"n=41,833",9,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Media and entertainment goods + Electronic apparatus and control systems,"n=47,852",10,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Media and entertainment goods + Education, training, travel and events","n=35,993",11,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Metal and building hardware,"n=42,231",12,primary,WPU1041,wp,"Metals and metal products-Hardware, n.e.c.",3325,198200,1947,2025,79,good,Hardware n.e.c.
+segment,Hair and skin care,"n=105,591",13;52,primary,PCU325620325620,pc,Toilet preparation manufacturing,325620,198003,1981,2025,45,good,Toilet preparation mfg.
+segment,Land vehicles and parts,"n=59,268",14,primary,PCU336110336110,pc,"Automobile, light truck and utility vehicle mfg",336110,198206,1976,2025,50,partial,Light vehicles; parts separate.
+segment,Nutritional supplements,"n=56,060",15,primary,PCU325411325411,pc,Medicinal and botanical manufacturing,325411,198206,1983,2025,43,partial,Medicinal and botanical mfg.
+segment,"Education, training, travel and events + Computer, software and information services","n=71,951",16,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Toys, games and sporting goods","n=86,072",17,primary,PCU339920339920,pc,Sporting and athletic goods mfg,339920,198512,1986,2025,40,partial,Sporting goods; toys not priced.
+segment,Beverages and dairy,"n=140,212",18,primary,PCU3121--3121--,pc,Beverage mfg,3121,198412,1985,2025,41,partial,Beverage mfg; dairy separate.
+segment,"Research, scientific and diagnostic","n=38,576",19,none,"","","","","",,,,poor,Mix of research services and diagnostics; no single series.
+segment,"Retail store services + Education, training, travel and events","n=28,641",20,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Plants, seeds and agriculture","n=29,262",21,primary,WPU01,wp,Farm products,111,198200,1913,2025,113,partial,Farm products.
+segment,Furniture and lighting,"n=78,334",22,primary,PCU337---337---,pc,Furniture & related product mfg,337,198412,1985,2025,41,partial,Furniture; lighting separate.
+segment,"Construction, engineering and waste services","n=44,640",23,primary,PCU541330541330,pc,Engineering services,541330,199612,1997,2025,29,partial,Engineering services; construction and waste separate.
+segment,Pharmaceutical preparations + Medical-purpose apparatus and textile yarn (mixed),"n=7,923",24,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Bicycles, vehicle rental and tobacco (mixed)","n=41,275",25,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Computer, software and information services + Retail store services","n=53,302",26,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Energy, transport and storage services","n=35,583",27,none,"","","","","",,,,poor,"Energy, transport and storage have no common series."
+segment,"Paper, books and stationery","n=79,228",28,primary,WPU0915,wp,"Pulp, paper, and allied products-Converted paper and paperboard products",3222,198200,1947,2025,79,partial,Converted paper; books separate.
+segment,Health and wellness services,"n=31,652",29,primary,PCU713940713940,pc,Fitness and recreational sports centers,713940,200412,2005,2025,21,partial,Fitness centres; from 2004.
+segment,"Plastics, textiles and packaging materials","n=34,532",30,primary,PCU326---326---,pc,Plastics and rubber products mfg,326,198412,1985,2025,41,partial,Plastics and rubber products.
+segment,Industrial machines and parts,"n=29,501",31,primary,WPU114,wp,Machinery and equipment-General purpose machinery and equipment,3339,198200,1939,2025,87,good,General purpose machinery.
+segment,"Education, training, travel and events","n=164,459",32,none,"","","","","",,,,poor,No PPI for education or events.
+segment,"Computer, software and information services + Downloadable and online software","n=68,154",34,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Computer, software and information services + Health and wellness services","n=46,838",35,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Pets and animal feed,"n=28,169",36,primary,PCU311111311111,pc,Dog and cat food manufacturing,311111,198512,1986,2025,40,good,Dog and cat food mfg.
+segment,Electronic apparatus and control systems,"n=60,383",37,primary,WPU117,wp,Machinery and equipment-Electrical machinery and equipment,335,198200,1939,2025,87,partial,Electrical machinery and equipment.
+segment,Musical and surgical instruments,"n=28,475",38,primary,PCU339992339992,pc,Musical instrument mfg,339992,198506,1979,2025,47,partial,Musical instruments; surgical separate.
+segment,Retail store services,"n=74,947",39,primary,PCUARETTRARETTR,pc,Total retail trade industries,44-45,200612,2007,2025,19,partial,Total retail trade margins; from 2006 only.
+segment,Cleaning preparations and coatings,"n=30,744",40,primary,PCU3256--3256--,pc,"Soap, cleaners, and toilet preparation mfg",3256,198412,1985,2025,41,partial,Soap and cleaning compounds; coatings separate.
+segment,Media and entertainment goods,"n=109,944",41,none,"","","","","",,,,poor,Recorded media and entertainment content have no long PPI.
+segment,"Computer, software and information services + Education, training, travel and events","n=57,740",42,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Processed foods,"n=54,620",43,primary,PCU311---311---,pc,Food mfg,311,198412,1985,2025,41,partial,Food mfg sub-sector.
+segment,Hand tools and knives,"n=34,610",44,primary,WPU1042,wp,Metals and metal products-Hand and edge tools,332216,198200,1947,2025,79,good,Hand and edge tools.
+segment,Pharmaceutical preparations,"n=32,827",45,primary,PCU325412325412,pc,Pharmaceutical preparation manufacturing,325412,198106,1982,2025,44,good,Pharmaceutical preparation mfg.
+segment,"Education, training, travel and events + Health and wellness services","n=63,736",46,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Essential oils and candles,"n=18,903",47,primary,PCU325620325620,pc,Toilet preparation manufacturing,325620,198003,1981,2025,45,partial,Toilet preparations; candles separate.
+segment,Design and technical development services,"n=44,287",48,primary,PCU541310541310,pc,Architectural services,541310,199612,1997,2025,29,partial,Architectural services; design and product development only partly.
+segment,Medical and healthcare services,"n=44,515",49,primary,PCU622110622110,pc,General medical and surgical hospitals,622110,199212,1993,2025,33,partial,General hospitals.
+segment,Media and entertainment goods + Downloadable and online software,"n=34,520",50,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Computer, software and information services + Media and entertainment goods","n=42,145",51,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Retail store services + Marketing of consumer goods,"n=23,034",53,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,"Mats, floor coverings and printing","n=16,804",54,primary,WPU1231,wp,Furniture and household durables-Carpets and rugs,314110,198200,1947,2025,79,partial,Carpets and rugs; printing separate.
+segment,Heating and air apparatus,"n=33,096",55,primary,PCU333415333415,pc,"Air-conditioning, refrigeration, and forced air heating equipment mfg",333415,198212,1978,2025,48,good,HVAC and refrigeration equipment.
+segment,"Computer, software and information services + Electronic apparatus and control systems","n=37,004",56,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Medical-purpose apparatus and textile yarn (mixed),"n=24,542",58,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
+segment,Cleaning preparations and coatings + Industrial chemicals,"n=19,122",59,none,"","","","","",,,,poor,Mixed segment (two themes); no single industry.
