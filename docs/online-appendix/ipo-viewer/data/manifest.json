@@ -1,16 +1,70 @@
 {
  "ry_lo": 1996,
  "ry_hi": 2018,
+ "clip": 3.5,
+ "grid": 14,
+ "themes": {
+  "0": "Electronic apparatus and control systems",
+  "1": "Accessories and cables",
+  "2": "Design and technical development services",
+  "3": "Health and wellness services",
+  "4": "Plants, seeds and agriculture",
+  "5": "Downloadable and online software",
+  "6": "Metal and building hardware",
+  "7": "Pharmaceutical preparations",
+  "8": "Processed foods",
+  "9": "Computer, software and information services",
+  "10": "Cleaning preparations and coatings",
+  "11": "Components sold as a unit (drafting formula)",
+  "12": "Retail store services",
+  "13": "Research, scientific and diagnostic",
+  "14": "Clothing, bags and footwear",
+  "15": "Building and construction materials",
+  "16": "Nutritional supplements",
+  "17": "Toys, games and sporting goods",
+  "18": "Media and entertainment goods",
+  "19": "Oil, gas and metals",
+  "20": "Pets and animal feed",
+  "21": "Bicycles, vehicle rental and tobacco (mixed)",
+  "22": "Art, home and interior decoration",
+  "23": "Musical and surgical instruments",
+  "24": "Hair and skin care",
+  "25": "Essential oils and candles",
+  "26": "Automotive vehicles and lubricants",
+  "27": "Precious metal and household glassware",
+  "28": "Energy, transport and storage services",
+  "29": "Marketing of consumer goods",
+  "30": "Electronic cigarettes and tobacco",
+  "31": "Industrial chemicals",
+  "32": "Plastics, textiles and packaging materials",
+  "33": "Paper, books and stationery",
+  "34": "Furniture and lighting",
+  "35": "Education, training, travel and events",
+  "36": "Legal services, weapons and printer supplies (mixed)",
+  "37": "Land vehicles and parts",
+  "38": "Medical and healthcare services",
+  "39": "Heating and air apparatus",
+  "40": "Industrial machines and parts",
+  "41": "Repair, maintenance and rental of machines",
+  "42": "Construction, engineering and waste services",
+  "43": "Medical-purpose apparatus and textile yarn (mixed)",
+  "44": "Beverages and dairy",
+  "45": "Water treatment",
+  "46": "Mats, floor coverings and printing",
+  "47": "Hand tools and knives",
+  "48": "Veterinary and medical preparations",
+  "49": "Dental, industrial gases and fundraising (mixed)"
+ },
  "classes": [
   {
    "cls": "001",
    "name": "Chemicals",
    "n_total": 65272,
    "n_by_tier": {
-    "0": 24580,
-    "1": 37242,
-    "2": 2674,
-    "3": 776
+    "0": 24591,
+    "1": 37283,
+    "2": 2631,
+    "3": 767
    }
   },
   {
@@ -18,10 +72,10 @@
    "name": "Paints",
    "n_total": 19093,
    "n_by_tier": {
-    "0": 7338,
-    "1": 11108,
-    "2": 597,
-    "3": 50
+    "0": 7340,
+    "1": 11111,
+    "2": 589,
+    "3": 53
    }
   },
   {
@@ -29,10 +83,10 @@
    "name": "Cosmetics & Cleaning",
    "n_total": 135327,
    "n_by_tier": {
-    "0": 70406,
-    "1": 59864,
-    "2": 4767,
-    "3": 290
+    "0": 70431,
+    "1": 59898,
+    "2": 4744,
+    "3": 254
    }
   },
   {
@@ -40,10 +94,10 @@
    "name": "Lubricants & Fuels",
    "n_total": 19344,
    "n_by_tier": {
-    "0": 8945,
-    "1": 9379,
-    "2": 922,
-    "3": 98
+    "0": 8950,
+    "1": 9381,
+    "2": 919,
+    "3": 94
    }
   },
   {
@@ -51,10 +105,10 @@
    "name": "Pharmaceuticals",
    "n_total": 144625,
    "n_by_tier": {
-    "0": 71753,
-    "1": 63013,
-    "2": 7770,
-    "3": 2089
+    "0": 71788,
+    "1": 63071,
+    "2": 7734,
+    "3": 2032
    }
   },
   {
@@ -62,10 +116,10 @@
    "name": "Metal Goods",
    "n_total": 51878,
    "n_by_tier": {
-    "0": 19884,
-    "1": 30429,
+    "0": 19889,
+    "1": 30434,
     "2": 1396,
-    "3": 169
+    "3": 159
    }
   },
   {
@@ -73,10 +127,10 @@
    "name": "Machinery",
    "n_total": 87621,
    "n_by_tier": {
-    "0": 33107,
-    "1": 51066,
-    "2": 3128,
-    "3": 320
+    "0": 33129,
+    "1": 51089,
+    "2": 3126,
+    "3": 277
    }
   },
   {
@@ -84,10 +138,10 @@
    "name": "Hand Tools",
    "n_total": 29919,
    "n_by_tier": {
-    "0": 12678,
-    "1": 16413,
+    "0": 12685,
+    "1": 16417,
     "2": 744,
-    "3": 84
+    "3": 73
    }
   },
   {
@@ -95,10 +149,10 @@
    "name": "Software & Electronics",
    "n_total": 532479,
    "n_by_tier": {
-    "0": 269121,
-    "1": 232593,
-    "2": 23549,
-    "3": 7216
+    "0": 269238,
+    "1": 232981,
+    "2": 23426,
+    "3": 6834
    }
   },
   {
@@ -106,10 +160,10 @@
    "name": "Medical Apparatus",
    "n_total": 80583,
    "n_by_tier": {
-    "0": 34830,
-    "1": 39680,
-    "2": 4680,
-    "3": 1393
+    "0": 34841,
+    "1": 39721,
+    "2": 4657,
+    "3": 1364
    }
   },
   {
@@ -117,10 +171,10 @@
    "name": "Lighting & Heating",
    "n_total": 85368,
    "n_by_tier": {
-    "0": 38324,
-    "1": 44865,
-    "2": 1818,
-    "3": 361
+    "0": 38345,
+    "1": 44914,
+    "2": 1811,
+    "3": 298
    }
   },
   {
@@ -128,10 +182,10 @@
    "name": "Vehicles",
    "n_total": 64276,
    "n_by_tier": {
-    "0": 27939,
-    "1": 33163,
-    "2": 2157,
-    "3": 1017
+    "0": 27953,
+    "1": 33245,
+    "2": 2153,
+    "3": 925
    }
   },
   {
@@ -139,10 +193,10 @@
    "name": "Firearms",
    "n_total": 10717,
    "n_by_tier": {
-    "0": 3860,
-    "1": 6370,
-    "2": 388,
-    "3": 99
+    "0": 3883,
+    "1": 6413,
+    "2": 386,
+    "3": 35
    }
   },
   {
@@ -150,10 +204,10 @@
    "name": "Jewelry",
    "n_total": 61935,
    "n_by_tier": {
-    "0": 33808,
-    "1": 27068,
-    "2": 840,
-    "3": 219
+    "0": 33817,
+    "1": 27074,
+    "2": 837,
+    "3": 207
    }
   },
   {
@@ -161,9 +215,9 @@
    "name": "Musical Instruments",
    "n_total": 8808,
    "n_by_tier": {
-    "0": 3523,
-    "1": 5237,
-    "2": 39,
+    "0": 3525,
+    "1": 5238,
+    "2": 36,
     "3": 9
    }
   },
@@ -172,10 +226,10 @@
    "name": "Paper & Printed Goods",
    "n_total": 209759,
    "n_by_tier": {
-    "0": 102897,
-    "1": 98977,
-    "2": 7015,
-    "3": 870
+    "0": 102930,
+    "1": 99039,
+    "2": 6985,
+    "3": 805
    }
   },
   {
@@ -183,10 +237,10 @@
    "name": "Rubber & Plastics",
    "n_total": 27869,
    "n_by_tier": {
-    "0": 10393,
-    "1": 16547,
-    "2": 850,
-    "3": 79
+    "0": 10399,
+    "1": 16565,
+    "2": 849,
+    "3": 56
    }
   },
   {
@@ -194,10 +248,10 @@
    "name": "Leather Goods",
    "n_total": 63588,
    "n_by_tier": {
-    "0": 34302,
-    "1": 28232,
-    "2": 882,
-    "3": 172
+    "0": 34306,
+    "1": 28242,
+    "2": 870,
+    "3": 170
    }
   },
   {
@@ -205,10 +259,10 @@
    "name": "Building Materials",
    "n_total": 39793,
    "n_by_tier": {
-    "0": 16959,
-    "1": 21938,
-    "2": 772,
-    "3": 124
+    "0": 16961,
+    "1": 21941,
+    "2": 771,
+    "3": 120
    }
   },
   {
@@ -216,10 +270,10 @@
    "name": "Furniture",
    "n_total": 74114,
    "n_by_tier": {
-    "0": 35519,
-    "1": 36433,
-    "2": 1905,
-    "3": 257
+    "0": 35550,
+    "1": 36449,
+    "2": 1881,
+    "3": 234
    }
   },
   {
@@ -227,10 +281,10 @@
    "name": "Household Utensils",
    "n_total": 75857,
    "n_by_tier": {
-    "0": 37228,
-    "1": 36697,
-    "2": 1689,
-    "3": 243
+    "0": 37234,
+    "1": 36705,
+    "2": 1681,
+    "3": 237
    }
   },
   {
@@ -238,10 +292,10 @@
    "name": "Cordage & Fibers",
    "n_total": 10755,
    "n_by_tier": {
-    "0": 4621,
-    "1": 5934,
-    "2": 180,
-    "3": 20
+    "0": 4623,
+    "1": 5936,
+    "2": 178,
+    "3": 18
    }
   },
   {
@@ -260,10 +314,10 @@
    "name": "Textiles",
    "n_total": 36559,
    "n_by_tier": {
-    "0": 18350,
-    "1": 17518,
-    "2": 574,
-    "3": 117
+    "0": 18359,
+    "1": 17526,
+    "2": 564,
+    "3": 110
    }
   },
   {
@@ -271,10 +325,10 @@
    "name": "Clothing & Footwear",
    "n_total": 282767,
    "n_by_tier": {
-    "0": 162396,
-    "1": 116212,
-    "2": 3234,
-    "3": 925
+    "0": 162442,
+    "1": 116268,
+    "2": 3226,
+    "3": 831
    }
   },
   {
@@ -282,10 +336,10 @@
    "name": "Lace & Embroidery",
    "n_total": 15493,
    "n_by_tier": {
-    "0": 8210,
-    "1": 7031,
+    "0": 8211,
+    "1": 7035,
     "2": 181,
-    "3": 71
+    "3": 66
    }
   },
   {
@@ -293,10 +347,10 @@
    "name": "Carpets",
    "n_total": 11974,
    "n_by_tier": {
-    "0": 5518,
+    "0": 5519,
     "1": 6122,
-    "2": 299,
-    "3": 35
+    "2": 297,
+    "3": 36
    }
   },
   {
@@ -304,10 +358,10 @@
    "name": "Games & Sporting Goods",
    "n_total": 134644,
    "n_by_tier": {
-    "0": 74133,
-    "1": 55588,
-    "2": 4295,
-    "3": 628
+    "0": 74176,
+    "1": 55681,
+    "2": 4292,
+    "3": 495
    }
   },
   {
@@ -315,10 +369,10 @@
    "name": "Meats & Processed Foods",
    "n_total": 70467,
    "n_by_tier": {
-    "0": 33917,
-    "1": 34579,
-    "2": 1729,
-    "3": 242
+    "0": 33923,
+    "1": 34587,
+    "2": 1628,
+    "3": 329
    }
   },
   {
@@ -326,10 +380,10 @@
    "name": "Staple Foods",
    "n_total": 119000,
    "n_by_tier": {
-    "0": 60111,
-    "1": 56060,
-    "2": 2634,
-    "3": 195
+    "0": 60123,
+    "1": 56067,
+    "2": 2534,
+    "3": 276
    }
   },
   {
@@ -337,10 +391,10 @@
    "name": "Agricultural Products",
    "n_total": 37812,
    "n_by_tier": {
-    "0": 16307,
-    "1": 20779,
-    "2": 574,
-    "3": 152
+    "0": 16316,
+    "1": 20784,
+    "2": 555,
+    "3": 157
    }
   },
   {
@@ -348,10 +402,10 @@
    "name": "Beer & Soft Drinks",
    "n_total": 53847,
    "n_by_tier": {
-    "0": 27838,
+    "0": 27853,
     "1": 23956,
-    "2": 1941,
-    "3": 112
+    "2": 1935,
+    "3": 103
    }
   },
   {
@@ -360,8 +414,8 @@
    "n_total": 61283,
    "n_by_tier": {
     "0": 25858,
-    "1": 34875,
-    "2": 504,
+    "1": 34876,
+    "2": 503,
     "3": 46
    }
   },
@@ -381,10 +435,10 @@
    "name": "Advertising & Retail",
    "n_total": 477913,
    "n_by_tier": {
-    "0": 253247,
-    "1": 206527,
-    "2": 14038,
-    "3": 4101
+    "0": 253556,
+    "1": 206850,
+    "2": 13840,
+    "3": 3667
    }
   },
   {
@@ -392,10 +446,10 @@
    "name": "Insurance & Finance",
    "n_total": 212209,
    "n_by_tier": {
-    "0": 99424,
-    "1": 97382,
-    "2": 12850,
-    "3": 2553
+    "0": 99539,
+    "1": 97541,
+    "2": 12668,
+    "3": 2461
    }
   },
   {
@@ -403,10 +457,10 @@
    "name": "Construction & Repair",
    "n_total": 97675,
    "n_by_tier": {
-    "0": 44787,
-    "1": 48492,
-    "2": 3501,
-    "3": 895
+    "0": 44808,
+    "1": 48534,
+    "2": 3483,
+    "3": 850
    }
   },
   {
@@ -414,10 +468,10 @@
    "name": "Telecommunications",
    "n_total": 74314,
    "n_by_tier": {
-    "0": 43384,
-    "1": 25758,
-    "2": 3918,
-    "3": 1254
+    "0": 43399,
+    "1": 25805,
+    "2": 3897,
+    "3": 1213
    }
   },
   {
@@ -425,10 +479,10 @@
    "name": "Transport & Storage",
    "n_total": 63250,
    "n_by_tier": {
-    "0": 29551,
-    "1": 29272,
-    "2": 3721,
-    "3": 706
+    "0": 29582,
+    "1": 29300,
+    "2": 3713,
+    "3": 655
    }
   },
   {
@@ -436,10 +490,10 @@
    "name": "Material Treatment",
    "n_total": 49384,
    "n_by_tier": {
-    "0": 22663,
-    "1": 24004,
-    "2": 2209,
-    "3": 508
+    "0": 22673,
+    "1": 24032,
+    "2": 2208,
+    "3": 471
    }
   },
   {
@@ -447,10 +501,10 @@
    "name": "Education & Entertainment",
    "n_total": 423291,
    "n_by_tier": {
-    "0": 219885,
-    "1": 191882,
-    "2": 9167,
-    "3": 2357
+    "0": 219968,
+    "1": 191996,
+    "2": 9138,
+    "3": 2189
    }
   },
   {
@@ -458,10 +512,10 @@
    "name": "Scientific & Tech Services",
    "n_total": 338194,
    "n_by_tier": {
-    "0": 175518,
-    "1": 144728,
-    "2": 12767,
-    "3": 5181
+    "0": 175663,
+    "1": 144940,
+    "2": 12646,
+    "3": 4945
    }
   },
   {
@@ -469,10 +523,10 @@
    "name": "Hotels & Restaurants",
    "n_total": 86774,
    "n_by_tier": {
-    "0": 41530,
-    "1": 43591,
-    "2": 1423,
-    "3": 230
+    "0": 41542,
+    "1": 43608,
+    "2": 1415,
+    "3": 209
    }
   },
   {
@@ -480,10 +534,10 @@
    "name": "Medical & Beauty Services",
    "n_total": 92827,
    "n_by_tier": {
-    "0": 45914,
-    "1": 43003,
-    "2": 2848,
-    "3": 1062
+    "0": 45941,
+    "1": 43047,
+    "2": 2841,
+    "3": 998
    }
   },
   {
@@ -491,10 +545,10 @@
    "name": "Legal & Personal Services",
    "n_total": 64206,
    "n_by_tier": {
-    "0": 33170,
-    "1": 29111,
-    "2": 1453,
-    "3": 472
+    "0": 33199,
+    "1": 29159,
+    "2": 1449,
+    "3": 399
    }
   }
  ]

@@ -3,21 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IPO viewer — registrations on the lead/atypicality plane</title>
+<meta name="color-scheme" content="light dark">
+<title>IPO viewer — outcomes on the lead/atypicality plane</title>
 <style>
-  body { font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 12px; color: #222; }
+  :root {
+    --bg: #ffffff; --fg: #222222; --mut: #555555; --faint: #777777; --line: #cfcfcb; --acc: #2b6cb0;
+    --card: #ffffff; --grid: #e6e5df; --axis: #9a9993; --shadow: rgba(0,0,0,.18);
+    --t0: #b5b4ae; --t1: #2a78d6; --t2: #1baf7a; --t3: #eb6834;
+    --neg: #c9302f; --mid: #f0efec; --pos: #256abf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181d; --fg: #e6edf3; --mut: #9aa8b6; --faint: #8492a0; --line: #2b333c; --acc: #6ba7e6;
+      --card: #1b2129; --grid: #232a32; --axis: #5b6672; --shadow: rgba(0,0,0,.5);
+      --t0: #5a626c; --t1: #3987e5; --t2: #199e70; --t3: #d95926;
+      --neg: #e66767; --mid: #2a3038; --pos: #5598e7;
+    }
+  }
+  body { background: var(--bg); color: var(--fg); font-family: Georgia, serif; max-width: 900px; margin: 24px auto; padding: 0 16px; }
   h1 { font-size: 1.35em; }
-  .controls { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 10px 0 6px; font-size: 0.95em; }
-  .controls label { margin-right: 4px; }
-  select, input[type=number] { font-size: 1em; padding: 2px 4px; }
-  input[type=number] { width: 5.2em; }
-  canvas { border: 1px solid #ccc; width: 100%; height: auto; }
-  .legend { font-size: 0.9em; margin: 8px 0; }
-  .legend span.sw { display: inline-block; width: 11px; height: 11px; border-radius: 6px; margin: 0 4px 0 14px; vertical-align: -1px; }
-  .note { font-size: 0.85em; color: #555; margin-top: 12px; line-height: 1.45; }
-  a { color: #2b6cb0; }
-  .sitenav { font-size: 0.85em; color: #777; margin: 0 0 1.6em; }
-  .sitenav b { color: #222; font-weight: normal; }
+  h2 { font-size: 1.05em; margin: 1.8em 0 .4em; }
+  a { color: var(--acc); }
+  p.lead { font-size: 0.93em; line-height: 1.5; }
+  .sitenav { font-size: 0.85em; color: var(--faint); margin: 0 0 1.6em; }
+  .sitenav b { color: var(--fg); font-weight: normal; }
+  .controls { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; margin: 12px 0 8px; font-size: 0.93em; }
+  .controls label { display: inline-flex; gap: 6px; align-items: center; }
+  select, input[type=number] { font: inherit; padding: 3px 5px; background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
+  input[type=number] { width: 4.6em; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+  .seg button { font: inherit; padding: 4px 10px; border: 0; background: var(--card); color: var(--mut); cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed=true] { background: var(--fg); color: var(--bg); }
+  button:focus-visible, select:focus-visible, input:focus-visible, tr:focus-visible { outline: 2px solid var(--acc); outline-offset: 1px; }
+  .legend { font: 13px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--mut); margin: 6px 0 8px; min-height: 22px; display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
+  .legend .sw { display: inline-block; width: 11px; height: 11px; border-radius: 6px; margin-right: 5px; vertical-align: -1px; }
+  .legend .ramp { display: inline-block; width: 150px; height: 11px; border-radius: 3px; vertical-align: -1px; background: linear-gradient(to right, var(--neg), var(--mid), var(--pos)); }
+  .plotwrap { position: relative; }
+  canvas { display: block; width: 100%; border: 1px solid var(--line); border-radius: 3px; touch-action: manipulation; }
+  .tip { position: absolute; z-index: 5; display: none; width: 330px; max-width: calc(100% - 12px); box-sizing: border-box;
+         background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+         font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; box-shadow: 0 6px 24px var(--shadow); pointer-events: none; }
+  .tip b.m { font-size: 15px; }
+  .tip .o, .tip .q, .tip .k { color: var(--mut); }
+  .tip .q { margin: 6px 0; font-style: italic; }
+  .tip table { border-collapse: collapse; width: 100%; margin: 6px 0; font-size: 12px; }
+  .tip th { text-align: right; font-weight: 600; color: var(--mut); padding: 2px 0 2px 8px; vertical-align: bottom; }
+  .tip th:first-child, .tip td:first-child { text-align: left; padding-left: 0; }
+  .tip td { text-align: right; padding: 2px 0 2px 8px; font-variant-numeric: tabular-nums; border-top: 1px solid var(--grid); }
+  .tip p { margin: 4px 0; }
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px 20px; margin-top: 6px; }
+  .charts figure { margin: 0; }
+  .charts figcaption { font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--mut); margin-top: 2px; }
+  .charts figcaption b { color: var(--fg); }
+  svg text { font: 11px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--faint); }
+  .wrap { overflow-x: auto; }
+  table.data { border-collapse: collapse; width: 100%; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  table.data th, table.data td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  table.data th { color: var(--mut); font-weight: 600; font-size: 12px; }
+  table.data td.n, table.data th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.data tbody tr[tabindex] { cursor: default; }
+  table.data tbody tr[tabindex]:hover, table.data tbody tr.on { background: var(--grid); }
+  details { margin: 10px 0; font-size: 0.9em; }
+  summary { cursor: pointer; color: var(--acc); }
+  .note { font-size: 0.85em; color: var(--mut); margin-top: 14px; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -27,113 +76,458 @@
 <a href="../themes_T50.html">the fifty themes</a> &middot;
 <b>IPO viewer</b> &middot;
 <a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>
-<h1>Registrations on the lead/atypicality plane, colored by the furthest outcome reached</h1>
-<p style="font-size:0.93em">Each dot is one registration (registration years 1996&ndash;2018),
-placed by the lead and atypicality of its goods/services description, standardized within
-the class and registration year. Further right is more <em>leading</em>: the industry's
-language later moved toward the filing's. Further up is more <em>atypical</em>: the
-language is unusual for its class. Color is the furthest outcome the record reaches, and
-later outcomes draw on top. Firms whose owner appears in SEC financial reporting are
-orange; owners with an IPO marker are red.</p>
+<h1>Outcomes on the lead/atypicality plane, by Nice class</h1>
+<p class="lead">Every registration (registration years 1996&ndash;2018) has a position.
+Further right is more <em>leading</em>: the industry's language later moved toward the
+filing's. Further up is more <em>atypical</em>: the language is unusual for its class.
+Both are standardized within the class and registration year. <b>Outcome rates</b> colors
+each cell of the plane by how its registrations fared against the class as a whole;
+<b>Registrations</b> draws the registrations themselves, colored by the furthest outcome
+reached. Point at a named mark for its description, the themes the model finds in it,
+and what became of it. The two charts under the plane plot the same outcome against lead
+and against atypicality, each with a fitted line.</p>
 
 <div class="controls">
-  <label for="cls">Nice class</label>
-  <select id="cls"></select>
-  <label for="y0">Registered from</label>
-  <input type="number" id="y0" min="1996" max="2018" value="1996">
-  <label for="y1">to</label>
-  <input type="number" id="y1" min="1996" max="2018" value="2018">
+  <label>Nice class <select id="cls"></select></label>
+  <label>Registered <input type="number" id="y0" min="1996" max="2018" value="1996" aria-label="from year"> to
+    <input type="number" id="y1" min="1996" max="2018" value="2018" aria-label="to year"></label>
+  <span class="seg" role="group" aria-label="View">
+    <button type="button" id="vheat" aria-pressed="true">Outcome rates</button>
+    <button type="button" id="vdots" aria-pressed="false">Registrations</button>
+  </span>
+  <label>Outcome <select id="out">
+    <option value="p">passed the five-year proof</option>
+    <option value="s">owner in SEC reporting</option>
+    <option value="i">owner with an IPO marker</option>
+  </select></label>
+  <label><input type="checkbox" id="names" checked> name marks</label>
 </div>
 
 <div class="legend" id="legend"></div>
-<canvas id="plot" width="880" height="740"></canvas>
+<div class="plotwrap" id="wrap">
+  <canvas id="plot" role="img" aria-label="Lead and atypicality plane for the selected class. The tables below give the same figures."></canvas>
+  <div class="tip" id="tip"></div>
+</div>
+
+<div class="charts">
+  <figure><svg id="pl" viewBox="0 0 420 220" width="100%" role="img" aria-label="Outcome rate by lead"></svg><figcaption id="cl"></figcaption></figure>
+  <figure><svg id="pa" viewBox="0 0 420 220" width="100%" role="img" aria-label="Outcome rate by atypicality"></svg><figcaption id="ca"></figcaption></figure>
+</div>
+<details><summary>The two charts as a table</summary>
+<div class="wrap"><table class="data" id="bins"></table></div></details>
+
+<h2>Named marks in this class</h2>
+<div class="wrap"><table class="data" id="named"></table></div>
 
 <p class="note">
-Lead and atypicality are the papers&rsquo; production scoring (50 global themes,
-per-filing five-year reference windows). Tiers: grey &mdash; cancelled at the five-year
-proof of continued use (a dated &sect;8/&sect;71 cancellation at registration age
-4.0&ndash;8.5 years); blue &mdash; passed the five-year proof; orange &mdash; owner
-name-matched to SEC financial reporting records; red &mdash; owner carries an 8-A
-registration or IPO date. Owner outcomes are properties of the owner, not the mark, so
-one public firm colors all of its registrations. Grey and blue dots are a random sample
-capped at 22,000 per class; orange and red dots are complete. The 2018 cohort&rsquo;s
-five-year window is fractionally censored. Coordinates are clipped at &plusmn;3.5
-standard deviations. <a href="../">Back to the online appendix.</a>
+Lead and atypicality are the papers&rsquo; production scoring (50 global themes, per-filing
+five-year reference windows), clipped at &plusmn;3.5 standard deviations. <b>Outcomes.</b> A
+registration fails the five-year proof when it carries a dated &sect;8/&sect;71 cancellation at
+registration age 4.0&ndash;8.5 years; this is a property of the mark. SEC reporting (owner
+name-matched to SEC financial reporting records) and the IPO marker (an 8-A registration or IPO
+date) are properties of the owner, so one public firm counts once for each of its registrations.
+The 2018 cohort&rsquo;s five-year window is fractionally censored. <b>Outcome rates.</b> Cells are
+half a standard deviation wide (a full standard deviation where the years selected hold fewer
+than 80,000 registrations) and are computed on every registration of the class. A cell is
+colored when it holds at least 100 registrations (and, for the two owner outcomes, at least three
+expected at the class rate). The five-year proof is shown in percentage points against the class
+rate, the owner outcomes as a multiple of it. <b>Fitted lines.</b> Least squares of the outcome
+(0 or 1) on the plotted coordinate, over every registration in the years selected; points are
+half-standard-deviation bins with at least 200 registrations. <b>Registrations.</b> Grey and blue
+dots are a random sample capped at 22,000 per class; SEC-reporting and IPO-marker dots are complete,
+and later outcomes draw on top. <b>Named marks.</b> Owners are matched to SEC records by exact name, so a mark held by a subsidiary (Amazon Technologies, Inc.) is not matched to its parent. Marks named in the papers&rsquo; figures come first (in class 32, the earliest registered filing under each name). The rest
+are chosen by rule from the marks that share their first word with a large public owner&rsquo;s
+name: the largest owners (by peak annual revenue) for which the class is a main class, the most
+leading, most lagging and most atypical among the 30 largest, and the largest whose mark was
+cancelled at the five-year proof. The owner shown is the owner now on record, which for a mark
+sold after filing is not the applicant. Theme shares are the production model&rsquo;s reading of
+the full description; the class columns average the class&rsquo;s filings over the five calendar
+years before and after the filing year, where the scoring uses five years to the day.
+<a href="../">Back to the online appendix.</a>
 </p>
 
 <script>
-const COLORS = ["#c9c9c9", "#2b6cb0", "#e67e22", "#c0392b"];
-const SIZES  = [1.7, 1.7, 3.2, 4.0];
-const TIERS  = ["cancelled at the five-year proof", "passed the five-year proof",
-                "owner in SEC reporting", "owner with IPO marker"];
-const CLIP = 3.5;
-const cv = document.getElementById("plot"), cx = cv.getContext("2d");
-let cur = null;
+const CLIP = 3.5, G = 14, CELL = 2 * CLIP / G, MIN_CELL = 100, MIN_BIN = 200;
+const TIERS = ["cancelled at the five-year proof", "passed the five-year proof",
+               "owner in SEC reporting", "owner with IPO marker"];
+const SIZES = [1.7, 1.7, 3.0, 3.8];
+const OUTS = { p: "passed the five-year proof", s: "owner in SEC reporting", i: "owner with an IPO marker" };
+const SANS = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+const $ = id => document.getElementById(id);
+const cv = $("plot"), cx = cv.getContext("2d"), tip = $("tip"), wrap = $("wrap");
+let cur = null, man = null, agg = null, view = "heat", hot = null, pinned = null;
+let W = 880, H = 720, dpr = 1, shown = [];
 
-function px(v, w) { return 50 + (v + CLIP) / (2 * CLIP) * (w - 70); }
-function py(v, h) { return (h - 46) - (v + CLIP) / (2 * CLIP) * (h - 66); }
+const V = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mixc = (a, b, t) => "rgb(" + a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(",") + ")";
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const fmt = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d);
+const pct = (v, d = 1) => (100 * v).toFixed(d) + "%";
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const years = () => { let a = +$("y0").value || 1996, b = +$("y1").value || 2018; return a <= b ? [a, b] : [b, a]; };
+
+/* geometry */
+const PL = 48, PR = 12, PT = 12, PB = 42;
+const px = v => PL + (v + CLIP) / (2 * CLIP) * (W - PL - PR);
+const py = v => (H - PB) - (v + CLIP) / (2 * CLIP) * (H - PB - PT);
+
+function aggregate() {
+  const [y0, y1] = years(), g = cur.grid, f = cur.fit;
+  const a = { n: new Float64Array(G * G), p: new Float64Array(G * G), s: new Float64Array(G * G), i: new Float64Array(G * G),
+              N: 0, tot: { p: 0, s: 0, i: 0 }, fit: {} };
+  for (let k = 0; k < g.n.length; k++) {
+    if (g.ry[k] < y0 || g.ry[k] > y1) continue;
+    const c = g.c[k];
+    a.n[c] += g.n[k]; a.p[c] += g.p[k]; a.s[c] += g.s[k]; a.i[c] += g.i[k];
+    a.N += g.n[k]; a.tot.p += g.p[k]; a.tot.s += g.s[k]; a.tot.i += g.i[k];
+  }
+  for (const key of Object.keys(f)) if (key !== "ry") {
+    let s = 0;
+    for (let j = 0; j < f.ry.length; j++) if (f.ry[j] >= y0 && f.ry[j] <= y1) s += f[key][j];
+    a.fit[key] = s;
+  }
+  // the colored cells: half a standard deviation, or a full one where registrations are few
+  a.GH = a.N < 80000 ? G / 2 : G; a.h = {};
+  for (const key of ["n", "p", "s", "i"]) {
+    if (a.GH === G) { a.h[key] = a[key]; continue; }
+    const m = new Float64Array(a.GH * a.GH);
+    for (let c = 0; c < G * G; c++) { const bx = c % G, by = (c - bx) / G; m[(by >> 1) * a.GH + (bx >> 1)] += a[key][c]; }
+    a.h[key] = m;
+  }
+  agg = a;
+}
+
+function slope(k, ax) {             // least-squares slope of outcome k on axis ax ('x' lead, 'y' atypicality)
+  const f = agg.fit, n = f.n, sx = f["s" + ax], sxx = f["s" + ax + ax], so = f[k + "_o"], sxo = f[k + "_" + ax];
+  const den = sxx - sx * sx / n;
+  if (!(n > 2) || !(den > 0)) return null;
+  return { b: (sxo - sx * so / n) / den, xbar: sx / n, ybar: so / n };
+}
+
+function tval(k, c) {               // position of a cell on the diverging scale, -1..1, or null
+  const n = agg.h.n[c];
+  if (n < MIN_CELL || !agg.N) return null;
+  const base = agg.tot[k] / agg.N, rate = agg.h[k][c] / n;
+  if (k === "p") return clamp((rate - base) / 0.12, -1, 1);
+  if (n * base < 3 || !(base > 0)) return null;
+  return clamp(Math.log2(Math.max(rate, 1e-9) / base) / 2, -1, 1);
+}
+
+function resize() {
+  const w = Math.max(280, Math.min(wrap.clientWidth, 880));
+  W = w; H = Math.round(Math.max(330, w * (w < 520 ? 1 : 0.82)));
+  dpr = window.devicePixelRatio || 1;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + "px";
+}
 
 function draw() {
-  if (!cur) return;
-  const w = cv.width, h = cv.height;
-  const y0 = +document.getElementById("y0").value || 1996;
-  const y1 = +document.getElementById("y1").value || 2018;
-  cx.clearRect(0, 0, w, h);
-  cx.strokeStyle = "#999"; cx.lineWidth = 1;
-  cx.strokeRect(50, 20, w - 70, h - 66);
-  // zero lines
-  cx.strokeStyle = "#555";
-  cx.beginPath(); cx.moveTo(px(0, w), 20); cx.lineTo(px(0, w), h - 46); cx.stroke();
-  cx.beginPath(); cx.moveTo(50, py(0, h)); cx.lineTo(w - 20, py(0, h)); cx.stroke();
-  cx.fillStyle = "#666"; cx.font = "12px Georgia";
-  cx.fillText("lagging, atypical", 56, 34);
-  cx.fillText("leading, atypical", w - 130, 34);
-  cx.fillText("lagging, typical", 56, h - 54);
-  cx.fillText("leading, typical", w - 126, h - 54);
-  cx.fillStyle = "#333"; cx.font = "13px Georgia";
-  cx.fillText("lead L (sd within class and registration year) →", w / 2 - 150, h - 26);
-  cx.save(); cx.translate(16, h / 2 + 130); cx.rotate(-Math.PI / 2);
-  cx.fillText("atypicality A (sd within class and registration year) →", 0, 0);
-  cx.restore();
+  if (!cur || !agg) return;
+  resize();
+  const [y0, y1] = years(), k = $("out").value;
+  const C = { bg: V("--bg"), fg: V("--fg"), mut: V("--mut"), faint: V("--faint"), grid: V("--grid"), axis: V("--axis"),
+              t: [V("--t0"), V("--t1"), V("--t2"), V("--t3")], neg: hex(V("--neg")), mid: hex(V("--mid")), pos: hex(V("--pos")) };
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  cx.fillStyle = C.bg; cx.fillRect(0, 0, W, H);
+
   const counts = [0, 0, 0, 0];
-  const n = cur.g.length;
-  for (let i = 0; i < n; i++) {           // data pre-sorted by tier ascending
-    const ry = cur.ry[i];
-    if (ry < y0 || ry > y1) continue;
-    const g = cur.g[i];
-    counts[g]++;
-    cx.fillStyle = COLORS[g];
-    cx.globalAlpha = g < 2 ? 0.45 : 0.95;
-    cx.beginPath();
-    cx.arc(px(cur.x[i], w), py(cur.y[i], h), SIZES[g], 0, 6.2832);
-    cx.fill();
+  if (view === "heat") {
+    const GH = agg.GH, CH = 2 * CLIP / GH;
+    const cw = px(-CLIP + CH) - px(-CLIP), ch = py(-CLIP) - py(-CLIP + CH);
+    for (let c = 0; c < GH * GH; c++) {
+      const t = tval(k, c);
+      if (t === null) continue;
+      const bx = c % GH, by = (c - bx) / GH;
+      cx.fillStyle = mixc(C.mid, t < 0 ? C.neg : C.pos, Math.abs(t));
+      cx.fillRect(px(-CLIP + bx * CH) + 1, py(-CLIP + (by + 1) * CH) + 1, cw - 2, ch - 2);
+    }
+  } else {
+    const n = cur.g.length;
+    for (let i = 0; i < n; i++) {           // data pre-sorted by tier ascending
+      const ry = cur.ry[i];
+      if (ry < y0 || ry > y1) continue;
+      const g = cur.g[i];
+      counts[g]++;
+      cx.fillStyle = C.t[g];
+      cx.globalAlpha = g < 2 ? 0.45 : 0.95;
+      cx.beginPath(); cx.arc(px(cur.x[i]), py(cur.y[i]), SIZES[g], 0, 6.2832); cx.fill();
+    }
+    cx.globalAlpha = 1;
   }
-  cx.globalAlpha = 1;
-  const lg = document.getElementById("legend");
-  lg.innerHTML = TIERS.map((t, i) =>
-    `<span class="sw" style="background:${COLORS[i]}"></span>${t} (${counts[i].toLocaleString()}${i < 2 ? " shown" : ""})`
-  ).join("");
+
+  /* frame, zero lines, ticks, titles */
+  cx.lineWidth = 1; cx.strokeStyle = C.axis;
+  cx.strokeRect(PL + .5, PT + .5, W - PL - PR - 1, H - PT - PB - 1);
+  cx.beginPath(); cx.moveTo(Math.round(px(0)) + .5, PT); cx.lineTo(Math.round(px(0)) + .5, H - PB);
+  cx.moveTo(PL, Math.round(py(0)) + .5); cx.lineTo(W - PR, Math.round(py(0)) + .5); cx.stroke();
+  cx.fillStyle = C.faint; cx.font = "11px " + SANS; cx.textBaseline = "middle";
+  for (let v = -3; v <= 3; v++) {
+    cx.textAlign = "center"; cx.fillText(v === 0 ? "0" : fmt(v, 0), px(v), H - PB + 11);
+    cx.textAlign = "right"; cx.fillText(v === 0 ? "0" : fmt(v, 0), PL - 6, py(v));
+  }
+  cx.font = "12px " + SANS;
+  const corner = (t, x, y, al) => { cx.textAlign = al; cx.lineWidth = 3; cx.strokeStyle = C.bg; cx.lineJoin = "round"; cx.strokeText(t, x, y); cx.fillText(t, x, y); };
+  cx.fillStyle = C.mut;
+  corner("lagging, atypical", PL + 7, PT + 12, "left"); corner("leading, atypical", W - PR - 7, PT + 12, "right");
+  corner("lagging, typical", PL + 7, H - PB - 11, "left"); corner("leading, typical", W - PR - 7, H - PB - 11, "right");
+  cx.fillStyle = C.fg; cx.textAlign = "center"; cx.font = "13px " + SANS;
+  cx.fillText("lead (standard deviations within class and registration year) →", (PL + W - PR) / 2, H - 13);
+  cx.save(); cx.translate(13, (PT + H - PB) / 2); cx.rotate(-Math.PI / 2);
+  cx.fillText("atypicality (standard deviations) →", 0, 0); cx.restore();
+
+  /* named marks */
+  shown = $("names").checked ? cur.named.filter(n => n.ry >= y0 && n.ry <= y1) : [];
+  const boxes = [];
+  const hit = (b) => boxes.some(o => b.x < o.x + o.w && o.x < b.x + b.w && b.y < o.y + o.h && o.y < b.y + b.h);
+  for (const n of shown) { n._x = px(n.x); n._y = py(n.y); boxes.push({ x: n._x - 7, y: n._y - 7, w: 14, h: 14 }); }
+  cx.font = "600 12px " + SANS; cx.textBaseline = "middle";
+  for (const n of shown) {
+    const on = n === hot || n === pinned, r = on ? 6.5 : 5;
+    cx.beginPath(); cx.arc(n._x, n._y, r + 2, 0, 6.2832); cx.fillStyle = C.bg; cx.fill();
+    cx.beginPath(); cx.arc(n._x, n._y, r, 0, 6.2832);
+    cx.fillStyle = view === "heat" ? C.fg : C.t[n.g]; cx.fill();
+    cx.lineWidth = 1.5; cx.strokeStyle = C.fg; cx.stroke();
+    const label = n.m.length > 26 ? n.m.slice(0, 25) + "…" : n.m;
+    const tw = cx.measureText(label).width, th = 15;
+    const cand = [[9, -th / 2], [-9 - tw, -th / 2], [-tw / 2, -9 - th], [-tw / 2, 9], [9, -th - 4], [9, 4], [-9 - tw, -th - 4], [-9 - tw, 4]];
+    for (const [dx, dy] of cand) {
+      const b = { x: n._x + dx, y: n._y + dy, w: tw, h: th };
+      if (b.x < PL + 2 || b.x + b.w > W - PR - 2 || b.y < PT + 2 || b.y + b.h > H - PB - 2 || hit(b)) continue;
+      boxes.push(b);
+      cx.textAlign = "left"; cx.lineWidth = 3.5; cx.strokeStyle = C.bg; cx.lineJoin = "round";
+      cx.strokeText(label, b.x, b.y + th / 2); cx.fillStyle = C.fg; cx.fillText(label, b.x, b.y + th / 2);
+      break;
+    }
+  }
+  legend(counts, k);
+}
+
+function legend(counts, k) {
+  const lg = $("legend"); lg.replaceChildren();
+  if (view === "heat") {
+    const base = agg.N ? agg.tot[k] / agg.N : 0;
+    const lo = k === "p" ? "12 points below" : "a quarter of", hi = k === "p" ? "12 points above" : "four times";
+    lg.append(el("span", null, `${agg.N.toLocaleString()} registrations; ${pct(base, k === "p" ? 1 : 2)} ${OUTS[k]}.`));
+    const s = el("span"); s.append(el("span", null, lo + " "), el("span", "ramp"), el("span", null, " " + hi + " the class rate"));
+    lg.append(s);
+  } else {
+    TIERS.forEach((t, i) => {
+      const s = el("span"), sw = el("span", "sw"); sw.style.background = V("--t" + i);
+      s.append(sw, document.createTextNode(`${t} (${counts[i].toLocaleString()}${i < 2 ? " shown" : ""})`));
+      lg.append(s);
+    });
+  }
+}
+
+/* ---- the two profile charts ---- */
+const SVGNS = "http://www.w3.org/2000/svg";
+const sv = (tag, at) => { const e = document.createElementNS(SVGNS, tag); for (const a in at) e.setAttribute(a, at[a]); return e; };
+
+function binsFor(ax) {              // outcome rate by half-standard-deviation bin along one axis, and its fit
+  const k = $("out").value, bins = [];
+  for (let b = 0; b < G; b++) {
+    let n = 0, o = 0;
+    for (let j = 0; j < G; j++) { const c = ax === "x" ? j * G + b : b * G + j; n += agg.n[c]; o += agg[k][c]; }
+    bins.push({ lo: -CLIP + b * CELL, mid: -CLIP + (b + .5) * CELL, n, rate: n ? o / n : null });
+  }
+  const pts = bins.filter(b => b.n >= MIN_BIN), fit = slope(k, ax);
+  const P = { bins, pts, fit, ok: pts.length > 0 && !!fit };
+  if (P.ok) {
+    P.xa = pts[0].lo; P.xb = pts[pts.length - 1].lo + CELL;
+    P.fy = x => fit.ybar + fit.b * (x - fit.xbar);
+    P.lo = Math.min(...pts.map(p => p.rate), P.fy(P.xa), P.fy(P.xb));
+    P.hi = Math.max(...pts.map(p => p.rate), P.fy(P.xa), P.fy(P.xb));
+  }
+  return P;
+}
+
+function profile(svg, cap, name, P, lo, hi) {   // both charts share one vertical scale, so their slopes compare
+  const k = $("out").value;
+  svg.replaceChildren();
+  const { pts, fit, xa, xb, fy } = P;
+  const L = 46, R = 410, T = 12, B = 178;
+  const X = v => L + (v + CLIP) / (2 * CLIP) * (R - L);
+  if (!P.ok) { cap.textContent = "Too few registrations in the years selected."; return; }
+  const Y = v => B - (v - lo) / (hi - lo) * (B - T);
+  const step = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2].find(s => (hi - lo) / s <= 5) || 0.25;
+  const dec = step < 0.01 ? 1 : 0;
+  for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) {
+    svg.append(sv("line", { x1: L, x2: R, y1: Y(v), y2: Y(v), stroke: "var(--grid)", "stroke-width": 1 }));
+    const t = sv("text", { x: L - 6, y: Y(v) + 4, "text-anchor": "end" }); t.textContent = (100 * v).toFixed(dec) + "%"; svg.append(t);
+  }
+  svg.append(sv("line", { x1: L, x2: R, y1: B, y2: B, stroke: "var(--axis)", "stroke-width": 1 }));
+  for (let v = -3; v <= 3; v++) {
+    const t = sv("text", { x: X(v), y: B + 15, "text-anchor": "middle" }); t.textContent = v === 0 ? "0" : fmt(v, 0); svg.append(t);
+  }
+  const xt = sv("text", { x: (L + R) / 2, y: B + 34, "text-anchor": "middle" });
+  xt.textContent = name + " (standard deviations)"; xt.setAttribute("style", "fill: var(--mut); font-size: 12px"); svg.append(xt);
+  svg.append(sv("line", { x1: X(xa), x2: X(xb), y1: Y(fy(xa)), y2: Y(fy(xb)), stroke: "var(--fg)", "stroke-width": 2, "stroke-linecap": "round" }));
+  for (const p of pts) {
+    svg.append(sv("circle", { cx: X(p.mid), cy: Y(p.rate), r: 5.5, fill: "var(--bg)" }));
+    svg.append(sv("circle", { cx: X(p.mid), cy: Y(p.rate), r: 4, fill: "var(--t1)" }));
+    const h = sv("circle", { cx: X(p.mid), cy: Y(p.rate), r: 13, fill: "transparent", tabindex: 0 });
+    const show = () => {
+      tip.replaceChildren(); const a = el("p"); a.append(el("b", null, pct(p.rate, k === "p" ? 1 : 2)), document.createTextNode(" " + OUTS[k]));
+      tip.append(a, el("p", "k", `${name} ${fmt(p.lo)} to ${fmt(p.lo + CELL)} SD · ${p.n.toLocaleString()} registrations`));
+      const r = h.getBoundingClientRect(), w = wrap.getBoundingClientRect();
+      place(r.left + r.width / 2 - w.left, r.top + r.height / 2 - w.top);
+    };
+    h.addEventListener("pointerenter", show); h.addEventListener("focus", show);
+    h.addEventListener("pointerleave", hide); h.addEventListener("blur", hide);
+    svg.append(h);
+  }
+  cap.replaceChildren();
+  const dir = Math.abs(100 * fit.b) < 0.05 ? "flat" : fit.b > 0 ? "rising" : "falling";
+  cap.append(el("b", null, `${fmt(100 * fit.b, Math.abs(100 * fit.b) < 1 ? 2 : 1)} points per standard deviation of ${name}`),
+             document.createTextNode(` (fitted line, ${dir}). Share ${OUTS[k]}; dots are half-standard-deviation bins.`));
+}
+
+function charts() {
+  const k = $("out").value;
+  const PLd = binsFor("x"), PA = binsFor("y"), both = [PLd, PA].filter(p => p.ok);
+  let lo = Math.min(...both.map(p => p.lo)), hi = Math.max(...both.map(p => p.hi));
+  const pad = Math.max((hi - lo) * 0.1, 0.002); lo = Math.max(0, lo - pad); hi = Math.min(1, hi + pad);
+  profile($("pl"), $("cl"), "lead", PLd, lo, hi); profile($("pa"), $("ca"), "atypicality", PA, lo, hi);
+  const bl = PLd.bins, ba = PA.bins;
+  const t = $("bins"); t.replaceChildren();
+  const head = el("tr");
+  ["Standard deviations", "Registrations, by lead", "Share " + OUTS[k], "Registrations, by atypicality", "Share " + OUTS[k]]
+    .forEach((h, i) => head.append(el("th", i ? "n" : null, h)));
+  const th = el("thead"); th.append(head); const tb = el("tbody");
+  bl.forEach((b, i) => {
+    const r = el("tr"), a = ba[i], f = v => v === null ? "–" : pct(v, k === "p" ? 1 : 2);
+    r.append(el("td", null, `${fmt(b.lo)} to ${fmt(b.lo + CELL)}`), el("td", "n", b.n.toLocaleString()), el("td", "n", f(b.rate)),
+             el("td", "n", a.n.toLocaleString()), el("td", "n", f(a.rate)));
+    tb.append(r);
+  });
+  t.append(th, tb);
+}
+
+/* ---- tooltips ---- */
+function place(x, y) {
+  tip.style.display = "block";
+  const tw = tip.offsetWidth, thh = tip.offsetHeight, ww = wrap.clientWidth;
+  let left = x + 16; if (left + tw > ww - 4) left = x - tw - 16; left = clamp(left, 4, Math.max(4, ww - tw - 4));
+  let top = y + 14; if (top + thh > wrap.clientHeight + 260) top = y - thh - 14;
+  tip.style.left = left + "px"; tip.style.top = Math.max(-8, top) + "px";
+}
+function hide() { if (!pinned) tip.style.display = "none"; }
+
+const readL = z => z >= 0.5 ? "leading: the class's filings of the next five years resemble it more than those of the previous five"
+  : z <= -0.5 ? "lagging: it resembles the class's previous five years more than its next five" : "neither leading nor lagging";
+const readA = z => z >= 0.5 ? "atypical: its mix of themes is unusual for the class"
+  : z <= -0.5 ? "typical: close to the class's usual mix of themes" : "about as unusual as the class's average registration";
+
+function card(n) {
+  tip.replaceChildren();
+  tip.append(el("b", "m", n.m));
+  tip.append(el("div", "o", `${n.o} · class ${+cur.cls} · filed ${n.fd}, registered ${n.rd.slice(0, 4)}`));
+  if (n.t) tip.append(el("div", "q", "“" + n.t + "”"));
+  if (n.th.length) {
+    const t = el("table"), h = el("tr");
+    ["Themes the model finds", "This filing", "Class, 5 yrs before", "5 yrs after"].forEach(s => h.append(el("th", null, s)));
+    t.append(h);
+    for (const [kk, share, before, after] of n.th) {
+      const r = el("tr"), f = v => v === null ? "–" : pct(v, 0);
+      r.append(el("td", null, man.themes[kk] || "theme " + kk), el("td", null, f(share)), el("td", null, f(before)), el("td", null, f(after)));
+      t.append(r);
+    }
+    tip.append(t);
+  }
+  const a = el("p"); a.append(el("b", null, `Lead ${fmt(n.zl)} SD`), document.createTextNode(", " + readL(n.zl) + ".")); tip.append(a);
+  const b = el("p"); b.append(el("b", null, `Atypicality ${fmt(n.za)} SD`), document.createTextNode(", " + readA(n.za) + ".")); tip.append(b);
+  tip.append(el("p", null, outcome(n) + "."));
+  if (n.why === "paper") tip.append(el("p", "k", "Named in the papers."));
+}
+const outcome = n => (n.f ? "Cancelled at the five-year proof" : "Passed the five-year proof") + "; " +
+  (n.ipo ? "owner carries an IPO marker" : n.sec ? "owner matched to SEC reporting" : "owner not matched to SEC records");
+
+function nearest(mx, my) {
+  let best = null, bd = 24 * 24;
+  for (const n of shown) { const d = (n._x - mx) ** 2 + (n._y - my) ** 2; if (d < bd) { bd = d; best = n; } }
+  return best;
+}
+function setHot(n, x, y) {
+  if (n !== hot) { hot = n; draw(); document.querySelectorAll("#named tbody tr").forEach(r => r.classList.toggle("on", r._n === n)); }
+  if (n) { card(n); place(x ?? n._x, y ?? n._y); }
+}
+cv.addEventListener("pointermove", e => {
+  if (!cur) return;
+  const r = cv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+  const n = nearest(mx, my);
+  if (pinned) return;
+  if (n) { setHot(n, mx, my); return; }
+  if (hot) setHot(null);
+  if (view !== "heat") { hide(); return; }
+  const GH = agg.GH, CH = 2 * CLIP / GH;
+  const bx = Math.floor((mx - PL) / (W - PL - PR) * GH), by = Math.floor((H - PB - my) / (H - PB - PT) * GH);
+  if (bx < 0 || bx >= GH || by < 0 || by >= GH) { hide(); return; }
+  const c = by * GH + bx, nn = agg.h.n[c], k = $("out").value;
+  if (!nn) { hide(); return; }
+  const rate = agg.h[k][c] / nn, base = agg.tot[k] / agg.N;
+  tip.replaceChildren();
+  const a = el("p"); a.append(el("b", null, pct(rate, k === "p" ? 1 : 2)), document.createTextNode(` ${OUTS[k]} (class ${pct(base, k === "p" ? 1 : 2)})`));
+  tip.append(a, el("p", "k", `${nn.toLocaleString()} registrations · lead ${fmt(-CLIP + bx * CH)} to ${fmt(-CLIP + (bx + 1) * CH)}, atypicality ${fmt(-CLIP + by * CH)} to ${fmt(-CLIP + (by + 1) * CH)} SD`));
+  if (tval(k, c) === null) tip.append(el("p", "k", "Too few registrations to color."));
+  place(mx, my);
+});
+cv.addEventListener("pointerleave", () => { if (!pinned) { if (hot) setHot(null); hide(); } });
+cv.addEventListener("click", e => {
+  const r = cv.getBoundingClientRect(), n = nearest(e.clientX - r.left, e.clientY - r.top);
+  pinned = n && n !== pinned ? n : null;
+  if (pinned) { hot = pinned; draw(); card(pinned); place(pinned._x, pinned._y); } else { hot = null; draw(); tip.style.display = "none"; }
+});
+
+function namedTable() {
+  const t = $("named"); t.replaceChildren();
+  const [y0, y1] = years(), rows = cur.named.filter(n => n.ry >= y0 && n.ry <= y1);
+  if (!rows.length) { t.append(el("caption", null, "No named marks in the years selected.")); return; }
+  const head = el("tr");
+  [["Mark"], ["Owner on record"], ["Filed", "n"], ["Lead", "n"], ["Atypicality", "n"], ["Outcome"]].forEach(([h, c]) => head.append(el("th", c, h)));
+  const th = el("thead"); th.append(head); const tb = el("tbody");
+  for (const n of rows) {
+    const r = el("tr"); r._n = n; r.tabIndex = 0;
+    r.append(el("td", null, n.m), el("td", null, n.o), el("td", "n", n.fd.slice(0, 4)), el("td", "n", fmt(n.zl)), el("td", "n", fmt(n.za)), el("td", null, outcome(n)));
+    const on = () => { if (!pinned && $("names").checked) setHot(n); }, off = () => { if (!pinned) { setHot(null); hide(); } };
+    r.addEventListener("pointerenter", on); r.addEventListener("focus", on);
+    r.addEventListener("pointerleave", off); r.addEventListener("blur", off);
+    tb.append(r);
+  }
+  t.append(th, tb);
+}
+
+function refresh() { pinned = null; hot = null; tip.style.display = "none"; aggregate(); draw(); charts(); namedTable(); }
+function setView(v) {
+  view = v; $("vheat").setAttribute("aria-pressed", v === "heat"); $("vdots").setAttribute("aria-pressed", v === "dots");
+  tip.style.display = "none"; pinned = null; draw();
 }
 
 async function loadClass(c) {
+  cv.style.opacity = 0.5;
   const r = await fetch(`data/class_${c}.json`);
   cur = await r.json();
-  draw();
+  cv.style.opacity = 1;
+  refresh();
 }
 
 async function init() {
-  const r = await fetch("data/manifest.json");
-  const man = await r.json();
-  const sel = document.getElementById("cls");
+  man = await (await fetch("data/manifest.json")).json();
+  const sel = $("cls");
   for (const c of man.classes) {
     const o = document.createElement("option");
     o.value = c.cls; o.textContent = `${+c.cls} — ${c.name}`;
     sel.appendChild(o);
   }
-  sel.value = "009";
+  const want = new URLSearchParams(location.search).get("class");
+  sel.value = want && man.classes.some(c => c.cls === want.padStart(3, "0")) ? want.padStart(3, "0") : "009";
   sel.addEventListener("change", () => loadClass(sel.value));
-  for (const id of ["y0", "y1"])
-    document.getElementById(id).addEventListener("input", draw);
+  for (const id of ["y0", "y1"]) $(id).addEventListener("input", refresh);
+  $("out").addEventListener("change", () => { draw(); charts(); });
+  $("names").addEventListener("change", () => { pinned = null; hot = null; tip.style.display = "none"; draw(); });
+  $("vheat").addEventListener("click", () => setView("heat"));
+  $("vdots").addEventListener("click", () => setView("dots"));
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 80); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { draw(); });
   await loadClass(sel.value);
 }
 init();
