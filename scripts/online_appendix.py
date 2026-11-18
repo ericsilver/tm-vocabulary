@@ -53,6 +53,10 @@ import numpy as np
 import polars as pl
 
 REPO = Path(__file__).resolve().parents[1]
+
+# The published pages take the look of aporia.institute: a stylesheet link and the wordmark header.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from apply_site_style import apply as apply_site_style  # noqa: E402
 PROC = REPO / "data" / "processed"
 RES = REPO / "paper" / "results"
 OUT = REPO / "docs" / "online-appendix"
@@ -601,7 +605,7 @@ def write_index(rows: list[dict], allrows: list[dict]) -> None:
               f'<p><img src="figures/class_{r["cls"]}.png" alt="Nice {n}" loading="lazy"></p>']
     L.append(INDEX_FOOT)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "index.html").write_text("\n".join(L), encoding="utf-8")
+    (OUT / "index.html").write_text(apply_site_style("\n".join(L)), encoding="utf-8")
 
 
 if __name__ == "__main__":

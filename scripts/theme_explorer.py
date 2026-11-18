@@ -25,6 +25,10 @@ import polars as pl
 from sklearn.feature_extraction.text import CountVectorizer
 
 REPO = Path(__file__).resolve().parents[1]
+
+# The published pages take the look of aporia.institute: a stylesheet link and the wordmark header.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from apply_site_style import apply as apply_site_style  # noqa: E402
 PROC = REPO / "data" / "processed"
 OUT = REPO / "docs" / "online-appendix"
 
@@ -112,7 +116,7 @@ rows.forEach(r=>{{r.style.display=!v||r.dataset.words.toLowerCase().includes(v)?
 </script></body></html>"""
     OUT.mkdir(parents=True, exist_ok=True)
     p = OUT / f"themes_T{T}.html"
-    p.write_text(doc, encoding="utf-8")
+    p.write_text(apply_site_style(doc), encoding="utf-8")
     print(f"[explorer] T={T}: {used} themes >=1% of class {CLS}, "
           f"{zero} dominant for none -> {p}", file=sys.stderr)
     return 0

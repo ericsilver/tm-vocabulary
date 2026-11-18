@@ -18,9 +18,14 @@ Output: docs/online-appendix/themes_T50.html
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
+
+# The published pages take the look of aporia.institute: a stylesheet link and the wordmark header.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from apply_site_style import apply as apply_site_style  # noqa: E402
 OUT = REPO / "docs" / "online-appendix"
 
 
@@ -39,7 +44,7 @@ def main() -> int:
                     "the same vocabulary more finely and carry no labels.")
     page = PAGE.replace("__DATA__", json.dumps(data, separators=(",", ":"))).replace(
         "__SEG__", seg).replace("__SWITCH__", sentence).replace("__AVAIL__", json.dumps(avail))
-    (OUT / "themes_T50.html").write_text(page, encoding="utf-8")
+    (OUT / "themes_T50.html").write_text(apply_site_style(page), encoding="utf-8")
     print("wrote themes_T50.html")
     return 0
 

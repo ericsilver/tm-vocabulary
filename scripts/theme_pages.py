@@ -37,6 +37,10 @@ import joblib
 import numpy as np
 
 REPO = Path(__file__).resolve().parents[1]
+
+# The published pages take the look of aporia.institute: a stylesheet link and the wordmark header.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from apply_site_style import apply as apply_site_style  # noqa: E402
 PROC = REPO / "data" / "processed"
 RES = REPO / "paper" / "results"
 OUT = REPO / "docs" / "online-appendix" / "themes"
@@ -258,7 +262,8 @@ def line_svg(series, cols, quarters, W=900, H=300):
 
 
 def shell(title, body, extra_css=""):
-    return ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    return apply_site_style(
+            '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>' + esc(title) + '</title><style>' + CSS + extra_css
             + '</style></head><body>' + body + '</body></html>')
