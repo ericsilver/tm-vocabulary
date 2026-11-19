@@ -14,7 +14,7 @@ th{position:sticky;top:0;background:var(--bg);color:var(--mut);font-weight:600;f
 td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 td.w{color:var(--fg)}tr.empty td{color:var(--warn)}
 tr.empty td.w::after{content:" — dominant for no filing in this class";color:var(--warn);font-style:italic}
-</style><link rel="stylesheet" href="/css/appendix.css"></head><body><header class="aporia-strip"><a class="aporia-wordmark" href="https://aporia.institute/" aria-label="aporia.institute, the home page"><svg viewBox="0 -2.5 28 29" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><svg width="21" height="23" viewBox="0 0 21 23"><path d="M1.6 24 10.5 4 19.4 24"/><path d="M5.2 16h4M11.8 16h4"/><g opacity=".24"><path d="M10.5 13.7V24" stroke-width="2.2"/><circle cx="10.5" cy="11.1" r="1.2" fill="currentColor" stroke="none"/></g></svg><path d="M25.5 -1.5v27"/></svg>aporia.institute</a></header>
+.hit{color:var(--mut);font-size:13px;margin-top:.25rem}.hit b{color:var(--fg);font-weight:600}</style><link rel="stylesheet" href="/css/appendix.css"></head><body><header class="aporia-strip"><a class="aporia-wordmark" href="https://aporia.institute/" aria-label="aporia.institute, the home page"><svg viewBox="0 -2.5 28 29" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><svg width="21" height="23" viewBox="0 0 21 23"><path d="M1.6 24 10.5 4 19.4 24"/><path d="M5.2 16h4M11.8 16h4"/><g opacity=".24"><path d="M10.5 13.7V24" stroke-width="2.2"/><circle cx="10.5" cy="11.1" r="1.2" fill="currentColor" stroke="none"/></g></svg><path d="M25.5 -1.5v27"/></svg>aporia.institute</a></header>
 <h1>Themes at T&nbsp;=&nbsp;500</h1>
 <p class="sub">Every theme in the fitted model, with its leading words, the share
 of Nice class 009 it carries, and how many of 150,000 class-009 filings
@@ -26,7 +26,7 @@ dominant for no filing here are marked; they may still carry another class.</p>
 <div class="stat"><b>139</b><span>dominant for no filing here</span></div>
 <div class="stat"><b>62,168</b><span>vocabulary terms</span></div>
 </div>
-<input id="q" placeholder="filter by word, e.g. blockchain, insurance, kombucha">
+<input id="q" placeholder="find a word in any theme, e.g. blockchain, insurance, kombucha"><span id="cnt" style="color:var(--mut);font-size:13px;margin-left:.8rem"></span>
 <div class="wrap"><table><thead><tr>
 <th>#</th><th>Leading words</th><th>Mass in class 009</th><th>Filings dominant</th>
 </tr></thead><tbody id="tb">
@@ -532,7 +532,95 @@ dominant for no filing here are marked; they may still carry another class.</p>
 <tr class="empty" data-words="computer, data, computer software, processing, storage, discs, dental, digital, software, output, analog, electronic"><td class="n">498</td><td class="w">computer, data, computer software, processing, storage, discs, dental, digital, software, output, analog, electronic</td><td class="n">0.03%</td><td class="n">0</td></tr>
 </tbody></table></div>
 <script>
-const q=document.getElementById('q'),rows=[...document.querySelectorAll('#tb tr')];
-q.addEventListener('input',()=>{const v=q.value.toLowerCase().trim();
-rows.forEach(r=>{r.style.display=!v||r.dataset.words.toLowerCase().includes(v)?'':'none';});});
+function themeWordSearch(B,q){
+  function scan(needle,whole){
+    var by={},total=0,i=0,n=needle.length;
+    while((i=B.indexOf(needle,i))>-1){
+      var p=B.charCodeAt(i-1);
+      if(p!==10&&p!==32){i++;continue;}
+      var ls=B.lastIndexOf('\n',i)+1,b1=B.indexOf('|',ls);
+      if(i>b1){i++;continue;}
+      if(whole){var e=B.charCodeAt(i+n);if(e!==32&&e!==124){i++;continue;}}
+      var b2=B.indexOf('|',b1+1),le=B.indexOf('\n',b2);
+      var term=B.slice(ls,b1),tot=+B.slice(b1+1,b2),hs=B.slice(b2+1,le).split(',');
+      for(var h=0;h<hs.length;h++){
+        var a=hs[h].split(':'),m=tot*(+a[1])/100,o=by[a[0]]||(by[a[0]]={m:0,hits:[]});
+        o.m+=m;o.hits.push([term,+a[2],m]);total+=m;
+      }
+      i=le;
+    }
+    return {total:total,by:by};
+  }
+  function best(needle){var r=scan(needle,true);return r.total?r:scan(needle,false);}
+  var r=best(q),toks=q.split(' ');
+  if(r.total||toks.length<2) return r;
+  var parts=toks.map(best),by={},total=0;
+  for(var k in parts[0].by){
+    var m=Infinity,hits=[],ok=true;
+    for(var t=0;t<parts.length;t++){
+      var o=parts[t].by[k];
+      if(!o||!parts[t].total){ok=false;break;}
+      m=Math.min(m,o.m/parts[t].total);hits=hits.concat(o.hits);
+    }
+    if(ok){by[k]={m:m,hits:hits};total+=m;}
+  }
+  return {total:total,by:by};
+}
+// themeWordHits(entry) -> the line a row shows for a match: the matched words and where each ranks in the theme
+function themeWordHits(o){
+  function ord(n){var s=['th','st','nd','rd'],v=n%100;return n.toLocaleString('en-US')+(s[(v-20)%10]||s[v]||s[0]);}
+  var h=o.hits.slice().sort(function(a,b){return b[2]-a[2];});
+  var out=h.slice(0,4).map(function(x){
+    return '<b>'+x[0].replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b> ('+ord(x[1])+' word)';}).join(', ');
+  if(h.length>4) out+=' and '+(h.length-4)+' more';
+  return 'Holds '+out;
+}
+
+const q=document.getElementById('q'),cnt=document.getElementById('cnt'),tb=document.getElementById('tb');
+const rows=[...tb.querySelectorAll('tr')];
+let W=null,ws=0;   // word index: 0 not asked for, 1 loading, 2 ready, 3 failed
+function load(){
+  if(ws) return;
+  ws=1;
+  const s=document.createElement('script');
+  s.src='themes/words.js';
+  s.onload=()=>{W=window.THEME_WORDS||null;ws=W?2:3;apply();};
+  s.onerror=()=>{ws=3;apply();};
+  document.head.appendChild(s);
+}
+function apply(){
+  const v=q.value.toLowerCase().trim().replace(/\s+/g,' '),on=v.length>=2;
+  let res=null,shown=0;
+  if(on){ if(!ws) load(); if(ws===2) res=themeWordSearch(W,v); }
+  const vis=[];
+  rows.forEach(r=>{
+    const old=r.children[1].querySelector('.hit');
+    if(old) old.remove();
+    let ok=true;
+    if(on&&res){
+      const o=res.by[r.children[0].textContent];
+      ok=!!o;
+      if(o){
+        const d=document.createElement('div'),pc=100*o.m/res.total;
+        d.className='hit';
+        d.innerHTML=themeWordHits(o)+': '+(pc>=10?pc.toFixed(0):pc.toFixed(1))+'% of the search word';
+        r.children[1].appendChild(d);
+      }
+    } else if(on){
+      ok=r.dataset.words.toLowerCase().includes(v);
+    }
+    r.style.display=ok?'':'none';
+    if(ok) vis.push(r);
+  });
+  // while a word is searched the theme that holds most of it comes first; otherwise the page's own order
+  const order=(on&&res)?vis.slice().sort((a,b)=>res.by[b.children[0].textContent].m-res.by[a.children[0].textContent].m):rows;
+  order.forEach(r=>tb.appendChild(r));
+  shown=vis.length;
+  if(on&&res) cnt.textContent=shown?shown+(shown===1?' theme holds':' themes hold')+' “'+v+'”':'No theme holds a word starting “'+v+'”';
+  else if(on&&ws===1) cnt.textContent='Loading the word index…';
+  else if(on) cnt.textContent=shown+' themes list “'+v+'” among their leading words (the full word index did not load)';
+  else cnt.textContent='';
+}
+q.addEventListener('focus',load);
+q.addEventListener('input',apply);
 </script></body></html>

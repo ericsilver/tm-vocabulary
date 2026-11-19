@@ -22,8 +22,13 @@ Charting decisions, per the project's data-viz rules:
   - Every page carries a counts table, which is what the palette's relief rule
     requires: three light-mode slots sit below 3:1 on the light surface.
 
+The index page's word search reads words.js, an index of every word in the model
+and the themes that hold it (theme_word_index.py), so a word that leads no theme
+can still be found. A word search looks through every theme, whatever the
+"most-used" setting, because the reader asked for the word.
+
 Usage:  python scripts/theme_pages.py [T] [TOP_CLASSES]
-Output: docs/online-appendix/themes/index.html and theme-NNNN.html
+Output: docs/online-appendix/themes/index.html, theme-NNNN.html and words.js
 """
 from __future__ import annotations
 
@@ -41,6 +46,7 @@ REPO = Path(__file__).resolve().parents[1]
 # The published pages take the look of aporia.institute: a stylesheet link and the wordmark header.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_site_style import apply as apply_site_style  # noqa: E402
+from theme_word_index import SEARCH_JS, build_index, write_js  # noqa: E402
 PROC = REPO / "data" / "processed"
 RES = REPO / "paper" / "results"
 OUT = REPO / "docs" / "online-appendix" / "themes"
@@ -114,12 +120,37 @@ figcaption{color:var(--mut);font-size:13px;margin-top:.5rem;max-width:58rem}
 rect:hover{opacity:.72}
 """
 
-JS = """
+# The index page only: the line naming the words a search matched, and the search column.
+INDEX_CSS = """
+.hit{color:var(--mut);font-size:13px;margin-top:.25rem}
+.hit b{color:var(--fg);font-weight:600}
+.noq .wcol{display:none}
+"""
+
+# The papers score filings on fifty themes. Every page of a larger model says which model it shows.
+BANNER = (
+    '\n<p style="background:#fff7e6;border:1px solid #f0d9a8;padding:.6rem .8rem;border-radius:6px;'
+    'font-size:.9rem;max-width:60rem">This explorer uses the <b>%d-theme model</b>, one of the '
+    'robustness checks. The papers\' scores use the <a href="../themes_T50.html">fifty-theme model</a>; '
+    'theme numbers and outcome rates here do not correspond to it.</p>')
+
+JS = SEARCH_JS + """
 var tb=document.getElementById('tb');
 var rows=Array.prototype.slice.call(tb.querySelectorAll('tr'));
 var cls=document.getElementById('cls'), q=document.getElementById('q');
 var topn=document.getElementById('topn');
 var cnt=document.getElementById('cnt');
+var table=tb.parentNode;
+var W=null, wState=0;   // word index: 0 not asked for, 1 loading, 2 ready, 3 failed
+function loadWords(){
+  if(wState) return;
+  wState=1;
+  var s=document.createElement('script');
+  s.src='words.js';
+  s.onload=function(){W=window.THEME_WORDS||null;wState=W?2:3;apply();};
+  s.onerror=function(){wState=3;apply();};
+  document.head.appendChild(s);
+}
 function countFor(r){
   if(!cls.value) return 0;
   var m=JSON.parse(r.getAttribute('data-classes'));
@@ -132,25 +163,68 @@ function num(r,k){
   var f=parseFloat(t);
   return isNaN(f)?-Infinity:f;
 }
+var listed={};
+rows.forEach(function(r){listed[r.getAttribute('data-k')]=1;});
 function apply(){
-  var v=q.value.toLowerCase().trim(), shown=0;
+  var v=q.value.toLowerCase().trim().replace(/\\s+/g,' '), shown=0;
+  var searching=v.length>=2, res=null;
+  if(searching){
+    if(!wState) loadWords();
+    if(wState===2) res=themeWordSearch(W,v);
+  }
+  table.className=(searching&&res)?'':'noq';
+  if(!(searching&&res)&&sortKey===6){
+    sortKey=null;
+    Array.prototype.forEach.call(document.querySelectorAll('th.sort'),
+      function(o){o.removeAttribute('data-dir');});
+  }
   var vis=rows.filter(function(r){
-    var okw=!v||r.getAttribute('data-words').indexOf(v)>-1;
+    var o=res?res.by[r.getAttribute('data-k')]:null;
+    r.lastChild.textContent='';
+    r.children[1].lastChild.innerHTML='';
     var okc=!cls.value||countFor(r)>0;
+    if(searching){
+      // a word search looks through every theme, whatever the most-used setting
+      if(res){
+        if(!o) return false;
+        var pc=100*o.m/res.total;
+        r.lastChild.textContent=(pc>=10?pc.toFixed(0):pc.toFixed(1))+'%';
+        r.children[1].lastChild.innerHTML=themeWordHits(o);
+        return okc;
+      }
+      return okc&&r.getAttribute('data-words').indexOf(v)>-1;
+    }
     var n=+topn.value;
-    var okn=!n||(+r.getAttribute('data-rank'))<n;
-    return okw&&okc&&okn;
+    return okc&&(!n||(+r.getAttribute('data-rank'))<n);
   });
   rows.forEach(function(r){r.style.display='none';});
   if(sortKey!==null){
     var sgn=(sortDir==='asc')?1:-1;
     vis.sort(function(a,b){return sgn*(num(a,sortKey)-num(b,sortKey));});
+  } else if(searching&&res){
+    // no explicit sort: the theme that holds most of the word comes first
+    vis.sort(function(a,b){return res.by[b.getAttribute('data-k')].m-res.by[a.getAttribute('data-k')].m;});
   } else if(cls.value){
     // no explicit sort: with a class chosen, order by that class's filings
     vis.sort(function(a,b){return countFor(b)-countFor(a);});
   }
   vis.forEach(function(r){r.style.display='';tb.appendChild(r);shown++;});
-  cnt.textContent=shown+' of '+rows.length+' themes shown';
+  var inc=cls.value?' with filings in the chosen class':'';
+  if(searching&&res){
+    // a theme that leads no filing has no row; say so when one of them holds the word
+    var off=0;
+    for(var k in res.by){ if(!listed[k]) off++; }
+    var more=off?'; '+off+(off===1?' theme that leads no filing also holds it and is':' themes that lead no filing also hold it and are')+' not listed':'';
+    cnt.textContent=(shown
+      ?shown+(shown===1?' theme holds':' themes hold')+' \u201c'+v+'\u201d'+inc+'; all '+rows.length+' listed themes searched'
+      :'No listed theme'+inc+' holds a word starting \u201c'+v+'\u201d')+more;
+  } else if(searching&&wState===1){
+    cnt.textContent='Loading the word index\u2026';
+  } else if(searching){
+    cnt.textContent=shown+' of '+rows.length+' themes list \u201c'+v+'\u201d among their leading words (the full word index did not load)';
+  } else {
+    cnt.textContent=shown+' of '+rows.length+' themes shown';
+  }
 }
 Array.prototype.forEach.call(document.querySelectorAll('th.sort'),function(th){
   th.addEventListener('click',function(){
@@ -165,6 +239,7 @@ Array.prototype.forEach.call(document.querySelectorAll('th.sort'),function(th){
 });
 cls.addEventListener('change',apply);
 topn.addEventListener('change',apply);
+q.addEventListener('focus',loadWords);
 q.addEventListener('input',apply);
 apply();
 """
@@ -266,7 +341,8 @@ def shell(title, body, extra_css=""):
             '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>' + esc(title) + '</title><style>' + CSS + extra_css
-            + '</style></head><body>' + body + '</body></html>')
+            + '</style></head><body>' + (BANNER % T if T != 50 else '')
+            + body + '</body></html>')
 
 
 def main() -> int:
@@ -284,7 +360,13 @@ def main() -> int:
     comp = m["lda"].components_
     top = [", ".join(inv[j] for j in np.argsort(comp[k])[::-1][:NWORDS])
            for k in range(T)]
-    del m, comp
+    OUT.mkdir(parents=True, exist_ok=True)
+    blob, wstat = build_index(m)
+    write_js(OUT / "words.js", blob)
+    print("[pages] word index: %d words, %d theme entries, %.2f MB"
+          % (wstat["words"], wstat["holders"], len(blob) / 1e6), file=sys.stderr)
+    nvocab = wstat["vocabulary"]
+    del m, comp, blob
 
     OUT.mkdir(parents=True, exist_ok=True)
     all_classes = sorted({c for t in outc.values() for c in t["by_class"]})
@@ -358,11 +440,11 @@ def main() -> int:
         n = o["n"] or 1
         reg = max(o["reg"], 1)
         trs.append(
-            '<tr data-classes=\'%s\' data-words="%s" data-rank="%d">'
+            '<tr data-k="%d" data-classes=\'%s\' data-words="%s" data-rank="%d">'
             '<td class="n"><a href="theme-%04d.html">%d</a></td>'
-            '<td>%s</td><td class="n">%s</td><td class="n">%.1f%%</td>'
-            '<td class="n">%.1f%%</td><td class="n">%.2f%%</td></tr>'
-            % (json.dumps(o["by_class"]), esc(top[k].lower()), rank[k], k, k,
+            '<td>%s<div class="hit"></div></td><td class="n">%s</td><td class="n">%.1f%%</td>'
+            '<td class="n">%.1f%%</td><td class="n">%.2f%%</td><td class="n wcol"></td></tr>'
+            % (k, json.dumps(o["by_class"]), esc(top[k].lower()), rank[k], k, k,
                esc(top[k]), format(o["n"], ","), 100.0 * o["reg"] / n,
                100.0 * o["failed"] / reg, 100.0 * o["sec"] / n))
     total = sum(v["used"] for v in caps.values())
@@ -381,7 +463,10 @@ def main() -> int:
         'once, under its single highest-weighted theme. Choose a Nice class to '
         'keep only the themes present in it, ordered by how many of its filings '
         'they dominate, or click any numeric column to sort by it. Click a theme '
-        'for its quarterly trend split by class.</p>'
+        'for its quarterly trend split by class. Type a word to find the themes '
+        'that hold it: the search covers all %s words and two-word phrases in the '
+        'model, not only the fourteen that lead each theme, and it looks through '
+        'every theme listed, whatever the Show setting.</p>'
         '<div class="controls">'
         '<label>Nice class <select id="cls"><option value="">All classes</option>'
         '%s</select></label>'
@@ -390,7 +475,7 @@ def main() -> int:
         '<option value="250">250 most-used</option>'
         '<option value="0">all %d</option>'
         '</select></label>'
-        '<input id="q" placeholder="filter by word, e.g. blockchain, insurance">'
+        '<input id="q" placeholder="find a word in any theme, e.g. blockchain, insurance">'
         '<span class="help" tabindex="0">?<span class="tip">Every filing is '
         'matched to one of %d themes, but rates computed on a theme that '
         'dominates only a handful of filings are noise: one owner reaching SEC '
@@ -398,25 +483,29 @@ def main() -> int:
         'is therefore limited to the most-used themes by default, so the '
         'registration, five-year-proof failure and SEC-reporting columns are read on '
         'themes with enough filings to mean something. Widen it and the tail '
-        'will sort to the top of any percentage column for that reason alone.'
+        'will sort to the top of any percentage column for that reason alone. '
+        'A word search looks through every listed theme whatever this setting.'
         '</span></span>'
         '<span id="cnt" style="color:var(--mut);font-size:13px"></span></div>'
-        '<div class="wrap"><table><thead><tr>'
+        '<div class="wrap"><table class="noq"><thead><tr>'
         '<th class="n sort" data-k="0">#<i></i></th>'
         '<th>Leading words</th>'
         '<th class="n sort" data-k="2">Filings<i></i></th>'
         '<th class="n sort" data-k="3">Registered<i></i></th>'
         '<th class="n sort" data-k="4">Failed five-year proof<i></i></th>'
-        '<th class="n sort" data-k="5">SEC-reporting<i></i></th></tr></thead>'
+        '<th class="n sort" data-k="5">SEC-reporting<i></i></th>'
+        '<th class="n sort wcol" data-k="6" title="Of the model\'s count of the '
+        'words that match your search, the percent this theme holds.">'
+        'Share of search word<i></i></th></tr></thead>'
         '<tbody id="tb">%s</tbody></table></div>'
         '<p class="sub" style="margin-top:1.4rem;font-size:13px">%s filings '
         'assigned. %d of %d classes were sampled to %s filings; the rest are '
         'complete. Failure at the five-year proof is a dated non-use cancellation at registration '
         'age 4.0&ndash;8.5 years, as a share of registrations.</p>'
         '<script>%s</script>'
-        % (T, opts, T, T, "".join(trs), format(total, ","), len(sampled),
+        % (T, format(nvocab, ","), opts, T, T, "".join(trs), format(total, ","), len(sampled),
            len(caps), format(D["cap"], ","), JS))
-    (OUT / "index.html").write_text(shell("Themes at T=%d" % T, body),
+    (OUT / "index.html").write_text(shell("Themes at T=%d" % T, body, INDEX_CSS),
                                     encoding="utf-8")
     print("[pages] %d theme pages + index -> %s" % (T, OUT), file=sys.stderr)
     return 0
