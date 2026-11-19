@@ -122,6 +122,7 @@ Published from `docs/` at <https://aporia.institute/tm-vocabulary/>.
 - `online-appendix/themes_T50.html` and `themes_T50.csv` — the fifty production themes (`scripts/themes_t50_page.py`).
 - `online-appendix/ipo-viewer/` — every class's registrations on the lead/atypicality plane (`scripts/build_ipo_viewer_data.py`).
 - `online-appendix/themes/` — explorer for the 500-theme robustness model (`scripts/theme_explorer.py`, `theme_pages.py`).
+- `online-appendix/themes-1000/` — the same explorer for the 1,000-theme model, which the papers leave out; each index page switches to the other (`scripts/theme_assign.py 1000`, then `scripts/theme_pages.py 1000`).
 
 ## Known limitations
 

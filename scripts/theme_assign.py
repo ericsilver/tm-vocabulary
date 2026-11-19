@@ -13,7 +13,10 @@ can check, where a mass share is not. Filings are counted once each.
 Classes are capped at CAP filings (most fall under it) so the pass is bounded;
 the cap is recorded per class so the page can say which series are samples.
 
-Usage:  python scripts/theme_assign.py [T] [CAP]
+JOBS sets how many processes score filings. Each filing is scored on its own, so
+the output is the same at any JOBS; a 1,000-theme pass takes about an hour on one.
+
+Usage:  python scripts/theme_assign.py [T] [CAP] [JOBS]
 Output: paper/results/theme_assign_T{T}.json
 """
 from __future__ import annotations
@@ -32,6 +35,7 @@ RES = REPO / "paper" / "results"
 CLASSES = [f"{i:03d}" for i in range(1, 46)]
 T = int(sys.argv[1]) if len(sys.argv) > 1 else 500
 CAP = int(sys.argv[2]) if len(sys.argv) > 2 else 150_000
+JOBS = int(sys.argv[3]) if len(sys.argv) > 3 else 1
 TOKEN = r"(?u)\b[a-z][a-z\-]{2,}\b"
 GATE_LO, GATE_HI = 4.0, 8.5
 
@@ -42,6 +46,7 @@ def log(m): print(m, file=sys.stderr, flush=True)
 def main() -> int:
     mp = PROC / ("topic_model.joblib" if T == 50 else f"topic_model_T{T}.joblib")
     m = joblib.load(mp); lda, vocab = m["lda"], m["vocabulary"]
+    lda.n_jobs = JOBS
     vec = CountVectorizer(vocabulary=vocab, lowercase=True,
                           token_pattern=TOKEN, ngram_range=(1, 2))
 

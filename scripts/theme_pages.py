@@ -27,8 +27,14 @@ and the themes that hold it (theme_word_index.py), so a word that leads no theme
 can still be found. A word search looks through every theme, whatever the
 "most-used" setting, because the reader asked for the word.
 
+The explorer is published for each model in MODELS, one folder per model, and each
+index page carries a switch between them. The switch is a set of links, because the
+models share no theme numbers and each has pages of its own. A word being searched
+and a class chosen travel with the link, so one search can be read under each model.
+
 Usage:  python scripts/theme_pages.py [T] [TOP_CLASSES]
-Output: docs/online-appendix/themes/index.html, theme-NNNN.html and words.js
+Output: docs/online-appendix/themes/ at T=500 and themes-{T}/ at any other T:
+        index.html, theme-NNNN.html and words.js
 """
 from __future__ import annotations
 
@@ -49,11 +55,24 @@ from apply_site_style import apply as apply_site_style  # noqa: E402
 from theme_word_index import SEARCH_JS, build_index, write_js  # noqa: E402
 PROC = REPO / "data" / "processed"
 RES = REPO / "paper" / "results"
-OUT = REPO / "docs" / "online-appendix" / "themes"
 
 T = int(sys.argv[1]) if len(sys.argv) > 1 else 500
 TOPC = int(sys.argv[2]) if len(sys.argv) > 2 else 8
 NWORDS = 14
+
+# The models the explorer is published for, in the order the switch lists them.
+MODELS = [500, 1000]
+# themes_T50.html links to a 500-theme page by its number, so every one of those must exist.
+# In any other model a theme that dominates no filing gets no page: nothing links to it.
+LINKED_BY_NUMBER = {500}
+
+
+def folder(t: int) -> str:
+    """The 500-theme explorer keeps the address it was first published at."""
+    return "themes" if t == 500 else "themes-%d" % t
+
+
+OUT = REPO / "docs" / "online-appendix" / folder(T)
 
 LIGHT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100",
          "#e87ba4", "#008300", "#4a3aa7", "#e34948"]
@@ -120,18 +139,27 @@ figcaption{color:var(--mut);font-size:13px;margin-top:.5rem;max-width:58rem}
 rect:hover{opacity:.72}
 """
 
-# The index page only: the line naming the words a search matched, and the search column.
+# The index page only: the line naming the words a search matched, the search column,
+# and the switch between models (the same control as the fifty-theme page's, made of links).
 INDEX_CSS = """
 .hit{color:var(--mut);font-size:13px;margin-top:.25rem}
 .hit b{color:var(--fg);font-weight:600}
 .noq .wcol{display:none}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg a{padding:.45rem .8rem;background:var(--card);color:var(--mut);text-decoration:none;white-space:nowrap}
+.seg a+a{border-left:1px solid var(--line)}
+.seg a[href]:hover{color:var(--fg)}
+.seg a[aria-current]{background:var(--fg);color:var(--bg)}
 """
 
-# The papers score filings on fifty themes. Every page of a larger model says which model it shows.
+# The papers score filings on fifty themes. Every page of a larger model says which model it shows
+# and what the papers do with that model.
+ROLE = {500: ", one of the robustness checks",
+        1000: ", which the papers leave out: their robustness checks stop at 500 themes"}
 BANNER = (
     '\n<p style="background:#fff7e6;border:1px solid #f0d9a8;padding:.6rem .8rem;border-radius:6px;'
-    'font-size:.9rem;max-width:60rem">This explorer uses the <b>%d-theme model</b>, one of the '
-    'robustness checks. The papers\' scores use the <a href="../themes_T50.html">fifty-theme model</a>; '
+    'font-size:.9rem;max-width:60rem">This explorer uses the <b>%s-theme model</b>%s. '
+    'The papers\' scores use the <a href="../themes_T50.html">fifty-theme model</a>; '
     'theme numbers and outcome rates here do not correspond to it.</p>')
 
 JS = SEARCH_JS + """
@@ -165,9 +193,25 @@ function num(r,k){
 }
 var listed={};
 rows.forEach(function(r){listed[r.getAttribute('data-k')]=1;});
+// the switch's links carry the word being searched and the class chosen to the other model's page
+var seg=Array.prototype.slice.call(document.querySelectorAll('.seg a[data-to]'));
+function carry(){
+  var h=[], w=q.value.trim();
+  if(w) h.push('q='+encodeURIComponent(w));
+  if(cls.value) h.push('cls='+cls.value);
+  seg.forEach(function(a){a.href=a.getAttribute('data-to')+(h.length?'#'+h.join('&'):'');});
+}
+location.hash.slice(1).split('&').forEach(function(p){
+  var i=p.indexOf('='), key=p.slice(0,i), val=p.slice(i+1);
+  if(key==='q'){ try{ q.value=decodeURIComponent(val); }catch(e){} }
+  if(key==='cls'){
+    for(var j=0;j<cls.options.length;j++){ if(cls.options[j].value===val) cls.value=val; }
+  }
+});
 function apply(){
   var v=q.value.toLowerCase().trim().replace(/\\s+/g,' '), shown=0;
   var searching=v.length>=2, res=null;
+  carry();
   if(searching){
     if(!wState) loadWords();
     if(wState===2) res=themeWordSearch(W,v);
@@ -341,7 +385,7 @@ def shell(title, body, extra_css=""):
             '<!doctype html><html lang="en"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>' + esc(title) + '</title><style>' + CSS + extra_css
-            + '</style></head><body>' + (BANNER % T if T != 50 else '')
+            + '</style></head><body>' + (BANNER % (format(T, ","), ROLE.get(T, "")) if T != 50 else '')
             + body + '</body></html>')
 
 
@@ -371,8 +415,12 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     all_classes = sorted({c for t in outc.values() for c in t["by_class"]})
 
+    npages = 0
     for k in range(T):
         sk = str(k)
+        if sk not in outc and T not in LINKED_BY_NUMBER:
+            continue
+        npages += 1
         o = outc.get(sk, {"n": 0, "reg": 0, "sec": 0, "failed": 0, "by_class": {}})
         byc = o["by_class"]
         ranked = sorted(byc.items(), key=lambda kv: -kv[1])
@@ -449,6 +497,21 @@ def main() -> int:
                100.0 * o["failed"] / reg, 100.0 * o["sec"] / n))
     total = sum(v["used"] for v in caps.values())
     sampled = [c for c, v in caps.items() if v["used"] < v["total"]]
+    tfmt = format(T, ",")
+    models = sorted(set(MODELS) | {T})
+    others = [t for t in models if t != T]
+    seg = ('<span class="seg" role="group" aria-label="Number of themes in the model">' + "".join(
+        '<a aria-current="page">%s themes</a>' % format(t, ",") if t == T else
+        '<a href="../%s/" data-to="../%s/">%s themes</a>' % (folder(t), folder(t), format(t, ","))
+        for t in models) + '</span>') if others else ""
+    also = (" The same explorer exists for the %s model%s: the switch keeps the word you searched "
+            "and the class you chose. A theme's number in one model means nothing in another."
+            % (" and ".join("%s-theme" % format(t, ",") for t in others),
+               "s" if len(others) > 1 else "")) if others else ""
+    # the list sizes on offer are the ones smaller than the list itself
+    show = "".join('<option value="%d"%s>%d most-used%s</option>'
+                   % (n, " selected" if n == 100 else "", n, " themes" if n == 100 else "")
+                   for n in (100, 250, 500) if n < len(trs)) + '<option value="0">all %d</option>' % len(trs)
     body = (
         '<p style="font-size:.82rem;color:var(--mut);margin:0 0 1rem">'
         '<a href="../../">tm-vocabulary</a> &middot; '
@@ -457,27 +520,24 @@ def main() -> int:
         '<b style="font-weight:600;color:var(--fg)">theme explorer</b> &middot; '
         '<a href="../ipo-viewer/">IPO viewer</a> &middot; '
         '<a href="https://github.com/ericsilver/tm-vocabulary">code</a></p>'
-        '<h1>Themes at T&nbsp;=&nbsp;%d</h1>'
-        '<p class="sub">Every theme in the fitted model, with the words that lead '
-        'it and what became of the filings it dominates. Each filing is counted '
-        'once, under its single highest-weighted theme. Choose a Nice class to '
+        '<h1>Themes at T&nbsp;=&nbsp;%s</h1>'
+        '<p class="sub">The themes of the fitted model, with the words that lead '
+        'each one and what became of the filings it dominates. Each filing is counted '
+        'once, under its single highest-weighted theme; %d of the %s themes dominate '
+        'at least one filing and are listed. Choose a Nice class to '
         'keep only the themes present in it, ordered by how many of its filings '
         'they dominate, or click any numeric column to sort by it. Click a theme '
         'for its quarterly trend split by class. Type a word to find the themes '
         'that hold it: the search covers all %s words and two-word phrases in the '
         'model, not only the fourteen that lead each theme, and it looks through '
-        'every theme listed, whatever the Show setting.</p>'
-        '<div class="controls">'
+        'every theme listed, whatever the Show setting.%s</p>'
+        '<div class="controls">%s'
         '<label>Nice class <select id="cls"><option value="">All classes</option>'
         '%s</select></label>'
-        '<label>Show <select id="topn">'
-        '<option value="100" selected>100 most-used themes</option>'
-        '<option value="250">250 most-used</option>'
-        '<option value="0">all %d</option>'
-        '</select></label>'
-        '<input id="q" placeholder="find a word in any theme, e.g. blockchain, insurance">'
+        '<label>Show <select id="topn">%s</select></label>'
+        '<input id="q" placeholder="find a word, e.g. blockchain, insurance">'
         '<span class="help" tabindex="0">?<span class="tip">Every filing is '
-        'matched to one of %d themes, but rates computed on a theme that '
+        'matched to one of %s themes, but rates computed on a theme that '
         'dominates only a handful of filings are noise: one owner reaching SEC '
         'reporting can move that column by tens of percentage points. The list '
         'is therefore limited to the most-used themes by default, so the '
@@ -503,11 +563,11 @@ def main() -> int:
         'complete. Failure at the five-year proof is a dated non-use cancellation at registration '
         'age 4.0&ndash;8.5 years, as a share of registrations.</p>'
         '<script>%s</script>'
-        % (T, format(nvocab, ","), opts, T, T, "".join(trs), format(total, ","), len(sampled),
-           len(caps), format(D["cap"], ","), JS))
-    (OUT / "index.html").write_text(shell("Themes at T=%d" % T, body, INDEX_CSS),
+        % (tfmt, len(trs), tfmt, format(nvocab, ","), also, seg, opts, show, tfmt, "".join(trs),
+           format(total, ","), len(sampled), len(caps), format(D["cap"], ","), JS))
+    (OUT / "index.html").write_text(shell("Themes at T=%s" % tfmt, body, INDEX_CSS),
                                     encoding="utf-8")
-    print("[pages] %d theme pages + index -> %s" % (T, OUT), file=sys.stderr)
+    print("[pages] %d theme pages + index -> %s" % (npages, OUT), file=sys.stderr)
     return 0
 
 
